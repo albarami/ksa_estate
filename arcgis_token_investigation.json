@@ -1,0 +1,2429 @@
+{
+  "parcels_mapserver_info": {
+    "currentVersion": 10.91,
+    "serviceDescription": "",
+    "mapName": "Layers",
+    "description": "",
+    "copyrightText": "",
+    "supportsDynamicLayers": true,
+    "layers": [
+      {
+        "id": 0,
+        "name": "خط منتصف الطرق",
+        "parentLayerId": -1,
+        "defaultVisibility": true,
+        "subLayerIds": null,
+        "minScale": 2255,
+        "maxScale": 0,
+        "type": "Feature Layer",
+        "geometryType": "esriGeometryPolyline"
+      },
+      {
+        "id": 1,
+        "name": "TRANS.SV_STREET_CLASS",
+        "parentLayerId": -1,
+        "defaultVisibility": true,
+        "subLayerIds": null,
+        "minScale": 2000,
+        "maxScale": 200,
+        "type": "Feature Layer",
+        "geometryType": "esriGeometryPolyline"
+      },
+      {
+        "id": 8,
+        "name": "خط منتصف الطريق",
+        "parentLayerId": -1,
+        "defaultVisibility": true,
+        "subLayerIds": null,
+        "minScale": 24000,
+        "maxScale": 0,
+        "type": "Feature Layer",
+        "geometryType": "esriGeometryPolyline"
+      },
+      {
+        "id": 31,
+        "name": "طرق المحافظات",
+        "parentLayerId": -1,
+        "defaultVisibility": true,
+        "subLayerIds": null,
+        "minScale": 24000,
+        "maxScale": 500,
+        "type": "Feature Layer",
+        "geometryType": "esriGeometryPolyline"
+      },
+      {
+        "id": 2222,
+        "name": "GIS.SV_PARCELS_REG_TYPE",
+        "parentLayerId": -1,
+        "defaultVisibility": false,
+        "subLayerIds": null,
+        "minScale": 10000,
+        "maxScale": 0,
+        "type": "Feature Layer",
+        "geometryType": "esriGeometryPolygon"
+      },
+      {
+        "id": 2,
+        "name": "GIS.PARCELS_AREA",
+        "parentLayerId": -1,
+        "defaultVisibility": true,
+        "subLayerIds": null,
+        "minScale": 0,
+        "maxScale": 0,
+        "type": "Feature Layer",
+        "geometryType": "esriGeometryPolygon"
+      },
+      {
+        "id": 200,
+        "name": "قطع الاراضي",
+        "parentLayerId": -1,
+        "defaultVisibility": false,
+        "subLayerIds": null,
+        "minScale": 10000000,
+        "maxScale": 0,
+        "type": "Feature Layer",
+        "geometryType": "esriGeometryPolygon"
+      },
+      {
+        "id": 7,
+        "name": "الخدمات العامة و المرافق",
+        "parentLayerId": -1,
+        "defaultVisibility": true,
+        "subLayerIds": null,
+        "minScale": 4000,
+        "maxScale": 0,
+        "type": "Feature Layer",
+        "geometryType": "esriGeometryPolygon"
+      },
+      {
+        "id": 9,
+        "name": "قطع الارضي المحافظات",
+        "parentLayerId": -1,
+        "defaultVisibility": true,
+        "subLayerIds": null,
+        "minScale": 500000,
+        "maxScale": 0,
+        "type": "Feature Layer",
+        "geometryType": "esriGeometryPolygon"
+      },
+      {
+        "id": 3,
+        "name": "المخططات",
+        "parentLayerId": -1,
+        "defaultVisibility": true,
+        "subLayerIds": null,
+        "minScale": 64000,
+        "maxScale": 8000,
+        "type": "Feature Layer",
+        "geometryType": "esriGeometryPolygon"
+      },
+      {
+        "id": 10,
+        "name": "المخططات المحافظات",
+        "parentLayerId": -1,
+        "defaultVisibility": true,
+        "subLayerIds": null,
+        "minScale": 10000,
+        "maxScale": 8000,
+        "type": "Feature Layer",
+        "geometryType": "esriGeometryPolygon"
+      },
+      {
+        "id": 4,
+        "name": "أحياء مدينة الرياض ",
+        "parentLayerId": -1,
+        "defaultVisibility": true,
+        "subLayerIds": null,
+        "minScale": 24000,
+        "maxScale": 10000,
+        "type": "Feature Layer",
+        "geometryType": "esriGeometryPolygon"
+      },
+      {
+        "id": 5,
+        "name": "حدود البلديات الفرعية",
+        "parentLayerId": -1,
+        "defaultVisibility": true,
+        "subLayerIds": null,
+        "minScale": 0,
+        "maxScale": 24000,
+        "type": "Feature Layer",
+        "geometryType": "esriGeometryPolygon"
+      },
+      {
+        "id": 11,
+        "name": "احياء المحافظات",
+        "parentLayerId": -1,
+        "defaultVisibility": true,
+        "subLayerIds": null,
+        "minScale": 1000000,
+        "maxScale": 10000,
+        "type": "Feature Layer",
+        "geometryType": "esriGeometryPolygon"
+      },
+      {
+        "id": 12,
+        "name": "بلديات المحافظات",
+        "parentLayerId": -1,
+        "defaultVisibility": true,
+        "subLayerIds": null,
+        "minScale": 0,
+        "maxScale": 24000,
+        "type": "Feature Layer",
+        "geometryType": "esriGeometryPolygon"
+      }
+    ],
+    "tables": [
+      {
+        "id": 2226,
+        "name": "GIS.TBL_LKP_LANDUSEADETAILED",
+        "type": "Table"
+      },
+      {
+        "id": 2228,
+        "name": "TRANS.STREETCENTERLINESNAME",
+        "type": "Table"
+      },
+      {
+        "id": 2230,
+        "name": "GIS.PLANPRIMARYINFO",
+        "type": "Table"
+      },
+      {
+        "id": 2231,
+        "name": "GIS.TBL_LKP_PlanStatus",
+        "type": "Table"
+      },
+      {
+        "id": 2232,
+        "name": "GIS.TBL_LKP_PLANTYPE",
+        "type": "Table"
+      },
+      {
+        "id": 2233,
+        "name": "GIS.TBL_LKP_PlanUse",
+        "type": "Table"
+      },
+      {
+        "id": 2235,
+        "name": "GIS.TBL_LKP_BLDCODE",
+        "type": "Table"
+      }
+    ],
+    "spatialReference": {
+      "wkid": 102100,
+      "latestWkid": 3857
+    },
+    "singleFusedMapCache": false,
+    "initialExtent": {
+      "xmin": 5184144.118688319,
+      "ymin": 2849755.3931958526,
+      "xmax": 5184747.039164994,
+      "ymax": 2850124.156954213,
+      "spatialReference": {
+        "wkid": 102100,
+        "latestWkid": 3857
+      }
+    },
+    "fullExtent": {
+      "xmin": 2599009.1292010825,
+      "ymin": 23.785283700915187,
+      "xmax": 5809342.175317982,
+      "ymax": 3978152.376457894,
+      "spatialReference": {
+        "wkid": 102100,
+        "latestWkid": 3857
+      }
+    },
+    "minScale": 0,
+    "maxScale": 0,
+    "units": "esriMeters",
+    "supportedImageFormatTypes": "PNG32,PNG24,PNG,JPG,DIB,TIFF,EMF,PS,PDF,GIF,SVG,SVGZ,BMP",
+    "documentInfo": {
+      "Title": "",
+      "Author": "",
+      "Comments": "",
+      "Subject": "",
+      "Category": "",
+      "AntialiasingMode": "None",
+      "TextAntialiasingMode": "Force",
+      "Keywords": ""
+    },
+    "capabilities": "Map,Query,Data",
+    "supportedQueryFormats": "JSON, geoJSON",
+    "hasVersionedData": true,
+    "exportTilesAllowed": false,
+    "referenceScale": 0,
+    "supportsDatumTransformation": true,
+    "maxRecordCount": 1,
+    "maxImageHeight": 4096,
+    "maxImageWidth": 4096,
+    "supportedExtensions": "KmlServer",
+    "resampling": false
+  },
+  "identify_all_layers": {
+    "results": [
+      {
+        "layerId": 2222,
+        "layerName": "GIS.SV_PARCELS_REG_TYPE",
+        "displayFieldName": "PARCELNAME",
+        "value": "6859064",
+        "attributes": {
+          "رمز القطعة": "3710897",
+          "رقم القطعة": "2045",
+          "رقم المخطط": "3114",
+          "نسخة المخطط": "0",
+          "رقم البلوك": "0",
+          "البلدية": "قطاع شمال مدينة الرياض",
+          "الحي": "الملقا",
+          "HASRIYADH": "0",
+          "اشترطات نظام البناء": "م 111",
+          "هل القطعة موقوفة": "-",
+          "رقم المحضر": "0",
+          "تاريخ المحضر": "0",
+          "SHAPE.LEN": "156.132761",
+          "SHAPE.AREA": "1507.323898",
+          "صيغة الطبقة": "Polygon",
+          "TARGET_FID": "0",
+          "IN_PARCELID": "Null",
+          "ISACTIVE": "Null",
+          "OBJECTID": "6859064",
+          "PARCELSUBTYPE": "7500",
+          "LANDUSEAGROUP": "7500",
+          "LANDUSEADETAILED": "7510",
+          "FLGBLOCKED": "0",
+          "HASARAMCO": "Null",
+          "BUILDINGUSECODE": "8",
+          "OBPID": "3710897",
+          "MAHDARID": "0"
+        },
+        "geometryType": "esriGeometryPolygon",
+        "geometry": {
+          "rings": [
+            [
+              [
+                46.613530149124,
+                24.81561765050438
+              ],
+              [
+                46.61321571522764,
+                24.81548539615457
+              ],
+              [
+                46.613037279715634,
+                24.815838387720287
+              ],
+              [
+                46.6133516516685,
+                24.815970766777287
+              ],
+              [
+                46.613530149124,
+                24.81561765050438
+              ]
+            ]
+          ],
+          "spatialReference": {
+            "wkid": 4326,
+            "latestWkid": 4326
+          }
+        }
+      }
+    ],
+    "exceededTransferLimit": true
+  },
+  "identify_layer_0": {
+    "results": []
+  },
+  "identify_layer_1": {
+    "results": []
+  },
+  "identify_layer_2": {
+    "results": [
+      {
+        "layerId": 2,
+        "layerName": "GIS.PARCELS_AREA",
+        "displayFieldName": "رقم القطعة",
+        "value": "2045",
+        "attributes": {
+          "OBJECTID": "6859064",
+          "رمز قطعة الأرض": "3710897",
+          "رقم القطعة": "2045",
+          "رقم البلوك": "0",
+          "رقم المحضر": "0",
+          "تاريخ المحضر": "0",
+          "رقم المخطط": "3114",
+          "البلديات الفرعية": "قطاع شمال مدينة الرياض",
+          "الحي": "الملقا",
+          "نظام شروط البناء": "م 111",
+          "الاستخدام الرئيسي": "متعددة الإستخدام",
+          "الاستخدام الثانوي": "متعدد الاستخدام",
+          "استخدام الارض": "سكنى - تجاري",
+          "اشترطات نظام البناء للقطعة": "يوجد",
+          "حالة القطعة": "-",
+          "صيغة الطبقة": "Polygon",
+          "نظام البناء": "م 111",
+          "مساحة القطعة": "1507.323898"
+        }
+      }
+    ],
+    "exceededTransferLimit": true
+  },
+  "identify_layer_3": {
+    "results": [
+      {
+        "layerId": 3,
+        "layerName": "المخططات",
+        "displayFieldName": "البلدية",
+        "value": "قطاع شمال مدينة الرياض",
+        "attributes": {
+          "رمز الطبقة": "125870",
+          "رمز المخطط": "2060",
+          "رقم المخطط": "3114",
+          "نسخة المخطط": "0",
+          "تاريخ المخطط الهجري": "1423/10/13",
+          "سنة المخطط": "1423",
+          "PLANSTATUS": "نهائي",
+          "PLANUSE": "سكني",
+          "PLANTYPENAME": "خاص",
+          "اما مخططة او محضر": "مخطط",
+          "البلدية": "قطاع شمال مدينة الرياض",
+          "صيغة الطبقة": "Polygon",
+          "الرقم الموحد": "Null",
+          "مقياس الرسم": "1:3500",
+          "IS_DEVELOPED": "1",
+          "المراجعة": "Null",
+          "ملاحظات المراجعة": "Null",
+          "التطابق مع الطبيعة": "Null",
+          "تاريخ انتهاء المراجعة": "Null",
+          "AUDITORS_NAME": "Null"
+        }
+      }
+    ],
+    "exceededTransferLimit": true
+  },
+  "identify_layer_4": {
+    "results": [
+      {
+        "layerId": 4,
+        "layerName": "أحياء مدينة الرياض ",
+        "displayFieldName": "اسم الحي",
+        "value": "الملقا",
+        "attributes": {
+          "رمز الطبقة": "7820",
+          "رقم الحي": "074",
+          "اسم الحي": "الملقا",
+          "District Name": "AL-MALQA",
+          "رقم الحي حسب الحاسب الالي": "74",
+          "كود البلدية": "50785",
+          "المساحة الحقيقة -  م2": "21845949.432688",
+          "صيغة الطبقة": "Polygon",
+          "ملاحظات": "Null",
+          "المساحة": "21845955.223508",
+          "BALADY_DISTRICT": "Null",
+          "سكان الحي": "Null",
+          "إجمالي سكان الحي": "87931",
+          "تاريخ الإحصاء": "Null",
+          "الكثافة السكانية": "87931",
+          "POPULATION_INT": "Blue",
+          "TEST": "Null",
+          "MUNICIPALITYCODE_OLD": "{\"MUNICIPALITYCODE\":[\"05\"]}"
+        }
+      }
+    ],
+    "exceededTransferLimit": true
+  },
+  "identify_layer_5": {
+    "results": [
+      {
+        "layerId": 5,
+        "layerName": "حدود البلديات الفرعية",
+        "displayFieldName": "اسم البلدية",
+        "value": "قطاع شمال مدينة الرياض",
+        "attributes": {
+          "رمز الطبقة": "2623",
+          "رقم البلدية": "50785",
+          "رقم البلدية الخاص بالهيئة العليا": "Null",
+          "اسم البلدية": "قطاع شمال مدينة الرياض",
+          "Municipality Name": "North Riyadh sector",
+          "نوع البلدية": "Null",
+          "رقم البلديات في الحاسب الالي": "50785",
+          "هل نظام البناء اكتمل": "Null",
+          "صيغة الطبقة": "Polygon",
+          "المساحة": "482940016.242755",
+          "BALADY_MUN": "Null",
+          "سكان البلدية": "Null",
+          "إجمالي سكان البلدية": "Null",
+          "تاريخ الإحصاء": "Null",
+          "PopulationDensity": "Null",
+          "UrbanPlanningArea1450km2": "Null",
+          "MUNICIPALITYNO_OLD": "43",
+          "MUNICIPALITYCODE_OLD": "{\"MUNICIPALITYCODE\":[\"05\"],\"MUNICIPALITYNO\":[\"43\"]}"
+        }
+      }
+    ],
+    "exceededTransferLimit": true
+  },
+  "layer_0_info": {
+    "name": "خط منتصف الطرق",
+    "type": "Feature Layer",
+    "fields": [
+      {
+        "name": "TRANS.StreetUpdate.OBJECTID",
+        "alias": "رمز الطبقة",
+        "type": "esriFieldTypeOID"
+      },
+      {
+        "name": "TRANS.StreetUpdate.STREETID",
+        "alias": "رمز الطريق",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "TRANS.StreetUpdate.DISTRICT",
+        "alias": "الحي",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "TRANS.StreetUpdate.MUNICIPALITY",
+        "alias": "البلدية",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "TRANS.StreetUpdate.STREETCLASS",
+        "alias": "تصنيف الطريق الثانوى",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "TRANS.StreetUpdate.SUBTYPECLASS",
+        "alias": "تصنف الطرق الرئيسى",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "TRANS.StreetUpdate.STREETWIDTH",
+        "alias": "عرض الشارع",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "TRANS.StreetUpdate.DIRECTION",
+        "alias": "الاتجاه",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "TRANS.StreetUpdate.STREET_WIDTH_NEW",
+        "alias": "عرض الشارع الجديد",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "TRANS.StreetUpdate.DEVELOPMENTSTATUS",
+        "alias": "حالة الشوارع المطورة",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "TRANS.StreetUpdate.ROADSOURCE",
+        "alias": "مصدر الشارع",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "TRANS.StreetUpdate.EXCEPTED",
+        "alias": "المستثناه",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "TRANS.StreetUpdate.TARGETED",
+        "alias": "المستهدفة",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "TRANS.StreetUpdate.EVENTS",
+        "alias": "فعاليات",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "TRANS.StreetUpdate.STREETSOURCETYPE",
+        "alias": "StreetSourceType",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "TRANS.StreetUpdate.TARGETED2",
+        "alias": "المستهدفة2",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "TRANS.StreetUpdate.DIRECTION_NEW",
+        "alias": "اتجه الشارع",
+        "type": "esriFieldTypeSmallInteger"
+      },
+      {
+        "name": "TRANS.StreetUpdate.ONEWAY",
+        "alias": "ONEWAY",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "TRANS.StreetUpdate.METERS",
+        "alias": "METERS",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "TRANS.StreetUpdate.SPEED",
+        "alias": "SPEED",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "TRANS.StreetUpdate.TRAVEL_TIME",
+        "alias": "TRAVEL_TIME",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "TRANS.StreetUpdate.ROADCLASS",
+        "alias": "ROADCLASS",
+        "type": "esriFieldTypeSmallInteger"
+      },
+      {
+        "name": "TRANS.StreetUpdate.ORDERCLASS",
+        "alias": "ORDERCLASS",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "TRANS.StreetUpdate.ROADMODIFY",
+        "alias": "ROADMODIFY",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "TRANS.StreetUpdate.COMMENTS",
+        "alias": "COMMENTS",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "TRANS.StreetUpdate.FLAG_PRIORITY",
+        "alias": "ذات اولوية",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "TRANS.StreetUpdate.SHAPE",
+        "alias": "صيغة الطبقة",
+        "type": "esriFieldTypeGeometry"
+      },
+      {
+        "name": "TRANS.STREETCENTERLINESNAME.STREETANAME",
+        "alias": "اسم الشارع",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "TRANS.STREETCENTERLINESNAME.STREETENAME",
+        "alias": "StreetName",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "TRANS.STREETCENTERLINESNAME.STREETID_NN",
+        "alias": "رمز التسمية والترقيم",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "TRANS.STREETCENTERLINESNAME.OLD_STREETNAMEADESC",
+        "alias": "OLD_STREETNAMEADESC",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "TRANS.STREETCENTERLINESNAME.FORBIDDEN_FROM_UN",
+        "alias": "FORBIDDEN_FROM_UN",
+        "type": "esriFieldTypeSmallInteger"
+      }
+    ]
+  },
+  "layer_1_info": {
+    "name": "TRANS.SV_STREET_CLASS",
+    "type": "Feature Layer",
+    "fields": [
+      {
+        "name": "OBJECTID",
+        "alias": "OBJECTID",
+        "type": "esriFieldTypeOID"
+      },
+      {
+        "name": "STREETID",
+        "alias": "STREETID",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "SUBTYPECLASS",
+        "alias": "SUBTYPECLASS",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "STREETWIDTH",
+        "alias": "STREETWIDTH",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "STREETNO_IT",
+        "alias": "STREETNO_IT",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "STREETNAMEID",
+        "alias": "STREETNAMEID",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "STANAME",
+        "alias": "STANAME",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "STENAME",
+        "alias": "STENAME",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "DISTRICTID",
+        "alias": "DISTRICTID",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "DISANAME",
+        "alias": "DISANAME",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "DISENAME",
+        "alias": "DISENAME",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNID",
+        "alias": "MUNID",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNANAME",
+        "alias": "MUNANAME",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNENAME",
+        "alias": "MUNENAME",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "SHAPE",
+        "alias": "SHAPE",
+        "type": "esriFieldTypeGeometry"
+      },
+      {
+        "name": "NAME",
+        "alias": "NAME",
+        "type": "esriFieldTypeString"
+      }
+    ]
+  },
+  "layer_2_info": {
+    "name": "GIS.PARCELS_AREA",
+    "type": "Feature Layer",
+    "fields": [
+      {
+        "name": "OBJECTID",
+        "alias": "OBJECTID",
+        "type": "esriFieldTypeOID"
+      },
+      {
+        "name": "PARCELID",
+        "alias": "رمز قطعة الأرض",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "PARCELNO",
+        "alias": "رقم القطعة",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "BLOCKNO",
+        "alias": "رقم البلوك",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MAHDARNO",
+        "alias": "رقم المحضر",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MAHDARDATE",
+        "alias": "تاريخ المحضر",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "PLANNO",
+        "alias": "رقم المخطط",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "SUBMUNICIPALITY",
+        "alias": "البلديات الفرعية",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "DISTRICT",
+        "alias": "الحي",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "BUILDINGUSECODE",
+        "alias": "نظام شروط البناء",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "PARCELSUBTYPE",
+        "alias": "الاستخدام الرئيسي",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "LANDUSEAGROUP",
+        "alias": "الاستخدام الثانوي",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "LANDUSEADETAILED",
+        "alias": "استخدام الارض",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "REVIEWED_BLD_CODE",
+        "alias": "اشترطات نظام البناء للقطعة",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "IS_LABEL_DISPLAY",
+        "alias": "حالة القطعة",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "SHAPE",
+        "alias": "صيغة الطبقة",
+        "type": "esriFieldTypeGeometry"
+      },
+      {
+        "name": "FLGBLDCODE",
+        "alias": "نظام البناء",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "SHAPE.AREA",
+        "alias": "مساحة القطعة",
+        "type": "esriFieldTypeDouble"
+      }
+    ]
+  },
+  "layer_3_info": {
+    "name": "المخططات",
+    "type": "Feature Layer",
+    "fields": [
+      {
+        "name": "GIS.Plans.OBJECTID",
+        "alias": "رمز الطبقة",
+        "type": "esriFieldTypeOID"
+      },
+      {
+        "name": "GIS.Plans.PLANID",
+        "alias": "رمز المخطط",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Plans.SUBMUNICIPALITY",
+        "alias": "البلدية",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Plans.PLANEDMAHDER",
+        "alias": "اما مخططة او محضر",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Plans.UNIFIEDNUMBER",
+        "alias": "الرقم الموحد",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Plans.SHAPE",
+        "alias": "صيغة الطبقة",
+        "type": "esriFieldTypeGeometry"
+      },
+      {
+        "name": "GIS.Plans.REVIEW",
+        "alias": "المراجعة",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Plans.REVIEW_NOTES",
+        "alias": "ملاحظات المراجعة",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Plans.MATCH_WITH_NATURE",
+        "alias": "التطابق مع الطبيعة",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Plans.VALIDATIONENDDATE",
+        "alias": "تاريخ انتهاء المراجعة",
+        "type": "esriFieldTypeDate"
+      },
+      {
+        "name": "GIS.Plans.AUDITORSNAME",
+        "alias": "AUDITORS_NAME",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.PLANPRIMARYINFO.PLANNO",
+        "alias": "رقم المخطط",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.PLANPRIMARYINFO.PLANVERSION",
+        "alias": "نسخة المخطط",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.PLANPRIMARYINFO.PLANAPROVHDATE",
+        "alias": "تاريخ المخطط الهجري",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.PLANPRIMARYINFO.SCALE",
+        "alias": "مقياس الرسم",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.PLANPRIMARYINFO.YEAR",
+        "alias": "سنة المخطط",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.PLANPRIMARYINFO.UNIFIEDNUMBER",
+        "alias": "الرقم الموحد",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.PLANPRIMARYINFO.IS_DEVELOPED",
+        "alias": "IS_DEVELOPED",
+        "type": "esriFieldTypeSmallInteger"
+      },
+      {
+        "name": "GIS.TBL_LKP_PlanStatus.PLANSTATUS",
+        "alias": "PLANSTATUS",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.TBL_LKP_PLANTYPE.PLANTYPENAME",
+        "alias": "PLANTYPENAME",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.TBL_LKP_PlanUse.PLANUSE",
+        "alias": "PLANUSE",
+        "type": "esriFieldTypeString"
+      }
+    ]
+  },
+  "layer_4_info": {
+    "name": "أحياء مدينة الرياض ",
+    "type": "Feature Layer",
+    "fields": [
+      {
+        "name": "OBJECTID",
+        "alias": "رمز الطبقة",
+        "type": "esriFieldTypeOID"
+      },
+      {
+        "name": "NEIGHBORHCODE",
+        "alias": "رقم الحي",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "NEIGHBORHANAME",
+        "alias": "اسم الحي",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "NEIGHBORHENAME",
+        "alias": "District Name",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "DISTRICTNO",
+        "alias": "رقم الحي حسب الحاسب الالي",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "MUNICIPALITYCODE",
+        "alias": "كود البلدية",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "ACTUALAREA",
+        "alias": "المساحة الحقيقة -  م2",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "NOTE",
+        "alias": "ملاحظات",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "BALADY_DISTRICT",
+        "alias": "BALADY_DISTRICT",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "DISTRICTPOPULATION",
+        "alias": "سكان الحي",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "DISTRICTPOPULATIONTOTAL",
+        "alias": "إجمالي سكان الحي",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "STATISTICSDATE",
+        "alias": "تاريخ الإحصاء",
+        "type": "esriFieldTypeDate"
+      },
+      {
+        "name": "POPULATIONDENSITY",
+        "alias": "الكثافة السكانية",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "POPULATION_INT",
+        "alias": "POPULATION_INT",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "TEST",
+        "alias": "TEST",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "MUNICIPALITYCODE_OLD",
+        "alias": "MUNICIPALITYCODE_OLD",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "SHAPE",
+        "alias": "صيغة الطبقة",
+        "type": "esriFieldTypeGeometry"
+      },
+      {
+        "name": "SHAPE.AREA",
+        "alias": "المساحة",
+        "type": "esriFieldTypeDouble"
+      }
+    ]
+  },
+  "layer_5_info": {
+    "name": "حدود البلديات الفرعية",
+    "type": "Feature Layer",
+    "fields": [
+      {
+        "name": "OBJECTID",
+        "alias": "رمز الطبقة",
+        "type": "esriFieldTypeOID"
+      },
+      {
+        "name": "MUNICIPALITYCODE",
+        "alias": "رقم البلدية",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNICIPALITYADA",
+        "alias": "رقم البلدية الخاص بالهيئة العليا",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNICIPALITYANAME",
+        "alias": "اسم البلدية",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNICIPALITYENAME",
+        "alias": "Municipality Name",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNCLASS",
+        "alias": "نوع البلدية",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "MUNICIPALITYNO",
+        "alias": "رقم البلديات في الحاسب الالي",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "BUILDINGSYSTEMSTATUS",
+        "alias": "هل نظام البناء اكتمل",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "BALADY_MUN",
+        "alias": "BALADY_MUN",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "MUNCIPALITYPOPULATION",
+        "alias": "سكان البلدية",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "MUNCIPALITYPOPULATIONTOTAL",
+        "alias": "إجمالي سكان البلدية",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "STATISTICSDATE",
+        "alias": "تاريخ الإحصاء",
+        "type": "esriFieldTypeDate"
+      },
+      {
+        "name": "POPULATIONDENSITY",
+        "alias": "PopulationDensity",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "URBANPLANNINGAREA1450KM2",
+        "alias": "UrbanPlanningArea1450km2",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "MUNICIPALITYNO_OLD",
+        "alias": "MUNICIPALITYNO_OLD",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNICIPALITYCODE_OLD",
+        "alias": "MUNICIPALITYCODE_OLD",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "SHAPE",
+        "alias": "صيغة الطبقة",
+        "type": "esriFieldTypeGeometry"
+      },
+      {
+        "name": "SHAPE.AREA",
+        "alias": "المساحة",
+        "type": "esriFieldTypeDouble"
+      }
+    ]
+  },
+  "layer_6_info": {
+    "name": null,
+    "type": null,
+    "fields": []
+  },
+  "layer_7_info": {
+    "name": "الخدمات العامة و المرافق",
+    "type": "Feature Layer",
+    "fields": [
+      {
+        "name": "GIS.Parcels.OBJECTID",
+        "alias": "رمز الطبقة",
+        "type": "esriFieldTypeOID"
+      },
+      {
+        "name": "GIS.Parcels.PARCELID",
+        "alias": "رمز قطعة الارض",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.PARCELNO",
+        "alias": "رقم القطعة",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.BLOCKNO",
+        "alias": "رقم البوك",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.PARCELNAME",
+        "alias": "اسم القطعة في المخطط المعتمدة",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.MAHDARID",
+        "alias": "رمز المحضر",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.MAHDARNO",
+        "alias": "رقم المحضر",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.MAHDARDATE",
+        "alias": "تاريخ المحضر",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.PLANID",
+        "alias": "رمز المخطط",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.PLANNO",
+        "alias": "رقم المخطط",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.SUBMUNICIPALITY",
+        "alias": "البلديات الفرعية",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.DISTRICT",
+        "alias": "الحي",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.PARCELSUBTYPE",
+        "alias": "نوع استخدام الرئيسية",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.LANDUSEAGROUP",
+        "alias": "نوع استخدام الثانوية",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.LANDUSEADETAILED",
+        "alias": "استخدام الارض",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.FLGBLOCKED",
+        "alias": "هل قطعة الاراضي الموقوفة",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.PARCELAREA",
+        "alias": "مساحة قطعة الارض حسب المخطط",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "GIS.Parcels.OWNERSHIP",
+        "alias": "نوع الملكية",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.S_AREA",
+        "alias": "S_AREA",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "GIS.Parcels.BLD_CODE_FLG",
+        "alias": "هل القطعة مرتبطة بنظام البناء الجديد",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.BLD_CODE_DATE",
+        "alias": "تاريخ نظام البناء الجديد",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.REQUEST_NUMBER",
+        "alias": "رقم الطلب",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.REQUEST_YEAR",
+        "alias": "سنة الطلب",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.DIRECTORATE_CODE",
+        "alias": "الجهة الصادرة",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.STAGE_ID",
+        "alias": "حالة الطلب",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.FENCING",
+        "alias": "اراضي فضاء مستهدفة",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.REASON_FOR_STOPPING",
+        "alias": "REASON_FOR_STOPPING",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.SAMM_NUMBER",
+        "alias": "رقم تذكرة سم",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.LICENSE_NUMBER",
+        "alias": "رقم الرخصة",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.LICENSE_YEAR",
+        "alias": "سنة الرخصة",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.OBJECTIVE_NUMBER",
+        "alias": "نوع الرخصة",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.REVIEWED_BLD_CODE",
+        "alias": "تم مراجعة اشترطات البناء",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.REVIEWED_BLD_USER",
+        "alias": "تم مراجعتها  الكود بواسطة الموظف",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.REPORT_YEAR",
+        "alias": "سنة القرار المساحي",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.CLASS_MAIN",
+        "alias": "التصنيف الرئيسي",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.CLASS_SEC",
+        "alias": "التصنيف الفرعي",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.LOC_LEV",
+        "alias": "تصنيف الموقع",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.SIGNES_PARCEL_CLASSIFICATION",
+        "alias": "اللوحات_كود التصنيف",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.FLAG_TXT1",
+        "alias": "FLAG_TXT1",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.REVIEWED_DIR_BLD_USER",
+        "alias": "REVIEWED_DIR_BLD_USER",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.REVIEWED_DIR_BLD_DATE",
+        "alias": "REVIEWED_DIR_BLD_DATE",
+        "type": "esriFieldTypeDate"
+      },
+      {
+        "name": "GIS.Parcels.REVIEWED_DIR_FA_USER",
+        "alias": "REVIEWED_DIR_FA_USER",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.REVIEWED_DIR_FA_DATE",
+        "alias": "REVIEWED_FA_USER",
+        "type": "esriFieldTypeDate"
+      },
+      {
+        "name": "GIS.Parcels.REVIEWED_FA_USER",
+        "alias": "REVIEWED_DIR_FA_USER",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.REVIEWED_FA_DATE",
+        "alias": "REVIEWED_DIR_FA_USER",
+        "type": "esriFieldTypeDate"
+      },
+      {
+        "name": "GIS.Parcels.REVIEWED_FA_CODE",
+        "alias": "REVIEWED_FA_CODE",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.REVIEWED_BLD_DATE",
+        "alias": "تاريخ المراجعة للكود البناء",
+        "type": "esriFieldTypeDate"
+      },
+      {
+        "name": "GIS.Parcels.IN_PARCELID",
+        "alias": "الهوية العقارية",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.ISACTIVE",
+        "alias": "هل الهوية العقارية نشطة ام لا",
+        "type": "esriFieldTypeSmallInteger"
+      },
+      {
+        "name": "GIS.Parcels.CASE_NOT_ALLOWED",
+        "alias": "حالات الايقافات لقطع الاراضي",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.IS_LABEL_DISPLAY",
+        "alias": "IS_LABEL_DISPLAY",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.COLORCODE",
+        "alias": "ColorCode",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "GIS.Parcels.SHAPE",
+        "alias": "SHAPE",
+        "type": "esriFieldTypeGeometry"
+      },
+      {
+        "name": "GIS.Parcels.PARCEL_DRAWING_SOURCE",
+        "alias": "Parcel_Drawing_Source",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.Parcels.URBAN_LIMIT",
+        "alias": "URBAN_LIMIT",
+        "type": "esriFieldTypeSmallInteger"
+      },
+      {
+        "name": "GIS.Parcels.PARCEL_SUSPEND_STATUS",
+        "alias": "موقوفة - غير موقوفة",
+        "type": "esriFieldTypeSmallInteger"
+      },
+      {
+        "name": "GIS.Parcels.REVIEW_LANDUSE",
+        "alias": "التحقق من استخدامات الأراضي",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.TBL_LKP_LANDUSEADETAILED.OBJECTID",
+        "alias": "OBJECTID",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.TBL_LKP_LANDUSEADETAILED.ID",
+        "alias": "ID",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "GIS.TBL_LKP_LANDUSEADETAILED.LANDUSEADETAILED",
+        "alias": "LANDUSEADETAILED",
+        "type": "esriFieldTypeString"
+      }
+    ]
+  },
+  "layer_8_info": {
+    "name": "خط منتصف الطريق",
+    "type": "Feature Layer",
+    "fields": [
+      {
+        "name": "OBJECTID",
+        "alias": "OBJECTID",
+        "type": "esriFieldTypeOID"
+      },
+      {
+        "name": "ENABLED",
+        "alias": "فعال",
+        "type": "esriFieldTypeSmallInteger"
+      },
+      {
+        "name": "PKROADID",
+        "alias": "رقم مميز الطريق",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "WIDTH",
+        "alias": "عرض الطريق",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "TYPE",
+        "alias": "نوع الطريق",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "SPEEDCLASS",
+        "alias": "فئة السرعة",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "ANAME",
+        "alias": "اسم الطريق",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "PKMUNICIPALITYID",
+        "alias": "رقم مميز البلدية",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "ISLIGHTEND",
+        "alias": "هل الشارع مضاء",
+        "type": "esriFieldTypeSmallInteger"
+      },
+      {
+        "name": "D_S",
+        "alias": "D.S",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "ST_NAME_ID",
+        "alias": "كود الشارع_أمانة",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "ST_NAME_IT",
+        "alias": "رقم مميز مسمى الشارع",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "PKDISTRICTID",
+        "alias": "كود الحي_أمانة",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "EXCEPTED",
+        "alias": "المستثناه",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "TARGETED",
+        "alias": "المستهدفة",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "ROADSOURCE",
+        "alias": "مصدر الشارع",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "AMANASTREETNAME",
+        "alias": "اسم الشارع المقترح",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "FLAG",
+        "alias": "FLAG",
+        "type": "esriFieldTypeSmallInteger"
+      },
+      {
+        "name": "FKBUILDINGCONDITION",
+        "alias": "كود البناء",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "EVENTS",
+        "alias": "فعاليات",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "APPROVED_STREET",
+        "alias": "اسم الشارع المعتمد من الامانة",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "APPROVED_STREET_DATE",
+        "alias": "تاريخ الاعتماد",
+        "type": "esriFieldTypeDate"
+      },
+      {
+        "name": "AMANASTREETNAME_DATE",
+        "alias": "تاريخ ادخال اسم الشارع المقترح",
+        "type": "esriFieldTypeDate"
+      },
+      {
+        "name": "SUGGESTED_STNAME_DATE",
+        "alias": "تاريخ  مسمي الشارع بعد الاعتماد",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "STATUSUPDATE",
+        "alias": "حالة التحديث",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "FLAGUPDATE",
+        "alias": "FLAGUPDATE",
+        "type": "esriFieldTypeSmallInteger"
+      },
+      {
+        "name": "ROADUSE",
+        "alias": "استعمال الطريق",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "SHAPE",
+        "alias": "Shape",
+        "type": "esriFieldTypeGeometry"
+      },
+      {
+        "name": "ROADSCATEGORIES",
+        "alias": "فئة الطريق",
+        "type": "esriFieldTypeSmallInteger"
+      },
+      {
+        "name": "STREETNAMCLASS",
+        "alias": "صنف الطرق حسب تصنيف التسمية والترقيم",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "FLAG_PRIORITY",
+        "alias": "FLAG_PRIORITY",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "SHAPE.LEN",
+        "alias": "SHAPE.LEN",
+        "type": "esriFieldTypeDouble"
+      }
+    ]
+  },
+  "layer_9_info": {
+    "name": "قطع الارضي المحافظات",
+    "type": "Feature Layer",
+    "fields": [
+      {
+        "name": "PARCELID",
+        "alias": "رمز قطعة الأرض",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "PARCELSUBTYPE",
+        "alias": "الاستخدام الرئيسي",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "PARCELNO",
+        "alias": "رقم القطعة",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "PLANNO",
+        "alias": "رقم المخطط",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNID",
+        "alias": "رمز البلدية",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNANAME",
+        "alias": "اسم البلدية",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "DISTRICID",
+        "alias": "رمز الحي",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "DISANAME",
+        "alias": "اسم الحي",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "FLGBLOCKED",
+        "alias": "FLGBLOCKED",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "HASARAMCO",
+        "alias": "HASARAMCO",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "SHAPE",
+        "alias": "SHAPE",
+        "type": "esriFieldTypeGeometry"
+      },
+      {
+        "name": "BUILDINGUSECODE",
+        "alias": "BUILDINGUSECODE",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "FLGBLDCODE",
+        "alias": "نظام البناء العمراني",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "OBPID",
+        "alias": "OBPID",
+        "type": "esriFieldTypeOID"
+      },
+      {
+        "name": "IS_LABEL_DISPLAY",
+        "alias": "حالة القطعة",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "LANDUSEAGROUP",
+        "alias": "الاستخدام الثانوي",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "LANDUSEADETAILED",
+        "alias": "استخدام الارض",
+        "type": "esriFieldTypeInteger"
+      },
+      {
+        "name": "HIGHORDER",
+        "alias": "HIGHORDER",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "HIGHDESC",
+        "alias": "HIGHDESC",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "HIGHHDATE",
+        "alias": "HIGHHDATE",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "SHAPE.AREA",
+        "alias": "المساحة",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "SHAPE.LEN",
+        "alias": "SHAPE.LEN",
+        "type": "esriFieldTypeDouble"
+      }
+    ]
+  },
+  "layer_10_info": {
+    "name": "المخططات المحافظات",
+    "type": "Feature Layer",
+    "fields": [
+      {
+        "name": "OBJECTID",
+        "alias": "رمز الطبقة",
+        "type": "esriFieldTypeOID"
+      },
+      {
+        "name": "PLANID",
+        "alias": "رمز المخطط",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "SHAPE",
+        "alias": "SHAPE",
+        "type": "esriFieldTypeGeometry"
+      },
+      {
+        "name": "SUBMUNICIPALITY",
+        "alias": "البلدية",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "PLANNO",
+        "alias": "رقم المخطط",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "PLANNAME",
+        "alias": "اسم المخطط",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "APPROVESTATUS",
+        "alias": "حالة اعتماد المخطط",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNICIPALITYANAME",
+        "alias": "MUNICIPALITYANAME",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNICIPALITYENAME",
+        "alias": "MUNICIPALITYENAME",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "PLANVERSION",
+        "alias": "نسخة المخطط",
+        "type": "esriFieldTypeString"
+      }
+    ]
+  },
+  "layer_11_info": {
+    "name": "احياء المحافظات",
+    "type": "Feature Layer",
+    "fields": [
+      {
+        "name": "OBJECTID",
+        "alias": "OBJECTID",
+        "type": "esriFieldTypeOID"
+      },
+      {
+        "name": "NEIGHBORHCODE",
+        "alias": "NEIGHBORHCODE",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "NEIGHBORHANAME",
+        "alias": "NEIGHBORHANAME",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "NEIGHBORHENAME",
+        "alias": "NEIGHBORHENAME",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNICIPALITYCODE",
+        "alias": "MUNICIPALITYCODE",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "DISTRICTNO",
+        "alias": "DISTRICTNO",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "HASRIYADH",
+        "alias": "HASRIYADH",
+        "type": "esriFieldTypeDouble"
+      },
+      {
+        "name": "SHAPE",
+        "alias": "SHAPE",
+        "type": "esriFieldTypeGeometry"
+      }
+    ]
+  },
+  "layer_12_info": {
+    "name": "بلديات المحافظات",
+    "type": "Feature Layer",
+    "fields": [
+      {
+        "name": "OBJECTID",
+        "alias": "OBJECTID",
+        "type": "esriFieldTypeOID"
+      },
+      {
+        "name": "MUNICIPALITYCODE",
+        "alias": "MUNICIPALITYCODE",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNICIPALITYANAME",
+        "alias": "MUNICIPALITYANAME",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNICIPALITYENAME",
+        "alias": "MUNICIPALITYENAME",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "MUNICIPALITYNO",
+        "alias": "MUNICIPALITYNO",
+        "type": "esriFieldTypeString"
+      },
+      {
+        "name": "SHAPE",
+        "alias": "SHAPE",
+        "type": "esriFieldTypeGeometry"
+      }
+    ]
+  },
+  "layer_13_info": {
+    "name": null,
+    "type": null,
+    "fields": []
+  },
+  "layer_14_info": {
+    "name": null,
+    "type": null,
+    "fields": []
+  },
+  "folder_WebMercator": {
+    "currentVersion": 10.91,
+    "folders": [],
+    "services": [
+      {
+        "name": "WebMercator/AdministrativeBoundary",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/AllMParcel",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/AllParcelsLayer",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/AllParcelsLyr",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/BLDNEW",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/boulevard",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/bumps",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/Cavity",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/Cemetery",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/Contour",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/COORDINATION",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/DGDA",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/East_Structure_Plan",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/East_Zoning_Plan",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/END_LICSHOPE",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/Exit",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/FC_DOC_LOCATIONS",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/FC_LOCATIONS_PT",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/FC_TRANS_LOCATIONS",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/Food_Trucks",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/G20",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/GARDEN",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/GardensFinished",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/GardensUNFinished",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/GDOM",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/GN",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/GNSUGG2",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/GNSUGG",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/GNUnder",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/HighOrders",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/HouseNumbers",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/Houses_individuals",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/InvestmentParcelC",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/InvestmentParcel",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/InvestmentSiteC",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/InvestmentSite",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/KingSalmanIndustrialZone",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/KROKI_DC",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/M_BLS_BUILDING_LICENSE_GPS_VW",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/MAHDAR_DC",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/MahdarLayerProd",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/Metro_lines",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/MParcel",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/Munfac",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/MUN",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/North_Structure_Plan",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/North_Zoning_Plan",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/ParcelBlocked",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/ParcelExist",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/ParcelNotExist",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/PifParcels",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/PifPlans",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/PipeLine",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/PlanNumber_FQ",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/PlanNumber",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/post",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/REDZONE",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/RiyadhStructurePlan",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/STREET_FA",
+        "type": "FeatureServer"
+      },
+      {
+        "name": "WebMercator/STREET_FA",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/SubMunicipalities",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/Survey_Reports",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/TLS_GIS_DETL_VW2",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/tobacco",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/Tower",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/URBANLIMIT1440ALLRIYADHREG",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/URBANLIMIT1445ALLRIYADHREG",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/URBANLIMIT1450ALLRIYADHREG",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/URBANLIMIT1450",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/URBANLIMIT_ALL_REG",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/VotingAreas",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/WMGarden",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/WMParcelsLayer",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/WMParcelsLayerOne",
+        "type": "MapServer"
+      },
+      {
+        "name": "WebMercator/WMPlan",
+        "type": "MapServer"
+      }
+    ]
+  },
+  "folder_GeoPortal": {
+    "currentVersion": 10.91,
+    "folders": [],
+    "services": [
+      {
+        "name": "GeoPortal/Amtethal_CERTIFICATE",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/AOI",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/ATM",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Bridge",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Cemeteries",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Center_Riyadh_Dev_Co_Heritage",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/CommitteeHighOrder",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/ContourMomra",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/DHAHIYAT_ALFURSAN_Pro_water_pip",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/digglic",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/DISTRICTS_RYD_GMRA",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Expropriation_Valuation_WadiesBorder",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/F_940",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Facilities",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/G_D_SurveyingNaming",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Gas_Station_Riyadh",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/GDOM_SWDS",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/GDOM",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/GeoPortalLayerDemoF",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/GeoPortalLayerDemo",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/GeoPortalLayer",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/GMAR_Royal_Orders",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/GMRA",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/GmraUrbanAreaBoundary",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Hanifa_Valley_Project__Outputs",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/IN_PARCEL",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Inv_Contract",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Investmentsites",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/KrokiMomha",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/landspace",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/MAH_UNAPPLIED_OUTPUT_RER",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/MUNICIPALITIES_RYD_GMRA",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Mycity_offices",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/National_Address",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/NFOOD_Road_Levels",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/PANEL",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/ParcelPlans",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/RCBU",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/RCRC_NPX_Structure_Plan",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Regions",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/RemovalBuildingB",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/RemovalBuilding",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/RER_PARCELS",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Riyadh_Signages_Final",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/RiyadhCenter_UrbanHeritage",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/RQBF",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/RydEvents",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/STREET_CL_REG",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Street_Compliance_Stages",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Street_Network",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/street_seller",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/studyKingSalmanAirBase",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/SurveyorsGisc",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Surveyors",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/SV_PLANS_REG_RYD",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/SV_ROADS_REG",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/The_farmer_in_Al_Yamamah",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/ValleyFever",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/Villages",
+        "type": "MapServer"
+      },
+      {
+        "name": "GeoPortal/WhiteLandFeesPhases",
+        "type": "MapServer"
+      }
+    ]
+  },
+  "folder_geoprtl": {
+    "currentVersion": 10.91,
+    "folders": [],
+    "services": [
+      {
+        "name": "geoprtl/GeoPortalLayerDemoF",
+        "type": "MapServer"
+      },
+      {
+        "name": "geoprtl/Kroki_Momha",
+        "type": "MapServer"
+      },
+      {
+        "name": "geoprtl/RCRC_NPX_Structure_Plan",
+        "type": "MapServer"
+      }
+    ]
+  }
+}
