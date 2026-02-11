@@ -35,16 +35,16 @@ def parse_coordinates(text: str) -> tuple[float, float] | None:
     """
     text = text.strip()
 
-    # Pattern 1: Google Maps URL with @lat,lng or !3d...!4d...
-    m = re.search(r'@(-?\d+\.?\d*),(-?\d+\.?\d*)', text)
-    if m:
-        return float(m.group(1)), float(m.group(2))
-
-    # Pattern 2: Google Maps URL with !3d (lat) and !4d (lng)
+    # Pattern 1 (PRIORITY): Google Maps !3d (lat) and !4d (lng) — the actual pin
     lat_m = re.search(r'!3d(-?\d+\.?\d*)', text)
     lng_m = re.search(r'!4d(-?\d+\.?\d*)', text)
     if lat_m and lng_m:
         return float(lat_m.group(1)), float(lng_m.group(1))
+
+    # Pattern 2: @lat,lng — map viewport center (fallback, less precise)
+    m = re.search(r'@(-?\d+\.?\d*),(-?\d+\.?\d*)', text)
+    if m:
+        return float(m.group(1)), float(m.group(2))
 
     # Pattern 3: URL with place/ followed by coordinates in DMS or decimal
     m = re.search(r'place/(-?\d+\.?\d*)[°%C2%B0]?\s*[NS]?\s*[,+\s]\s*(-?\d+\.?\d*)', text)
