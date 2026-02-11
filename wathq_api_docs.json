@@ -1,0 +1,112 @@
+{
+  "platform": "WATHQ (واثق)",
+  "url": "https://developer.wathq.sa",
+  "description": "Government data integration platform connecting client systems to official entity databases via REST APIs",
+  "provider": "Ministry of Commerce / National Information Center (NIC)",
+
+  "real_estate_deeds_api": {
+    "api_id": 13,
+    "name": "Real Estates Deeds (الصكوك العقارية)",
+    "url": "https://developer.wathq.sa/en/api/13",
+    "status": "LIVE",
+    "data_source": "Ministry of Justice (وزارة العدل)",
+    "description": "Inquire about real estate deed data including serial number, property type, and more",
+    "available_data": [
+      "Deed serial number (رقم الصك)",
+      "Property type (نوع العقار)",
+      "Deed status",
+      "Owner information",
+      "Property area",
+      "Location data",
+      "Deed date"
+    ],
+    "note": "Full technical docs (endpoints, request/response schemas) are only visible after login on the developer portal. The API page renders as desktop-only interactive documentation."
+  },
+
+  "authentication": {
+    "method": "API Key",
+    "header": "apiKey (sent in request header)",
+    "description": "Fixed API key obtained after creating an app in your WATHQ account. The API key is fixed (not rotating).",
+    "protocol": "HTTPS (SSL)",
+    "ip_restriction": "None — general access, no IP whitelisting needed"
+  },
+
+  "packages": {
+    "trial": {
+      "price": "Free",
+      "duration": "30 days",
+      "queries": 100,
+      "includes": "All products",
+      "note": "One-time only per customer"
+    },
+    "basic": {
+      "price": "Pay per query (monthly billing)",
+      "duration": "Ongoing",
+      "queries": "Unlimited (billed monthly)",
+      "includes": "All products",
+      "payment": "Mada, Visa, MasterCard, Apple Pay, SADAD"
+    },
+    "prepaid": {
+      "price": "Prepaid balance",
+      "duration": "Until balance expires",
+      "queries": "Based on selected plan",
+      "includes": "All products except Qwaem"
+    },
+    "enterprise": {
+      "price": "Custom",
+      "contact": "sales@wathq.sa",
+      "includes": "All products"
+    }
+  },
+
+  "onboarding_steps": [
+    "1. Create account at developer.wathq.sa",
+    "2. Verify email via activation link (valid 24h)",
+    "3. Choose a package (trial is free, 100 queries, 30 days)",
+    "4. Create an app in your account",
+    "5. Get the API key from the app settings",
+    "6. Integrate using the technical documentation on the API page",
+    "7. Start querying"
+  ],
+
+  "other_relevant_apis": {
+    "power_of_attorney": {
+      "api_id": 14,
+      "name": "Power of Attorney (الوكالات العدلية)",
+      "source": "Ministry of Justice",
+      "status": "LIVE"
+    },
+    "national_address": {
+      "api_id": 17,
+      "name": "National Address (العنوان الوطني)",
+      "source": "Saudi Post | SPL",
+      "status": "LIVE",
+      "note": "Can cross-reference with parcel national address data"
+    },
+    "commercial_registration": {
+      "api_id": 32,
+      "name": "Commercial Registration (السجل التجاري)",
+      "source": "Ministry of Commerce",
+      "status": "NEW"
+    }
+  },
+
+  "technical_notes": {
+    "environments": "Single environment only (no staging/sandbox for deeds)",
+    "rate_limit": "Varies by package",
+    "response_format": "JSON",
+    "documentation_access": "Full endpoint docs (request params, response schema) require login at developer.wathq.sa",
+    "example_repos": {
+      "url": "https://github.com/alsobihi/extract_json_data",
+      "description": "Community examples for extracting WATHQ JSON data (commercial registration and national address shown, but pattern applies to deeds)"
+    }
+  },
+
+  "next_steps": [
+    "Register at developer.wathq.sa (free trial: 100 queries / 30 days)",
+    "Create an app and obtain API key",
+    "Access the Real Estates Deeds API documentation (requires login)",
+    "Test with a known deed serial number",
+    "Map deed fields to parcel data from Geoportal (PARCELID <-> deed number)"
+  ]
+}
