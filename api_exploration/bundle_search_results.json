@@ -1,0 +1,516 @@
+{
+  "bundle_count": 6,
+  "bundles": [
+    {
+      "url": "https://mapservice.alriyadh.gov.sa/geoportal/assets/js/maplibre-gl-csp.js",
+      "filename": "maplibre-gl-csp.js",
+      "size": 693297,
+      "findings": {
+        "floors_far": [
+          "far"
+        ]
+      }
+    },
+    {
+      "url": "https://mapservice.alriyadh.gov.sa/geoportal/main.c06e94eb2afc49cb.js",
+      "filename": "main.c06e94eb2afc49cb.js",
+      "size": 12247448,
+      "findings": {
+        "flgbldcode": [
+          "FLGBLDCODE"
+        ],
+        "buildingusecode": [
+          "BUILDINGUSECODE",
+          "BuildingUseCode"
+        ],
+        "building_keywords": [
+          "getBuild",
+          "getDetail"
+        ],
+        "floors_far": [
+          "FAR",
+          "FAr",
+          "Far",
+          "fAR",
+          "fAr",
+          "faR",
+          "far",
+          "setBack"
+        ],
+        "lookup_objects": [
+          "{0:\"COUNT\",1:\"IF\",2:\"ISNA\",3:\"ISERROR\",4:\"SUM\",5:\"AVERAGE\",6:\"MIN\",7:\"MAX\",8:\"ROW\",9:\"COLUMN\",10:\"NA\",11:\"NPV\",12:\"STDEV\",13:\"DOLLAR\",14:\"FIXED\",15:\"SIN\",16:\"COS\",17:\"TAN\",18:\"ATAN\",19:\"PI\",20:\"SQRT\",21:\"EXP\",22:\"LN\",23:\"LOG10\",24:\"ABS\",25:\"INT\",26:\"SIGN\",27:\"ROUND\",28:\"LOOKUP\",29:\"INDEX\",30:\"REPT\",31:\"MID\",32:\"LEN\",33:\"VALUE\",34:\"TRUE\",35:\"FALSE\",36:\"AND\",37:\"OR\",38:\"NOT\",39:\"MOD\",40:\"DCOUNT\",41:\"DSUM\",42:\"DAVERAGE\",43:\"DMIN\",44:\"DMAX\",45:\"DSTDEV\",46:\"VAR\",47:\"DVAR\",48:\"TEXT\",49:\"LINEST\",50:\"TREND\",51:\"LOGEST\",52:\"GROWTH\",53:\"GOTO\",54:\"HALT\",55:\"RETURN\",56:\"PV\",57:\"FV\",58:\"NPER\",59:\"PMT\",60:\"RATE\",61:\"MIRR\",62:\"IRR\",63:\"RAND\",64:\"MATCH\",65:\"DATE\",66:\"TIME\",67:\"DAY\",68:\"MONTH\",69:\"YEAR\",70:\"WEEKDAY\",71:\"HOUR\",72:\"MINUTE\",73:\"SECOND\",74:\"NOW\",75:\"AREAS\",76:\"ROWS\",77:\"COLUMNS\",78:\"OFFSET\",79:\"ABSREF\",80:\"RELREF\",81:\"ARGUMENT\",82:\"SEARCH\",83:\"TRANSPOSE\",84:\"ERROR\",85:\"STEP\",86:\"TYPE\",87:\"ECHO\",88:\"SET.NAME\",89:\"CALLER\",90:\"DEREF\",91:\"WINDOWS\",92:\"SERIES\",93:\"DOCUMENTS\",94:\"ACTIVE.CELL\",95:\"SELECTION\",96:\"RESULT\",97:\"ATAN2\",98:\"ASIN\",99:\"ACOS\",100:\"CHOOSE\",101:\"HLOOKUP\",102:\"VLOOKUP\",103:\"LINKS\",104:\"INPUT\",105:\"ISREF\",106:\"GET.FORMULA\",107:\"GET.NAME\",108:\"SET.VALUE\",109:\"LOG\",110:\"EXEC\",111:\"CHAR\",112:\"LOWER\",113:\"UPPER\",114:\"PROPER\",115:\"LEFT\",116:\"RIGHT\",117:\"EXACT\",118:\"TRIM\",119:\"REPLACE\",120:\"SUBSTITUTE\",121:\"CODE\",122:\"NAMES\",123:\"DIRECTORY\",124:\"FIND\",125:\"CELL\",126:\"ISERR\",127:\"ISTEXT\",128:\"ISNUMBER\",129:\"ISBLANK\",130:\"T\",131:\"N\",132:\"FOPEN\",133:\"FCLOSE\",134:\"FSIZE\",135:\"FREADLN\",136:\"FREAD\",137:\"FWRITELN\",138:\"FWRITE\",139:\"FPOS\",140:\"DATEVALUE\",141:\"TIMEVALUE\",142:\"SLN\",143:\"SYD\",144:\"DDB\",145:\"GET.DEF\",146:\"REFTEXT\",147:\"TEXTREF\",148:\"INDIRECT\",149:\"REGISTER\",150:\"CALL\",151:\"ADD.BAR\",152:\"ADD.MENU\",153:\"ADD.COMMAND\",154:\"ENABLE.COMMAND\",155:\"CHECK.COMMAND\",156:\"RENAME.COMMAND\",157:\"SHOW.BAR\",158:\"DELETE.MENU\",159:\"DELETE.COMMAND\",160:\"GET.CHART.ITEM\",161:\"DIALOG.BOX\",162:\"CLEAN\",163:\"MDETERM\",164:\"MINVERSE\",165:\"MMULT\",166:\"FILES\",167:\"IPMT\",168:\"PPMT\",169:\"COUNTA\",170:\"CANCEL.KEY\",171:\"FOR\",172:\"WHILE\",173:\"BREAK\",174:\"NEXT\",175:\"INITIATE\",176:\"REQUEST\",177:\"POKE\",178:\"EXECUTE\",179:\"TERMINATE\",180:\"RESTART\",181:\"HELP\",182:\"GET.BAR\",183:\"PRODUCT\",184:\"FACT\",185:\"GET.CELL\",186:\"GET.WORKSPACE\",187:\"GET.WINDOW\",188:\"GET.DOCUMENT\",189:\"DPRODUCT\",190:\"ISNONTEXT\",191:\"GET.NOTE\",192:\"NOTE\",193:\"STDEVP\",194:\"VARP\",195:\"DSTDEVP\",196:\"DVARP\",197:\"TRUNC\",198:\"ISLOGICAL\",199:\"DCOUNTA\",200:\"DELETE.BAR\",201:\"UNREGISTER\",204:\"USDOLLAR\",205:\"FINDB\",206:\"SEARCHB\",207:\"REPLACEB\",208:\"LEFTB\",209:\"RIGHTB\",210:\"MIDB\",211:\"LENB\",212:\"ROUNDUP\",213:\"ROUNDDOWN\",214:\"ASC\",215:\"DBCS\",216:\"RANK\",219:\"ADDRESS\",220:\"DAYS360\",221:\"TODAY\",222:\"VDB\",223:\"ELSE\",224:\"ELSE.IF\",225:\"END.IF\",226:\"FOR.CELL\",227:\"MEDIAN\",228:\"SUMPRODUCT\",229:\"SINH\",230:\"COSH\",231:\"TANH\",232:\"ASINH\",233:\"ACOSH\",234:\"ATANH\",235:\"DGET\",236:\"CREATE.OBJECT\",237:\"VOLATILE\",238:\"LAST.ERROR\",239:\"CUSTOM.UNDO\",240:\"CUSTOM.REPEAT\",241:\"FORMULA.CONVERT\",242:\"GET.LINK.INFO\",243:\"TEXT.BOX\",244:\"INFO\",245:\"GROUP\",246:\"GET.OBJECT\",247:\"DB\",248:\"PAUSE\",251:\"RESUME\",252:\"FREQUENCY\",253:\"ADD.TOOLBAR\",254:\"DELETE.TOOLBAR\",255:\"User\",256:\"RESET.TOOLBAR\",257:\"EVALUATE\",258:\"GET.TOOLBAR\",259:\"GET.TOOL\",260:\"SPELLING.CHECK\",261:\"ERROR.TYPE\",262:\"APP.TITLE\",263:\"WINDOW.TITLE\",264:\"SAVE.TOOLBAR\",265:\"ENABLE.TOOL\",266:\"PRESS.TOOL\",267:\"REGISTER.ID\",268:\"GET.WORKBOOK\",269:\"AVEDEV\",270:\"BETADIST\",271:\"GAMMALN\",272:\"BETAINV\",273:\"BINOMDIST\",274:\"CHIDIST\",275:\"CHIINV\",276:\"COMBIN\",277:\"CONFIDENCE\",278:\"CRITBINOM\",279:\"EVEN\",280:\"EXPONDIST\",281:\"FDIST\",282:\"FINV\",283:\"FISHER\",284:\"FISHERINV\",285:\"FLOOR\",286:\"GAMMADIST\",287:\"GAMMAINV\",288:\"CEILING\",289:\"HYPGEOMDIST\",290:\"LOGNORMDIST\",291:\"LOGINV\",292:\"NEGBINOMDIST\",293:\"NORMDIST\",294:\"NORMSDIST\",295:\"NORMINV\",296:\"NORMSINV\",297:\"STANDARDIZE\",298:\"ODD\",299:\"PERMUT\",300:\"POISSON\",301:\"TDIST\",302:\"WEIBULL\",303:\"SUMXMY2\",304:\"SUMX2MY2\",305:\"SUMX2PY2\",306:\"CHITEST\",307:\"CORREL\",308:\"COVAR\",309:\"FORECAST\",310:\"FTEST\",311:\"INTERCEPT\",312:\"PEARSON\",313:\"RSQ\",314:\"STEYX\",315:\"SLOPE\",316:\"TTEST\",317:\"PROB\",318:\"DEVSQ\",319:\"GEOMEAN\",320:\"HARMEAN\",321:\"SUMSQ\",322:\"KURT\",323:\"SKEW\",324:\"ZTEST\",325:\"LARGE\",326:\"SMALL\",327:\"QUARTILE\",328:\"PERCENTILE\",329:\"PERCENTRANK\",330:\"MODE\",331:\"TRIMMEAN\",332:\"TINV\",334:\"MOVIE.COMMAND\",335:\"GET.MOVIE\",336:\"CONCATENATE\",337:\"POWER\",338:\"PIVOT.ADD.DATA\",339:\"GET.PIVOT.TABLE\",340:\"GET.PIVOT.FIELD\",341:\"GET.PIVOT.ITEM\",342:\"RADIANS\",343:\"DEGREES\",344:\"SUBTOTAL\",345:\"SUMIF\",346:\"COUNTIF\",347:\"COUNTBLANK\",348:\"SCENARIO.GET\",349:\"OPTIONS.LISTS.GET\",350:\"ISPMT\",351:\"DATEDIF\",352:\"DATESTRING\",353:\"NUMBERSTRING\",354:\"ROMAN\",355:\"OPEN.DIALOG\",356:\"SAVE.DIALOG\",357:\"VIEW.GET\",358:\"GETPIVOTDATA\",359:\"HYPERLINK\",360:\"PHONETIC\",361:\"AVERAGEA\",362:\"MAXA\",363:\"MINA\",364:\"STDEVPA\",365:\"VARPA\",366:\"STDEVA\",367:\"VARA\",368:\"BAHTTEXT\",369:\"THAIDAYOFWEEK\",370:\"THAIDIGIT\",371:\"THAIMONTHOFYEAR\",372:\"THAINUMSOUND\",373:\"THAINUMSTRING\",374:\"THAISTRINGLENGTH\",375:\"ISTHAIDIGIT\",376:\"ROUNDBAHTDOWN\",377:\"ROUNDBAHTUP\",378:\"THAIYEAR\",379:\"RTD\",380:\"CUBEVALUE\",381:\"CUBEMEMBER\",382:\"CUBEMEMBERPROPERTY\",383:\"CUBERANKEDMEMBER\",384:\"HEX2BIN\",385:\"HEX2DEC\",386:\"HEX2OCT\",387:\"DEC2BIN\",388:\"DEC2HEX\",389:\"DEC2OCT\",390:\"OCT2BIN\",391:\"OCT2HEX\",392:\"OCT2DEC\",393:\"BIN2DEC\",394:\"BIN2OCT\",395:\"BIN2HEX\",396:\"IMSUB\",397:\"IMDIV\",398:\"IMPOWER\",399:\"IMABS\",400:\"IMSQRT\",401:\"IMLN\",402:\"IMLOG2\",403:\"IMLOG10\",404:\"IMSIN\",405:\"IMCOS\",406:\"IMEXP\",407:\"IMARGUMENT\",408:\"IMCONJUGATE\",409:\"IMAGINARY\",410:\"IMREAL\",411:\"COMPLEX\",412:\"IMSUM\",413:\"IMPRODUCT\",414:\"SERIESSUM\",415:\"FACTDOUBLE\",416:\"SQRTPI\",417:\"QUOTIENT\",418:\"DELTA\",419:\"GESTEP\",420:\"ISEVEN\",421:\"ISODD\",422:\"MROUND\",423:\"ERF\",424:\"ERFC\",425:\"BESSELJ\",426:\"BESSELK\",427:\"BESSELY\",428:\"BESSELI\",429:\"XIRR\",430:\"XNPV\",431:\"PRICEMAT\",432:\"YIELDMAT\",433:\"INTRATE\",434:\"RECEIVED\",435:\"DISC\",436:\"PRICEDISC\",437:\"YIELDDISC\",438:\"TBILLEQ\",439:\"TBILLPRICE\",440:\"TBILLYIELD\",441:\"PRICE\",442:\"YIELD\",443:\"DOLLARDE\",444:\"DOLLARFR\",445:\"NOMINAL\",446:\"EFFECT\",447:\"CUMPRINC\",448:\"CUMIPMT\",449:\"EDATE\",450:\"EOMONTH\",451:\"YEARFRAC\",452:\"COUPDAYBS\",453:\"COUPDAYS\",454:\"COUPDAYSNC\",455:\"COUPNCD\",456:\"COUPNUM\",457:\"COUPPCD\",458:\"DURATION\",459:\"MDURATION\",460:\"ODDLPRICE\",461:\"ODDLYIELD\",462:\"ODDFPRICE\",463:\"ODDFYIELD\",464:\"RANDBETWEEN\",465:\"WEEKNUM\",466:\"AMORDEGRC\",467:\"AMORLINC\",468:\"CONVERT\",724:\"SHEETJS\",469:\"ACCRINT\",470:\"ACCRINTM\",471:\"WORKDAY\",472:\"NETWORKDAYS\",473:\"GCD\",474:\"MULTINOMIAL\",475:\"LCM\",476:\"FVSCHEDULE\",477:\"CUBEKPIMEMBER\",478:\"CUBESET\",479:\"CUBESETCOUNT\",480:\"IFERROR\",481:\"COUNTIFS\",482:\"SUMIFS\",483:\"AVERAGEIF\",484:\"AVERAGEIFS\"}",
+          "{return String.fromCharCode(97+Math.floor(25*Math.random()))}"
+        ]
+      }
+    },
+    {
+      "url": "https://mapservice.alriyadh.gov.sa/geoportal/polyfills.25dd8704da7710ea.js",
+      "filename": "polyfills.25dd8704da7710ea.js",
+      "size": 93385,
+      "findings": {}
+    },
+    {
+      "url": "https://mapservice.alriyadh.gov.sa/geoportal/runtime.5358165c5867b8ee.js",
+      "filename": "runtime.5358165c5867b8ee.js",
+      "size": 3791,
+      "findings": {}
+    },
+    {
+      "url": "https://mapservice.alriyadh.gov.sa/geoportal/ruxitagentjs_ICA7NQVfgqrux_10329260206100503.js",
+      "filename": "ruxitagentjs_ICA7NQVfgqrux_10329260206100503.js",
+      "size": 1208,
+      "findings": {}
+    },
+    {
+      "url": "https://mapservice.alriyadh.gov.sa/geoportal/scripts.f5cb74396635a27e.js",
+      "filename": "scripts.f5cb74396635a27e.js",
+      "size": 1725076,
+      "findings": {
+        "floors_far": [
+          "far"
+        ]
+      }
+    }
+  ],
+  "all_discovered_endpoints": [],
+  "all_code_snippets": [
+    {
+      "keyword": "FLGBLDCODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3917698,
+      "snippet": "],[1,\"fas\",\"fa-plus\"],[\"id\",\"BuildingUseCode\",1,\"leaflet-sidebar-pane\"],[1,\"form-group\",\"p-3\",\"row\"],[1,\"col-sm-3\",\"col-form-label\",2,\"font-weight\",\"bold\"],[\"optionValueField\",\"ID\",\"optionTextField\",\"FLGBLDCODE\",3,\"items\",\"ngModel\",\"allowClear\",\"ngModelChange\",\"selectionChanges\"],[\"class\",\"card-body\",\"style\",\"\\n                  box-shadow: 0 2px 4px rgb(0 0 0 / 20%),\\n                    0 -1px 0px rgb(0 0 0 / 2%);\\n                \",4,\"ngIf\"],[\"id\",\"building\",1,\"leaflet-sidebar-pane\"],[\"id\",\"n"
+    },
+    {
+      "keyword": "FLGBLDCODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3994629,
+      "snippet": "rflow\",\"hidden\"],[1,\"card-header\",\"mycard-header\",\"d-flex\",\"flex-row\",\"align-items-center\",\"justify-content-between\"],[1,\"card-body\",2,\"overflow-y\",\"auto\"],[\"optionValueField\",\"ID\",\"optionTextField\",\"FLGBLDCODE\",3,\"disabled\",\"items\",\"ngModel\",\"allowClear\",\"ngModelChange\",\"selectionChanges\"],[1,\"stop-propagation\",\"row\"],[\"class\",\"stop-propagation col-sm-4 mt-2\",4,\"ngFor\",\"ngForOf\"],[\"class\",\"card-body\",\"style\",\"border-radius: 15px\",4,\"ngIf\"],[\"class\",\"stop-propagation card-footer mycard-footer m-"
+    },
+    {
+      "keyword": "FLGBLDCODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3997301,
+      "snippet": "df\",\"fa-lg\",3,\"click\"],[2,\"box-shadow\",\"0 2px 4px rgb(0 0 0 / 20%),\\n                  0 -1px 0px rgb(0 0 0 / 2%)\",\"padding\",\"20px\",\"margin-bottom\",\"10px\"],[\"optionValueField\",\"ID\",\"optionTextField\",\"FLGBLDCODE\",3,\"items\",\"ngModel\",\"allowClear\",\"disabled\",\"ngModelChange\"],[\"id\",\"my-checkbox-id\",\"type\",\"checkbox\",\"disabled\",\"\",3,\"checked\",\"change\"],[\"id\",\"draggable60\",1,\"stop-propagation\",\"card\",\"shadow-lg\",\"draggable\",2,\"width\",\"435px\",\"height\",\"max-content\",\"overflow\",\"hidden\"],[\"type\",\"button\""
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2911594,
+      "snippet": "bel\",515),de(18,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645\"),G(),R(19,\"div\",334)(20,\"ngx-select\",1615),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().appService.dynamicPopup5[0].BUILDINGUSECODE=o})(\"selectionChanges\",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()(),R(21,\"div\",1117)(22,\"label\",515),de(23,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645 2\"),G(),R(24,\"div\",334)(25,\"ngx-select\",1615),Ct(\"ngModelChange\",function(o){return Mt(e),Fe("
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2911924,
+      "snippet": "l\",515),de(23,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645 2\"),G(),R(24,\"div\",334)(25,\"ngx-select\",1615),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().appService.dynamicPopup5[0].BUILDINGUSECODE2=o})(\"selectionChanges\",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()(),R(26,\"div\",1117)(27,\"label\",515),de(28,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645 3\"),G(),R(29,\"div\",334)(30,\"ngx-select\",1615),Ct(\"ngModelChange\",function(o){return Mt(e),Fe"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2912255,
+      "snippet": "l\",515),de(28,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645 3\"),G(),R(29,\"div\",334)(30,\"ngx-select\",1615),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().appService.dynamicPopup5[0].BUILDINGUSECODE3=o})(\"selectionChanges\",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()(),Ht(31,Tlt,7,2,\"div\",813),R(32,\"div\",1616),Ht(33,Llt,6,1,\"div\",1617),G(),Ht(34,Blt,41,24,\"div\",1618),G(),Ht(35,Olt,2,3,\"div\",1619),G()}if(2&n){var t=Fe();hu(\"z-index\",t.zIndexDraggable5),oe(2),ai"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2912859,
+      "snippet": ",t.appService.dynamicPopup5[0].PLANNO),oe(5),Ee(\"disabled\",\"true\"===t.appService.dynamicPopup5[0].REVIEWED_BLD_CODE&&0==t.isGroup47)(\"items\",t.TBL_LKP_BLDCODE)(\"ngModel\",t.appService.dynamicPopup5[0].BUILDINGUSECODE)(\"allowClear\",!0),oe(5),Ee(\"disabled\",\"true\"===t.appService.dynamicPopup5[0].REVIEWED_BLD_CODE&&0==t.isGroup47)(\"items\",t.TBL_LKP_BLDCODE)(\"ngModel\",t.appService.dynamicPopup5[0].BUILDINGUSECODE2)(\"allowClear\",!0),oe(5),Ee(\"disabled\",\"true\"===t.appService.dynamicPopup5[0].REVIEWED_BL"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2913054,
+      "snippet": "5[0].BUILDINGUSECODE)(\"allowClear\",!0),oe(5),Ee(\"disabled\",\"true\"===t.appService.dynamicPopup5[0].REVIEWED_BLD_CODE&&0==t.isGroup47)(\"items\",t.TBL_LKP_BLDCODE)(\"ngModel\",t.appService.dynamicPopup5[0].BUILDINGUSECODE2)(\"allowClear\",!0),oe(5),Ee(\"disabled\",\"true\"===t.appService.dynamicPopup5[0].REVIEWED_BLD_CODE&&0==t.isGroup47)(\"items\",t.TBL_LKP_BLDCODE)(\"ngModel\",t.appService.dynamicPopup5[0].BUILDINGUSECODE3)(\"allowClear\",!0),oe(1),Ee(\"ngIf\",1==t.flagBuildingUseCode),oe(2),Ee(\"ngForOf\",t.srcFil"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2913250,
+      "snippet": "[0].BUILDINGUSECODE2)(\"allowClear\",!0),oe(5),Ee(\"disabled\",\"true\"===t.appService.dynamicPopup5[0].REVIEWED_BLD_CODE&&0==t.isGroup47)(\"items\",t.TBL_LKP_BLDCODE)(\"ngModel\",t.appService.dynamicPopup5[0].BUILDINGUSECODE3)(\"allowClear\",!0),oe(1),Ee(\"ngIf\",1==t.flagBuildingUseCode),oe(2),Ee(\"ngForOf\",t.srcFilesPdfView),oe(1),Ee(\"ngIf\",0!=t.VIEW_BUILDINGSYSTEM5.length),oe(1),Ee(\"ngIf\",\"\"!=t.appService.dynamicPopupFooter5)}}function Flt(n,r){if(1&n){var e=Tr();R(0,\"div\",1640)(1,\"div\",1117)(2,\"label\",515"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2913985,
+      "snippet": "R(10,\"div\",1117)(11,\"label\",515),de(12,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645\"),G(),R(13,\"div\",334)(14,\"ngx-select\",1641),Ct(\"ngModelChange\",function(s){return Mt(e).$implicit.BUILDINGUSECODE=s}),G()()(),R(15,\"div\",1117)(16,\"label\",515),de(17,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645 2\"),G(),R(18,\"div\",334)(19,\"ngx-select\",1641),Ct(\"ngModelChange\",function(s){return Mt(e).$implicit.BUILDINGUSECODE2=s}),G()()(),R(20,\"div\",1117)(21,\"label\",515),de(22,\"\\"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2914215,
+      "snippet": "15,\"div\",1117)(16,\"label\",515),de(17,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645 2\"),G(),R(18,\"div\",334)(19,\"ngx-select\",1641),Ct(\"ngModelChange\",function(s){return Mt(e).$implicit.BUILDINGUSECODE2=s}),G()()(),R(20,\"div\",1117)(21,\"label\",515),de(22,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645 3\"),G(),R(23,\"div\",334)(24,\"ngx-select\",1641),Ct(\"ngModelChange\",function(s){return Mt(e).$implicit.BUILDINGUSECODE3=s}),G()()(),R(25,\"div\",1117)(26,\"label\",1620),de(27,"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2914446,
+      "snippet": "20,\"div\",1117)(21,\"label\",515),de(22,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645 3\"),G(),R(23,\"div\",334)(24,\"ngx-select\",1641),Ct(\"ngModelChange\",function(s){return Mt(e).$implicit.BUILDINGUSECODE3=s}),G()()(),R(25,\"div\",1117)(26,\"label\",1620),de(27,\"\\u062a\\u0645 \\u0627\\u0644\\u062a\\u062d\\u0642\\u0642 \\u0645\\u0646 \\u0627\\u0644\\u0627\\u0634\\u062a\\u0631\\u0627\\u0637\\u0627\\u062a \\u0646\\u0638\\u0627\\u0645 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621 \\u0644\\u0644\\u0642\\u0637\\u0639\\u0629 \"),G(),"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2915051,
+      "snippet": "_BLD_CODE=s.target.checked}),G(),Nn(31,\"span\",1623),G()()()()}if(2&n){var t=r.$implicit,a=Fe(2);oe(5),_c(\"value\",t.PARCELNO),oe(4),_c(\"value\",t.PLANNO),oe(5),Ee(\"items\",a.TBL_LKP_BLDCODE)(\"ngModel\",t.BUILDINGUSECODE)(\"allowClear\",!1)(\"disabled\",!0),oe(5),Ee(\"items\",a.TBL_LKP_BLDCODE)(\"ngModel\",t.BUILDINGUSECODE2)(\"allowClear\",!1)(\"disabled\",!0),oe(5),Ee(\"items\",a.TBL_LKP_BLDCODE)(\"ngModel\",t.BUILDINGUSECODE3)(\"allowClear\",!1)(\"disabled\",!0),oe(6),Ee(\"checked\",\"true\"===t.REVIEWED_BLD_CODE)}}funct"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2915148,
+      "snippet": "e(5),_c(\"value\",t.PARCELNO),oe(4),_c(\"value\",t.PLANNO),oe(5),Ee(\"items\",a.TBL_LKP_BLDCODE)(\"ngModel\",t.BUILDINGUSECODE)(\"allowClear\",!1)(\"disabled\",!0),oe(5),Ee(\"items\",a.TBL_LKP_BLDCODE)(\"ngModel\",t.BUILDINGUSECODE2)(\"allowClear\",!1)(\"disabled\",!0),oe(5),Ee(\"items\",a.TBL_LKP_BLDCODE)(\"ngModel\",t.BUILDINGUSECODE3)(\"allowClear\",!1)(\"disabled\",!0),oe(6),Ee(\"checked\",\"true\"===t.REVIEWED_BLD_CODE)}}function jlt(n,r){if(1&n){var e=Tr();R(0,\"div\",1632)(1,\"div\",1613),de(2),R(3,\"a\",1366),Ct(\"click\",func"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2915246,
+      "snippet": "l\",t.BUILDINGUSECODE)(\"allowClear\",!1)(\"disabled\",!0),oe(5),Ee(\"items\",a.TBL_LKP_BLDCODE)(\"ngModel\",t.BUILDINGUSECODE2)(\"allowClear\",!1)(\"disabled\",!0),oe(5),Ee(\"items\",a.TBL_LKP_BLDCODE)(\"ngModel\",t.BUILDINGUSECODE3)(\"allowClear\",!1)(\"disabled\",!0),oe(6),Ee(\"checked\",\"true\"===t.REVIEWED_BLD_CODE)}}function jlt(n,r){if(1&n){var e=Tr();R(0,\"div\",1632)(1,\"div\",1613),de(2),R(3,\"a\",1366),Ct(\"click\",function(){return Mt(e),Fe().dynamicPopupClose6()}),Nn(4,\"i\",1367),G()(),R(5,\"div\",1633),Ht(6,Flt,32,1"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2928812,
+      "snippet": "var e=Tr();R(0,\"div\",1117)(1,\"label\",515),de(2,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645\"),G(),R(3,\"div\",334)(4,\"ngx-select\",516),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().BUILDINGUSECODEALL=o})(\"selectionChanges\",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()()}if(2&n){var t=Fe();oe(4),Ee(\"items\",t.TBL_LKP_BLDCODE)(\"ngModel\",t.BUILDINGUSECODEALL)(\"allowClear\",!0)}}function vut(n,r){if(1&n){var e=Tr();R(0,\"div\",1117)(1,\"label\",515),de(2,\"\\u0645\\u0646\\"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2928987,
+      "snippet": "ion(o){return Mt(e),Fe().BUILDINGUSECODEALL=o})(\"selectionChanges\",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()()}if(2&n){var t=Fe();oe(4),Ee(\"items\",t.TBL_LKP_BLDCODE)(\"ngModel\",t.BUILDINGUSECODEALL)(\"allowClear\",!0)}}function vut(n,r){if(1&n){var e=Tr();R(0,\"div\",1117)(1,\"label\",515),de(2,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645 2\"),G(),R(3,\"div\",334)(4,\"ngx-select\",516),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().BUILDINGUSECODE2ALL=o})(\"selection"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2929253,
+      "snippet": "r e=Tr();R(0,\"div\",1117)(1,\"label\",515),de(2,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645 2\"),G(),R(3,\"div\",334)(4,\"ngx-select\",516),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().BUILDINGUSECODE2ALL=o})(\"selectionChanges\",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()()}if(2&n){var t=Fe();oe(4),Ee(\"items\",t.TBL_LKP_BLDCODE)(\"ngModel\",t.BUILDINGUSECODE2ALL)(\"allowClear\",!0)}}function yut(n,r){if(1&n){var e=Tr();R(0,\"div\",1117)(1,\"label\",515),de(2,\"\\u0645\\u064"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2929429,
+      "snippet": "on(o){return Mt(e),Fe().BUILDINGUSECODE2ALL=o})(\"selectionChanges\",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()()}if(2&n){var t=Fe();oe(4),Ee(\"items\",t.TBL_LKP_BLDCODE)(\"ngModel\",t.BUILDINGUSECODE2ALL)(\"allowClear\",!0)}}function yut(n,r){if(1&n){var e=Tr();R(0,\"div\",1117)(1,\"label\",515),de(2,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645 3\"),G(),R(3,\"div\",334)(4,\"ngx-select\",516),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().BUILDINGUSECODE3ALL=o})(\"selectio"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2929696,
+      "snippet": "r e=Tr();R(0,\"div\",1117)(1,\"label\",515),de(2,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645 3\"),G(),R(3,\"div\",334)(4,\"ngx-select\",516),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().BUILDINGUSECODE3ALL=o})(\"selectionChanges\",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()()}if(2&n){var t=Fe();oe(4),Ee(\"items\",t.TBL_LKP_BLDCODE)(\"ngModel\",t.BUILDINGUSECODE3ALL)(\"allowClear\",!0)}}function Sut(n,r){if(1&n){var e=Tr();R(0,\"div\",1117)(1,\"label\",1620),de(2,\"\\u062a\\u06"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2929872,
+      "snippet": "on(o){return Mt(e),Fe().BUILDINGUSECODE3ALL=o})(\"selectionChanges\",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()()}if(2&n){var t=Fe();oe(4),Ee(\"items\",t.TBL_LKP_BLDCODE)(\"ngModel\",t.BUILDINGUSECODE3ALL)(\"allowClear\",!0)}}function Sut(n,r){if(1&n){var e=Tr();R(0,\"div\",1117)(1,\"label\",1620),de(2,\"\\u062a\\u0645 \\u0627\\u0644\\u062a\\u062d\\u0642\\u0642 \\u0645\\u0646 \\u0627\\u0644\\u0627\\u0634\\u062a\\u0631\\u0627\\u0637\\u0627\\u062a \\u0646\\u0638\\u0627\\u0645 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621 "
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3190229,
+      "snippet": "NAME+\"</td></tr>\")+'<tr class=\"d-flex\"><td class=\"col-sm-5 popupHeader\">\\u0646\\u0638\\u0627\\u0645 \\u0634\\u0631\\u0648\\u0637 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621</td><td class=\"col-sm-7 popupValue\">'+ne.BUILDINGUSECODE+\"</td></tr>\")+'<tr class=\"d-flex\"><td class=\"col-sm-5 popupHeader\">\\u0648\\u0635\\u0641 \\u0646\\u0638\\u0627\\u0645 \\u0634\\u0631\\u0648\\u0637 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621</td><td class=\"col-sm-7 popupValue\">'+ne.BUILDINGUSECODE_DESC+\"</td></tr>\")+'<tr class=\"d-flex\"><td class=\"col-"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3190459,
+      "snippet": "'<tr class=\"d-flex\"><td class=\"col-sm-5 popupHeader\">\\u0648\\u0635\\u0641 \\u0646\\u0638\\u0627\\u0645 \\u0634\\u0631\\u0648\\u0637 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621</td><td class=\"col-sm-7 popupValue\">'+ne.BUILDINGUSECODE_DESC+\"</td></tr>\")+'<tr class=\"d-flex\"><td class=\"col-sm-5 popupHeader\">\\u0627\\u0644\\u0645\\u0633\\u0627\\u062d\\u0629</td><td class=\"col-sm-7 popupValue\">'+ne[\"SHAPE.AREA\"]+\"</td></tr>\")+ve+\"</tbody></table>\";L.responsivePopup().setContent(Te),a.appService.dynamicPopup=Te,a.appService.d"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3589351,
+      "snippet": "=0;d<l.length;d++)L.DomEvent.disableClickPropagation(l[d])}),this.readPDF(e)}},{key:\"getSaveBuildingUseCode\",value:function(e,t){var a=this;this.ref.detectChanges(),t=this.appService.dynamicPopup5[0].BUILDINGUSECODE;var o=this.appService.dynamicPopup5[0].BUILDINGUSECODE2,s=this.appService.dynamicPopup5[0].BUILDINGUSECODE3,l=this.appService.dynamicPopup5[0].REVIEWED_BLD_CODE;this.userinfo=this.formdataservice.getUserInfo();var d=(new Ji).set(\"P_PARCELID\",e).set(\"P_BUILDINGUSECODE\",null==t?\"\":t).s"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3589406,
+      "snippet": "d])}),this.readPDF(e)}},{key:\"getSaveBuildingUseCode\",value:function(e,t){var a=this;this.ref.detectChanges(),t=this.appService.dynamicPopup5[0].BUILDINGUSECODE;var o=this.appService.dynamicPopup5[0].BUILDINGUSECODE2,s=this.appService.dynamicPopup5[0].BUILDINGUSECODE3,l=this.appService.dynamicPopup5[0].REVIEWED_BLD_CODE;this.userinfo=this.formdataservice.getUserInfo();var d=(new Ji).set(\"P_PARCELID\",e).set(\"P_BUILDINGUSECODE\",null==t?\"\":t).set(\"P_BUILDINGUSECODE2\",null==o?\"\":o).set(\"P_BUILDINGUS"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3589458,
+      "snippet": "\",value:function(e,t){var a=this;this.ref.detectChanges(),t=this.appService.dynamicPopup5[0].BUILDINGUSECODE;var o=this.appService.dynamicPopup5[0].BUILDINGUSECODE2,s=this.appService.dynamicPopup5[0].BUILDINGUSECODE3,l=this.appService.dynamicPopup5[0].REVIEWED_BLD_CODE;this.userinfo=this.formdataservice.getUserInfo();var d=(new Ji).set(\"P_PARCELID\",e).set(\"P_BUILDINGUSECODE\",null==t?\"\":t).set(\"P_BUILDINGUSECODE2\",null==o?\"\":o).set(\"P_BUILDINGUSECODE3\",null==s?\"\":s).set(\"P_REVIEWED_BLD_CODE\",\"tru"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3589619,
+      "snippet": "DE2,s=this.appService.dynamicPopup5[0].BUILDINGUSECODE3,l=this.appService.dynamicPopup5[0].REVIEWED_BLD_CODE;this.userinfo=this.formdataservice.getUserInfo();var d=(new Ji).set(\"P_PARCELID\",e).set(\"P_BUILDINGUSECODE\",null==t?\"\":t).set(\"P_BUILDINGUSECODE2\",null==o?\"\":o).set(\"P_BUILDINGUSECODE3\",null==s?\"\":s).set(\"P_REVIEWED_BLD_CODE\",\"true\"==l||1==l?\"1\":\"0\").set(\"P_REVIEWED_BLD_USER\",this.userinfo.USERCODE);this.http.get(this.urlAPI+\"getSaveBuildingUseCode\",{params:d}).subscribe(function(p){1==p?"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3589657,
+      "snippet": ".BUILDINGUSECODE3,l=this.appService.dynamicPopup5[0].REVIEWED_BLD_CODE;this.userinfo=this.formdataservice.getUserInfo();var d=(new Ji).set(\"P_PARCELID\",e).set(\"P_BUILDINGUSECODE\",null==t?\"\":t).set(\"P_BUILDINGUSECODE2\",null==o?\"\":o).set(\"P_BUILDINGUSECODE3\",null==s?\"\":s).set(\"P_REVIEWED_BLD_CODE\",\"true\"==l||1==l?\"1\":\"0\").set(\"P_REVIEWED_BLD_USER\",this.userinfo.USERCODE);this.http.get(this.urlAPI+\"getSaveBuildingUseCode\",{params:d}).subscribe(function(p){1==p?(a.toastr.success(\"\\u062a\\u0645 \\u0627"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3589696,
+      "snippet": "amicPopup5[0].REVIEWED_BLD_CODE;this.userinfo=this.formdataservice.getUserInfo();var d=(new Ji).set(\"P_PARCELID\",e).set(\"P_BUILDINGUSECODE\",null==t?\"\":t).set(\"P_BUILDINGUSECODE2\",null==o?\"\":o).set(\"P_BUILDINGUSECODE3\",null==s?\"\":s).set(\"P_REVIEWED_BLD_CODE\",\"true\"==l||1==l?\"1\":\"0\").set(\"P_REVIEWED_BLD_USER\",this.userinfo.USERCODE);this.http.get(this.urlAPI+\"getSaveBuildingUseCode\",{params:d}).subscribe(function(p){1==p?(a.toastr.success(\"\\u062a\\u0645 \\u0627\\u0644\\u062d\\u0641\\u0638 \\u0628\\u0646\\u"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3590323,
+      "snippet": "u0627\\u0621\")})}},{key:\"GetVIEW_BUILDINGSYSTEM\",value:function(e){var a,t=this;this.VIEW_BUILDINGSYSTEM5=[],this.ref.detectChanges();var o=null===(a=e[0])||void 0===a?void 0:a.value,s=(new Ji).set(\"P_BUILDINGUSECODE\",o);this.http.get(this.urlAPI+\"GetVIEW_BUILDINGSYSTEM\",{params:s}).subscribe(function(l){t.VIEW_BUILDINGSYSTEM5=JSON.parse(l.toString()),t.VIEW_BUILDINGSYSTEM6=JSON.parse(l.toString()),t.ref.detectChanges()})}},{key:\"GetVIEW_BUILDINGSYSTEM7\",value:function(e){var a,t=this;this.VIEW_B"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3590733,
+      "snippet": "ectChanges()})}},{key:\"GetVIEW_BUILDINGSYSTEM7\",value:function(e){var a,t=this;this.VIEW_BUILDINGSYSTEM7=[],this.ref.detectChanges();var o=null===(a=e[0])||void 0===a?void 0:a.value,s=(new Ji).set(\"P_BUILDINGUSECODE\",o);this.http.get(this.urlAPI+\"GetVIEW_BUILDINGSYSTEM\",{params:s}).subscribe(function(l){t.VIEW_BUILDINGSYSTEM7=JSON.parse(l.toString()),t.ref.detectChanges()})}},{key:\"ConvertDate\",value:function(e){this.DateHiji=\"\",new Date(e.TRANSFER_DATE),M0e().locale(\"en-SA\"),e.TRANSFER_DATEHIJI"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3592009,
+      "snippet": "Pl().mark(function t(){var a,o;return Pl().wrap(function(d){for(;;)switch(d.prev=d.next){case 0:if(this.srcFiles=[],this.srcFilesPDF=[],this.VIEW_BUILDINGSYSTEM6=[],this.VIEW_BUILDINGSYSTEM10=[],this.BUILDINGUSECODEALL=\"\",this.BUILDINGUSECODE2ALL=\"\",this.BUILDINGUSECODE3ALL=\"\",this.BUILDINGUSECODE3ALL=\"\",this.REVIEWED_BLD_CODEALL=!1,2!=e){d.next=15;break}this.FlagSavePDF=!0,this.ref.detectChanges(),$(\"#SaveModal\").modal(\"toggle\"),d.next=21;break;case 15:return d.next=17,this.pExAll();case 17:(o="
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3592036,
+      "snippet": "a,o;return Pl().wrap(function(d){for(;;)switch(d.prev=d.next){case 0:if(this.srcFiles=[],this.srcFilesPDF=[],this.VIEW_BUILDINGSYSTEM6=[],this.VIEW_BUILDINGSYSTEM10=[],this.BUILDINGUSECODEALL=\"\",this.BUILDINGUSECODE2ALL=\"\",this.BUILDINGUSECODE3ALL=\"\",this.BUILDINGUSECODE3ALL=\"\",this.REVIEWED_BLD_CODEALL=!1,2!=e){d.next=15;break}this.FlagSavePDF=!0,this.ref.detectChanges(),$(\"#SaveModal\").modal(\"toggle\"),d.next=21;break;case 15:return d.next=17,this.pExAll();case 17:(o=(a=d.sent).slice(0,a.length"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3592064,
+      "snippet": "n(d){for(;;)switch(d.prev=d.next){case 0:if(this.srcFiles=[],this.srcFilesPDF=[],this.VIEW_BUILDINGSYSTEM6=[],this.VIEW_BUILDINGSYSTEM10=[],this.BUILDINGUSECODEALL=\"\",this.BUILDINGUSECODE2ALL=\"\",this.BUILDINGUSECODE3ALL=\"\",this.BUILDINGUSECODE3ALL=\"\",this.REVIEWED_BLD_CODEALL=!1,2!=e){d.next=15;break}this.FlagSavePDF=!0,this.ref.detectChanges(),$(\"#SaveModal\").modal(\"toggle\"),d.next=21;break;case 15:return d.next=17,this.pExAll();case 17:(o=(a=d.sent).slice(0,a.length-1)).split(\",\").filter(funct"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3592092,
+      "snippet": "next){case 0:if(this.srcFiles=[],this.srcFilesPDF=[],this.VIEW_BUILDINGSYSTEM6=[],this.VIEW_BUILDINGSYSTEM10=[],this.BUILDINGUSECODEALL=\"\",this.BUILDINGUSECODE2ALL=\"\",this.BUILDINGUSECODE3ALL=\"\",this.BUILDINGUSECODE3ALL=\"\",this.REVIEWED_BLD_CODEALL=!1,2!=e){d.next=15;break}this.FlagSavePDF=!0,this.ref.detectChanges(),$(\"#SaveModal\").modal(\"toggle\"),d.next=21;break;case 15:return d.next=17,this.pExAll();case 17:(o=(a=d.sent).slice(0,a.length-1)).split(\",\").filter(function(p){return p}),0==o.lengt"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3594093,
+      "snippet": "h(l.prev=l.next){case 0:return this.ref.detectChanges(),l.next=3,this.pAll();case 3:a=l.sent,this.userinfo=this.formdataservice.getUserInfo(),o=(new Ji).set(\"P_PARCELID\",a.slice(0,a.length-1)).set(\"P_BUILDINGUSECODE\",null==this.BUILDINGUSECODEALL?\"\":this.BUILDINGUSECODEALL).set(\"P_BUILDINGUSECODE2\",null==this.BUILDINGUSECODE2ALL?\"\":this.BUILDINGUSECODE2ALL).set(\"P_BUILDINGUSECODE3\",null==this.BUILDINGUSECODE3ALL?\"\":this.BUILDINGUSECODE3ALL).set(\"P_REVIEWED_BLD_CODE\",1==this.REVIEWED_BLD_CODEALL?"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3594121,
+      "snippet": "rn this.ref.detectChanges(),l.next=3,this.pAll();case 3:a=l.sent,this.userinfo=this.formdataservice.getUserInfo(),o=(new Ji).set(\"P_PARCELID\",a.slice(0,a.length-1)).set(\"P_BUILDINGUSECODE\",null==this.BUILDINGUSECODEALL?\"\":this.BUILDINGUSECODEALL).set(\"P_BUILDINGUSECODE2\",null==this.BUILDINGUSECODE2ALL?\"\":this.BUILDINGUSECODE2ALL).set(\"P_BUILDINGUSECODE3\",null==this.BUILDINGUSECODE3ALL?\"\":this.BUILDINGUSECODE3ALL).set(\"P_REVIEWED_BLD_CODE\",1==this.REVIEWED_BLD_CODEALL?\"1\":\"0\").set(\"P_REVIEWED_BLD"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3594148,
+      "snippet": ",l.next=3,this.pAll();case 3:a=l.sent,this.userinfo=this.formdataservice.getUserInfo(),o=(new Ji).set(\"P_PARCELID\",a.slice(0,a.length-1)).set(\"P_BUILDINGUSECODE\",null==this.BUILDINGUSECODEALL?\"\":this.BUILDINGUSECODEALL).set(\"P_BUILDINGUSECODE2\",null==this.BUILDINGUSECODE2ALL?\"\":this.BUILDINGUSECODE2ALL).set(\"P_BUILDINGUSECODE3\",null==this.BUILDINGUSECODE3ALL?\"\":this.BUILDINGUSECODE3ALL).set(\"P_REVIEWED_BLD_CODE\",1==this.REVIEWED_BLD_CODEALL?\"1\":\"0\").set(\"P_REVIEWED_BLD_USER\",this.userinfo.USERCO"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3594175,
+      "snippet": "3:a=l.sent,this.userinfo=this.formdataservice.getUserInfo(),o=(new Ji).set(\"P_PARCELID\",a.slice(0,a.length-1)).set(\"P_BUILDINGUSECODE\",null==this.BUILDINGUSECODEALL?\"\":this.BUILDINGUSECODEALL).set(\"P_BUILDINGUSECODE2\",null==this.BUILDINGUSECODE2ALL?\"\":this.BUILDINGUSECODE2ALL).set(\"P_BUILDINGUSECODE3\",null==this.BUILDINGUSECODE3ALL?\"\":this.BUILDINGUSECODE3ALL).set(\"P_REVIEWED_BLD_CODE\",1==this.REVIEWED_BLD_CODEALL?\"1\":\"0\").set(\"P_REVIEWED_BLD_USER\",this.userinfo.USERCODE),this.http.get(this.urlA"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3594204,
+      "snippet": ".formdataservice.getUserInfo(),o=(new Ji).set(\"P_PARCELID\",a.slice(0,a.length-1)).set(\"P_BUILDINGUSECODE\",null==this.BUILDINGUSECODEALL?\"\":this.BUILDINGUSECODEALL).set(\"P_BUILDINGUSECODE2\",null==this.BUILDINGUSECODE2ALL?\"\":this.BUILDINGUSECODE2ALL).set(\"P_BUILDINGUSECODE3\",null==this.BUILDINGUSECODE3ALL?\"\":this.BUILDINGUSECODE3ALL).set(\"P_REVIEWED_BLD_CODE\",1==this.REVIEWED_BLD_CODEALL?\"1\":\"0\").set(\"P_REVIEWED_BLD_USER\",this.userinfo.USERCODE),this.http.get(this.urlAPI+\"getSaveBuildingUseCodes\","
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3594232,
+      "snippet": "(),o=(new Ji).set(\"P_PARCELID\",a.slice(0,a.length-1)).set(\"P_BUILDINGUSECODE\",null==this.BUILDINGUSECODEALL?\"\":this.BUILDINGUSECODEALL).set(\"P_BUILDINGUSECODE2\",null==this.BUILDINGUSECODE2ALL?\"\":this.BUILDINGUSECODE2ALL).set(\"P_BUILDINGUSECODE3\",null==this.BUILDINGUSECODE3ALL?\"\":this.BUILDINGUSECODE3ALL).set(\"P_REVIEWED_BLD_CODE\",1==this.REVIEWED_BLD_CODEALL?\"1\":\"0\").set(\"P_REVIEWED_BLD_USER\",this.userinfo.USERCODE),this.http.get(this.urlAPI+\"getSaveBuildingUseCodes\",{params:o}).subscribe(functi"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3594260,
+      "snippet": "D\",a.slice(0,a.length-1)).set(\"P_BUILDINGUSECODE\",null==this.BUILDINGUSECODEALL?\"\":this.BUILDINGUSECODEALL).set(\"P_BUILDINGUSECODE2\",null==this.BUILDINGUSECODE2ALL?\"\":this.BUILDINGUSECODE2ALL).set(\"P_BUILDINGUSECODE3\",null==this.BUILDINGUSECODE3ALL?\"\":this.BUILDINGUSECODE3ALL).set(\"P_REVIEWED_BLD_CODE\",1==this.REVIEWED_BLD_CODEALL?\"1\":\"0\").set(\"P_REVIEWED_BLD_USER\",this.userinfo.USERCODE),this.http.get(this.urlAPI+\"getSaveBuildingUseCodes\",{params:o}).subscribe(function(d){if(1==d){var p=(new Ji"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3594289,
+      "snippet": "(\"P_BUILDINGUSECODE\",null==this.BUILDINGUSECODEALL?\"\":this.BUILDINGUSECODEALL).set(\"P_BUILDINGUSECODE2\",null==this.BUILDINGUSECODE2ALL?\"\":this.BUILDINGUSECODE2ALL).set(\"P_BUILDINGUSECODE3\",null==this.BUILDINGUSECODE3ALL?\"\":this.BUILDINGUSECODE3ALL).set(\"P_REVIEWED_BLD_CODE\",1==this.REVIEWED_BLD_CODEALL?\"1\":\"0\").set(\"P_REVIEWED_BLD_USER\",this.userinfo.USERCODE),this.http.get(this.urlAPI+\"getSaveBuildingUseCodes\",{params:o}).subscribe(function(d){if(1==d){var p=(new Ji).set(\"P_PARCELID\",a.slice(0,"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3594317,
+      "snippet": "his.BUILDINGUSECODEALL?\"\":this.BUILDINGUSECODEALL).set(\"P_BUILDINGUSECODE2\",null==this.BUILDINGUSECODE2ALL?\"\":this.BUILDINGUSECODE2ALL).set(\"P_BUILDINGUSECODE3\",null==this.BUILDINGUSECODE3ALL?\"\":this.BUILDINGUSECODE3ALL).set(\"P_REVIEWED_BLD_CODE\",1==this.REVIEWED_BLD_CODEALL?\"1\":\"0\").set(\"P_REVIEWED_BLD_USER\",this.userinfo.USERCODE),this.http.get(this.urlAPI+\"getSaveBuildingUseCodes\",{params:o}).subscribe(function(d){if(1==d){var p=(new Ji).set(\"P_PARCELID\",a.slice(0,a.length-1));t.http.get(t.ur"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3596540,
+      "snippet": "\":return p.stop()}},e,this)}))}},{key:\"SaveBuildingUseCodeAll7\",value:function(e){var t=this;this.http.post(this.urlAPI+\"getSaveBuildingUseCodeAll\",{list:[{PLANNINGREQUIREMENTS:e.PLANNINGREQUIREMENTS,BUILDINGUSECODE:e.BUILDINGUSECODE,USES:e.USES,BOUNCES:e.BOUNCES,ALTITUDES:e.ALTITUDES,CONSTRUCTIONFACTOR:e.CONSTRUCTIONFACTOR,CONSTRUCTIONRATIO:e.CONSTRUCTIONRATIO,PARKING:e.PARKING,NOTES:e.NOTES}]}).subscribe(function(a){0!==JSON.parse(a.toString()).COUNT?(t.toastr.success(\"\\u062a\\u0645 \\u0627\\u064"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3596558,
+      "snippet": "},e,this)}))}},{key:\"SaveBuildingUseCodeAll7\",value:function(e){var t=this;this.http.post(this.urlAPI+\"getSaveBuildingUseCodeAll\",{list:[{PLANNINGREQUIREMENTS:e.PLANNINGREQUIREMENTS,BUILDINGUSECODE:e.BUILDINGUSECODE,USES:e.USES,BOUNCES:e.BOUNCES,ALTITUDES:e.ALTITUDES,CONSTRUCTIONFACTOR:e.CONSTRUCTIONFACTOR,CONSTRUCTIONRATIO:e.CONSTRUCTIONRATIO,PARKING:e.PARKING,NOTES:e.NOTES}]}).subscribe(function(a){0!==JSON.parse(a.toString()).COUNT?(t.toastr.success(\"\\u062a\\u0645 \\u0627\\u0644\\u062d\\u0641\\u063"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3637985,
+      "snippet": "0644\\u0628 \");var d=t.rows10.indexOf(e);t.rows10.splice(d,1),t.ref.detectChanges()}})}},{key:\"GetVIEW_BUILDINGSYSTEMShow\",value:function(e,t){var a=this,o=\"\";if(this.VIEW_BUILDINGSYSTEM10=[],1==t?o=e.BUILDINGUSECODE:2==t?o=e.BUILDINGUSECODE2:3==t&&(o=e.BUILDINGUSECODE3),\"\"!=o){var s=(new Ji).set(\"P_BUILDINGUSECODE\",o);this.http.get(this.urlAPI+\"GetVIEW_BUILDINGSYSTEM\",{params:s}).subscribe(function(l){a.VIEW_BUILDINGSYSTEM10=JSON.parse(l.toString()),a.ref.detectChanges(),$(\"#ShowSysCodeModal\").m"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3638010,
+      "snippet": "s10.indexOf(e);t.rows10.splice(d,1),t.ref.detectChanges()}})}},{key:\"GetVIEW_BUILDINGSYSTEMShow\",value:function(e,t){var a=this,o=\"\";if(this.VIEW_BUILDINGSYSTEM10=[],1==t?o=e.BUILDINGUSECODE:2==t?o=e.BUILDINGUSECODE2:3==t&&(o=e.BUILDINGUSECODE3),\"\"!=o){var s=(new Ji).set(\"P_BUILDINGUSECODE\",o);this.http.get(this.urlAPI+\"GetVIEW_BUILDINGSYSTEM\",{params:s}).subscribe(function(l){a.VIEW_BUILDINGSYSTEM10=JSON.parse(l.toString()),a.ref.detectChanges(),$(\"#ShowSysCodeModal\").modal(\"toggle\")})}}},{key:"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3638038,
+      "snippet": "ce(d,1),t.ref.detectChanges()}})}},{key:\"GetVIEW_BUILDINGSYSTEMShow\",value:function(e,t){var a=this,o=\"\";if(this.VIEW_BUILDINGSYSTEM10=[],1==t?o=e.BUILDINGUSECODE:2==t?o=e.BUILDINGUSECODE2:3==t&&(o=e.BUILDINGUSECODE3),\"\"!=o){var s=(new Ji).set(\"P_BUILDINGUSECODE\",o);this.http.get(this.urlAPI+\"GetVIEW_BUILDINGSYSTEM\",{params:s}).subscribe(function(l){a.VIEW_BUILDINGSYSTEM10=JSON.parse(l.toString()),a.ref.detectChanges(),$(\"#ShowSysCodeModal\").modal(\"toggle\")})}}},{key:\"getBuildingUseCodeCitizen\","
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3638085,
+      "snippet": "W_BUILDINGSYSTEMShow\",value:function(e,t){var a=this,o=\"\";if(this.VIEW_BUILDINGSYSTEM10=[],1==t?o=e.BUILDINGUSECODE:2==t?o=e.BUILDINGUSECODE2:3==t&&(o=e.BUILDINGUSECODE3),\"\"!=o){var s=(new Ji).set(\"P_BUILDINGUSECODE\",o);this.http.get(this.urlAPI+\"GetVIEW_BUILDINGSYSTEM\",{params:s}).subscribe(function(l){a.VIEW_BUILDINGSYSTEM10=JSON.parse(l.toString()),a.ref.detectChanges(),$(\"#ShowSysCodeModal\").modal(\"toggle\")})}}},{key:\"getBuildingUseCodeCitizen\",value:function(e){var t=this,a=this.formdataser"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3639047,
+      "snippet": "u0646 \\u0627\\u0644\\u0645\\u0648\\u0627\\u0637\\u0646 \");var l=t.rows11.indexOf(e);t.rows11.splice(l,1),t.ref.detectChanges()}})}},{key:\"getApprovedBuildingUseCode\",value:function(e){var t=this;if(null!=e.BUILDINGUSECODE){var a=this.formdataservice.getUserInfo(),o=(new Ji).set(\"P_REQUEST_NUMBER\",e.REQUEST_NUMBER).set(\"P_REQUEST_YEAR\",e.REQUEST_YEAR).set(\"P_USER_ID_1\",a.USERCODE).set(\"P_MWF_REQUEST_NUMBER\",e.MWF_REQUEST_NUMBER).set(\"P_MWF_REQUEST_YEAR\",e.MWF_REQUEST_YEAR).set(\"P_PARCEL_ID\",e.PARCEL_ID"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3682654,
+      "snippet": "\"\\u064a\\u0648\\u062c\\u062f\"==e[\"\\u0627\\u0634\\u062a\\u0631\\u0637\\u0627\\u062a \\u0646\\u0638\\u0627\\u0645 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621 \\u0644\\u0644\\u0642\\u0637\\u0639\\u0629\"]?t.features[0].properties.BUILDINGUSECODE>=280&&t.features[0].properties.BUILDINGUSECODE<=295?(d+='<div class=\"titles-containerPopup3\" style = \"display: block; text-align: center;background-color: #e8fdf6;\">',d+='<span class=\"titlesPopup\">'.concat(this.translocoService.translate(\"Building_system\"),'</span>\\n                <"
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3682701,
+      "snippet": "2a\\u0631\\u0637\\u0627\\u062a \\u0646\\u0638\\u0627\\u0645 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621 \\u0644\\u0644\\u0642\\u0637\\u0639\\u0629\"]?t.features[0].properties.BUILDINGUSECODE>=280&&t.features[0].properties.BUILDINGUSECODE<=295?(d+='<div class=\"titles-containerPopup3\" style = \"display: block; text-align: center;background-color: #e8fdf6;\">',d+='<span class=\"titlesPopup\">'.concat(this.translocoService.translate(\"Building_system\"),'</span>\\n                <span class=\"sub-titlesPopup bldCondition\" \\n   "
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3957546,
+      "snippet": "                  0 -1px 0px rgb(0 0 0 / 2%)\"],[1,\"stop-propagation\",\"form-group\",\"row\"],[1,\"col-sm-9\",2,\"white-space\",\"pre-line\",\"color\",\"#006946\",3,\"ngModel\",\"ngModelChange\"],[\"type\",\"button\",\"id\",\"BUILDINGUSECODEALL7ID\",\"role\",\"button\",1,\"btn\",\"btn-geoportal\",3,\"disabled\",\"click\"],[\"aria-hidden\",\"true\",1,\"fa\",\"fa-floppy-disk\"],[1,\"divider-text\"],[1,\"bg-light\"],[1,\"items-area\"],[1,\"labelItems\"],[1,\"valueItems\"],[1,\"items\"],[1,\"valueItems\",2,\"color\",\"#d90000\"],[1,\"pl-3\",\"fa-solid\",\"fa-plus\",3,\""
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 4061514,
+      "snippet": ",\"div\")(1554,\"div\",514)(1555,\"label\",515),de(1556,\"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u062a\\u0642\\u0633\\u064a\\u0645\"),G(),R(1557,\"div\",334)(1558,\"ngx-select\",516),Ct(\"ngModelChange\",function(l){return e.BUILDINGUSECODEALL7=l})(\"selectionChanges\",function(l){return e.GetVIEW_BUILDINGSYSTEM7(l)}),G()()(),Ht(1559,gat,45,9,\"div\",517),G()(),R(1560,\"div\",518)(1561,\"h1\",23),de(1562,\" \\u0637\\u0644\\u0628\\u0627\\u062a \\u0646\\u0638\\u0627\\u0645 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621 \"),R(1563,\"span\",24),Nn(1564,\""
+    },
+    {
+      "keyword": "BUILDINGUSECODE",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 4109716,
+      "snippet": "0),oe(5),Ee(\"ngModel\",e.PCHECK)(\"value\",1),oe(9),Ee(\"ngModel\",e.PLAYERICON),oe(3),Ee(\"disabled\",!(\"\"!=e.PLAYERNAME&&\"\"!=e.PURL&&\"\"!=e.PLAYERSGROUPID)),oe(12),Ee(\"items\",e.TBL_LKP_BLDCODE)(\"ngModel\",e.BUILDINGUSECODEALL7)(\"allowClear\",!0),oe(1),Ee(\"ngIf\",0!=e.VIEW_BUILDINGSYSTEM7.length),oe(24),Ee(\"data\",e.rows10)(\"options\",Js(951,zJ,OA(950,jJ))),oe(10),Ee(\"data\",e.rows11)(\"options\",Js(954,zJ,OA(953,jJ))),oe(26),Ee(\"data\",e.rows12)(\"options\",Js(957,zJ,OA(956,jJ))),oe(6),Ee(\"leafletOptions\",e.opti"
+    },
+    {
+      "keyword": "getBuild",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2795244,
+      "snippet": "062a\"),G(),R(72,\"textarea\",1135),Ct(\"ngModelChange\",function(o){return Mt(e).$implicit.GENERAL_NOTE=o}),G()(),R(73,\"div\",1136)(74,\"button\",342),Ct(\"click\",function(){var s=Mt(e).$implicit;return Fe().getBuildingUseCodeCitizen(s)}),de(75,\" \\u0637\\u0644\\u0628 \\u0648\\u062b\\u0627\\u0626\\u0642 \\u0645\\u0646 \\u0627\\u0644\\u0645\\u0648\\u0627\\u0637\\u0646 \"),G(),R(76,\"button\",342),Ct(\"click\",function(){var s=Mt(e).$implicit;return Fe().getBuildingUseCode(s.PARCEL_ID,2)}),de(77,\" \\u0627\\u0636\\u0627\\u0641\\u062"
+    },
+    {
+      "keyword": "getBuild",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2795471,
+      "snippet": ")}),de(75,\" \\u0637\\u0644\\u0628 \\u0648\\u062b\\u0627\\u0626\\u0642 \\u0645\\u0646 \\u0627\\u0644\\u0645\\u0648\\u0627\\u0637\\u0646 \"),G(),R(76,\"button\",342),Ct(\"click\",function(){var s=Mt(e).$implicit;return Fe().getBuildingUseCode(s.PARCEL_ID,2)}),de(77,\" \\u0627\\u0636\\u0627\\u0641\\u0629 \\u0646\\u0638\\u0627\\u0645 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621 \"),G(),R(78,\"button\",342),Ct(\"click\",function(){var s=Mt(e).$implicit;return Fe().getApprovedBuildingUseCode(s)}),de(79,\" \\u0627\\u0639\\u062a\\u0645\\u0627\\u062f \\u06"
+    },
+    {
+      "keyword": "getBuild",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 2978348,
+      "snippet": "getRowClass_MainClassification=function(Dn){return Dn.hasOwnProperty(\"MAIN_CLASSIFICATION_NUMBER\")&&null!=Dn.MAIN_CLASSIFICATION_NUMBER&&2==Dn.MAIN_CLASSIFICATION_NUMBER?{\"highlight-row\":!0}:{}},this.getBuildingUseCodeForIdentify=function(Dn){return fh(Kt,void 0,void 0,Pl().mark(function gr(){var Or;return Pl().wrap(function(vr){for(;;)switch(vr.prev=vr.next){case 0:return Or=new Uo.Query({url:this.urlGeoPortalNew+\"WebMercator/WMParcelsLayerOne/MapServer/2\",proxy:this.appService.urlProxy,useCors"
+    },
+    {
+      "keyword": "getBuild",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3060695,
+      "snippet": "(\"typeattach\").split(\",\");t.onSearchSakInformation({PLANNO:Hn[0],PARCELNO:Hn[1]}),t.ref.detectChanges()}),$(\"#typeattach10\").click(function(){var Hn=$(\"#typeattach10\").attr(\"typeattach\").split(\",\");t.getBuildingUseCode(Hn[0],1),t.ref.detectChanges()}),$(\"#typeattach11\").click(function(){var Hn=$(\"#typeattach11\").attr(\"typeattach\").split(\",\");t.getSaveBuildingUseCode(Hn[0],Hn[1]),t.ref.detectChanges()}),$(\"#typeattach12\").click(function(){var Hn=$(\"#typeattach12\").attr(\"typeattach\").split(\",\");t."
+    },
+    {
+      "keyword": "getBuild",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3535220,
+      "snippet": "(function(){var d=$(\"#planattchdoc\").attr(\"typeattach\").split(\",\");e.PlansAttch(d),e.ref.detectChanges()}),$(\"#typeattach10\").click(function(){var d=$(\"#typeattach10\").attr(\"typeattach\").split(\",\");e.getBuildingUseCode(d[0],1),e.ref.detectChanges()}),$(\"#typeattach11\").click(function(){var d=$(\"#typeattach11\").attr(\"typeattach\").split(\",\");e.getSaveBuildingUseCode(d[0],d[1]),e.ref.detectChanges()}),$(\"#typeattach12\").click(function(){var d=$(\"#typeattach12\").attr(\"typeattach\").split(\",\");e.onSea"
+    },
+    {
+      "keyword": "getBuild",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3588152,
+      "snippet": "ion,temperature:Math.round(a.main.temp).toString(),icon:\"assets/img/\".concat(a.weather[0].icon,\".png\"),wind_speed:a.wind.speed,humidity:a.main.humidity}},function(a){t.weatherDetailsflag=!0})}},{key:\"getBuildingUseCode\",value:function(e,t){var a=this;this.VIEW_BUILDINGSYSTEM5=[],this.appService.dynamicPopup5=[],this.appService.dynamicPopupFooter5=\"\",this.dynamicPopupTitle5=\"\\u0631\\u0645\\u0632 \\u0642\\u0637\\u0639\\u0629 \\u0627\\u0644\\u0623\\u0631\\u0636 : \"+e,this.userinfo=this.formdataservice.getUser"
+    },
+    {
+      "keyword": "getBuild",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3638311,
+      "snippet": "ttp.get(this.urlAPI+\"GetVIEW_BUILDINGSYSTEM\",{params:s}).subscribe(function(l){a.VIEW_BUILDINGSYSTEM10=JSON.parse(l.toString()),a.ref.detectChanges(),$(\"#ShowSysCodeModal\").modal(\"toggle\")})}}},{key:\"getBuildingUseCodeCitizen\",value:function(e){var t=this,a=this.formdataservice.getUserInfo(),o=(new Ji).set(\"P_REQUEST_NUMBER\",e.REQUEST_NUMBER).set(\"P_REQUEST_YEAR\",e.REQUEST_YEAR).set(\"P_USER_ID_1\",a.USERCODE).set(\"P_MWF_REQUEST_NUMBER\",e.MWF_REQUEST_NUMBER).set(\"P_MWF_REQUEST_YEAR\",e.MWF_REQUEST_"
+    },
+    {
+      "keyword": "getBuild",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3653110,
+      "snippet": "ve=\"\",ye=\"\",Te=\"\",We=\"\",ut=\"\",it=\"\",Jt=\"\",rn=\"\",vn=\"\",$t=\"\",En=\"\",Bn=\"\",Sr=b.getBounds().getCenter(),cr=H[\"\\u0631\\u0645\\u0632 \\u0642\\u0637\\u0639\\u0629 \\u0627\\u0644\\u0623\\u0631\\u0636\"],Po.next=28,this.getBuildingUseCodeForIdentify(cr);case 28:vr=Po.sent,Jn=this.generate_popup_header_ParcelDetails(H),Er=this.generate_popup_BLD_CONDITIONS(H,vr,cr),Vr=this.generate_popup_ParcelDetails(H,p),ar='\\n                 <div class=\"accordion card\" style=\"height: max-content !important;border-radius: 7px; ba"
+    },
+    {
+      "keyword": "getDetail",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 980810,
+      "snippet": "o=_l(3),s=Fe(2);Ee(\"groupedRows\",s.groupedRows)(\"innerWidth\",s.innerWidth)(\"ngStyle\",s.getRowsStyles(t))(\"rowDetail\",s.rowDetail)(\"groupHeader\",s.groupHeader)(\"offsetX\",s.offsetX)(\"detailRowHeight\",s.getDetailRowHeight(t&&t[a],a))(\"row\",t)(\"expanded\",s.getRowExpanded(t))(\"rowIndex\",s.getRowIndex(t&&t[a])),oe(1),Ee(\"ngIf\",!s.groupedRows)(\"ngIfElse\",o)}}function gIe(n,r){if(1&n&&Nn(0,\"datatable-summary-row\",16),2&n){var e=Fe(2);Ee(\"ngStyle\",e.getBottomSummaryRowStyles())(\"rowHeight\",e.summaryHeigh"
+    },
+    {
+      "keyword": "getDetail",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 1014935,
+      "snippet": "tailToggle=new Li,this.rowContextmenu=new Li(!1),this.treeAction=new Li,this.rowHeightsCache=new Cke,this.temp=[],this.offsetY=0,this.indexes={},this.rowIndexes=new WeakMap,this.rowExpansions=[],this.getDetailRowHeight=function(a,o){if(!t.rowDetail)return 0;var s=t.rowDetail.rowHeight;return\"function\"==typeof s?s(a,o):s},this.rowTrackingFn=function(a,o){var s=t.getRowIndex(o);return t.trackByProp?o[t.trackByProp]:s}}return(0,m.Z)(r,[{key:\"pageSize\",get:function(){return this._pageSize},set:funct"
+    },
+    {
+      "keyword": "getDetail",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 1018256,
+      "snippet": "for(var o=0;o<t.value.length;o++)a+=this.getRowAndDetailHeight(t.value[o]);return a}},{key:\"getRowAndDetailHeight\",value:function(t){var a=this.getRowHeight(t);return this.getRowExpanded(t)&&(a+=this.getDetailRowHeight(t)),a}},{key:\"getRowsStyles\",value:function(t){var a={};if(this.groupedRows&&(a.width=this.columnGroupWidths.total),this.scrollbarV&&this.virtualization){var o=0;if(this.groupedRows){var s=t[t.length-1];o=s?this.getRowIndex(s):0}else o=this.getRowIndex(t);Yb(a,0,this.rowHeightsCac"
+    },
+    {
+      "keyword": "getDetail",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 1019705,
+      "snippet": "{for(a.s();!(o=a.n()).done;){var s=o.value;this.getRowExpanded(s)&&t.add(s)}}catch(l){a.e(l)}finally{a.f()}this.rowHeightsCache.initCache({rows:this.rows,rowHeight:this.rowHeight,detailRowHeight:this.getDetailRowHeight,externalVirtual:this.scrollbarV&&this.externalPaging,rowCount:this.rowCount,rowIndexes:this.rowIndexes,rowExpansions:t})}}},{key:\"getAdjustedViewPortIndex\",value:function(){var t=this.indexes.first;return this.scrollbarV&&this.virtualization&&this.rowHeightsCache.query(t-1)<=this."
+    },
+    {
+      "keyword": "getDetail",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 1020209,
+      "snippet": "etY?t-1:t}},{key:\"toggleRowExpansion\",value:function(t){var a=this.getAdjustedViewPortIndex(),o=this.getRowExpandedIdx(t,this.rowExpansions),s=o>-1;if(this.scrollbarV&&this.virtualization){var l=this.getDetailRowHeight(t)*(s?-1:1),d=this.getRowIndex(t);this.rowHeightsCache.update(d,l)}s?this.rowExpansions.splice(o,1):this.rowExpansions.push(t),this.detailToggle.emit({rows:[t],currentIndex:a})}},{key:\"toggleAllRows\",value:function(t){this.rowExpansions=[];var a=this.getAdjustedViewPortIndex();if("
+    },
+    {
+      "keyword": "ParcelDetail",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3653193,
+      "snippet": "nds().getCenter(),cr=H[\"\\u0631\\u0645\\u0632 \\u0642\\u0637\\u0639\\u0629 \\u0627\\u0644\\u0623\\u0631\\u0636\"],Po.next=28,this.getBuildingUseCodeForIdentify(cr);case 28:vr=Po.sent,Jn=this.generate_popup_header_ParcelDetails(H),Er=this.generate_popup_BLD_CONDITIONS(H,vr,cr),Vr=this.generate_popup_ParcelDetails(H,p),ar='\\n                 <div class=\"accordion card\" style=\"height: max-content !important;border-radius: 7px; background-color: #fff; margin: 15px 15px 15px 15px;\" >\\n\\n                          "
+    },
+    {
+      "keyword": "ParcelDetail",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3653280,
+      "snippet": "u0631\\u0636\"],Po.next=28,this.getBuildingUseCodeForIdentify(cr);case 28:vr=Po.sent,Jn=this.generate_popup_header_ParcelDetails(H),Er=this.generate_popup_BLD_CONDITIONS(H,vr,cr),Vr=this.generate_popup_ParcelDetails(H,p),ar='\\n                 <div class=\"accordion card\" style=\"height: max-content !important;border-radius: 7px; background-color: #fff; margin: 15px 15px 15px 15px;\" >\\n\\n                                        <div class=\" accordion-header px-0 card-header\" style=\"border-bottom:none"
+    },
+    {
+      "keyword": "ParcelDetail",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3681430,
+      "snippet": "u0645 \\u0627\\u0644\\u0628\\u0644\\u0648\\u0643\"],H)}),$(\"#infoParcel_PLANNO\").on(\"click\",function(H){o.copy(e[\"\\u0631\\u0642\\u0645 \\u0627\\u0644\\u0645\\u062e\\u0637\\u0637\"],H)})}},{key:\"generate_popup_header_ParcelDetails\",value:function(e){var t=\"\\u0627\\u0644\\u0628\\u0644\\u062f\\u064a\\u0627\\u062a \\u0627\\u0644\\u0641\\u0631\\u0639\\u064a\\u0629\",a=\"\\u0627\\u0644\\u062d\\u064a\",s=\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u062d\\u064a\",l=\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0628\\u0644\\u062f\\u064a\\u0629\",d='<div class=\"titles-co"
+    },
+    {
+      "keyword": "ParcelDetail",
+      "bundle": "main.c06e94eb2afc49cb.js",
+      "position": 3685260,
+      "snippet": "645\\u0629 \\u0637\\u0644\\u0628 \\u0646\\u0638\\u0627\\u0645 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621\":\"Login to the building system request service\",\"</a></span>\\n            </div>\")),d}},{key:\"generate_popup_ParcelDetails\",value:function(e,t){var a,o,s=\"\",d=\"\\u0631\\u0642\\u0645 \\u0627\\u0644\\u0642\\u0637\\u0639\\u0629\",b=\"\\u0647\\u0644 \\u062a\\u0645 \\u062a\\u062d\\u0642\\u0642 \\u0645\\u0646 \\u0627\\u0634\\u062a\\u0631\\u0637\\u0627\\u062a \\u0646\\u0638\\u0627\\u0645 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621 \\u0644\\u0644\\u0642\\u"
+    }
+  ]
+}

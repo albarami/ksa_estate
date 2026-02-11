@@ -1,0 +1,325 @@
+{
+  "meta": {
+    "source_url": "https://eservices.alriyadh.gov.sa/Pages/BLS/Common/BuildingCodes.aspx",
+    "captured_at": "2026-02-11T18:21:30.609716+00:00",
+    "total_codes_processed": 3,
+    "codes_with_regulations": 1
+  },
+  "codes": [
+    {
+      "source": "BuildingCodes.aspx",
+      "page_title": "الكود العمراني لمنطقة وادي حنيفة",
+      "pdf_links": [
+        {
+          "href": "https://eservices.alriyadh.gov.sa/_layouts/RM_Pages/FormsDownload/FormsDownload.aspx",
+          "text": "",
+          "context": "",
+          "downloaded": true,
+          "filename": "FormsDownload.aspx",
+          "size_bytes": 134266
+        },
+        {
+          "href": "https://eservices.alriyadh.gov.sa/_layouts/RM_Pages/FormsDownload/FormsDownload.aspx",
+          "text": "النماذج الإلكترونية",
+          "context": "النماذج الإلكترونية",
+          "downloaded": true,
+          "filename": "FormsDownload.aspx",
+          "size_bytes": 134265
+        },
+        {
+          "href": "https://eservices.alriyadh.gov.sa/Documents/BuildingCodes/T2.1%20v2.2.pdf",
+          "text": "",
+          "context": "",
+          "downloaded": true,
+          "filename": "T2.1%20v2.2.pdf",
+          "size_bytes": 14329575
+        },
+        {
+          "href": "https://eservices.alriyadh.gov.sa/Documents/BuildingCodes/T2.2%20v2.2.pdf",
+          "text": "",
+          "context": "",
+          "downloaded": true,
+          "filename": "T2.2%20v2.2.pdf",
+          "size_bytes": 14182017
+        },
+        {
+          "href": "https://eservices.alriyadh.gov.sa/Documents/BuildingCodes/T3.1%20v2.2.pdf",
+          "text": "",
+          "context": "",
+          "downloaded": false
+        },
+        {
+          "href": "https://eservices.alriyadh.gov.sa/Documents/BuildingCodes/T3.2%20v2.2.pdf",
+          "text": "",
+          "context": "",
+          "downloaded": true,
+          "filename": "T3.2%20v2.2.pdf",
+          "size_bytes": 30979969
+        },
+        {
+          "href": "https://eservices.alriyadh.gov.sa/Documents/BuildingCodes/T4.1%20v1.0.pdf",
+          "text": "",
+          "context": "",
+          "downloaded": true,
+          "filename": "T4.1%20v1.0.pdf",
+          "size_bytes": 23950936
+        },
+        {
+          "href": "https://eservices.alriyadh.gov.sa/Documents/BuildingCodes/T4.2%20v1.0.pdf",
+          "text": "",
+          "context": "",
+          "downloaded": true,
+          "filename": "T4.2%20v1.0.pdf",
+          "size_bytes": 12100557
+        },
+        {
+          "href": "https://eservices.alriyadh.gov.sa/Documents/BuildingCodes/T5.2%20v2.0.pdf",
+          "text": "",
+          "context": "",
+          "downloaded": true,
+          "filename": "T5.2%20v2.0.pdf",
+          "size_bytes": 30254098
+        }
+      ],
+      "regulation_data": [
+        {
+          "type": "label_value_pairs",
+          "data": {
+            "التسجيل في البوابة\n\nتسجيل الدخول\n\nبريد الموظفين\n\nغائم\n25°C\n\nتطبيقات الجوال\n\nالاسئلة الشائعة": "عن الأمانة\nالمشاركة الإلكترونية\nالإعلام والإتصال\nالبيانات المفتوحة\nالخدمات الإلكترونية",
+            "التسجيل في البوابة\n\nتسجيل الدخول\n\nبريد الموظفين\n\nغائم\n25°C": "تطبيقات الجوال\n\nالاسئلة الشائعة",
+            "التسجيل في البوابة": "تسجيل الدخول",
+            "غائم": "25°C",
+            "تطبيقات الجوال": "الاسئلة الشائعة",
+            "الإعلام والإتصال": "الأخبار\n                                مكتبة الصور\n                                مكتبة الفيديو\n                                \n                                    فعاليات وإعلانات الأمانة\n                                \n                                أضف فكرة\n                                \n                                    تواصل مع القطاع الخاص\n                                \n                                الجوائز",
+            "البيانات المفتوحة": "البيانات المفتوحة\n                                \n                                    البيانات الحكومية المفتوحة\n                                \n                                مجموعات البيانات\n                                البوابة الجيومكانية\n                                طلب إضافة مفوض\n                                \n                                    قصص نجاح البيانات المفتوحة",
+            "الخدمات الالكترونية": "الخدمات البلدية\n                                \n                                الخدمات الحكومية\n                                \n                                \n                                    النماذج الإلكترونية",
+            "{1}": "موافق",
+            "موافق": "غير موافق",
+            "غير موافق": "إغلاق",
+            "*": "تعني تعبئة الحقل الزامي",
+            "نظرة عامة": "من نحن\nحول البوابة الإلكترونية\nنبذة عن البوابة\nأضف فكرة\nالخصوصية وسرية المعلومات\nشروط الإستخدام\nالأخبار\nإتفاقية مستوى الخدمة\nإحصاءات أداء المنصة والخدمات\nسياسة الاستخدام الآمن للتطبيقات",
+            "الدعم والمساندة\nرفع شكوى\nالتبليغ عن فساد\nمركز الدعم الموحد\nالدعم الفني بلغة الإشارة\nسياسة حق الحصول": "روابط مهمة\nمنصة الخدمة الوطنية\nمنصة البيانات المفتوحة\nمنصة الاستشارات القانونية\nمنصة المشاركة المجتمعية\nالهيئة الملكية\nدليل وفعاليات الرياض\nالتوظيف\nالمستشار العقاري",
+            "الدعم والمساندة": "رفع شكوى\nالتبليغ عن فساد\nمركز الدعم الموحد\nالدعم الفني بلغة الإشارة\nسياسة حق الحصول",
+            "روابط مهمة": "منصة الخدمة الوطنية\nمنصة البيانات المفتوحة\nمنصة الاستشارات القانونية\nمنصة المشاركة المجتمعية\nالهيئة الملكية\nدليل وفعاليات الرياض\nالتوظيف\nالمستشار العقاري"
+          }
+        },
+        {
+          "type": "table",
+          "index": 0,
+          "id": "",
+          "headers": [
+            ""
+          ],
+          "rows": [
+            [
+              ""
+            ]
+          ]
+        }
+      ],
+      "visible_text": "التسجيل في البوابة\n\nتسجيل الدخول\n\nبريد الموظفين\n\nغائم\n25°C\n\nتطبيقات الجوال\n\nالاسئلة الشائعة\n\nعن الأمانة\nالمشاركة الإلكترونية\nالإعلام والإتصال\nالبيانات المفتوحة\nالخدمات الإلكترونية\nالكود العمراني لمنطقة وادي حنيفة\nT2.1 v2.2\n\nT2.2 v2.2\n\nT3.1 v2.2\n\nT3.2 v2.2\n\nT4.1 v1.0\n\nT4.2 v1.0\n\nT5.2 v2.0\nنظرة عامة\nمن نحن\nحول البوابة الإلكترونية\nنبذة عن البوابة\nأضف فكرة\nالخصوصية وسرية المعلومات\nشروط الإستخدام\nالأخبار\nإتفاقية مستوى الخدمة\nإحصاءات أداء المنصة والخدمات\nسياسة الاستخدام الآمن للتطبيقات\nالدعم والمساندة\nرفع شكوى\nالتبليغ عن فساد\nمركز الدعم الموحد\nالدعم الفني بلغة الإشارة\nسياسة حق الحصول\nروابط مهمة\nمنصة الخدمة الوطنية\nمنصة البيانات المفتوحة\nمنصة الاستشارات القانونية\nمنصة المشاركة المجتمعية\nالهيئة الملكية\nدليل وفعاليات الرياض\nالتوظيف\nالمستشار العقاري\n\nجميع الحقوق محفوظة لأمانة منطقة الرياض © 2025\n\nخريطة الموقع\nموقع حكومي رسمي تابع لحكومة المملكة العربية السعودية\nكيف تتحقق "
+    },
+    {
+      "source": "trc_guide",
+      "category_text": "ENGLISH",
+      "category_url": "https://trc.alriyadh.gov.sa/eindex.html",
+      "found_arabic_fields": {},
+      "regulation_data": [
+        {
+          "type": "label_value_pairs",
+          "data": {
+            "Building Permits Requirements Guide": "العربية",
+            "Service Centers Requirements (Fuel Stations)": "Private Schools Requirements",
+            "Private Schools Requirements": "Requirements For Adding Kiosks And ATMs Within Existing Buildings And Vacant Lands",
+            "Requirements For Adding Kiosks And ATMs Within Existing Buildings And Vacant Lands": "Communications Equipment And Supplies Sales Halls (Mobile Phone Kiosks) Requirements",
+            "Communications Equipment And Supplies Sales Halls (Mobile Phone Kiosks) Requirements": "Residential Tower Buildings Requirements",
+            "Residential Tower Buildings Requirements": "Collective Housing For Individuals Requirements",
+            "Collective Housing For Individuals Requirements": "Furnished Apartment Buildings Requirements",
+            "Furnished Apartment Buildings Requirements": "Hotel Buildings Requirements On A Land Area Greater Than 10,000 M2",
+            "Hotel Buildings Requirements On A Land Area Greater Than 10,000 M2": "Hotel Buildings On Commercial Streets Requirements",
+            "Hotel Buildings On Commercial Streets Requirements": "Recreational Buildings Requirements",
+            "Recreational Buildings Requirements": "Sports Buildings Requirements",
+            "Sports Buildings Requirements": "Professional Buildings Requirements",
+            "Professional Buildings Requirements": "Transport And Vehicle Service Centers Requirements",
+            "Transport And Vehicle Service Centers Requirements": "Closed Residential Complexes (Compounds) Requirements",
+            "Closed Residential Complexes (Compounds) Requirements": "Requirements For Developed Hospital Systems On Streets Of Width Of 40m Or More",
+            "Requirements For Developed Hospital Systems On Streets Of Width Of 40m Or More": "Health And Social Services Buildings Requirements",
+            "Health And Social Services Buildings Requirements": "Requirements For Rest Houses And Parks Within The Approved Plans",
+            "Requirements For Rest Houses And Parks Within The Approved Plans": "Requirements For Wedding Palaces And Rest Houses On Commercial Streets",
+            "Requirements For Wedding Palaces And Rest Houses On Commercial Streets": "Plant Nursery Buildings Requirements",
+            "Plant Nursery Buildings Requirements": "Water Fountains Requirements",
+            "Water Fountains Requirements": "Block Factories Buildings Requirements",
+            "Block Factories Buildings Requirements": "Restaurants And Kitchens Requirements",
+            "Restaurants And Kitchens Requirements": "Commercial Centers (Malls-Markets) Requirements",
+            "Commercial Centers (Malls-Markets) Requirements": "Commercial/Residential/Office Buildings Requirements",
+            "Commercial/Residential/Office Buildings Requirements": "Requirements For The Lands That Fall Within The Building Code Of Wadi Hanafia And Its Tributaries",
+            "Requirements For The Lands That Fall Within The Building Code Of Wadi Hanafia And Its Tributaries": "Light Workshops Requirements",
+            "Light Workshops Requirements": "Workshops And Warehouses Requirements",
+            "Workshops And Warehouses Requirements": "Requirements For LPG Cylinders Shops",
+            "Requirements For LPG Cylinders Shops": "Building Materials Shops",
+            "Building Materials Shops": "Construction Equipment Sale And Rent Shops Requirements",
+            "Construction Equipment Sale And Rent Shops Requirements": "Requirements For Class (A) Café Buildings",
+            "Requirements For Class (A) Café Buildings": "Requirements For Class (B) Cafe Buildings",
+            "Requirements For Class (B) Cafe Buildings": "Residential Villas Buildings Requirements",
+            "Residential Villas Buildings Requirements": "Commercial Residential Buildings Requirements"
+          }
+        },
+        {
+          "type": "panel",
+          "text": "Service Centers Requirements (Fuel Stations)"
+        },
+        {
+          "type": "panel",
+          "text": "Private Schools Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Requirements For Adding Kiosks And ATMs Within Existing Buildings And Vacant Lands"
+        },
+        {
+          "type": "panel",
+          "text": "Communications Equipment And Supplies Sales Halls (Mobile Phone Kiosks) Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Residential Tower Buildings Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Collective Housing For Individuals Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Furnished Apartment Buildings Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Hotel Buildings Requirements On A Land Area Greater Than 10,000 M2"
+        },
+        {
+          "type": "panel",
+          "text": "Hotel Buildings On Commercial Streets Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Recreational Buildings Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Sports Buildings Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Professional Buildings Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Transport And Vehicle Service Centers Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Closed Residential Complexes (Compounds) Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Requirements For Developed Hospital Systems On Streets Of Width Of 40m Or More"
+        },
+        {
+          "type": "panel",
+          "text": "Health And Social Services Buildings Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Requirements For Rest Houses And Parks Within The Approved Plans"
+        },
+        {
+          "type": "panel",
+          "text": "Requirements For Wedding Palaces And Rest Houses On Commercial Streets"
+        },
+        {
+          "type": "panel",
+          "text": "Plant Nursery Buildings Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Water Fountains Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Block Factories Buildings Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Restaurants And Kitchens Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Commercial Centers (Malls-Markets) Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Commercial/Residential/Office Buildings Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Requirements For The Lands That Fall Within The Building Code Of Wadi Hanafia And Its Tributaries"
+        },
+        {
+          "type": "panel",
+          "text": "Light Workshops Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Workshops And Warehouses Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Requirements For LPG Cylinders Shops"
+        },
+        {
+          "type": "panel",
+          "text": "Building Materials Shops"
+        },
+        {
+          "type": "panel",
+          "text": "Construction Equipment Sale And Rent Shops Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Requirements For Class (A) Café Buildings"
+        },
+        {
+          "type": "panel",
+          "text": "Requirements For Class (B) Cafe Buildings"
+        },
+        {
+          "type": "panel",
+          "text": "Residential Villas Buildings Requirements"
+        },
+        {
+          "type": "panel",
+          "text": "Commercial Residential Buildings Requirements"
+        }
+      ],
+      "visible_text_snippet": "Building Permits Requirements Guide\nالعربية \nGuide Search\nService Centers Requirements (Fuel Stations)\nPrivate Schools Requirements\nRequirements For Adding Kiosks And ATMs Within Existing Buildings And Vacant Lands\nCommunications Equipment And Supplies Sales Halls (Mobile Phone Kiosks) Requirements\nResidential Tower Buildings Requirements\nCollective Housing For Individuals Requirements\nFurnished Apartment Buildings Requirements\nHotel Buildings Requirements On A Land Area Greater Than 10,000 M2\nHotel Buildings On Commercial Streets Requirements\nRecreational Buildings Requirements\nSports Buildings Requirements\nProfessional Buildings Requirements\nTransport And Vehicle Service Centers Requirements\nClosed Residential Complexes (Compounds) Requirements\nRequirements For Developed Hospital Systems On Streets Of Width Of 40m Or More\nHealth And Social Services Buildings Requirements\nRequirements For Rest Houses And Parks Within The Approved Plans\nRequirements For Wedding Palaces And Rest Houses On Commercial Streets\nPlant Nursery Buildings Requirements\nWater Fountains Requirements\nBlock Factories Buildings Requirements\nRestaurants And Kitchens Requirements\nCommercial Centers (Malls-Markets) Requirements\nCommercial/Residential/Office Buildings Requirements\nRequirements For The Lands That Fall Within The Building Code Of Wadi Hanafia And Its Tributaries\nLight Workshops Requirements\nWorkshops And Warehouses Requirements\nRequirements For LPG Cylinders Shops\nBuilding Materials Shops\nConstruction Equipment Sale And Rent Shops Requirements\nRequirements For Class (A) Café Buildings\nRequirements For Class (B) Cafe Buildings\nResidential Villas Buildings Requirements\nCommercial Residential Buildings Requirements\nCopyright © 2022 Riyadh Municipality. All Rights Reserved\n \n "
+    },
+    {
+      "source": "trc_guide",
+      "category_text": "الالتزام بدليل تسوير مواقع الأعمال الانشائية",
+      "category_url": "https://trc.alriyadh.gov.sa/private-guide.html",
+      "found_arabic_fields": {
+        "مواقف السيارات": "حسب نوع المشروع"
+      },
+      "regulation_data": [
+        {
+          "type": "label_value_pairs",
+          "data": {
+            "الدليل الإرشادي لإشتراطات رخص البناء": "ENGLISH",
+            "الأدلة الخاصة بإدارة رخص البناء": "دليل تسوير مواقع الأعمال الإنشائية\nدليل حساب مواقف السيارات حسب نوع المشروع\nدليل الإشتراطات الفنية للتراخيص لإقامة الفلل السكنية\nدليل الإشتراطات الفنية للتراخيص لإقامة للعمائر السكنية والتجارية"
+          }
+        }
+      ],
+      "visible_text_snippet": "الدليل الإرشادي لإشتراطات رخص البناء\nENGLISH \nالأدلة الخاصة بإدارة رخص البناء\nدليل تسوير مواقع الأعمال الإنشائية\nدليل حساب مواقف السيارات حسب نوع المشروع\nدليل الإشتراطات الفنية للتراخيص لإقامة الفلل السكنية\nدليل الإشتراطات الفنية للتراخيص لإقامة للعمائر السكنية والتجارية\nجميع الحقوق محفوظة لامانة منطقة الرياض © 2022\n \n "
+    }
+  ]
+}

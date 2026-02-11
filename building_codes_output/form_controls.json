@@ -1,0 +1,44 @@
+{
+  "selects": [],
+  "inputs": [
+    {
+      "id": "txtSearch",
+      "name": "",
+      "placeholder": "الرجاء كتابة كلمات البحث هنا",
+      "value": "",
+      "className": "form-control"
+    }
+  ],
+  "buttons": [
+    {
+      "id": "burgerMenuBtn",
+      "name": "",
+      "text": "",
+      "type": "submit",
+      "className": "burger-menu-button-wrapper"
+    },
+    {
+      "id": "btnSearch",
+      "name": "",
+      "text": "",
+      "type": "button",
+      "className": ""
+    },
+    {
+      "id": "",
+      "name": "",
+      "text": "",
+      "type": "A",
+      "className": "btn btn--primary"
+    }
+  ],
+  "tables": [
+    {
+      "index": 0,
+      "id": "",
+      "className": "JTip",
+      "headers": [],
+      "rowCount": 1
+    }
+  ]
+}

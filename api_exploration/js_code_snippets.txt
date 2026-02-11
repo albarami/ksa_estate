@@ -1,0 +1,438 @@
+
+============================================================
+Keyword: FLGBLDCODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3917698
+============================================================
+],[1,"fas","fa-plus"],["id","BuildingUseCode",1,"leaflet-sidebar-pane"],[1,"form-group","p-3","row"],[1,"col-sm-3","col-form-label",2,"font-weight","bold"],["optionValueField","ID","optionTextField","FLGBLDCODE",3,"items","ngModel","allowClear","ngModelChange","selectionChanges"],["class","card-body","style","\n                  box-shadow: 0 2px 4px rgb(0 0 0 / 20%),\n                    0 -1px 0px rgb(0 0 0 / 2%);\n                ",4,"ngIf"],["id","building",1,"leaflet-sidebar-pane"],["id","n
+
+============================================================
+Keyword: FLGBLDCODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3994629
+============================================================
+rflow","hidden"],[1,"card-header","mycard-header","d-flex","flex-row","align-items-center","justify-content-between"],[1,"card-body",2,"overflow-y","auto"],["optionValueField","ID","optionTextField","FLGBLDCODE",3,"disabled","items","ngModel","allowClear","ngModelChange","selectionChanges"],[1,"stop-propagation","row"],["class","stop-propagation col-sm-4 mt-2",4,"ngFor","ngForOf"],["class","card-body","style","border-radius: 15px",4,"ngIf"],["class","stop-propagation card-footer mycard-footer m-
+
+============================================================
+Keyword: FLGBLDCODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3997301
+============================================================
+df","fa-lg",3,"click"],[2,"box-shadow","0 2px 4px rgb(0 0 0 / 20%),\n                  0 -1px 0px rgb(0 0 0 / 2%)","padding","20px","margin-bottom","10px"],["optionValueField","ID","optionTextField","FLGBLDCODE",3,"items","ngModel","allowClear","disabled","ngModelChange"],["id","my-checkbox-id","type","checkbox","disabled","",3,"checked","change"],["id","draggable60",1,"stop-propagation","card","shadow-lg","draggable",2,"width","435px","height","max-content","overflow","hidden"],["type","button"
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2911594
+============================================================
+bel",515),de(18,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645"),G(),R(19,"div",334)(20,"ngx-select",1615),Ct("ngModelChange",function(o){return Mt(e),Fe().appService.dynamicPopup5[0].BUILDINGUSECODE=o})("selectionChanges",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()(),R(21,"div",1117)(22,"label",515),de(23,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645 2"),G(),R(24,"div",334)(25,"ngx-select",1615),Ct("ngModelChange",function(o){return Mt(e),Fe(
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2911924
+============================================================
+l",515),de(23,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645 2"),G(),R(24,"div",334)(25,"ngx-select",1615),Ct("ngModelChange",function(o){return Mt(e),Fe().appService.dynamicPopup5[0].BUILDINGUSECODE2=o})("selectionChanges",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()(),R(26,"div",1117)(27,"label",515),de(28,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645 3"),G(),R(29,"div",334)(30,"ngx-select",1615),Ct("ngModelChange",function(o){return Mt(e),Fe
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2912255
+============================================================
+l",515),de(28,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645 3"),G(),R(29,"div",334)(30,"ngx-select",1615),Ct("ngModelChange",function(o){return Mt(e),Fe().appService.dynamicPopup5[0].BUILDINGUSECODE3=o})("selectionChanges",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()(),Ht(31,Tlt,7,2,"div",813),R(32,"div",1616),Ht(33,Llt,6,1,"div",1617),G(),Ht(34,Blt,41,24,"div",1618),G(),Ht(35,Olt,2,3,"div",1619),G()}if(2&n){var t=Fe();hu("z-index",t.zIndexDraggable5),oe(2),ai
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2912859
+============================================================
+,t.appService.dynamicPopup5[0].PLANNO),oe(5),Ee("disabled","true"===t.appService.dynamicPopup5[0].REVIEWED_BLD_CODE&&0==t.isGroup47)("items",t.TBL_LKP_BLDCODE)("ngModel",t.appService.dynamicPopup5[0].BUILDINGUSECODE)("allowClear",!0),oe(5),Ee("disabled","true"===t.appService.dynamicPopup5[0].REVIEWED_BLD_CODE&&0==t.isGroup47)("items",t.TBL_LKP_BLDCODE)("ngModel",t.appService.dynamicPopup5[0].BUILDINGUSECODE2)("allowClear",!0),oe(5),Ee("disabled","true"===t.appService.dynamicPopup5[0].REVIEWED_BL
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2913054
+============================================================
+5[0].BUILDINGUSECODE)("allowClear",!0),oe(5),Ee("disabled","true"===t.appService.dynamicPopup5[0].REVIEWED_BLD_CODE&&0==t.isGroup47)("items",t.TBL_LKP_BLDCODE)("ngModel",t.appService.dynamicPopup5[0].BUILDINGUSECODE2)("allowClear",!0),oe(5),Ee("disabled","true"===t.appService.dynamicPopup5[0].REVIEWED_BLD_CODE&&0==t.isGroup47)("items",t.TBL_LKP_BLDCODE)("ngModel",t.appService.dynamicPopup5[0].BUILDINGUSECODE3)("allowClear",!0),oe(1),Ee("ngIf",1==t.flagBuildingUseCode),oe(2),Ee("ngForOf",t.srcFil
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2913250
+============================================================
+[0].BUILDINGUSECODE2)("allowClear",!0),oe(5),Ee("disabled","true"===t.appService.dynamicPopup5[0].REVIEWED_BLD_CODE&&0==t.isGroup47)("items",t.TBL_LKP_BLDCODE)("ngModel",t.appService.dynamicPopup5[0].BUILDINGUSECODE3)("allowClear",!0),oe(1),Ee("ngIf",1==t.flagBuildingUseCode),oe(2),Ee("ngForOf",t.srcFilesPdfView),oe(1),Ee("ngIf",0!=t.VIEW_BUILDINGSYSTEM5.length),oe(1),Ee("ngIf",""!=t.appService.dynamicPopupFooter5)}}function Flt(n,r){if(1&n){var e=Tr();R(0,"div",1640)(1,"div",1117)(2,"label",515
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2913985
+============================================================
+R(10,"div",1117)(11,"label",515),de(12,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645"),G(),R(13,"div",334)(14,"ngx-select",1641),Ct("ngModelChange",function(s){return Mt(e).$implicit.BUILDINGUSECODE=s}),G()()(),R(15,"div",1117)(16,"label",515),de(17,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645 2"),G(),R(18,"div",334)(19,"ngx-select",1641),Ct("ngModelChange",function(s){return Mt(e).$implicit.BUILDINGUSECODE2=s}),G()()(),R(20,"div",1117)(21,"label",515),de(22,"\
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2914215
+============================================================
+15,"div",1117)(16,"label",515),de(17,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645 2"),G(),R(18,"div",334)(19,"ngx-select",1641),Ct("ngModelChange",function(s){return Mt(e).$implicit.BUILDINGUSECODE2=s}),G()()(),R(20,"div",1117)(21,"label",515),de(22,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645 3"),G(),R(23,"div",334)(24,"ngx-select",1641),Ct("ngModelChange",function(s){return Mt(e).$implicit.BUILDINGUSECODE3=s}),G()()(),R(25,"div",1117)(26,"label",1620),de(27,
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2914446
+============================================================
+20,"div",1117)(21,"label",515),de(22,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645 3"),G(),R(23,"div",334)(24,"ngx-select",1641),Ct("ngModelChange",function(s){return Mt(e).$implicit.BUILDINGUSECODE3=s}),G()()(),R(25,"div",1117)(26,"label",1620),de(27,"\u062a\u0645 \u0627\u0644\u062a\u062d\u0642\u0642 \u0645\u0646 \u0627\u0644\u0627\u0634\u062a\u0631\u0627\u0637\u0627\u062a \u0646\u0638\u0627\u0645 \u0627\u0644\u0628\u0646\u0627\u0621 \u0644\u0644\u0642\u0637\u0639\u0629 "),G(),
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2915051
+============================================================
+_BLD_CODE=s.target.checked}),G(),Nn(31,"span",1623),G()()()()}if(2&n){var t=r.$implicit,a=Fe(2);oe(5),_c("value",t.PARCELNO),oe(4),_c("value",t.PLANNO),oe(5),Ee("items",a.TBL_LKP_BLDCODE)("ngModel",t.BUILDINGUSECODE)("allowClear",!1)("disabled",!0),oe(5),Ee("items",a.TBL_LKP_BLDCODE)("ngModel",t.BUILDINGUSECODE2)("allowClear",!1)("disabled",!0),oe(5),Ee("items",a.TBL_LKP_BLDCODE)("ngModel",t.BUILDINGUSECODE3)("allowClear",!1)("disabled",!0),oe(6),Ee("checked","true"===t.REVIEWED_BLD_CODE)}}funct
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2915148
+============================================================
+e(5),_c("value",t.PARCELNO),oe(4),_c("value",t.PLANNO),oe(5),Ee("items",a.TBL_LKP_BLDCODE)("ngModel",t.BUILDINGUSECODE)("allowClear",!1)("disabled",!0),oe(5),Ee("items",a.TBL_LKP_BLDCODE)("ngModel",t.BUILDINGUSECODE2)("allowClear",!1)("disabled",!0),oe(5),Ee("items",a.TBL_LKP_BLDCODE)("ngModel",t.BUILDINGUSECODE3)("allowClear",!1)("disabled",!0),oe(6),Ee("checked","true"===t.REVIEWED_BLD_CODE)}}function jlt(n,r){if(1&n){var e=Tr();R(0,"div",1632)(1,"div",1613),de(2),R(3,"a",1366),Ct("click",func
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2915246
+============================================================
+l",t.BUILDINGUSECODE)("allowClear",!1)("disabled",!0),oe(5),Ee("items",a.TBL_LKP_BLDCODE)("ngModel",t.BUILDINGUSECODE2)("allowClear",!1)("disabled",!0),oe(5),Ee("items",a.TBL_LKP_BLDCODE)("ngModel",t.BUILDINGUSECODE3)("allowClear",!1)("disabled",!0),oe(6),Ee("checked","true"===t.REVIEWED_BLD_CODE)}}function jlt(n,r){if(1&n){var e=Tr();R(0,"div",1632)(1,"div",1613),de(2),R(3,"a",1366),Ct("click",function(){return Mt(e),Fe().dynamicPopupClose6()}),Nn(4,"i",1367),G()(),R(5,"div",1633),Ht(6,Flt,32,1
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2928812
+============================================================
+var e=Tr();R(0,"div",1117)(1,"label",515),de(2,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645"),G(),R(3,"div",334)(4,"ngx-select",516),Ct("ngModelChange",function(o){return Mt(e),Fe().BUILDINGUSECODEALL=o})("selectionChanges",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()()}if(2&n){var t=Fe();oe(4),Ee("items",t.TBL_LKP_BLDCODE)("ngModel",t.BUILDINGUSECODEALL)("allowClear",!0)}}function vut(n,r){if(1&n){var e=Tr();R(0,"div",1117)(1,"label",515),de(2,"\u0645\u0646\
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2928987
+============================================================
+ion(o){return Mt(e),Fe().BUILDINGUSECODEALL=o})("selectionChanges",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()()}if(2&n){var t=Fe();oe(4),Ee("items",t.TBL_LKP_BLDCODE)("ngModel",t.BUILDINGUSECODEALL)("allowClear",!0)}}function vut(n,r){if(1&n){var e=Tr();R(0,"div",1117)(1,"label",515),de(2,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645 2"),G(),R(3,"div",334)(4,"ngx-select",516),Ct("ngModelChange",function(o){return Mt(e),Fe().BUILDINGUSECODE2ALL=o})("selection
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2929253
+============================================================
+r e=Tr();R(0,"div",1117)(1,"label",515),de(2,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645 2"),G(),R(3,"div",334)(4,"ngx-select",516),Ct("ngModelChange",function(o){return Mt(e),Fe().BUILDINGUSECODE2ALL=o})("selectionChanges",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()()}if(2&n){var t=Fe();oe(4),Ee("items",t.TBL_LKP_BLDCODE)("ngModel",t.BUILDINGUSECODE2ALL)("allowClear",!0)}}function yut(n,r){if(1&n){var e=Tr();R(0,"div",1117)(1,"label",515),de(2,"\u0645\u064
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2929429
+============================================================
+on(o){return Mt(e),Fe().BUILDINGUSECODE2ALL=o})("selectionChanges",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()()}if(2&n){var t=Fe();oe(4),Ee("items",t.TBL_LKP_BLDCODE)("ngModel",t.BUILDINGUSECODE2ALL)("allowClear",!0)}}function yut(n,r){if(1&n){var e=Tr();R(0,"div",1117)(1,"label",515),de(2,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645 3"),G(),R(3,"div",334)(4,"ngx-select",516),Ct("ngModelChange",function(o){return Mt(e),Fe().BUILDINGUSECODE3ALL=o})("selectio
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2929696
+============================================================
+r e=Tr();R(0,"div",1117)(1,"label",515),de(2,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645 3"),G(),R(3,"div",334)(4,"ngx-select",516),Ct("ngModelChange",function(o){return Mt(e),Fe().BUILDINGUSECODE3ALL=o})("selectionChanges",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()()}if(2&n){var t=Fe();oe(4),Ee("items",t.TBL_LKP_BLDCODE)("ngModel",t.BUILDINGUSECODE3ALL)("allowClear",!0)}}function Sut(n,r){if(1&n){var e=Tr();R(0,"div",1117)(1,"label",1620),de(2,"\u062a\u06
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 2929872
+============================================================
+on(o){return Mt(e),Fe().BUILDINGUSECODE3ALL=o})("selectionChanges",function(o){return Mt(e),Fe().GetVIEW_BUILDINGSYSTEM(o)}),G()()()}if(2&n){var t=Fe();oe(4),Ee("items",t.TBL_LKP_BLDCODE)("ngModel",t.BUILDINGUSECODE3ALL)("allowClear",!0)}}function Sut(n,r){if(1&n){var e=Tr();R(0,"div",1117)(1,"label",1620),de(2,"\u062a\u0645 \u0627\u0644\u062a\u062d\u0642\u0642 \u0645\u0646 \u0627\u0644\u0627\u0634\u062a\u0631\u0627\u0637\u0627\u062a \u0646\u0638\u0627\u0645 \u0627\u0644\u0628\u0646\u0627\u0621 
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3190229
+============================================================
+NAME+"</td></tr>")+'<tr class="d-flex"><td class="col-sm-5 popupHeader">\u0646\u0638\u0627\u0645 \u0634\u0631\u0648\u0637 \u0627\u0644\u0628\u0646\u0627\u0621</td><td class="col-sm-7 popupValue">'+ne.BUILDINGUSECODE+"</td></tr>")+'<tr class="d-flex"><td class="col-sm-5 popupHeader">\u0648\u0635\u0641 \u0646\u0638\u0627\u0645 \u0634\u0631\u0648\u0637 \u0627\u0644\u0628\u0646\u0627\u0621</td><td class="col-sm-7 popupValue">'+ne.BUILDINGUSECODE_DESC+"</td></tr>")+'<tr class="d-flex"><td class="col-
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3190459
+============================================================
+'<tr class="d-flex"><td class="col-sm-5 popupHeader">\u0648\u0635\u0641 \u0646\u0638\u0627\u0645 \u0634\u0631\u0648\u0637 \u0627\u0644\u0628\u0646\u0627\u0621</td><td class="col-sm-7 popupValue">'+ne.BUILDINGUSECODE_DESC+"</td></tr>")+'<tr class="d-flex"><td class="col-sm-5 popupHeader">\u0627\u0644\u0645\u0633\u0627\u062d\u0629</td><td class="col-sm-7 popupValue">'+ne["SHAPE.AREA"]+"</td></tr>")+ve+"</tbody></table>";L.responsivePopup().setContent(Te),a.appService.dynamicPopup=Te,a.appService.d
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3589351
+============================================================
+=0;d<l.length;d++)L.DomEvent.disableClickPropagation(l[d])}),this.readPDF(e)}},{key:"getSaveBuildingUseCode",value:function(e,t){var a=this;this.ref.detectChanges(),t=this.appService.dynamicPopup5[0].BUILDINGUSECODE;var o=this.appService.dynamicPopup5[0].BUILDINGUSECODE2,s=this.appService.dynamicPopup5[0].BUILDINGUSECODE3,l=this.appService.dynamicPopup5[0].REVIEWED_BLD_CODE;this.userinfo=this.formdataservice.getUserInfo();var d=(new Ji).set("P_PARCELID",e).set("P_BUILDINGUSECODE",null==t?"":t).s
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3589406
+============================================================
+d])}),this.readPDF(e)}},{key:"getSaveBuildingUseCode",value:function(e,t){var a=this;this.ref.detectChanges(),t=this.appService.dynamicPopup5[0].BUILDINGUSECODE;var o=this.appService.dynamicPopup5[0].BUILDINGUSECODE2,s=this.appService.dynamicPopup5[0].BUILDINGUSECODE3,l=this.appService.dynamicPopup5[0].REVIEWED_BLD_CODE;this.userinfo=this.formdataservice.getUserInfo();var d=(new Ji).set("P_PARCELID",e).set("P_BUILDINGUSECODE",null==t?"":t).set("P_BUILDINGUSECODE2",null==o?"":o).set("P_BUILDINGUS
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3589458
+============================================================
+",value:function(e,t){var a=this;this.ref.detectChanges(),t=this.appService.dynamicPopup5[0].BUILDINGUSECODE;var o=this.appService.dynamicPopup5[0].BUILDINGUSECODE2,s=this.appService.dynamicPopup5[0].BUILDINGUSECODE3,l=this.appService.dynamicPopup5[0].REVIEWED_BLD_CODE;this.userinfo=this.formdataservice.getUserInfo();var d=(new Ji).set("P_PARCELID",e).set("P_BUILDINGUSECODE",null==t?"":t).set("P_BUILDINGUSECODE2",null==o?"":o).set("P_BUILDINGUSECODE3",null==s?"":s).set("P_REVIEWED_BLD_CODE","tru
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3589619
+============================================================
+DE2,s=this.appService.dynamicPopup5[0].BUILDINGUSECODE3,l=this.appService.dynamicPopup5[0].REVIEWED_BLD_CODE;this.userinfo=this.formdataservice.getUserInfo();var d=(new Ji).set("P_PARCELID",e).set("P_BUILDINGUSECODE",null==t?"":t).set("P_BUILDINGUSECODE2",null==o?"":o).set("P_BUILDINGUSECODE3",null==s?"":s).set("P_REVIEWED_BLD_CODE","true"==l||1==l?"1":"0").set("P_REVIEWED_BLD_USER",this.userinfo.USERCODE);this.http.get(this.urlAPI+"getSaveBuildingUseCode",{params:d}).subscribe(function(p){1==p?
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3589657
+============================================================
+.BUILDINGUSECODE3,l=this.appService.dynamicPopup5[0].REVIEWED_BLD_CODE;this.userinfo=this.formdataservice.getUserInfo();var d=(new Ji).set("P_PARCELID",e).set("P_BUILDINGUSECODE",null==t?"":t).set("P_BUILDINGUSECODE2",null==o?"":o).set("P_BUILDINGUSECODE3",null==s?"":s).set("P_REVIEWED_BLD_CODE","true"==l||1==l?"1":"0").set("P_REVIEWED_BLD_USER",this.userinfo.USERCODE);this.http.get(this.urlAPI+"getSaveBuildingUseCode",{params:d}).subscribe(function(p){1==p?(a.toastr.success("\u062a\u0645 \u0627
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3589696
+============================================================
+amicPopup5[0].REVIEWED_BLD_CODE;this.userinfo=this.formdataservice.getUserInfo();var d=(new Ji).set("P_PARCELID",e).set("P_BUILDINGUSECODE",null==t?"":t).set("P_BUILDINGUSECODE2",null==o?"":o).set("P_BUILDINGUSECODE3",null==s?"":s).set("P_REVIEWED_BLD_CODE","true"==l||1==l?"1":"0").set("P_REVIEWED_BLD_USER",this.userinfo.USERCODE);this.http.get(this.urlAPI+"getSaveBuildingUseCode",{params:d}).subscribe(function(p){1==p?(a.toastr.success("\u062a\u0645 \u0627\u0644\u062d\u0641\u0638 \u0628\u0646\u
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3590323
+============================================================
+u0627\u0621")})}},{key:"GetVIEW_BUILDINGSYSTEM",value:function(e){var a,t=this;this.VIEW_BUILDINGSYSTEM5=[],this.ref.detectChanges();var o=null===(a=e[0])||void 0===a?void 0:a.value,s=(new Ji).set("P_BUILDINGUSECODE",o);this.http.get(this.urlAPI+"GetVIEW_BUILDINGSYSTEM",{params:s}).subscribe(function(l){t.VIEW_BUILDINGSYSTEM5=JSON.parse(l.toString()),t.VIEW_BUILDINGSYSTEM6=JSON.parse(l.toString()),t.ref.detectChanges()})}},{key:"GetVIEW_BUILDINGSYSTEM7",value:function(e){var a,t=this;this.VIEW_B
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3590733
+============================================================
+ectChanges()})}},{key:"GetVIEW_BUILDINGSYSTEM7",value:function(e){var a,t=this;this.VIEW_BUILDINGSYSTEM7=[],this.ref.detectChanges();var o=null===(a=e[0])||void 0===a?void 0:a.value,s=(new Ji).set("P_BUILDINGUSECODE",o);this.http.get(this.urlAPI+"GetVIEW_BUILDINGSYSTEM",{params:s}).subscribe(function(l){t.VIEW_BUILDINGSYSTEM7=JSON.parse(l.toString()),t.ref.detectChanges()})}},{key:"ConvertDate",value:function(e){this.DateHiji="",new Date(e.TRANSFER_DATE),M0e().locale("en-SA"),e.TRANSFER_DATEHIJI
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3592009
+============================================================
+Pl().mark(function t(){var a,o;return Pl().wrap(function(d){for(;;)switch(d.prev=d.next){case 0:if(this.srcFiles=[],this.srcFilesPDF=[],this.VIEW_BUILDINGSYSTEM6=[],this.VIEW_BUILDINGSYSTEM10=[],this.BUILDINGUSECODEALL="",this.BUILDINGUSECODE2ALL="",this.BUILDINGUSECODE3ALL="",this.BUILDINGUSECODE3ALL="",this.REVIEWED_BLD_CODEALL=!1,2!=e){d.next=15;break}this.FlagSavePDF=!0,this.ref.detectChanges(),$("#SaveModal").modal("toggle"),d.next=21;break;case 15:return d.next=17,this.pExAll();case 17:(o=
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3592036
+============================================================
+a,o;return Pl().wrap(function(d){for(;;)switch(d.prev=d.next){case 0:if(this.srcFiles=[],this.srcFilesPDF=[],this.VIEW_BUILDINGSYSTEM6=[],this.VIEW_BUILDINGSYSTEM10=[],this.BUILDINGUSECODEALL="",this.BUILDINGUSECODE2ALL="",this.BUILDINGUSECODE3ALL="",this.BUILDINGUSECODE3ALL="",this.REVIEWED_BLD_CODEALL=!1,2!=e){d.next=15;break}this.FlagSavePDF=!0,this.ref.detectChanges(),$("#SaveModal").modal("toggle"),d.next=21;break;case 15:return d.next=17,this.pExAll();case 17:(o=(a=d.sent).slice(0,a.length
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3592064
+============================================================
+n(d){for(;;)switch(d.prev=d.next){case 0:if(this.srcFiles=[],this.srcFilesPDF=[],this.VIEW_BUILDINGSYSTEM6=[],this.VIEW_BUILDINGSYSTEM10=[],this.BUILDINGUSECODEALL="",this.BUILDINGUSECODE2ALL="",this.BUILDINGUSECODE3ALL="",this.BUILDINGUSECODE3ALL="",this.REVIEWED_BLD_CODEALL=!1,2!=e){d.next=15;break}this.FlagSavePDF=!0,this.ref.detectChanges(),$("#SaveModal").modal("toggle"),d.next=21;break;case 15:return d.next=17,this.pExAll();case 17:(o=(a=d.sent).slice(0,a.length-1)).split(",").filter(funct
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3592092
+============================================================
+next){case 0:if(this.srcFiles=[],this.srcFilesPDF=[],this.VIEW_BUILDINGSYSTEM6=[],this.VIEW_BUILDINGSYSTEM10=[],this.BUILDINGUSECODEALL="",this.BUILDINGUSECODE2ALL="",this.BUILDINGUSECODE3ALL="",this.BUILDINGUSECODE3ALL="",this.REVIEWED_BLD_CODEALL=!1,2!=e){d.next=15;break}this.FlagSavePDF=!0,this.ref.detectChanges(),$("#SaveModal").modal("toggle"),d.next=21;break;case 15:return d.next=17,this.pExAll();case 17:(o=(a=d.sent).slice(0,a.length-1)).split(",").filter(function(p){return p}),0==o.lengt
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3594093
+============================================================
+h(l.prev=l.next){case 0:return this.ref.detectChanges(),l.next=3,this.pAll();case 3:a=l.sent,this.userinfo=this.formdataservice.getUserInfo(),o=(new Ji).set("P_PARCELID",a.slice(0,a.length-1)).set("P_BUILDINGUSECODE",null==this.BUILDINGUSECODEALL?"":this.BUILDINGUSECODEALL).set("P_BUILDINGUSECODE2",null==this.BUILDINGUSECODE2ALL?"":this.BUILDINGUSECODE2ALL).set("P_BUILDINGUSECODE3",null==this.BUILDINGUSECODE3ALL?"":this.BUILDINGUSECODE3ALL).set("P_REVIEWED_BLD_CODE",1==this.REVIEWED_BLD_CODEALL?
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3594121
+============================================================
+rn this.ref.detectChanges(),l.next=3,this.pAll();case 3:a=l.sent,this.userinfo=this.formdataservice.getUserInfo(),o=(new Ji).set("P_PARCELID",a.slice(0,a.length-1)).set("P_BUILDINGUSECODE",null==this.BUILDINGUSECODEALL?"":this.BUILDINGUSECODEALL).set("P_BUILDINGUSECODE2",null==this.BUILDINGUSECODE2ALL?"":this.BUILDINGUSECODE2ALL).set("P_BUILDINGUSECODE3",null==this.BUILDINGUSECODE3ALL?"":this.BUILDINGUSECODE3ALL).set("P_REVIEWED_BLD_CODE",1==this.REVIEWED_BLD_CODEALL?"1":"0").set("P_REVIEWED_BLD
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3594148
+============================================================
+,l.next=3,this.pAll();case 3:a=l.sent,this.userinfo=this.formdataservice.getUserInfo(),o=(new Ji).set("P_PARCELID",a.slice(0,a.length-1)).set("P_BUILDINGUSECODE",null==this.BUILDINGUSECODEALL?"":this.BUILDINGUSECODEALL).set("P_BUILDINGUSECODE2",null==this.BUILDINGUSECODE2ALL?"":this.BUILDINGUSECODE2ALL).set("P_BUILDINGUSECODE3",null==this.BUILDINGUSECODE3ALL?"":this.BUILDINGUSECODE3ALL).set("P_REVIEWED_BLD_CODE",1==this.REVIEWED_BLD_CODEALL?"1":"0").set("P_REVIEWED_BLD_USER",this.userinfo.USERCO
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3594175
+============================================================
+3:a=l.sent,this.userinfo=this.formdataservice.getUserInfo(),o=(new Ji).set("P_PARCELID",a.slice(0,a.length-1)).set("P_BUILDINGUSECODE",null==this.BUILDINGUSECODEALL?"":this.BUILDINGUSECODEALL).set("P_BUILDINGUSECODE2",null==this.BUILDINGUSECODE2ALL?"":this.BUILDINGUSECODE2ALL).set("P_BUILDINGUSECODE3",null==this.BUILDINGUSECODE3ALL?"":this.BUILDINGUSECODE3ALL).set("P_REVIEWED_BLD_CODE",1==this.REVIEWED_BLD_CODEALL?"1":"0").set("P_REVIEWED_BLD_USER",this.userinfo.USERCODE),this.http.get(this.urlA
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3594204
+============================================================
+.formdataservice.getUserInfo(),o=(new Ji).set("P_PARCELID",a.slice(0,a.length-1)).set("P_BUILDINGUSECODE",null==this.BUILDINGUSECODEALL?"":this.BUILDINGUSECODEALL).set("P_BUILDINGUSECODE2",null==this.BUILDINGUSECODE2ALL?"":this.BUILDINGUSECODE2ALL).set("P_BUILDINGUSECODE3",null==this.BUILDINGUSECODE3ALL?"":this.BUILDINGUSECODE3ALL).set("P_REVIEWED_BLD_CODE",1==this.REVIEWED_BLD_CODEALL?"1":"0").set("P_REVIEWED_BLD_USER",this.userinfo.USERCODE),this.http.get(this.urlAPI+"getSaveBuildingUseCodes",
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3594232
+============================================================
+(),o=(new Ji).set("P_PARCELID",a.slice(0,a.length-1)).set("P_BUILDINGUSECODE",null==this.BUILDINGUSECODEALL?"":this.BUILDINGUSECODEALL).set("P_BUILDINGUSECODE2",null==this.BUILDINGUSECODE2ALL?"":this.BUILDINGUSECODE2ALL).set("P_BUILDINGUSECODE3",null==this.BUILDINGUSECODE3ALL?"":this.BUILDINGUSECODE3ALL).set("P_REVIEWED_BLD_CODE",1==this.REVIEWED_BLD_CODEALL?"1":"0").set("P_REVIEWED_BLD_USER",this.userinfo.USERCODE),this.http.get(this.urlAPI+"getSaveBuildingUseCodes",{params:o}).subscribe(functi
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3594260
+============================================================
+D",a.slice(0,a.length-1)).set("P_BUILDINGUSECODE",null==this.BUILDINGUSECODEALL?"":this.BUILDINGUSECODEALL).set("P_BUILDINGUSECODE2",null==this.BUILDINGUSECODE2ALL?"":this.BUILDINGUSECODE2ALL).set("P_BUILDINGUSECODE3",null==this.BUILDINGUSECODE3ALL?"":this.BUILDINGUSECODE3ALL).set("P_REVIEWED_BLD_CODE",1==this.REVIEWED_BLD_CODEALL?"1":"0").set("P_REVIEWED_BLD_USER",this.userinfo.USERCODE),this.http.get(this.urlAPI+"getSaveBuildingUseCodes",{params:o}).subscribe(function(d){if(1==d){var p=(new Ji
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3594289
+============================================================
+("P_BUILDINGUSECODE",null==this.BUILDINGUSECODEALL?"":this.BUILDINGUSECODEALL).set("P_BUILDINGUSECODE2",null==this.BUILDINGUSECODE2ALL?"":this.BUILDINGUSECODE2ALL).set("P_BUILDINGUSECODE3",null==this.BUILDINGUSECODE3ALL?"":this.BUILDINGUSECODE3ALL).set("P_REVIEWED_BLD_CODE",1==this.REVIEWED_BLD_CODEALL?"1":"0").set("P_REVIEWED_BLD_USER",this.userinfo.USERCODE),this.http.get(this.urlAPI+"getSaveBuildingUseCodes",{params:o}).subscribe(function(d){if(1==d){var p=(new Ji).set("P_PARCELID",a.slice(0,
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3594317
+============================================================
+his.BUILDINGUSECODEALL?"":this.BUILDINGUSECODEALL).set("P_BUILDINGUSECODE2",null==this.BUILDINGUSECODE2ALL?"":this.BUILDINGUSECODE2ALL).set("P_BUILDINGUSECODE3",null==this.BUILDINGUSECODE3ALL?"":this.BUILDINGUSECODE3ALL).set("P_REVIEWED_BLD_CODE",1==this.REVIEWED_BLD_CODEALL?"1":"0").set("P_REVIEWED_BLD_USER",this.userinfo.USERCODE),this.http.get(this.urlAPI+"getSaveBuildingUseCodes",{params:o}).subscribe(function(d){if(1==d){var p=(new Ji).set("P_PARCELID",a.slice(0,a.length-1));t.http.get(t.ur
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3596540
+============================================================
+":return p.stop()}},e,this)}))}},{key:"SaveBuildingUseCodeAll7",value:function(e){var t=this;this.http.post(this.urlAPI+"getSaveBuildingUseCodeAll",{list:[{PLANNINGREQUIREMENTS:e.PLANNINGREQUIREMENTS,BUILDINGUSECODE:e.BUILDINGUSECODE,USES:e.USES,BOUNCES:e.BOUNCES,ALTITUDES:e.ALTITUDES,CONSTRUCTIONFACTOR:e.CONSTRUCTIONFACTOR,CONSTRUCTIONRATIO:e.CONSTRUCTIONRATIO,PARKING:e.PARKING,NOTES:e.NOTES}]}).subscribe(function(a){0!==JSON.parse(a.toString()).COUNT?(t.toastr.success("\u062a\u0645 \u0627\u064
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3596558
+============================================================
+},e,this)}))}},{key:"SaveBuildingUseCodeAll7",value:function(e){var t=this;this.http.post(this.urlAPI+"getSaveBuildingUseCodeAll",{list:[{PLANNINGREQUIREMENTS:e.PLANNINGREQUIREMENTS,BUILDINGUSECODE:e.BUILDINGUSECODE,USES:e.USES,BOUNCES:e.BOUNCES,ALTITUDES:e.ALTITUDES,CONSTRUCTIONFACTOR:e.CONSTRUCTIONFACTOR,CONSTRUCTIONRATIO:e.CONSTRUCTIONRATIO,PARKING:e.PARKING,NOTES:e.NOTES}]}).subscribe(function(a){0!==JSON.parse(a.toString()).COUNT?(t.toastr.success("\u062a\u0645 \u0627\u0644\u062d\u0641\u063
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3637985
+============================================================
+0644\u0628 ");var d=t.rows10.indexOf(e);t.rows10.splice(d,1),t.ref.detectChanges()}})}},{key:"GetVIEW_BUILDINGSYSTEMShow",value:function(e,t){var a=this,o="";if(this.VIEW_BUILDINGSYSTEM10=[],1==t?o=e.BUILDINGUSECODE:2==t?o=e.BUILDINGUSECODE2:3==t&&(o=e.BUILDINGUSECODE3),""!=o){var s=(new Ji).set("P_BUILDINGUSECODE",o);this.http.get(this.urlAPI+"GetVIEW_BUILDINGSYSTEM",{params:s}).subscribe(function(l){a.VIEW_BUILDINGSYSTEM10=JSON.parse(l.toString()),a.ref.detectChanges(),$("#ShowSysCodeModal").m
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3638010
+============================================================
+s10.indexOf(e);t.rows10.splice(d,1),t.ref.detectChanges()}})}},{key:"GetVIEW_BUILDINGSYSTEMShow",value:function(e,t){var a=this,o="";if(this.VIEW_BUILDINGSYSTEM10=[],1==t?o=e.BUILDINGUSECODE:2==t?o=e.BUILDINGUSECODE2:3==t&&(o=e.BUILDINGUSECODE3),""!=o){var s=(new Ji).set("P_BUILDINGUSECODE",o);this.http.get(this.urlAPI+"GetVIEW_BUILDINGSYSTEM",{params:s}).subscribe(function(l){a.VIEW_BUILDINGSYSTEM10=JSON.parse(l.toString()),a.ref.detectChanges(),$("#ShowSysCodeModal").modal("toggle")})}}},{key:
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3638038
+============================================================
+ce(d,1),t.ref.detectChanges()}})}},{key:"GetVIEW_BUILDINGSYSTEMShow",value:function(e,t){var a=this,o="";if(this.VIEW_BUILDINGSYSTEM10=[],1==t?o=e.BUILDINGUSECODE:2==t?o=e.BUILDINGUSECODE2:3==t&&(o=e.BUILDINGUSECODE3),""!=o){var s=(new Ji).set("P_BUILDINGUSECODE",o);this.http.get(this.urlAPI+"GetVIEW_BUILDINGSYSTEM",{params:s}).subscribe(function(l){a.VIEW_BUILDINGSYSTEM10=JSON.parse(l.toString()),a.ref.detectChanges(),$("#ShowSysCodeModal").modal("toggle")})}}},{key:"getBuildingUseCodeCitizen",
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3638085
+============================================================
+W_BUILDINGSYSTEMShow",value:function(e,t){var a=this,o="";if(this.VIEW_BUILDINGSYSTEM10=[],1==t?o=e.BUILDINGUSECODE:2==t?o=e.BUILDINGUSECODE2:3==t&&(o=e.BUILDINGUSECODE3),""!=o){var s=(new Ji).set("P_BUILDINGUSECODE",o);this.http.get(this.urlAPI+"GetVIEW_BUILDINGSYSTEM",{params:s}).subscribe(function(l){a.VIEW_BUILDINGSYSTEM10=JSON.parse(l.toString()),a.ref.detectChanges(),$("#ShowSysCodeModal").modal("toggle")})}}},{key:"getBuildingUseCodeCitizen",value:function(e){var t=this,a=this.formdataser
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3639047
+============================================================
+u0646 \u0627\u0644\u0645\u0648\u0627\u0637\u0646 ");var l=t.rows11.indexOf(e);t.rows11.splice(l,1),t.ref.detectChanges()}})}},{key:"getApprovedBuildingUseCode",value:function(e){var t=this;if(null!=e.BUILDINGUSECODE){var a=this.formdataservice.getUserInfo(),o=(new Ji).set("P_REQUEST_NUMBER",e.REQUEST_NUMBER).set("P_REQUEST_YEAR",e.REQUEST_YEAR).set("P_USER_ID_1",a.USERCODE).set("P_MWF_REQUEST_NUMBER",e.MWF_REQUEST_NUMBER).set("P_MWF_REQUEST_YEAR",e.MWF_REQUEST_YEAR).set("P_PARCEL_ID",e.PARCEL_ID
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3682654
+============================================================
+"\u064a\u0648\u062c\u062f"==e["\u0627\u0634\u062a\u0631\u0637\u0627\u062a \u0646\u0638\u0627\u0645 \u0627\u0644\u0628\u0646\u0627\u0621 \u0644\u0644\u0642\u0637\u0639\u0629"]?t.features[0].properties.BUILDINGUSECODE>=280&&t.features[0].properties.BUILDINGUSECODE<=295?(d+='<div class="titles-containerPopup3" style = "display: block; text-align: center;background-color: #e8fdf6;">',d+='<span class="titlesPopup">'.concat(this.translocoService.translate("Building_system"),'</span>\n                <
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3682701
+============================================================
+2a\u0631\u0637\u0627\u062a \u0646\u0638\u0627\u0645 \u0627\u0644\u0628\u0646\u0627\u0621 \u0644\u0644\u0642\u0637\u0639\u0629"]?t.features[0].properties.BUILDINGUSECODE>=280&&t.features[0].properties.BUILDINGUSECODE<=295?(d+='<div class="titles-containerPopup3" style = "display: block; text-align: center;background-color: #e8fdf6;">',d+='<span class="titlesPopup">'.concat(this.translocoService.translate("Building_system"),'</span>\n                <span class="sub-titlesPopup bldCondition" \n   
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 3957546
+============================================================
+                  0 -1px 0px rgb(0 0 0 / 2%)"],[1,"stop-propagation","form-group","row"],[1,"col-sm-9",2,"white-space","pre-line","color","#006946",3,"ngModel","ngModelChange"],["type","button","id","BUILDINGUSECODEALL7ID","role","button",1,"btn","btn-geoportal",3,"disabled","click"],["aria-hidden","true",1,"fa","fa-floppy-disk"],[1,"divider-text"],[1,"bg-light"],[1,"items-area"],[1,"labelItems"],[1,"valueItems"],[1,"items"],[1,"valueItems",2,"color","#d90000"],[1,"pl-3","fa-solid","fa-plus",3,"
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 4061514
+============================================================
+,"div")(1554,"div",514)(1555,"label",515),de(1556,"\u0645\u0646\u0637\u0642\u0629 \u062a\u0642\u0633\u064a\u0645"),G(),R(1557,"div",334)(1558,"ngx-select",516),Ct("ngModelChange",function(l){return e.BUILDINGUSECODEALL7=l})("selectionChanges",function(l){return e.GetVIEW_BUILDINGSYSTEM7(l)}),G()()(),Ht(1559,gat,45,9,"div",517),G()(),R(1560,"div",518)(1561,"h1",23),de(1562," \u0637\u0644\u0628\u0627\u062a \u0646\u0638\u0627\u0645 \u0627\u0644\u0628\u0646\u0627\u0621 "),R(1563,"span",24),Nn(1564,"
+
+============================================================
+Keyword: BUILDINGUSECODE
+Bundle: main.c06e94eb2afc49cb.js @ pos 4109716
+============================================================
+0),oe(5),Ee("ngModel",e.PCHECK)("value",1),oe(9),Ee("ngModel",e.PLAYERICON),oe(3),Ee("disabled",!(""!=e.PLAYERNAME&&""!=e.PURL&&""!=e.PLAYERSGROUPID)),oe(12),Ee("items",e.TBL_LKP_BLDCODE)("ngModel",e.BUILDINGUSECODEALL7)("allowClear",!0),oe(1),Ee("ngIf",0!=e.VIEW_BUILDINGSYSTEM7.length),oe(24),Ee("data",e.rows10)("options",Js(951,zJ,OA(950,jJ))),oe(10),Ee("data",e.rows11)("options",Js(954,zJ,OA(953,jJ))),oe(26),Ee("data",e.rows12)("options",Js(957,zJ,OA(956,jJ))),oe(6),Ee("leafletOptions",e.opti
+
+============================================================
+Keyword: getBuild
+Bundle: main.c06e94eb2afc49cb.js @ pos 2795244
+============================================================
+062a"),G(),R(72,"textarea",1135),Ct("ngModelChange",function(o){return Mt(e).$implicit.GENERAL_NOTE=o}),G()(),R(73,"div",1136)(74,"button",342),Ct("click",function(){var s=Mt(e).$implicit;return Fe().getBuildingUseCodeCitizen(s)}),de(75," \u0637\u0644\u0628 \u0648\u062b\u0627\u0626\u0642 \u0645\u0646 \u0627\u0644\u0645\u0648\u0627\u0637\u0646 "),G(),R(76,"button",342),Ct("click",function(){var s=Mt(e).$implicit;return Fe().getBuildingUseCode(s.PARCEL_ID,2)}),de(77," \u0627\u0636\u0627\u0641\u062
+
+============================================================
+Keyword: getBuild
+Bundle: main.c06e94eb2afc49cb.js @ pos 2795471
+============================================================
+)}),de(75," \u0637\u0644\u0628 \u0648\u062b\u0627\u0626\u0642 \u0645\u0646 \u0627\u0644\u0645\u0648\u0627\u0637\u0646 "),G(),R(76,"button",342),Ct("click",function(){var s=Mt(e).$implicit;return Fe().getBuildingUseCode(s.PARCEL_ID,2)}),de(77," \u0627\u0636\u0627\u0641\u0629 \u0646\u0638\u0627\u0645 \u0627\u0644\u0628\u0646\u0627\u0621 "),G(),R(78,"button",342),Ct("click",function(){var s=Mt(e).$implicit;return Fe().getApprovedBuildingUseCode(s)}),de(79," \u0627\u0639\u062a\u0645\u0627\u062f \u06
+
+============================================================
+Keyword: getBuild
+Bundle: main.c06e94eb2afc49cb.js @ pos 2978348
+============================================================
+getRowClass_MainClassification=function(Dn){return Dn.hasOwnProperty("MAIN_CLASSIFICATION_NUMBER")&&null!=Dn.MAIN_CLASSIFICATION_NUMBER&&2==Dn.MAIN_CLASSIFICATION_NUMBER?{"highlight-row":!0}:{}},this.getBuildingUseCodeForIdentify=function(Dn){return fh(Kt,void 0,void 0,Pl().mark(function gr(){var Or;return Pl().wrap(function(vr){for(;;)switch(vr.prev=vr.next){case 0:return Or=new Uo.Query({url:this.urlGeoPortalNew+"WebMercator/WMParcelsLayerOne/MapServer/2",proxy:this.appService.urlProxy,useCors
+
+============================================================
+Keyword: getBuild
+Bundle: main.c06e94eb2afc49cb.js @ pos 3060695
+============================================================
+("typeattach").split(",");t.onSearchSakInformation({PLANNO:Hn[0],PARCELNO:Hn[1]}),t.ref.detectChanges()}),$("#typeattach10").click(function(){var Hn=$("#typeattach10").attr("typeattach").split(",");t.getBuildingUseCode(Hn[0],1),t.ref.detectChanges()}),$("#typeattach11").click(function(){var Hn=$("#typeattach11").attr("typeattach").split(",");t.getSaveBuildingUseCode(Hn[0],Hn[1]),t.ref.detectChanges()}),$("#typeattach12").click(function(){var Hn=$("#typeattach12").attr("typeattach").split(",");t.
+
+============================================================
+Keyword: getBuild
+Bundle: main.c06e94eb2afc49cb.js @ pos 3535220
+============================================================
+(function(){var d=$("#planattchdoc").attr("typeattach").split(",");e.PlansAttch(d),e.ref.detectChanges()}),$("#typeattach10").click(function(){var d=$("#typeattach10").attr("typeattach").split(",");e.getBuildingUseCode(d[0],1),e.ref.detectChanges()}),$("#typeattach11").click(function(){var d=$("#typeattach11").attr("typeattach").split(",");e.getSaveBuildingUseCode(d[0],d[1]),e.ref.detectChanges()}),$("#typeattach12").click(function(){var d=$("#typeattach12").attr("typeattach").split(",");e.onSea
+
+============================================================
+Keyword: getBuild
+Bundle: main.c06e94eb2afc49cb.js @ pos 3588152
+============================================================
+ion,temperature:Math.round(a.main.temp).toString(),icon:"assets/img/".concat(a.weather[0].icon,".png"),wind_speed:a.wind.speed,humidity:a.main.humidity}},function(a){t.weatherDetailsflag=!0})}},{key:"getBuildingUseCode",value:function(e,t){var a=this;this.VIEW_BUILDINGSYSTEM5=[],this.appService.dynamicPopup5=[],this.appService.dynamicPopupFooter5="",this.dynamicPopupTitle5="\u0631\u0645\u0632 \u0642\u0637\u0639\u0629 \u0627\u0644\u0623\u0631\u0636 : "+e,this.userinfo=this.formdataservice.getUser
+
+============================================================
+Keyword: getBuild
+Bundle: main.c06e94eb2afc49cb.js @ pos 3638311
+============================================================
+ttp.get(this.urlAPI+"GetVIEW_BUILDINGSYSTEM",{params:s}).subscribe(function(l){a.VIEW_BUILDINGSYSTEM10=JSON.parse(l.toString()),a.ref.detectChanges(),$("#ShowSysCodeModal").modal("toggle")})}}},{key:"getBuildingUseCodeCitizen",value:function(e){var t=this,a=this.formdataservice.getUserInfo(),o=(new Ji).set("P_REQUEST_NUMBER",e.REQUEST_NUMBER).set("P_REQUEST_YEAR",e.REQUEST_YEAR).set("P_USER_ID_1",a.USERCODE).set("P_MWF_REQUEST_NUMBER",e.MWF_REQUEST_NUMBER).set("P_MWF_REQUEST_YEAR",e.MWF_REQUEST_
+
+============================================================
+Keyword: getBuild
+Bundle: main.c06e94eb2afc49cb.js @ pos 3653110
+============================================================
+ve="",ye="",Te="",We="",ut="",it="",Jt="",rn="",vn="",$t="",En="",Bn="",Sr=b.getBounds().getCenter(),cr=H["\u0631\u0645\u0632 \u0642\u0637\u0639\u0629 \u0627\u0644\u0623\u0631\u0636"],Po.next=28,this.getBuildingUseCodeForIdentify(cr);case 28:vr=Po.sent,Jn=this.generate_popup_header_ParcelDetails(H),Er=this.generate_popup_BLD_CONDITIONS(H,vr,cr),Vr=this.generate_popup_ParcelDetails(H,p),ar='\n                 <div class="accordion card" style="height: max-content !important;border-radius: 7px; ba
+
+============================================================
+Keyword: getDetail
+Bundle: main.c06e94eb2afc49cb.js @ pos 980810
+============================================================
+o=_l(3),s=Fe(2);Ee("groupedRows",s.groupedRows)("innerWidth",s.innerWidth)("ngStyle",s.getRowsStyles(t))("rowDetail",s.rowDetail)("groupHeader",s.groupHeader)("offsetX",s.offsetX)("detailRowHeight",s.getDetailRowHeight(t&&t[a],a))("row",t)("expanded",s.getRowExpanded(t))("rowIndex",s.getRowIndex(t&&t[a])),oe(1),Ee("ngIf",!s.groupedRows)("ngIfElse",o)}}function gIe(n,r){if(1&n&&Nn(0,"datatable-summary-row",16),2&n){var e=Fe(2);Ee("ngStyle",e.getBottomSummaryRowStyles())("rowHeight",e.summaryHeigh
+
+============================================================
+Keyword: getDetail
+Bundle: main.c06e94eb2afc49cb.js @ pos 1014935
+============================================================
+tailToggle=new Li,this.rowContextmenu=new Li(!1),this.treeAction=new Li,this.rowHeightsCache=new Cke,this.temp=[],this.offsetY=0,this.indexes={},this.rowIndexes=new WeakMap,this.rowExpansions=[],this.getDetailRowHeight=function(a,o){if(!t.rowDetail)return 0;var s=t.rowDetail.rowHeight;return"function"==typeof s?s(a,o):s},this.rowTrackingFn=function(a,o){var s=t.getRowIndex(o);return t.trackByProp?o[t.trackByProp]:s}}return(0,m.Z)(r,[{key:"pageSize",get:function(){return this._pageSize},set:funct
+
+============================================================
+Keyword: getDetail
+Bundle: main.c06e94eb2afc49cb.js @ pos 1018256
+============================================================
+for(var o=0;o<t.value.length;o++)a+=this.getRowAndDetailHeight(t.value[o]);return a}},{key:"getRowAndDetailHeight",value:function(t){var a=this.getRowHeight(t);return this.getRowExpanded(t)&&(a+=this.getDetailRowHeight(t)),a}},{key:"getRowsStyles",value:function(t){var a={};if(this.groupedRows&&(a.width=this.columnGroupWidths.total),this.scrollbarV&&this.virtualization){var o=0;if(this.groupedRows){var s=t[t.length-1];o=s?this.getRowIndex(s):0}else o=this.getRowIndex(t);Yb(a,0,this.rowHeightsCac
+
+============================================================
+Keyword: getDetail
+Bundle: main.c06e94eb2afc49cb.js @ pos 1019705
+============================================================
+{for(a.s();!(o=a.n()).done;){var s=o.value;this.getRowExpanded(s)&&t.add(s)}}catch(l){a.e(l)}finally{a.f()}this.rowHeightsCache.initCache({rows:this.rows,rowHeight:this.rowHeight,detailRowHeight:this.getDetailRowHeight,externalVirtual:this.scrollbarV&&this.externalPaging,rowCount:this.rowCount,rowIndexes:this.rowIndexes,rowExpansions:t})}}},{key:"getAdjustedViewPortIndex",value:function(){var t=this.indexes.first;return this.scrollbarV&&this.virtualization&&this.rowHeightsCache.query(t-1)<=this.
+
+============================================================
+Keyword: getDetail
+Bundle: main.c06e94eb2afc49cb.js @ pos 1020209
+============================================================
+etY?t-1:t}},{key:"toggleRowExpansion",value:function(t){var a=this.getAdjustedViewPortIndex(),o=this.getRowExpandedIdx(t,this.rowExpansions),s=o>-1;if(this.scrollbarV&&this.virtualization){var l=this.getDetailRowHeight(t)*(s?-1:1),d=this.getRowIndex(t);this.rowHeightsCache.update(d,l)}s?this.rowExpansions.splice(o,1):this.rowExpansions.push(t),this.detailToggle.emit({rows:[t],currentIndex:a})}},{key:"toggleAllRows",value:function(t){this.rowExpansions=[];var a=this.getAdjustedViewPortIndex();if(
+
+============================================================
+Keyword: ParcelDetail
+Bundle: main.c06e94eb2afc49cb.js @ pos 3653193
+============================================================
+nds().getCenter(),cr=H["\u0631\u0645\u0632 \u0642\u0637\u0639\u0629 \u0627\u0644\u0623\u0631\u0636"],Po.next=28,this.getBuildingUseCodeForIdentify(cr);case 28:vr=Po.sent,Jn=this.generate_popup_header_ParcelDetails(H),Er=this.generate_popup_BLD_CONDITIONS(H,vr,cr),Vr=this.generate_popup_ParcelDetails(H,p),ar='\n                 <div class="accordion card" style="height: max-content !important;border-radius: 7px; background-color: #fff; margin: 15px 15px 15px 15px;" >\n\n                          
+
+============================================================
+Keyword: ParcelDetail
+Bundle: main.c06e94eb2afc49cb.js @ pos 3653280
+============================================================
+u0631\u0636"],Po.next=28,this.getBuildingUseCodeForIdentify(cr);case 28:vr=Po.sent,Jn=this.generate_popup_header_ParcelDetails(H),Er=this.generate_popup_BLD_CONDITIONS(H,vr,cr),Vr=this.generate_popup_ParcelDetails(H,p),ar='\n                 <div class="accordion card" style="height: max-content !important;border-radius: 7px; background-color: #fff; margin: 15px 15px 15px 15px;" >\n\n                                        <div class=" accordion-header px-0 card-header" style="border-bottom:none
+
+============================================================
+Keyword: ParcelDetail
+Bundle: main.c06e94eb2afc49cb.js @ pos 3681430
+============================================================
+u0645 \u0627\u0644\u0628\u0644\u0648\u0643"],H)}),$("#infoParcel_PLANNO").on("click",function(H){o.copy(e["\u0631\u0642\u0645 \u0627\u0644\u0645\u062e\u0637\u0637"],H)})}},{key:"generate_popup_header_ParcelDetails",value:function(e){var t="\u0627\u0644\u0628\u0644\u062f\u064a\u0627\u062a \u0627\u0644\u0641\u0631\u0639\u064a\u0629",a="\u0627\u0644\u062d\u064a",s="\u0627\u0633\u0645 \u0627\u0644\u062d\u064a",l="\u0627\u0633\u0645 \u0627\u0644\u0628\u0644\u062f\u064a\u0629",d='<div class="titles-co
+
+============================================================
+Keyword: ParcelDetail
+Bundle: main.c06e94eb2afc49cb.js @ pos 3685260
+============================================================
+645\u0629 \u0637\u0644\u0628 \u0646\u0638\u0627\u0645 \u0627\u0644\u0628\u0646\u0627\u0621":"Login to the building system request service","</a></span>\n            </div>")),d}},{key:"generate_popup_ParcelDetails",value:function(e,t){var a,o,s="",d="\u0631\u0642\u0645 \u0627\u0644\u0642\u0637\u0639\u0629",b="\u0647\u0644 \u062a\u0645 \u062a\u062d\u0642\u0642 \u0645\u0646 \u0627\u0634\u062a\u0631\u0637\u0627\u062a \u0646\u0638\u0627\u0645 \u0627\u0644\u0628\u0646\u0627\u0621 \u0644\u0644\u0642\u

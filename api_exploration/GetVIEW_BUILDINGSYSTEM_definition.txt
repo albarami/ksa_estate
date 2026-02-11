@@ -1,0 +1,37 @@
+
+======================================================================
+FOUND: 'GetVIEW_BUILDINGSYSTEM' at position 3590142
+Pattern: key:"GetVIEW_BUILDINGSYSTEM"
+======================================================================
+u062d\u062f\u062b \u062e\u0637\u0627\u0621")})}},{key:"GetVIEW_BUILDINGSYSTEM",value:function(e){var a,t=this;this.VIEW_BUILDINGSYSTEM5=[],this.ref.detectChanges();var o=null===(a=e[0])||void 0===a?void 0:a.value,s=(new Ji).set("P_BUILDINGUSECODE",o);this.http.get(this.urlAPI+"GetVIEW_BUILDINGSYSTEM",{params:s}).subscribe(function(l){t.VIEW_BUILDINGSYSTEM5=JSON.parse(l.toString()),t.VIEW_BUILDINGSYSTEM6=JSON.parse(l.toString()),t.ref.detectChanges()})}},{key:"GetVIEW_BUILDINGSYSTEM7",value:function(e){var a,t=this;this.VIEW_BUILDINGSYSTEM7=[],this.ref.detectChanges();var o=null===(a=e[0])||void 0===a?void 0:a.value,s=(new Ji).set("P_BUILDINGUSECODE",o);this.http.get(this.urlAPI+"GetVIEW_BUILDINGSYSTEM",{params:s}).subscribe(function(l){t.VIEW_BUILDINGSYSTEM7=JSON.parse(l.toString()),t.ref.detectChanges()})}},{key:"ConvertDate",value:funct
+
+======================================================================
+FOUND: 'GetVIEW_BUILDINGSYSTEMShow' at position 3637874
+Pattern: key:"GetVIEW_BUILDINGSYSTEMShow"
+======================================================================
+;t.rows10.splice(d,1),t.ref.detectChanges()}})}},{key:"GetVIEW_BUILDINGSYSTEMShow",value:function(e,t){var a=this,o="";if(this.VIEW_BUILDINGSYSTEM10=[],1==t?o=e.BUILDINGUSECODE:2==t?o=e.BUILDINGUSECODE2:3==t&&(o=e.BUILDINGUSECODE3),""!=o){var s=(new Ji).set("P_BUILDINGUSECODE",o);this.http.get(this.urlAPI+"GetVIEW_BUILDINGSYSTEM",{params:s}).subscribe(function(l){a.VIEW_BUILDINGSYSTEM10=JSON.parse(l.toString()),a.ref.detectChanges(),$("#ShowSysCodeModal").modal("toggle")})}}},{key:"getBuildingUseCodeCitizen",value:function(e){var t=this,a=this.formdataservice.getUserInfo(),o=(new Ji).set("P_REQUEST_NUMBER",e.REQUEST_NUMBER).set("P_REQUEST_YEAR",e.REQUEST_YEAR).set("P_USER_ID_1",a.USERCODE).set("P_MWF_REQUEST_NUMBER",e.MWF_REQUEST_NUMBER).set("P_MWF_REQUEST_YEAR",e.MWF_REQUEST_YEAR).set("P_GENERAL_NOTE2",this.GENERAL_NOTE2||" ");this.http.
+
+======================================================================
+REFERENCE: 'GetTBL_LKP_BLDCODE' at position 3031642
+======================================================================
+6||1==this.isGroup47)&&this.http.get(this.urlAPI+"GetTBL_LKP_BLDCODE").subscribe(function(An){t.TBL_LKP_BLDCODE=JSON.parse(An.toString())}),1==this.isGroup68&&(this.http.get(this.urlAPI+"GetFLGBLOCKED").subscribe(function(An){t.TBL_LKP_FLGBLOCKED=JSON.parse(An.toString())}),this.http.get(this.urlAPI+"GetFLGBLOCKEDSERVICES").subscribe(function(An){t.TBL_LKP_FLGBLOCKEDSERVICES=JSON.parse(An.toString())})),1==this.isMunRequest1&&this.http.get(this.urlAPI+"GetMUN_REQ_TYPE").subscribe(function(An){t.DataMunReqType=JSON.parse(An.toString())}),p=(new 
+
+======================================================================
+REFERENCE: 'GetFLGBLOCKED' at position 3031779
+======================================================================
+}),1==this.isGroup68&&(this.http.get(this.urlAPI+"GetFLGBLOCKED").subscribe(function(An){t.TBL_LKP_FLGBLOCKED=JSON.parse(An.toString())}),this.http.get(this.urlAPI+"GetFLGBLOCKEDSERVICES").subscribe(function(An){t.TBL_LKP_FLGBLOCKEDSERVICES=JSON.parse(An.toString())})),1==this.isMunRequest1&&this.http.get(this.urlAPI+"GetMUN_REQ_TYPE").subscribe(function(An){t.DataMunReqType=JSON.parse(An.toString())}),p=(new Ji).set("P_MUNICIPALITYNO","0"),this.http.get(this.urlAPI+"GetGMRA_SUBMUNICIPALITIE",{params:p}).subscribe(function(An){t.DataResultsMUN2
+
+======================================================================
+REFERENCE: 'VIEW_BUILDINGSYSTEM' at position 2784463
+======================================================================
+,Ct("ngModelChange",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].PLANNINGREQUIREMENTS=o})("ngModelChange",function(o){return Mt(e),Fe().changeVal("PLANNINGREQUIREMENTS",o)}),G()(),R(5,"div",303)(6,"label",515),de(7," \u0627\u0644\u0627\u0633\u062a\u062e\u062f\u0645\u0627\u062a"),G(),R(8,"textarea",1118),Ct("ngModelChange",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].USES=o})("ngModelChange",function(o){return Mt(e),Fe().changeVal("USES",o)}),de(9,"                  "),G()(),R(10,"div",303)(11,"label",515),de(12," \u0627\u0644\
+
+======================================================================
+REFERENCE: 'urlAPI' at position 746122
+======================================================================
++e.hostname+"/"+jy_API+"/Handler/proxy.ashx",this.urlAPI=e.protocol+"//"+e.hostname+"/"+jy_API+"/api/Public/",this.baseUrl=e.protocol+"//"+e.hostname+"/"+jy_API+"/api/login/"}return(0,m.Z)(n,[{key:"getPartParcels",get:function(){return this.partParcels}},{key:"setPartParcels",set:function(e){this.partParcels=e}},{key:"imgMapLayerGroup",get:function(){return this._imgMapLayerGroup},set:function(e){this._imgMapLayerGroup=e}},{key:"drawLayerGroupStreet",get:function(){return this._drawLayerGroupStreet},set:function(e){this._drawLayerGroupStreet=e}
+
+======================================================================
+REFERENCE: 'SaveBuildingUseCodeAll' at position 2787033
+======================================================================
+),Ct("click",function(){Mt(e);var o=Fe();return o.SaveBuildingUseCodeAll7(o.VIEW_BUILDINGSYSTEM7[0])}),Nn(44,"i",1120),G()()()()()}if(2&n){var t=Fe();oe(4),Ee("ngModel",t.VIEW_BUILDINGSYSTEM7[0].PLANNINGREQUIREMENTS),oe(4),Ee("ngModel",t.VIEW_BUILDINGSYSTEM7[0].USES),oe(5),Ee("ngModel",t.VIEW_BUILDINGSYSTEM7[0].BOUNCES),oe(5),Ee("ngModel",t.VIEW_BUILDINGSYSTEM7[0].ALTITUDES),oe(5),Ee("ngModel",t.VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONFACTOR),oe(5),Ee("ngModel",t.VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONRATIO),oe(5),Ee("ngModel",t.VIEW_BUILDINGSYSTEM7[0

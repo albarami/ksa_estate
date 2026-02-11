@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "target_url": "http://rbrs.arriyadhmap.com/Amana/BuildingLaws/Mobile/ADAPUBLIC/index.html",
+    "target_coords": {
+      "lat": 24.8256,
+      "lng": 46.6526
+    },
+    "captured_at": "2026-02-11T17:45:02.293549+00:00",
+    "total_requests": 1,
+    "total_console_logs": 1
+  },
+  "requests": [
+    {
+      "phase": "initial_load",
+      "timestamp": "2026-02-11T17:42:58.962382+00:00",
+      "url": "http://rbrs.arriyadhmap.com/Amana/BuildingLaws/Mobile/ADAPUBLIC/index.html",
+      "method": "GET",
+      "resource_type": "document",
+      "request_headers": {
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "accept-encoding": "gzip, deflate",
+        "accept-language": "en-US,en;q=0.9",
+        "connection": "keep-alive",
+        "host": "rbrs.arriyadhmap.com",
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+      },
+      "query_params": {},
+      "post_data": null,
+      "status": 400,
+      "status_text": "Bad Request",
+      "response_headers": {
+        "cf-ray": "9cc5a55548a270ea-MRS",
+        "connection": "keep-alive",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Wed, 11 Feb 2026 17:42:58 GMT",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Livv4VcFO1pD69dDaBoDeZ7AQqYfZ3y%2BQNS00oRLguqjTAnvdbGphNUANt7wBAEvtXtSosAim9ruH9AmQTzxsxDe6Ftjn6nyGg8RDMnv%2B5Vn6w%3D%3D\"}]}",
+        "server": "cloudflare",
+        "transfer-encoding": "chunked",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "response_body": "404 Not Found"
+    }
+  ],
+  "console_logs": [
+    {
+      "phase": "initial_load",
+      "timestamp": "2026-02-11T17:42:58.963928+00:00",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    }
+  ]
+}

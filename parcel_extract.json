@@ -1,0 +1,124 @@
+{
+  "api_url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/Handler/proxy.ashx?https://maps.alriyadh.gov.sa/gprtl/rest/services/WebMercator/WMParcelsLayerOne/MapServer/2/query?returnGeometry=true&where=PARCELID%3D3710897&outSR=4326&outFields=*&callback=window._EsriLeafletCallbacks.c2&f=json",
+  "field_aliases": {
+    "OBJECTID": "OBJECTID",
+    "PARCELID": "رمز قطعة الأرض",
+    "PARCELNO": "رقم القطعة",
+    "BLOCKNO": "رقم البلوك",
+    "MAHDARNO": "رقم المحضر",
+    "MAHDARDATE": "تاريخ المحضر",
+    "PLANNO": "رقم المخطط",
+    "SUBMUNICIPALITY": "البلديات الفرعية",
+    "DISTRICT": "الحي",
+    "BUILDINGUSECODE": "نظام شروط البناء",
+    "PARCELSUBTYPE": "الاستخدام الرئيسي",
+    "LANDUSEAGROUP": "الاستخدام الثانوي",
+    "LANDUSEADETAILED": "استخدام الارض",
+    "REVIEWED_BLD_CODE": "اشترطات نظام البناء للقطعة",
+    "IS_LABEL_DISPLAY": "حالة القطعة",
+    "FLGBLDCODE": "نظام البناء",
+    "SHAPE.AREA": "مساحة القطعة"
+  },
+  "fields": [
+    {
+      "OBJECTID": "esriFieldTypeOID"
+    },
+    {
+      "PARCELID": "esriFieldTypeInteger"
+    },
+    {
+      "PARCELNO": "esriFieldTypeString"
+    },
+    {
+      "BLOCKNO": "esriFieldTypeString"
+    },
+    {
+      "MAHDARNO": "esriFieldTypeString"
+    },
+    {
+      "MAHDARDATE": "esriFieldTypeString"
+    },
+    {
+      "PLANNO": "esriFieldTypeString"
+    },
+    {
+      "SUBMUNICIPALITY": "esriFieldTypeString"
+    },
+    {
+      "DISTRICT": "esriFieldTypeString"
+    },
+    {
+      "BUILDINGUSECODE": "esriFieldTypeInteger"
+    },
+    {
+      "PARCELSUBTYPE": "esriFieldTypeInteger"
+    },
+    {
+      "LANDUSEAGROUP": "esriFieldTypeInteger"
+    },
+    {
+      "LANDUSEADETAILED": "esriFieldTypeInteger"
+    },
+    {
+      "REVIEWED_BLD_CODE": "esriFieldTypeInteger"
+    },
+    {
+      "IS_LABEL_DISPLAY": "esriFieldTypeString"
+    },
+    {
+      "FLGBLDCODE": "esriFieldTypeString"
+    },
+    {
+      "SHAPE.AREA": "esriFieldTypeDouble"
+    }
+  ],
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 6859064,
+        "PARCELID": 3710897,
+        "PARCELNO": "2045",
+        "BLOCKNO": "0",
+        "MAHDARNO": "0",
+        "MAHDARDATE": "0",
+        "PLANNO": "3114",
+        "SUBMUNICIPALITY": "50785",
+        "DISTRICT": "074",
+        "BUILDINGUSECODE": 8,
+        "PARCELSUBTYPE": 7500,
+        "LANDUSEAGROUP": 7500,
+        "LANDUSEADETAILED": 7510,
+        "REVIEWED_BLD_CODE": 1,
+        "IS_LABEL_DISPLAY": "-",
+        "FLGBLDCODE": "م 111",
+        "SHAPE.AREA": 1507.3238979
+      },
+      "geometry": {
+        "rings": [
+          [
+            [
+              46.613530149124,
+              24.81561765050438
+            ],
+            [
+              46.61321571522764,
+              24.81548539615457
+            ],
+            [
+              46.613037279715634,
+              24.815838387720287
+            ],
+            [
+              46.6133516516685,
+              24.815970766777287
+            ],
+            [
+              46.613530149124,
+              24.81561765050438
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

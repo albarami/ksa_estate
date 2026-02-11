@@ -1,0 +1,268 @@
+{
+  "auth": {
+    "status": 200,
+    "body": "{\"USERCODE\":\"0\",\"FULLNAME\":\"مستخدم عام\",\"SECTIONNAME\":\"أمانة منطقة الرياض\",\"TOKEN\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InB1YmxpYyIsInJvbGUiOiJQdWJsaWNVc2VyIiwibmJmIjoxNzcwODM0NTc3LCJleHAiOjE3NzA4NjY5NzcsImlhdCI6MTc3MDgzNDU3NywiaXNzIjoiKiIsImF1ZCI6IioifQ.8iT7fxOOUWs99Mds7Y5QTDVAv5kozMeNLOwo95jtD-g\",\"EMAIL\":\"\",\"MAJOR_CODE\":\"\",\"MINOR_CODE\":\"\",\"SEC\":[],\"COM_DIR_CODE\":null,\"MOBILE\":null}"
+  },
+  "probes": [
+    {
+      "method": "GET",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelDetails?parcelId=3710897",
+      "status": 404,
+      "response_length": 165,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelDetails?parcelId=3710897'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "GET",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelInfo?parcelId=3710897",
+      "status": 404,
+      "response_length": 162,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelInfo?parcelId=3710897'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "GET",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetBuildingCode?parcelId=3710897",
+      "status": 404,
+      "response_length": 164,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetBuildingCode?parcelId=3710897'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "GET",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetBuildingConditions?parcelId=3710897",
+      "status": 404,
+      "response_length": 170,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetBuildingConditions?parcelId=3710897'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "GET",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelByID?parcelId=3710897",
+      "status": 404,
+      "response_length": 162,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelByID?parcelId=3710897'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "GET",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelDetail?parcelId=3710897",
+      "status": 404,
+      "response_length": 164,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelDetail?parcelId=3710897'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "GET",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetBldCode?parcelId=3710897",
+      "status": 404,
+      "response_length": 159,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetBldCode?parcelId=3710897'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "GET",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetRegulations?parcelId=3710897",
+      "status": 404,
+      "response_length": 163,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetRegulations?parcelId=3710897'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "GET",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_PARCEL_INFO?parcelId=3710897",
+      "status": 404,
+      "response_length": 164,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_PARCEL_INFO?parcelId=3710897'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "GET",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_BLD_CODE?parcelId=3710897",
+      "status": 404,
+      "response_length": 161,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_BLD_CODE?parcelId=3710897'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "GET",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_PARCEL_DETAIL?PARCELID=3710897",
+      "status": 404,
+      "response_length": 166,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_PARCEL_DETAIL?PARCELID=3710897'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "GET",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_BUILDING_CONDITIONS?parcelId=3710897",
+      "status": 404,
+      "response_length": 172,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_BUILDING_CONDITIONS?parcelId=3710897'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "GET",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_PARCEL_BLD_INFO?PARCELID=3710897",
+      "status": 404,
+      "response_length": 168,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_PARCEL_BLD_INFO?PARCELID=3710897'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelDetails",
+      "body": "{\"parcelId\": \"3710897\"}",
+      "status": 404,
+      "response_length": 148,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelDetails'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelDetails",
+      "body": "{\"parcelId\": 3710897}",
+      "status": 404,
+      "response_length": 148,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelDetails'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelInfo",
+      "body": "{\"parcelId\": \"3710897\"}",
+      "status": 404,
+      "response_length": 145,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelInfo'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelInfo",
+      "body": "{\"parcelId\": 3710897}",
+      "status": 404,
+      "response_length": 145,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelInfo'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetBuildingCode",
+      "body": "{\"parcelId\": \"3710897\"}",
+      "status": 404,
+      "response_length": 147,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetBuildingCode'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetBuildingCode",
+      "body": "{\"parcelId\": 3710897}",
+      "status": 404,
+      "response_length": 147,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetBuildingCode'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetBuildingConditions",
+      "body": "{\"parcelId\": \"3710897\"}",
+      "status": 404,
+      "response_length": 153,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetBuildingConditions'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetBuildingConditions",
+      "body": "{\"parcelId\": 3710897}",
+      "status": 404,
+      "response_length": 153,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetBuildingConditions'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelByID",
+      "body": "{\"parcelId\": \"3710897\"}",
+      "status": 404,
+      "response_length": 145,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelByID'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelByID",
+      "body": "{\"parcelId\": 3710897}",
+      "status": 404,
+      "response_length": 145,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GetParcelByID'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/searchNew3",
+      "body": "{\"parcelId\": \"3710897\"}",
+      "status": 500,
+      "response_length": 36,
+      "response_preview": "{\"Message\":\"An error has occurred.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/searchNew3",
+      "body": "{\"parcelId\": 3710897}",
+      "status": 500,
+      "response_length": 36,
+      "response_preview": "{\"Message\":\"An error has occurred.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_PARCEL_INFO",
+      "body": "{\"parcelId\": \"3710897\"}",
+      "status": 404,
+      "response_length": 147,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_PARCEL_INFO'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_PARCEL_INFO",
+      "body": "{\"parcelId\": 3710897}",
+      "status": 404,
+      "response_length": 147,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_PARCEL_INFO'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_PARCEL_BLD_INFO",
+      "body": "{\"parcelId\": \"3710897\"}",
+      "status": 404,
+      "response_length": 151,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_PARCEL_BLD_INFO'.\"}",
+      "interesting": false
+    },
+    {
+      "method": "POST",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_PARCEL_BLD_INFO",
+      "body": "{\"parcelId\": 3710897}",
+      "status": 404,
+      "response_length": 151,
+      "response_preview": "{\"Message\":\"No HTTP resource was found that matches the request URI 'http://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_PARCEL_BLD_INFO'.\"}",
+      "interesting": false
+    }
+  ],
+  "identify": {
+    "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/Handler/proxy.ashx?https://maps.alriyadh.gov.sa/gprtl/rest/services/WebMercator/WMParcelsLayerOne/MapServer/identify?geometry=46.61328,24.81573&geometryType=esriGeometryPoint&sr=4326&tolerance=5&mapExtent=46.612280000000005,24.814729999999997,46.61428,24.81673&imageDisplay=800,600,96&layers=all&returnGeometry=true&f=json",
+    "status": 200,
+    "response_length": 61,
+    "response": "{\"error\":{\"code\":498,\"message\":\"Invalid Token\",\"details\":[]}}"
+  },
+  "identify_direct": {
+    "url": "https://maps.alriyadh.gov.sa/gprtl/rest/services/WebMercator/WMParcelsLayerOne/MapServer/identify?geometry=46.61328,24.81573&geometryType=esriGeometryPoint&sr=4326&tolerance=5&mapExtent=46.612280000000005,24.814729999999997,46.61428,24.81673&imageDisplay=800,600,96&layers=all&returnGeometry=true&f=json",
+    "status": 200,
+    "response_length": 62,
+    "response": "{\"error\":{\"code\":499,\"message\":\"Token Required\",\"details\":[]}}"
+  }
+}

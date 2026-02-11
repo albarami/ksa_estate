@@ -1,0 +1,27 @@
+# Secrets
+.env
+
+# Large binary files
+building_codes_output/pdfs/
+api_exploration/js_bundles/
+
+# Screenshots (can be regenerated)
+screenshots/
+decode_output/screenshots/
+building_codes_output/screenshots/
+
+# Debug artifacts
+debug_after_nav.png
+debug_after_cloudflare.png
+before_click.png
+after_click.png
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/

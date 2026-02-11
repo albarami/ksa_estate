@@ -1,0 +1,17 @@
+[
+  {
+    "code": 8,
+    "status": 401,
+    "raw": "{\"Message\":\"Authorization has been denied for this request.\"}"
+  },
+  {
+    "code": 1,
+    "status": 401,
+    "raw": "{\"Message\":\"Authorization has been denied for this request.\"}"
+  },
+  {
+    "code": 272,
+    "status": 401,
+    "raw": "{\"Message\":\"Authorization has been denied for this request.\"}"
+  }
+]

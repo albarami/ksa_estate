@@ -1,0 +1,98 @@
+{
+  "POST /APIGEOPORTALN/api/login/authenticate": {
+    "method": "POST",
+    "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/login/authenticate",
+    "full_url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/login/authenticate",
+    "resource_type": "xhr",
+    "status": 200,
+    "post_data": "{\"appid\":\"1\",\"username\":\"kduwGS/eGGSXMz5NkcS/qDFqAZZemcyEL9u7mEcifV2WAFVocT4ezes5ckYEGdxJ\",\"password\":\"ZhENHqcK6xSu3tZgbAL2kDgeG0Jd6jxGmHtOvZPJOwXsayGvxI/z0rIqUZrbrz8B\"}",
+    "response_body_preview": "{\"USERCODE\":\"0\",\"FULLNAME\":\"مستخدم عام\",\"SECTIONNAME\":\"أمانة منطقة الرياض\",\"TOKEN\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InB1YmxpYyIsInJvbGUiOiJQdWJsaWNVc2VyIiwibmJmIjoxNzcwODMyNDE4LCJleHAiOjE3NzA4NjQ4MTgsImlhdCI6MTc3MDgzMjQxOCwiaXNzIjoiKiIsImF1ZCI6IioifQ.HqS4vQpxYouOZXCpggS9viSr1xFPlXBOrPngrQq9M_c\",\"EMAIL\":\"\",\"MAJOR_CODE\":\"\",\"MINOR_CODE\":\"\",\"SEC\":[],\"COM_DIR_CODE\":null,\"MOBILE\":null}",
+    "count": 2,
+    "phases": [
+      "initial_load",
+      "parcel_url_load"
+    ]
+  },
+  "GET /APIGEOPORTALN/api/Public/GET_MAH_LAYERS_GROUP_PRC4": {
+    "method": "GET",
+    "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_MAH_LAYERS_GROUP_PRC4",
+    "full_url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/GET_MAH_LAYERS_GROUP_PRC4",
+    "resource_type": "xhr",
+    "status": 200,
+    "post_data": null,
+    "response_body_preview": "[{\"AGENCIESID\":\"50\",\"URLGEOPORTAL\":\"https://mapservice.alriyadh.gov.sa/geomap_ex_m/rest/services/\",\"AGENCIESNAME\":\"طبقات للجمهور\",\"DEPARTMENTSID\":\"42\",\"DEPARTMENTSNAME\":\"تسوير الأراضى الفضاء\",\"GROUPID\":\"126\",\"GROUPNAME\":\"تسوير الأراضى الفضاء \",\"LAYERID\":\"801\",\"LAYERNAME\":\"تسوير الأراضى الفضاء المرحلة الثالثة\",\"URL\":\"GeoPortal/landspace3/MapServer\",\"LAYERINDEX\":null,\"LAYERFLAGE\":\"true\",\"TOKEN\":null,\"PCHECK\":null,\"LAYERICON\":\"fa-solid fa-parachute-box\"},{\"AGENCIESID\":\"50\",\"URLGEOPORTAL\":\"https://mapservice.alriyadh.gov.sa/geomap_ex_m/rest/services/\",\"AGENCIESNAME\":\"طبقات للجمهور\",\"DEPARTMENTSID\":\"42\",\"DEPARTMENTSNAME\":\"تسوير الأراضى الفضاء\",\"GROUPID\":\"126\",\"GROUPNAME\":\"تسوير الأراضى الفضاء \",\"LAYERID\":\"361\",\"LAYERNAME\":\"تسوير الأراضى الفضاء المرحلة الثاني \",\"URL\":\"GeoPortal/landspace2/MapServer\",\"LAYERINDEX\":null,\"LAYERFLAGE\":\"true\",\"TOKEN\":null,\"PCHECK\":null,\"LAYERICON\":\"fa-solid fa-parachute-box\"},{\"AGENCIESID\":\"50\",\"URLGEOPORTAL\":\"https://mapservice.alriyadh.gov.sa/geomap_ex_m/rest/services/\",\"AGENCIESNAME\":\"طبقات للجمهور\",\"DEPARTMENTSID\":\"42\",\"DEPARTMENTSNAME\":\"تسوير الأراضى الفضاء\",\"GROUPID\":\"126\",\"GROUPNAME\":\"تسوير الأراضى الفضاء \",\"LAYERID\":\"222\",\"LAYERNAME\":\"تسوير الأراضى الفضاء المرحلة الأولى\",\"URL\":\"GeoPortal/landspace/MapServer\",\"LAYERINDEX\":null,\"LAYERFLAGE\":\"true\",\"TOKEN\":null,\"PCHECK\":null,\"LAYERICON\":\"fa-solid fa-parachute-box\"},{\"AGENCIESID\":\"50\",\"URLGEOPORTAL\":null,\"AGENCIESNAME\":\"طبقات للجمهور\",\"DEPARTMENTSID\":\"41\",\"DEPARTMENTSNAME\":\"الفعاليات\",\"GROUPID\":\"125\",\"GROUPNAME\":\"فعاليات الرياض\",\"LAYERID\":\"221\",\"LAYERNAME\":\"فعاليات الرياض\",\"URL\":\"GeoPortal/RiyadhEvents/MapServer\",\"LAYERINDEX\":null,\"LAYERFLAGE\":null,\"TOKEN\":null,\"PCHECK\":null,\"LAYERICON\":\"fa-solid fa-box\"}]",
+    "count": 2,
+    "phases": [
+      "initial_load",
+      "parcel_url_load"
+    ]
+  },
+  "GET PROXY -> /pgissrv/rest/services/Hosted/FinalVectorTile_Exadata/VectorTileServer": {
+    "method": "GET",
+    "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/Handler/proxy.ashx?https://maps.alriyadh.gov.sa/pgissrv/rest/services/Hosted/FinalVectorTile_Exadata/VectorTileServer?f=json&callback=window._EsriLeafletCallbacks.c0",
+    "full_url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/Handler/proxy.ashx?https://maps.alriyadh.gov.sa/pgissrv/rest/services/Hosted/FinalVectorTile_Exadata/VectorTileServer?f=json&callback=window._EsriLeafletCallbacks.c0",
+    "resource_type": "script",
+    "status": 200,
+    "post_data": null,
+    "response_body_preview": "window._EsriLeafletCallbacks.c0({\"name\":\"FinalVectorTile_Exadata\",\"type\":\"indexedVector\",\"defaultStyles\":\"resources/styles\",\"tiles\":[\"tile/{z}/{y}/{x}.pbf\"],\"initialExtent\":{\"xmin\":3667907.208080707,\"ymin\":1716117.5262999414,\"xmax\":6368917.661861487,\"ymax\":3882385.7202061666,\"spatialReference\":{\"wkid\":102100,\"latestWkid\":3857}},\"fullExtent\":{\"xmin\":3667907.208080707,\"ymin\":1716117.5262999414,\"xmax\":6368917.661861487,\"ymax\":3882385.7202061666,\"spatialReference\":{\"wkid\":102100,\"latestWkid\":3857}},\"minScale\":9244648.868618,\"maxScale\":141.062147,\"tileInfo\":{\"rows\":512,\"cols\":512,\"dpi\":96,\"format\":\"pbf\",\"origin\":{\"x\":-2.0037508342787E7,\"y\":2.0037508342787E7},\"spatialReference\":{\"wkid\":102100,\"latestWkid\":3857},\"lods\":[{\"level\":0,\"resolution\":78271.516964,\"scale\":2.958287637957775E8},{\"level\":1,\"resolution\":39135.75848199995,\"scale\":1.479143818978885E8},{\"level\":2,\"resolution\":19567.87924100005,\"scale\":7.39571909489445E7},{\"level\":3,\"resolution\":9783.93962049995,\"scale\":3.6978595474472E7},{\"level\":4,\"resolution\":4891.96981024998,\"scale\":1.8489297737236E7},{\"level\":5,\"resolution\":2445.98490512499,\"scale\":9244648.868618},{\"level\":6,\"resolution\":1222.992452562495,\"scale\":4622324.434309},{\"level\":7,\"resolution\":611.496226281245,\"scale\":2311162.2171545},{\"level\":8,\"resolution\":305.74811314069,\"scale\":1155581.1085775},{\"level\":9,\"resolution\":152.874056570279,\"scale\":577790.5542885},{\"level\":10,\"resolution\":76.4370282852055,\"scale\":288895.2771445},{\"level\":11,\"resolution\":38.2185141425366,\"scale\":144447.638572},{\"level\":12,\"resolution\":19.1092570712683,\"scale\":72223.819286},{\"level\":13,\"resolution\":9.55462853563415,\"scale\":36111.909643},{\"level\":14,\"resolution\":4.777314267817075,\"scale\":18055.9548215},{\"level\":15,\"resolution\":2.388657133974685,\"scale\":9027.977411},{\"level\":16,\"resolution\":1.19432856698734,\"scale\":4513.9887055},{\"level\":17,\"resolution\":0.597164283427525,\"scale\":2256.9943525},{\"level\":18,\"resolution\":0.2985821417799085,\"scale\":1128.4971765},{\"level\":19,\"resolution",
+    "count": 4,
+    "phases": [
+      "initial_load",
+      "parcel_url_load"
+    ]
+  },
+  "GET PROXY -> /geomap_ex_p/rest/services/Riyadh/Riyadh2023/MapServer/": {
+    "method": "GET",
+    "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/Handler/proxy.ashx?https://maps.alriyadh.gov.sa/geomap_ex_p/rest/services/Riyadh/Riyadh2023/MapServer/?callback=window._EsriLeafletCallbacks.c1&f=json",
+    "full_url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/Handler/proxy.ashx?https://maps.alriyadh.gov.sa/geomap_ex_p/rest/services/Riyadh/Riyadh2023/MapServer/?callback=window._EsriLeafletCallbacks.c1&f=json",
+    "resource_type": "script",
+    "status": 200,
+    "post_data": null,
+    "response_body_preview": "window._EsriLeafletCallbacks.c1({\"currentVersion\":10.71,\"serviceDescription\":\"\",\"mapName\":\"Layers\",\"description\":\"\",\"copyrightText\":\"\",\"supportsDynamicLayers\":true,\"layers\":[{\"id\":0,\"name\":\"TRANS.Bus_Stops\",\"parentLayerId\":-1,\"defaultVisibility\":true,\"subLayerIds\":null,\"minScale\":10000,\"maxScale\":0,\"type\":\"Feature Layer\",\"geometryType\":\"esriGeometryPoint\"},{\"id\":1,\"name\":\"حدود مسارت المجاري المائية\",\"parentLayerId\":-1,\"defaultVisibility\":true,\"subLayerIds\":[2,3],\"minScale\":0,\"maxScale\":0,\"type\":\"Group Layer\"},{\"id\":2,\"name\":\"حدود مسارت المجاري المائية\",\"parentLayerId\":1,\"defaultVisibility\":true,\"subLayerIds\":null,\"minScale\":577791,\"maxScale\":0,\"type\":\"Feature Layer\",\"geometryType\":\"esriGeometryPolygon\"},{\"id\":3,\"name\":\"hyStream_line\",\"parentLayerId\":1,\"defaultVisibility\":true,\"subLayerIds\":null,\"minScale\":577791,\"maxScale\":0,\"type\":\"Feature Layer\",\"geometryType\":\"esriGeometryPolyline\"},{\"id\":4,\"name\":\"ayman\",\"parentLayerId\":-1,\"defaultVisibility\":true,\"subLayerIds\":[5,9,15,24,25,26,27,28,29,30,31,32,46,47,48,49,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,75,79,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109],\"minScale\":0,\"maxScale\":0,\"type\":\"Group Layer\"},{\"id\":5,\"name\":\"مدارس وحكومي\",\"parentLayerId\":4,\"defaultVisibility\":true,\"subLayerIds\":[6,7,8],\"minScale\":0,\"maxScale\":0,\"type\":\"Group Layer\"},{\"id\":6,\"name\":\"حكومي\",\"parentLayerId\":5,\"defaultVisibility\":true,\"subLayerIds\":null,\"minScale\":18056,\"maxScale\":0,\"type\":\"Feature Layer\",\"geometryType\":\"esriGeometryPoint\"},{\"id\":7,\"name\":\"المدارس\",\"parentLayerId\":5,\"defaultVisibility\":true,\"subLayerIds\":null,\"minScale\":9027.977411,\"maxScale\":0,\"type\":\"Feature Layer\",\"geometryType\":\"esriGeometryPoint\"},{\"id\":8,\"name\":\"المدارس  1:72,224\",\"parentLayerId\":5,\"defaultVisibility\":true,\"subLayerIds\":null,\"minScale\":72223.819286,\"maxScale\":9027.977411,\"type\":\"Feature Layer\",\"geometryType\":\"esriGeometryPoint\"},{\"id\":9,\"name\":\"المساجد\",\"parentLayerId\":4,\"defaultVisibility\":true,\"subLayerIds\":[10,11,12,13,14],\"minScal",
+    "count": 2,
+    "phases": [
+      "initial_load",
+      "parcel_url_load"
+    ]
+  },
+  "POST /APIGEOPORTALN/api/Public/searchNew3": {
+    "method": "POST",
+    "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/searchNew3",
+    "full_url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/api/Public/searchNew3",
+    "resource_type": "xhr",
+    "status": 200,
+    "post_data": "{\"q\":\"cancel\",\"f\":\"\",\"filterSearch\":\"\",\"bboxGeoJson\":\"46.58615112304688,24.56242461349165,46.83334350585938,24.70286055030423\"}",
+    "response_body_preview": "[]",
+    "count": 2,
+    "phases": [
+      "initial_load",
+      "parcel_url_load"
+    ]
+  },
+  "GET /geoportal/": {
+    "method": "GET",
+    "url": "https://mapservice.alriyadh.gov.sa/geoportal/?parcelid=3710897",
+    "full_url": "https://mapservice.alriyadh.gov.sa/geoportal/?parcelid=3710897",
+    "resource_type": "document",
+    "status": 200,
+    "post_data": null,
+    "response_body_preview": "<!DOCTYPE html><html lang=\"ar\" dir=\"rtl\"><head>\n  <meta content=\"text/html;charset=utf-8\" http-equiv=\"Content-Type\">\n  <meta content=\"utf-8\" http-equiv=\"encoding\">\n  <meta name=\"description\" content=\"البواية المكانية لمنطقة الرياض\">\n  <meta name=\"keywords\" content=\"البوابة المكانية,خريطة الرياض,واصف,المخططات وقطع الاراضي,الشوارع,البلديات والمحافظات,منطقة الرياض,مدينة الرياض,الاحياء \">\n  <meta name=\"viewport\" content=\"minimal-ui, user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width,height=device-height\">\n  <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n  <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\">\n  <meta http-equiv=\"x-ua-compatible\" content=\"IE=edge\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n\n  <title></title>\n  <base href=\"/geoportal/\">\n\n  <!-- Global site tag (gtag.js) - Google Analytics -->\n\n  <script type=\"text/javascript\" src=\"/geoportal/ruxitagentjs_ICA7NQVfgqrux_10329260206100503.js\" data-dtconfig=\"rid=RID_1454403738|rpid=-1083739277|domain=gov.sa|reportUrl=/geoportal/rb_872aad1d-7829-467b-be88-2c52ddc79832|app=00f1bf7a7a1cace8|owasp=1|featureHash=ICA7NQVfgqrux|msl=153600|srsr=30000|rdnt=1|uxrgce=1|cuc=wfaudb21|srms=2,1,0,0%2Ftextarea%2Cinput%2Cselect%2Coption;0%2Fdatalist;0%2Fform%20button;0%2F%5Bdata-dtrum-input%5D;0%2F.data-dtrum-input;1%2F%5Edata%28%28%5C-.%2B%24%29%7C%24%29|mel=100000|expw=1|dpvc=1|lastModification=1770677194768|tp=500,50,0|srbbv=2|agentUri=/geoportal/ruxitagentjs_ICA7NQVfgqrux_10329260206100503.js\"></script><script src=\"./assets/js/maplibre-gl-csp.js\"></script>\n  <script>\n  maplibregl.workerUrl = \"./assets/js/maplibre-gl-csp-worker.js\";\n\n  </script>\n\n  <!-- <script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-164008887-1\"></script>\n\n  <script>\n    window.dataLayer = window.dataLayer || [];\n    function gtag() { dataLayer.push(arguments); }\n    gtag('js', new Date());\n\n    gtag('config', 'UA-164008887-1');\n\n\n  </script> -->\n\n\n  <sc",
+    "count": 2,
+    "phases": [
+      "parcel_url_load"
+    ]
+  },
+  "GET PROXY -> /gprtl/rest/services/WebMercator/WMParcelsLayerOne/MapServer/2/query": {
+    "method": "GET",
+    "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/Handler/proxy.ashx?https://maps.alriyadh.gov.sa/gprtl/rest/services/WebMercator/WMParcelsLayerOne/MapServer/2/query?returnGeometry=true&where=PARCELID%3D3710897&outSR=4326&outFields=*&callback=window._EsriLeafletCallbacks.c2&f=json",
+    "full_url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/Handler/proxy.ashx?https://maps.alriyadh.gov.sa/gprtl/rest/services/WebMercator/WMParcelsLayerOne/MapServer/2/query?returnGeometry=true&where=PARCELID%3D3710897&outSR=4326&outFields=*&callback=window._EsriLeafletCallbacks.c2&f=json",
+    "resource_type": "script",
+    "status": 200,
+    "post_data": null,
+    "response_body_preview": "window._EsriLeafletCallbacks.c2({\"displayFieldName\":\"PARCELNO\",\"fieldAliases\":{\"OBJECTID\":\"OBJECTID\",\"PARCELID\":\"رمز قطعة الأرض\",\"PARCELNO\":\"رقم القطعة\",\"BLOCKNO\":\"رقم البلوك\",\"MAHDARNO\":\"رقم المحضر\",\"MAHDARDATE\":\"تاريخ المحضر\",\"PLANNO\":\"رقم المخطط\",\"SUBMUNICIPALITY\":\"البلديات الفرعية\",\"DISTRICT\":\"الحي\",\"BUILDINGUSECODE\":\"نظام شروط البناء\",\"PARCELSUBTYPE\":\"الاستخدام الرئيسي\",\"LANDUSEAGROUP\":\"الاستخدام الثانوي\",\"LANDUSEADETAILED\":\"استخدام الارض\",\"REVIEWED_BLD_CODE\":\"اشترطات نظام البناء للقطعة\",\"IS_LABEL_DISPLAY\":\"حالة القطعة\",\"FLGBLDCODE\":\"نظام البناء\",\"SHAPE.AREA\":\"مساحة القطعة\"},\"geometryType\":\"esriGeometryPolygon\",\"spatialReference\":{\"wkid\":4326,\"latestWkid\":4326},\"fields\":[{\"name\":\"OBJECTID\",\"type\":\"esriFieldTypeOID\",\"alias\":\"OBJECTID\"},{\"name\":\"PARCELID\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"رمز قطعة الأرض\"},{\"name\":\"PARCELNO\",\"type\":\"esriFieldTypeString\",\"alias\":\"رقم القطعة\",\"length\":40},{\"name\":\"BLOCKNO\",\"type\":\"esriFieldTypeString\",\"alias\":\"رقم البلوك\",\"length\":20},{\"name\":\"MAHDARNO\",\"type\":\"esriFieldTypeString\",\"alias\":\"رقم المحضر\",\"length\":30},{\"name\":\"MAHDARDATE\",\"type\":\"esriFieldTypeString\",\"alias\":\"تاريخ المحضر\",\"length\":20},{\"name\":\"PLANNO\",\"type\":\"esriFieldTypeString\",\"alias\":\"رقم المخطط\",\"length\":25},{\"name\":\"SUBMUNICIPALITY\",\"type\":\"esriFieldTypeString\",\"alias\":\"البلديات الفرعية\",\"length\":10},{\"name\":\"DISTRICT\",\"type\":\"esriFieldTypeString\",\"alias\":\"الحي\",\"length\":6},{\"name\":\"BUILDINGUSECODE\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"نظام شروط البناء\"},{\"name\":\"PARCELSUBTYPE\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"الاستخدام الرئيسي\"},{\"name\":\"LANDUSEAGROUP\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"الاستخدام الثانوي\"},{\"name\":\"LANDUSEADETAILED\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"استخدام الارض\"},{\"name\":\"REVIEWED_BLD_CODE\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"اشترطات نظام البناء للقطعة\"},{\"name\":\"IS_LABEL_DISPLAY\",\"type\":\"esriFieldTypeString\",\"alias\":\"حالة القطعة\",\"length\":400},{\"name\":\"FLGBLDCODE\",\"type\":\"esriFieldTypeString\",\"alias\":\"نظام البناء\",\"l",
+    "count": 1,
+    "phases": [
+      "parcel_url_load"
+    ]
+  }
+}

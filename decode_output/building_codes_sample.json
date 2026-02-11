@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "queried_at": "2026-02-11T18:12:49.702888+00:00",
+    "api_base": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/Handler/proxy.ashx?https://maps.alriyadh.gov.sa/gprtl/rest/services/WebMercator/WMParcelsLayerOne/MapServer/2/query",
+    "fields_requested": "PARCELID,PARCELNO,PLANNO,FLGBLDCODE,BUILDINGUSECODE,PARCELSUBTYPE,LANDUSEAGROUP,LANDUSEADETAILED,DISTRICT,SUBMUNICIPALITY,SHAPE.AREA",
+    "total_queried": 10,
+    "total_found": 3
+  },
+  "parcels": [
+    {
+      "parcel_id": 3710897,
+      "found": true,
+      "PARCELID": 3710897,
+      "PARCELNO": "2045",
+      "PLANNO": "3114",
+      "FLGBLDCODE": "م 111",
+      "BUILDINGUSECODE": 8,
+      "PARCELSUBTYPE": 7500,
+      "LANDUSEAGROUP": 7500,
+      "LANDUSEADETAILED": 7510,
+      "DISTRICT": "074",
+      "SUBMUNICIPALITY": "50785",
+      "SHAPE.AREA": 1507.3238979
+    },
+    {
+      "parcel_id": 3710898,
+      "found": true,
+      "PARCELID": 3710898,
+      "PARCELNO": "1703/2",
+      "PLANNO": "3114",
+      "FLGBLDCODE": "س 111",
+      "BUILDINGUSECODE": 1,
+      "PARCELSUBTYPE": 1000,
+      "LANDUSEAGROUP": 1000,
+      "LANDUSEADETAILED": 1000,
+      "DISTRICT": "074",
+      "SUBMUNICIPALITY": "50785",
+      "SHAPE.AREA": 525.64957811
+    },
+    {
+      "parcel_id": 3710899,
+      "found": false
+    },
+    {
+      "parcel_id": 3710900,
+      "found": false
+    },
+    {
+      "parcel_id": 3700000,
+      "found": false
+    },
+    {
+      "parcel_id": 3800000,
+      "found": false
+    },
+    {
+      "parcel_id": 3900000,
+      "found": true,
+      "PARCELID": 3900000,
+      "PARCELNO": "2769",
+      "PLANNO": "2351/2",
+      "FLGBLDCODE": "T5 2 مختلط دورين\r\n",
+      "BUILDINGUSECODE": 272,
+      "PARCELSUBTYPE": 7500,
+      "LANDUSEAGROUP": 7500,
+      "LANDUSEADETAILED": 7510,
+      "DISTRICT": "155",
+      "SUBMUNICIPALITY": "50788",
+      "SHAPE.AREA": 1199.99567449
+    },
+    {
+      "parcel_id": 4000000,
+      "found": false
+    },
+    {
+      "parcel_id": 4100000,
+      "found": false
+    },
+    {
+      "parcel_id": 4200000,
+      "found": false
+    }
+  ]
+}
