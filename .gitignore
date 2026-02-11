@@ -1,3 +1,6 @@
+# Excel temp files
+~$*.xlsx
+
 # Secrets
 .env
 

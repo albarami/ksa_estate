@@ -34,7 +34,14 @@ CRITICAL RULES:
 - When asked about competing projects or market conditions, reason from your training data and the SREM data provided.
 - Currency is Saudi Riyal (SAR). All areas in square meters (m²).
 
-When you need detailed pro-forma data (cost breakdowns, cash flows, sensitivity), call the get_proforma_detail tool."""
+IMPORTANT ANALYSIS PATTERNS:
+- When IRR is negative, ALWAYS explain WHY. Common causes:
+  1. Parcel too small for fund structure (fixed fees like custodian 50K/yr, board 100K/yr, auditor 50K/yr consume margins on projects under 50M SAR)
+  2. Sale price too low relative to land + construction cost
+  3. Fund overhead ratio too high (fund fees should be <3% of project cost; if >5%, recommend direct development without fund structure)
+- For small parcels (<5,000 m²), proactively mention: "This parcel may be better suited for direct development without a fund structure. The fund overhead of ~1.3M SAR over 3 years represents X% of the total project, which is too high for institutional returns."
+- Always suggest what sale price per m² would be needed for breakeven (IRR=0%) and for target returns (IRR=12%)
+- Compare the project size to typical fund minimums (usually 50-100M SAR for institutional funds)"""
 
 DETAIL_TOOL = {
     "name": "get_proforma_detail",
@@ -141,57 +148,37 @@ async def get_advice(
         {"response": str, "tool_calls_made": int}
     """
     summary = _build_summary(land_object, proforma)
+
+    # Include key pro-forma details directly in context (avoids tool-call complexity)
+    detail_section = ""
+    if proforma:
+        detail_section = "\n\n## Pro-Forma Detail\n" + json.dumps(
+            {k: proforma[k] for k in ("land_costs", "construction_costs", "revenue", "fund_size", "kpis") if k in proforma},
+            ensure_ascii=False, indent=2,
+        )[:3000]
+
     messages = [
-        {"role": "user", "content": f"{summary}\n\n---\n\n**Question:** {question}"},
+        {"role": "user", "content": f"{summary}{detail_section}\n\n---\n\n**Question:** {question}"},
     ]
 
-    tools = [DETAIL_TOOL] if proforma else []
-    tool_calls = 0
+    try:
+        response = await anthropic_client.messages.create(
+            model=model,
+            max_tokens=4096,
+            system=SYSTEM_PROMPT,
+            messages=messages,
+        )
 
-    # Run conversation loop (Claude may call tools)
-    while True:
-        kwargs: dict[str, Any] = {
-            "model": model,
-            "max_tokens": 4096,
-            "system": SYSTEM_PROMPT,
-            "messages": messages,
-        }
-        if tools:
-            kwargs["tools"] = tools
-
-        response = await anthropic_client.messages.create(**kwargs)
-
-        # Check if Claude wants to use a tool
-        if response.stop_reason == "tool_use":
-            tool_calls += 1
-            # Find the tool use block
-            for block in response.content:
-                if block.type == "tool_use" and block.name == "get_proforma_detail":
-                    sections = block.input.get("sections", [])
-                    detail = _extract_detail(proforma, sections)
-                    messages.append({"role": "assistant", "content": response.content})
-                    messages.append({
-                        "role": "user",
-                        "content": [{
-                            "type": "tool_result",
-                            "tool_use_id": block.id,
-                            "content": detail,
-                        }],
-                    })
-                    break
-            if tool_calls > 3:
-                break  # safety limit
-            continue
-
-        # Extract text response
         text = ""
         for block in response.content:
             if hasattr(block, "text"):
                 text += block.text
 
-        return {"response": text, "tool_calls_made": tool_calls}
+        return {"response": text, "tool_calls_made": 0}
 
-    return {"response": "Unable to generate advice.", "tool_calls_made": tool_calls}
+    except Exception as exc:
+        log.error("Claude API error: %s", exc, exc_info=True)
+        return {"response": f"خطأ في المستشار الذكي: {exc}", "tool_calls_made": 0}
 
 
 async def search_market(
