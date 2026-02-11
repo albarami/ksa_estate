@@ -36,10 +36,10 @@ export default function AssumptionsPanel({ overrides, onChange, labels }: Props)
 
   const getValue = (id: string): number => {
     if (id === '_construction_total') return totalConstCost
-    if (id === 'far') return (overrides.far as number) ?? 1.2
+    if (id === 'far') return (overrides.far as number) ?? 1.5
     return (overrides[id] as number) ?? {
-      land_price_per_sqm: 5000,
-      sale_price_per_sqm: 8000,
+      land_price_per_sqm: 7000,
+      sale_price_per_sqm: 12500,
       fund_period_years: 3,
       bank_ltv_pct: 0.667,
     }[id] ?? 0
@@ -59,8 +59,8 @@ export default function AssumptionsPanel({ overrides, onChange, labels }: Props)
 
   const reset = () => {
     onChange({
-      land_price_per_sqm: 5000,
-      sale_price_per_sqm: 8000,
+      land_price_per_sqm: 7000,
+      sale_price_per_sqm: 12500,
       infrastructure_cost_per_sqm: 500,
       superstructure_cost_per_sqm: 2500,
       fund_period_years: 3,

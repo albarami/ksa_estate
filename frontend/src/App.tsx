@@ -12,6 +12,16 @@ const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 1, refetchOnWindowFocus: false } },
 })
 
+// Al-Hada reference defaults — realistic baseline for Riyadh development
+const DEFAULT_OVERRIDES: Overrides = {
+  land_price_per_sqm: 7000,
+  sale_price_per_sqm: 12500,
+  infrastructure_cost_per_sqm: 500,
+  superstructure_cost_per_sqm: 2500,
+  fund_period_years: 3,
+  bank_ltv_pct: 0.667,
+}
+
 type Screen = 'input' | 'loading' | 'dashboard'
 
 function AppInner() {
@@ -19,51 +29,42 @@ function AppInner() {
   const [lang, setLang] = useState<Lang>('ar')
   const [parcelId, setParcelId] = useState<number | null>(null)
   const [land, setLand] = useState<LandObject | null>(null)
-  const [proforma, setProforma] = useState<ProFormaResult | null>(null)
-  const [overrides, setOverrides] = useState<Overrides>({
-    land_price_per_sqm: 5000,
-    sale_price_per_sqm: 8000,
-    infrastructure_cost_per_sqm: 500,
-    superstructure_cost_per_sqm: 2500,
-    fund_period_years: 3,
-    bank_ltv_pct: 0.667,
-  })
+  const [initialProforma, setInitialProforma] = useState<ProFormaResult | null>(null)
+  const [overrides, setOverrides] = useState<Overrides>({ ...DEFAULT_OVERRIDES })
+  const [inputQuery, setInputQuery] = useState<string>('')
 
   const labels = getLabels(lang)
 
-  // Live recalculation when overrides change
+  // Live recalculation: fires whenever overrides change AND we have a parcelId
   const proformaQuery = useProforma(
-    screen === 'dashboard' ? parcelId : null,
+    screen === 'dashboard' && parcelId ? parcelId : null,
     overrides,
   )
 
-  // Use fresh proforma from query if available
-  const liveProforma = proformaQuery.data?.proforma ?? proforma
-
-  const [inputQuery, setInputQuery] = useState<string>('')
+  // Use live proforma if available, otherwise initial from loading step
+  const liveProforma = proformaQuery.data?.proforma ?? initialProforma
 
   const handleSubmit = useCallback((query: string) => {
     setInputQuery(query)
-    // If it's a plain number, use it directly as parcel ID
     const asNum = parseInt(query)
     if (!isNaN(asNum) && String(asNum) === query.trim()) {
       setParcelId(asNum)
-      setScreen('loading')
     } else {
-      // It's a URL or coordinates — use the locate endpoint
-      setScreen('loading')
-      setParcelId(null)  // will be resolved by LoadingProgress
+      setParcelId(null) // will be resolved by LoadingProgress
     }
+    setScreen('loading')
   }, [])
 
   const handleLoadComplete = useCallback((l: LandObject, pf: ProFormaResult) => {
     setLand(l)
-    setProforma(pf)
+    setInitialProforma(pf)
+    // CRITICAL: set parcelId from the land object so useProforma works for live updates
+    setParcelId(l.parcel_id)
     setScreen('dashboard')
   }, [])
 
   const handleError = useCallback((msg: string) => {
-    alert(`Error: ${msg}`)
+    alert(msg)
     setScreen('input')
   }, [])
 
@@ -71,14 +72,14 @@ function AppInner() {
     setScreen('input')
     setParcelId(null)
     setLand(null)
-    setProforma(null)
+    setInitialProforma(null)
+    setOverrides({ ...DEFAULT_OVERRIDES })
   }, [])
 
   const dir = lang === 'ar' ? 'rtl' : 'ltr'
 
   return (
     <div dir={dir} className="min-h-screen">
-      {/* Language toggle on input screen */}
       {screen === 'input' && (
         <button
           onClick={() => setLang(l => l === 'ar' ? 'en' : 'ar')}

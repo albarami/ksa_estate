@@ -7,16 +7,21 @@ export function useProforma(parcelId: number | null, overrides: Overrides) {
   const [debouncedOverrides, setDebouncedOverrides] = useState(overrides)
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined)
 
+  // Debounce override changes by 500ms
+  const serialized = JSON.stringify(overrides)
   useEffect(() => {
     clearTimeout(timer.current)
-    timer.current = setTimeout(() => setDebouncedOverrides(overrides), 500)
+    timer.current = setTimeout(() => setDebouncedOverrides(JSON.parse(serialized)), 500)
     return () => clearTimeout(timer.current)
-  }, [overrides])
+  }, [serialized])
+
+  const debouncedKey = JSON.stringify(debouncedOverrides)
 
   return useQuery({
-    queryKey: ['proforma', parcelId, debouncedOverrides],
+    queryKey: ['proforma', parcelId, debouncedKey],
     queryFn: () => fetchProforma(parcelId!, debouncedOverrides),
     enabled: !!parcelId,
-    staleTime: 60_000,
+    staleTime: 30_000,
+    refetchOnMount: false,
   })
 }
