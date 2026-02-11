@@ -18,6 +18,144 @@ from openpyxl.styles import Alignment, Border, Font, PatternFill, Side, numbers
 from openpyxl.utils import get_column_letter
 
 # ---------------------------------------------------------------------------
+# Bilingual labels
+# ---------------------------------------------------------------------------
+
+LABELS = {
+    "ar": {
+        "assumptions": "Assumptions", "fund_name": "Fund Name", "fund_type_label": "Fund Type",
+        "fund_type_val": "صندوق استثمار عقاري خاص", "fund_period": "Fund Period- year",
+        "fund_size_label": "Fund Size- SAR", "total_equity": "Total Equity",
+        "currency": "بالريال السعودي", "year_label": "السنة",
+        "land_section": "الأرض", "land_assumptions": "افتراضات الأرض",
+        "land_area": "مساحة الأرض ", "land_price": "سعر الاستحواذ بالمتر ",
+        "brokerage": "السعي", "transfer_tax": "ضريبة التصرفات العقارية",
+        "brokerage_vat": "ضريبة السعي", "total": "الإجمالي",
+        "total_label": "الإجمالي ", "cash": "النقدي", "inkind": "العيني ",
+        "costs_section": "التكاليف", "cost_assumptions": "افتراضات التكاليف ",
+        "direct_costs": "التكاليف المباشرة ", "area_col": "المساحة ",
+        "cost_per_m": "التكلفة/ متر ", "total_col": "الإجمالي ",
+        "infrastructure": "تطوير البنية التحتية", "superstructure": "تطوير البنية العلوية",
+        "parking": "مواقف(قبو)", "total_direct": "إجمالي التكاليف المباشرة ",
+        "indirect_costs": "التكاليف غير المباشرة ", "developer_fee": "أتعاب المطور ",
+        "other_indirect": "تكاليف غير مباشرة أخرى ", "contingency": "احتياطي ",
+        "total_indirect": "إجمالي التكاليف غير المباشرة ",
+        "total_all_costs": "إجمالي التكاليف المباشرة وغير المباشرة ",
+        "sales_section": "المبيعات", "sales_assumptions": "افتراضات المبيعات",
+        "unit_sales": "بيع وحدات", "price_per_m": "قيمة المتر ", "total_sales": "إجمالي المبيعات ",
+        "financing_section": "رسوم الصندوق والتمويل",
+        "interest": "فوائد تمويل ", "arrangement_fee": "أتعاب ترتيب تمويل ",
+        "mgmt_fee": "رسوم إدارة الصندوق ", "custodian": "رسوم أمين الحفظ",
+        "board": "مجلس الإدارة ", "sharia_cert": "إصدار الشهادة الشرعية للصندوق",
+        "sharia_board": "أتعاب الهيئة الشرعية ", "legal": "مستشار قانوني",
+        "auditor": "مراجع الحسابات ", "valuation": "التقييم ",
+        "reserve": "احتياطي مصروفات أخرى", "spv": "رسوم إنشاء الشركة ذات الغرض الخاص",
+        "structuring": "رسوم هيكلة ", "operator": "أتعاب المشغل",
+        "total_financing": "Total Financing & Fund Cost",
+        "total_fund_size": "Total Fund Size", "capital_structure": "Capital Structure",
+        "equity": "Equity", "inkind_owner": "In-Kind (Land Owner)",
+        "bank_financing": "Bank Financing", "total_capital": "Total Capital",
+        "cf_inflows": "التدفقات النقدية الداخلة ", "cf_sales": "المبيعات ",
+        "cf_outflows": "التدفقات النقدية الخارجة ",
+        "cf_land": "إجمالي الاستحواذ على الأرض ", "cf_direct": "التكاليف المباشرة ",
+        "cf_indirect": "التكاليف غير المباشرة ", "cf_interest": "فوائد تمويل ",
+        "cf_fees": "رسوم إدارة الصندوق ",
+        "cf_total": "الإجمالي ", "cf_net": "صافي التدفقات النقدية ",
+        "cf_cumulative": "Cumulative Cash Flow", "cf_fund_capital": "تمويل رأس مال الصندوق",
+        "cf_net_equity": "Net Equity Cashflow", "cf_net_cash": "Net Cashflows",
+        "kpi_title": "Project KPIs", "irr": "IRR", "net_profit": "Equity Net Profit",
+        "roe": "ROE", "roe_annual": "ROE Annualized ",
+        "zoning_title": "تقرير أنظمة البناء والتنظيم",
+        "parcel_no": "رقم القطعة", "plan_no": "رقم المخطط", "district": "الحي",
+        "municipality": "البلدية", "area_label": "مساحة الأرض (م²)",
+        "building_code": "نظام البناء", "max_floors": "عدد الأدوار",
+        "far_label": "معامل البناء (FAR)", "coverage_label": "نسبة التغطية",
+        "allowed_uses": "الاستخدامات المسموحة", "setbacks_label": "الارتدادات (م)",
+        "primary_use": "الاستخدام الرئيسي", "land_use": "استخدام الأرض",
+        "notes": "الملاحظات",
+        "market_title": "بيانات البورصة العقارية (SREM)", "market_index": "مؤشر السوق",
+        "market_change": "التغير", "daily_transactions": "عدد الصفقات اليومية",
+        "daily_value": "إجمالي القيمة اليومية (ر.س)", "avg_price": "متوسط السعر / م²",
+        "trending_title": "الأحياء الأكثر تداولاً", "city": "المدينة",
+        "deals": "الصفقات", "value_sar": "القيمة (ر.س)",
+        "market_source": "المصدر: البورصة العقارية - وزارة العدل",
+        "sensitivity_title": "تحليل الحساسية - معدل العائد الداخلي (IRR)",
+        "sale_vs_cost": "سعر البيع ↓ \\ التكلفة →",
+        "scenario_title": "مقارنة السيناريوهات", "scenario": "السيناريو",
+        "conservative": "متحفظ", "base": "أساسي", "aggressive": "جريء",
+        "sale_price_label": "سعر البيع / م²",
+    },
+    "en": {
+        "assumptions": "Assumptions", "fund_name": "Fund Name", "fund_type_label": "Fund Type",
+        "fund_type_val": "Private Real Estate Investment Fund", "fund_period": "Fund Period (years)",
+        "fund_size_label": "Fund Size (SAR)", "total_equity": "Total Equity",
+        "currency": "Saudi Riyal (SAR)", "year_label": "Year",
+        "land_section": "Land", "land_assumptions": "Land Assumptions",
+        "land_area": "Land Area", "land_price": "Acquisition Price / m²",
+        "brokerage": "Brokerage Fee", "transfer_tax": "Real Estate Transfer Tax",
+        "brokerage_vat": "Brokerage VAT", "total": "Total",
+        "total_label": "Total", "cash": "Cash", "inkind": "In-Kind",
+        "costs_section": "Costs", "cost_assumptions": "Cost Assumptions",
+        "direct_costs": "Direct Costs", "area_col": "Area",
+        "cost_per_m": "Cost / m²", "total_col": "Total",
+        "infrastructure": "Infrastructure Development", "superstructure": "Superstructure Development",
+        "parking": "Parking (Basement)", "total_direct": "Total Direct Costs",
+        "indirect_costs": "Indirect Costs", "developer_fee": "Developer Fee",
+        "other_indirect": "Other Indirect Costs", "contingency": "Contingency",
+        "total_indirect": "Total Indirect Costs",
+        "total_all_costs": "Total Direct + Indirect Costs",
+        "sales_section": "Revenue", "sales_assumptions": "Revenue Assumptions",
+        "unit_sales": "Unit Sales", "price_per_m": "Price / m²", "total_sales": "Total Revenue",
+        "financing_section": "Fund Fees & Financing",
+        "interest": "Interest Expense", "arrangement_fee": "Arrangement Fee",
+        "mgmt_fee": "Fund Management Fee", "custodian": "Custodian Fee",
+        "board": "Board of Directors", "sharia_cert": "Sharia Certificate",
+        "sharia_board": "Sharia Board Fee", "legal": "Legal Counsel",
+        "auditor": "Auditor Fee", "valuation": "Valuation",
+        "reserve": "Other Reserve", "spv": "SPV Formation Fee",
+        "structuring": "Structuring Fee", "operator": "Operator Fee",
+        "total_financing": "Total Financing & Fund Cost",
+        "total_fund_size": "Total Fund Size", "capital_structure": "Capital Structure",
+        "equity": "Equity", "inkind_owner": "In-Kind (Land Owner)",
+        "bank_financing": "Bank Financing", "total_capital": "Total Capital",
+        "cf_inflows": "Cash Inflows", "cf_sales": "Sales Revenue",
+        "cf_outflows": "Cash Outflows",
+        "cf_land": "Total Land Acquisition", "cf_direct": "Direct Costs",
+        "cf_indirect": "Indirect Costs", "cf_interest": "Interest Expense",
+        "cf_fees": "Fund Management Fee",
+        "cf_total": "Total Outflows", "cf_net": "Net Cash Flow",
+        "cf_cumulative": "Cumulative Cash Flow", "cf_fund_capital": "Fund Capital Structure",
+        "cf_net_equity": "Net Equity Cashflow", "cf_net_cash": "Net Cashflows",
+        "kpi_title": "Project KPIs", "irr": "IRR", "net_profit": "Equity Net Profit",
+        "roe": "ROE", "roe_annual": "ROE Annualized",
+        "zoning_title": "Building Regulations & Zoning Report",
+        "parcel_no": "Parcel Number", "plan_no": "Plan Number", "district": "District",
+        "municipality": "Municipality", "area_label": "Land Area (m²)",
+        "building_code": "Building Code", "max_floors": "Max Floors",
+        "far_label": "FAR (Floor Area Ratio)", "coverage_label": "Coverage Ratio",
+        "allowed_uses": "Allowed Uses", "setbacks_label": "Setbacks (m)",
+        "primary_use": "Primary Use", "land_use": "Land Use",
+        "notes": "Notes",
+        "market_title": "Real Estate Market Data (SREM)", "market_index": "Market Index",
+        "market_change": "Change", "daily_transactions": "Daily Transactions",
+        "daily_value": "Daily Total Value (SAR)", "avg_price": "Average Price / m²",
+        "trending_title": "Top Trending Districts", "city": "City",
+        "deals": "Deals", "value_sar": "Value (SAR)",
+        "market_source": "Source: Saudi Real Estate Market (SREM) - Ministry of Justice",
+        "sensitivity_title": "Sensitivity Analysis - IRR",
+        "sale_vs_cost": "Sale Price ↓ \\ Cost →",
+        "scenario_title": "Scenario Comparison", "scenario": "Scenario",
+        "conservative": "Conservative", "base": "Base", "aggressive": "Aggressive",
+        "sale_price_label": "Sale Price / m²",
+    },
+}
+
+
+def _L(lang: str) -> dict[str, str]:
+    return LABELS.get(lang, LABELS["ar"])
+
+
+# ---------------------------------------------------------------------------
 # Al-Hada style constants
 # ---------------------------------------------------------------------------
 
@@ -76,11 +214,11 @@ def _c(ws, row, col, value=None, font=None, fill=None, fmt=None, align=None, bor
 # Sheet 1: Assumptions (Al-Hada exact replica)
 # ---------------------------------------------------------------------------
 
-def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict) -> None:
+def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict, L: dict, rtl: bool) -> None:
     """Replicate Al-Hada Assumptions sheet with LIVE formulas."""
     ws = wb.active
-    ws.title = "Assumptions"
-    ws.sheet_view.rightToLeft = True
+    ws.title = L["assumptions"]
+    ws.sheet_view.rightToLeft = rtl
 
     # Column widths (matching Al-Hada)
     widths = {"B": 23, "C": 3, "D": 39, "E": 15, "F": 15, "G": 15, "H": 17, "I": 5,
@@ -110,31 +248,31 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict) -> None:
     _c(ws, 2, 5, f"Parcel {land.get('parcel_id')} - {land.get('district_name')}", F_BOLD, fmt=SAR_FMT)
     ws.merge_cells("E2:F2")
 
-    _c(ws, 3, 4, "Fund Name ", F_BOLD, fmt=SAR_FMT)
-    _c(ws, 3, 5, "صندوق استثمار عقاري", F_BOLD, fmt=SAR_FMT)
+    _c(ws, 3, 4, L["fund_name"], F_BOLD, fmt=SAR_FMT)
+    _c(ws, 3, 5, L["fund_type_val"], F_BOLD, fmt=SAR_FMT)
     ws.merge_cells("E3:F3")
-    _c(ws, 3, 12, "بالريال السعودي", F_BOLD)
+    _c(ws, 3, 12, L["currency"], F_BOLD)
 
-    _c(ws, 4, 4, "Fund Type ", F_BOLD, fmt=SAR_FMT)
-    _c(ws, 4, 5, "صندوق استثمار عقاري خاص", F_BOLD, fmt=SAR_FMT)
+    _c(ws, 4, 4, L["fund_type_label"], F_BOLD, fmt=SAR_FMT)
+    _c(ws, 4, 5, L["fund_type_val"], F_BOLD, fmt=SAR_FMT)
     ws.merge_cells("E4:F4")
-    _c(ws, 4, 12, "السنة", F_BOLD)
+    _c(ws, 4, 12, L["year_label"], F_BOLD)
     for i, yr in enumerate(years):
         _c(ws, 4, 14 + i, 2025 + i, F_BOLD, align=CENTER)
 
-    _c(ws, 5, 4, "Fund Period- year", F_BOLD, fmt=SAR_FMT)
+    _c(ws, 5, 4, L["fund_period"], F_BOLD, fmt=SAR_FMT)
     _c(ws, 5, 5, n_years, F_BOLD, fmt=SAR_FMT)
     ws.merge_cells("E5:F5")
     for i, yr in enumerate(years):
         _c(ws, 5, 14 + i, f"Y{yr}", F_BOLD, align=CENTER)
 
     # Fund Size = formula referencing F54
-    _c(ws, 6, 4, "Fund Size- SAR", F_BOLD, fmt=SAR_FMT)
+    _c(ws, 6, 4, L["fund_size_label"], F_BOLD, fmt=SAR_FMT)
     _c(ws, 6, 5, "=F54", F_BOLD, fmt=SAR_FMT)
     ws.merge_cells("E6:F6")
-    _c(ws, 6, 12, "التدفقات النقدية الداخلة ", F_BOLD)
+    _c(ws, 6, 12, L["cf_inflows"], F_BOLD)
 
-    _c(ws, 7, 4, "Total Equity", F_BOLD, fmt=SAR_FMT)
+    _c(ws, 7, 4, L["total_equity"], F_BOLD, fmt=SAR_FMT)
     _c(ws, 7, 5, "=F57", F_BOLD, fmt=SAR_FMT)
     ws.merge_cells("E7:F7")
 
@@ -149,8 +287,8 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict) -> None:
         _c(ws, 8, 14 + i, f"=SUM({get_column_letter(14+i)}7)", F_BOLD, fmt=SAR_FMT, align=CENTER)
 
     # === ROW 9: Land section ===
-    _c(ws, 9, 2, "الأرض", F_HEADER, FILL_SECTION)
-    _c(ws, 9, 4, "افتراضات الأرض", F_HEADER)
+    _c(ws, 9, 2, L["land_section"], F_HEADER, FILL_SECTION)
+    _c(ws, 9, 4, L["land_assumptions"], F_HEADER)
     _c(ws, 9, 12, "التدفقات النقدية الخارجة ", F_BOLD)
 
     # ROW 10: Column headers
@@ -159,7 +297,7 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict) -> None:
     _c(ws, 10, 9, "العيني ", F_BOLD, align=CENTER)
 
     # ROW 11: Land area
-    _c(ws, 11, 4, "مساحة الأرض ", F_NORMAL)
+    _c(ws, 11, 4, L["land_area"], F_NORMAL)
     _c(ws, 11, 6, land.get("area_sqm", 0), F_NORMAL, fmt=SAR_FMT, align=CENTER)
     _c(ws, 11, 8, iv("cash_purchase_pct") or 1, F_NORMAL, fmt=PCT_FMT, align=CENTER)
     _c(ws, 11, 9, iv("in_kind_pct") or 0, F_NORMAL, fmt=PCT_FMT, align=CENTER)
@@ -171,7 +309,7 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict) -> None:
         _c(ws, 11, 14 + i, land_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
     # ROW 12: Land price per sqm  → F12 = E12 * F11 (LIVE FORMULA)
-    _c(ws, 12, 4, "سعر الاستحواذ بالمتر ", F_NORMAL)
+    _c(ws, 12, 4, L["land_price"], F_NORMAL)
     _c(ws, 12, 5, iv("land_price_per_sqm") or 0, F_NORMAL, fmt=SAR2_FMT, align=CENTER)
     _c(ws, 12, 6, "=$E$12*F11", F_NORMAL, fmt=SAR_FMT, align=CENTER)
     _c(ws, 12, 8, "=H11*$F$16", F_NORMAL, fmt=SAR2_FMT, align=CENTER)
@@ -184,7 +322,7 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict) -> None:
         _c(ws, 12, 14 + i, d_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
     # ROW 13: Brokerage
-    _c(ws, 13, 4, "السعي", F_NORMAL)
+    _c(ws, 13, 4, L["brokerage"], F_NORMAL)
     _c(ws, 13, 5, iv("brokerage_fee_pct") or 0.025, F_NORMAL, fmt=PCTD_FMT, align=CENTER)
     _c(ws, 13, 6, "=$E$13*F12", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
@@ -194,7 +332,7 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict) -> None:
         _c(ws, 13, 14 + i, i_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
     # ROW 14: Transfer tax
-    _c(ws, 14, 4, "ضريبة التصرفات العقارية", F_NORMAL)
+    _c(ws, 14, 4, L["transfer_tax"], F_NORMAL)
     _c(ws, 14, 5, iv("real_estate_transfer_tax_pct") or 0.05, F_NORMAL, fmt=PCT_FMT, align=CENTER)
     _c(ws, 14, 6, "=E14*F12", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
@@ -204,7 +342,7 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict) -> None:
         _c(ws, 14, 14 + i, int_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
     # ROW 15: Brokerage VAT
-    _c(ws, 15, 4, "ضريبة السعي", F_NORMAL)
+    _c(ws, 15, 4, L["brokerage_vat"], F_NORMAL)
     _c(ws, 15, 5, iv("brokerage_vat_pct") or 0.15, F_NORMAL, fmt=PCT_FMT, align=CENTER)
     _c(ws, 15, 6, "=E15*F13", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
@@ -212,7 +350,7 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict) -> None:
     _c(ws, 15, 14, fin.get("arrangement_fee", 0), F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
     # ROW 16: TOTAL LAND = SUM(F12:F15) (LIVE FORMULA)
-    _c(ws, 16, 4, "الإجمالي", F_TOTAL, FILL_TOTAL)
+    _c(ws, 16, 4, L["total"], F_TOTAL, FILL_TOTAL)
     _c(ws, 16, 6, "=SUM(F12:F15)", F_TOTAL, FILL_TOTAL, fmt=SAR_FMT, align=CENTER)
 
     _c(ws, 16, 12, "رسوم إدارة الصندوق ", F_NORMAL)
@@ -221,8 +359,8 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict) -> None:
         _c(ws, 16, 14 + i, fees_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
     # === ROW 18: Construction section ===
-    _c(ws, 18, 2, "التكاليف", F_HEADER, FILL_SECTION)
-    _c(ws, 18, 4, "افتراضات التكاليف ", F_HEADER)
+    _c(ws, 18, 2, L["costs_section"], F_HEADER, FILL_SECTION)
+    _c(ws, 18, 4, L["cost_assumptions"], F_HEADER)
 
     # ROW 19: Headers
     _c(ws, 19, 4, "التكاليف المباشرة ", F_BOLD)
@@ -442,9 +580,9 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict) -> None:
 # Sheet 2: Zoning Report
 # ---------------------------------------------------------------------------
 
-def _build_zoning_sheet(wb: Workbook, land: dict) -> None:
-    ws = wb.create_sheet("تقرير الأنظمة")
-    ws.sheet_view.rightToLeft = True
+def _build_zoning_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
+    ws = wb.create_sheet(L.get("zoning_title", "Zoning")[:31])
+    ws.sheet_view.rightToLeft = rtl
     ws.column_dimensions["B"].width = 28
     ws.column_dimensions["D"].width = 35
 
@@ -495,9 +633,9 @@ def _build_zoning_sheet(wb: Workbook, land: dict) -> None:
 # Sheet 3: Market Data
 # ---------------------------------------------------------------------------
 
-def _build_market_sheet(wb: Workbook, land: dict) -> None:
-    ws = wb.create_sheet("بيانات السوق")
-    ws.sheet_view.rightToLeft = True
+def _build_market_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
+    ws = wb.create_sheet("Market Data" if not rtl else "بيانات السوق")
+    ws.sheet_view.rightToLeft = rtl
     ws.column_dimensions["B"].width = 25
     ws.column_dimensions["D"].width = 25
 
@@ -544,9 +682,9 @@ def _build_market_sheet(wb: Workbook, land: dict) -> None:
 # Sheet 4: Sensitivity
 # ---------------------------------------------------------------------------
 
-def _build_sensitivity_sheet(wb: Workbook, pf: dict) -> None:
-    ws = wb.create_sheet("تحليل الحساسية")
-    ws.sheet_view.rightToLeft = True
+def _build_sensitivity_sheet(wb: Workbook, pf: dict, L: dict, rtl: bool) -> None:
+    ws = wb.create_sheet("Sensitivity" if not rtl else "تحليل الحساسية")
+    ws.sheet_view.rightToLeft = rtl
 
     sens = pf.get("sensitivity")
     if not sens:
@@ -586,9 +724,9 @@ def _build_sensitivity_sheet(wb: Workbook, pf: dict) -> None:
 # Sheet 5: Scenario Comparison
 # ---------------------------------------------------------------------------
 
-def _build_scenario_sheet(wb: Workbook, pf: dict, land: dict) -> None:
-    ws = wb.create_sheet("مقارنة السيناريوهات")
-    ws.sheet_view.rightToLeft = True
+def _build_scenario_sheet(wb: Workbook, pf: dict, land: dict, L: dict, rtl: bool) -> None:
+    ws = wb.create_sheet("Scenarios" if not rtl else "مقارنة السيناريوهات")
+    ws.sheet_view.rightToLeft = rtl
     ws.column_dimensions["B"].width = 25
     for c in ["C", "D", "E"]:
         ws.column_dimensions[c].width = 22
@@ -644,15 +782,23 @@ def _build_scenario_sheet(wb: Workbook, pf: dict, land: dict) -> None:
 # Public API
 # ---------------------------------------------------------------------------
 
-def generate_excel(result: dict, land_object: dict) -> bytes:
-    """Generate a professional .xlsx with 5 sheets."""
-    wb = Workbook()
+def generate_excel(result: dict, land_object: dict, lang: str = "ar") -> bytes:
+    """Generate a professional .xlsx with 5 sheets.
 
-    _build_assumptions_sheet(wb, result, land_object)
-    _build_zoning_sheet(wb, land_object)
-    _build_market_sheet(wb, land_object)
-    _build_sensitivity_sheet(wb, result)
-    _build_scenario_sheet(wb, result, land_object)
+    Args:
+        result: ProFormaResult from computation_engine.
+        land_object: Land Object from data_fetch.
+        lang: 'ar' for Arabic (default), 'en' for English.
+    """
+    wb = Workbook()
+    L = _L(lang)
+    rtl = lang == "ar"
+
+    _build_assumptions_sheet(wb, result, land_object, L, rtl)
+    _build_zoning_sheet(wb, land_object, L, rtl)
+    _build_market_sheet(wb, land_object, L, rtl)
+    _build_sensitivity_sheet(wb, result, L, rtl)
+    _build_scenario_sheet(wb, result, land_object, L, rtl)
 
     buf = io.BytesIO()
     wb.save(buf)

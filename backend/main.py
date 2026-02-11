@@ -271,6 +271,7 @@ async def download_excel(
     land_price_per_sqm: float | None = Query(None),
     sale_price_per_sqm: float | None = Query(None),
     fund_period_years: int | None = Query(None),
+    lang: str = Query("ar"),
 ) -> Response:
     """Generate and download .xlsx pro-forma."""
     if not _http_client:
@@ -289,7 +290,7 @@ async def download_excel(
             overrides["fund_period_years"] = fund_period_years
 
         result = compute_proforma(land, overrides)
-        xlsx_bytes = generate_excel(result, land)
+        xlsx_bytes = generate_excel(result, land, lang=lang)
 
         return Response(
             content=xlsx_bytes,

@@ -1,14 +1,15 @@
 import { getExcelUrl } from '../utils/api'
-import type { Overrides, Labels } from '../types'
+import type { Overrides, Labels, Lang } from '../types'
 
 interface Props {
   parcelId: number
   overrides: Overrides
   labels: Labels
+  lang: Lang
 }
 
-export default function DownloadBar({ parcelId, overrides, labels }: Props) {
-  const params: Record<string, number> = {}
+export default function DownloadBar({ parcelId, overrides, labels, lang }: Props) {
+  const params: Record<string, number | string> = { lang }
   if (overrides.land_price_per_sqm) params.land_price_per_sqm = overrides.land_price_per_sqm as number
   if (overrides.sale_price_per_sqm) params.sale_price_per_sqm = overrides.sale_price_per_sqm as number
   if (overrides.fund_period_years) params.fund_period_years = overrides.fund_period_years as number
@@ -28,7 +29,7 @@ export default function DownloadBar({ parcelId, overrides, labels }: Props) {
           {labels.share}
         </button>
         <a
-          href={getExcelUrl(parcelId, params)}
+          href={getExcelUrl(parcelId, params as Record<string, number>)}
           download
           className="px-6 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105 active:scale-95"
           style={{ background: 'var(--color-gold)', color: '#0A0A0F' }}

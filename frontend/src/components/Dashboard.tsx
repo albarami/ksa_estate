@@ -92,7 +92,7 @@ export default function Dashboard({
         </div>
       </motion.div>
 
-      <DownloadBar parcelId={land.parcel_id} overrides={overrides} labels={labels} />
+      <DownloadBar parcelId={land.parcel_id} overrides={overrides} labels={labels} lang={lang} />
     </div>
   )
 }
