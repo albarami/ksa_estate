@@ -1,0 +1,277 @@
+{
+  "bundle_size": 12247448,
+  "exact_code_matches": [],
+  "view_buildingsystem_fields": [
+    {
+      "field": "CONSTRUCTIONFACTOR",
+      "position": 2785868,
+      "snippet": "u0639\\u0627\\u0645\\u0644 \\u0645\\u0633\\u0627\\u062d\\u0629 \\u0627\\u0644\\u0623\\u062f\\u0648\\u0627\\u0631)\"),G(),R(23,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONFACTOR=o})(\"ngModelChange\",function(o){return Mt(e),Fe().changeVal(\"CONSTRUCTIONFACTOR\",o)}),de(24,\"                  \"),G()(),R(25,\"div\",303)(26,\"label\",515),de(27,\" \\u0646\\u0633\\u0628\\u0629 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621\"),G(),R(28,\"textarea\",1118),Ct(\"ngModelChange\",function(o){"
+    },
+    {
+      "field": "CONSTRUCTIONFACTOR",
+      "position": 2785948,
+      "snippet": "u0648\\u0627\\u0631)\"),G(),R(23,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONFACTOR=o})(\"ngModelChange\",function(o){return Mt(e),Fe().changeVal(\"CONSTRUCTIONFACTOR\",o)}),de(24,\"                  \"),G()(),R(25,\"div\",303)(26,\"label\",515),de(27,\" \\u0646\\u0633\\u0628\\u0629 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621\"),G(),R(28,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONRATIO=o})(\"ngModelChange\","
+    },
+    {
+      "field": "CONSTRUCTIONFACTOR",
+      "position": 2787406,
+      "snippet": "Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].USES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].BOUNCES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].ALTITUDES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONFACTOR),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONRATIO),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].PARKING),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].NOTES),oe(5),Ee(\"disabled\",t.noChangeYet)}}function Aat(n,r){if(1&n&&(R(0,\"p\",1121)(1,\"span\",1122),de(2,\"\\u0628\\u064a"
+    },
+    {
+      "field": "CONSTRUCTIONRATIO",
+      "position": 2786210,
+      "snippet": "5,\"div\",303)(26,\"label\",515),de(27,\" \\u0646\\u0633\\u0628\\u0629 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621\"),G(),R(28,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONRATIO=o})(\"ngModelChange\",function(o){return Mt(e),Fe().changeVal(\"CONSTRUCTIONRATIO\",o)}),de(29,\"                  \"),G()(),R(30,\"div\",303)(31,\"label\",515),de(32,\" \\u0645\\u0648\\u0627\\u0642\\u0641 \\u0627\\u0644\\u0633\\u064a\\u0627\\u0631\\u0627\\u062a\"),G(),R(33,\"textarea\",1118),Ct(\"ngModelChan"
+    },
+    {
+      "field": "CONSTRUCTIONRATIO",
+      "position": 2786289,
+      "snippet": "8\\u0646\\u0627\\u0621\"),G(),R(28,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONRATIO=o})(\"ngModelChange\",function(o){return Mt(e),Fe().changeVal(\"CONSTRUCTIONRATIO\",o)}),de(29,\"                  \"),G()(),R(30,\"div\",303)(31,\"label\",515),de(32,\" \\u0645\\u0648\\u0627\\u0642\\u0641 \\u0627\\u0644\\u0633\\u064a\\u0627\\u0631\\u0627\\u062a\"),G(),R(33,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].PARKING=o})(\"ngModelC"
+    },
+    {
+      "field": "CONSTRUCTIONRATIO",
+      "position": 2787471,
+      "snippet": ".VIEW_BUILDINGSYSTEM7[0].BOUNCES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].ALTITUDES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONFACTOR),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONRATIO),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].PARKING),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].NOTES),oe(5),Ee(\"disabled\",t.noChangeYet)}}function Aat(n,r){if(1&n&&(R(0,\"p\",1121)(1,\"span\",1122),de(2,\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0637\\u0644\\u0628\"),G()(),R"
+    },
+    {
+      "field": "BOUNCES",
+      "position": 2785112,
+      "snippet": "10,\"div\",303)(11,\"label\",515),de(12,\" \\u0627\\u0644\\u0627\\u0631\\u062a\\u062f\\u0627\\u062f\\u0627\\u062a\"),G(),R(13,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].BOUNCES=o})(\"ngModelChange\",function(o){return Mt(e),Fe().changeVal(\"BOUNCES\",o)}),de(14,\"                  \"),G()(),R(15,\"div\",303)(16,\"label\",515),de(17,\" \\u0627\\u0644\\u0627\\u0631\\u062a\\u0641\\u0627\\u0639\\u0627\\u062a\"),G(),R(18,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_"
+    },
+    {
+      "field": "BOUNCES",
+      "position": 2785181,
+      "snippet": "u062f\\u0627\\u062f\\u0627\\u062a\"),G(),R(13,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].BOUNCES=o})(\"ngModelChange\",function(o){return Mt(e),Fe().changeVal(\"BOUNCES\",o)}),de(14,\"                  \"),G()(),R(15,\"div\",303)(16,\"label\",515),de(17,\" \\u0627\\u0644\\u0627\\u0631\\u062a\\u0641\\u0627\\u0639\\u0627\\u062a\"),G(),R(18,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].ALTITUDES=o})(\"ngModelChange\",function(o){return M"
+    },
+    {
+      "field": "BOUNCES",
+      "position": 2787296,
+      "snippet": "1120),G()()()()()}if(2&n){var t=Fe();oe(4),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].PLANNINGREQUIREMENTS),oe(4),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].USES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].BOUNCES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].ALTITUDES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONFACTOR),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONRATIO),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].PARKING),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].NOTES),"
+    },
+    {
+      "field": "ALTITUDES",
+      "position": 2785431,
+      "snippet": "15,\"div\",303)(16,\"label\",515),de(17,\" \\u0627\\u0644\\u0627\\u0631\\u062a\\u0641\\u0627\\u0639\\u0627\\u062a\"),G(),R(18,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].ALTITUDES=o})(\"ngModelChange\",function(o){return Mt(e),Fe().changeVal(\"ALTITUDES\",o)}),de(19,\"                  \"),G()(),R(20,\"div\",303)(21,\"label\",515),de(22,\" \\u0645\\u0639\\u0627\\u0645\\u0644 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621 (\\u0645\\u0639\\u0627\\u0645\\u0644 \\u0645\\u0633\\u0627\\u062d\\u0629 \\u0627\\u"
+    },
+    {
+      "field": "ALTITUDES",
+      "position": 2785502,
+      "snippet": "641\\u0627\\u0639\\u0627\\u062a\"),G(),R(18,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].ALTITUDES=o})(\"ngModelChange\",function(o){return Mt(e),Fe().changeVal(\"ALTITUDES\",o)}),de(19,\"                  \"),G()(),R(20,\"div\",303)(21,\"label\",515),de(22,\" \\u0645\\u0639\\u0627\\u0645\\u0644 \\u0627\\u0644\\u0628\\u0646\\u0627\\u0621 (\\u0645\\u0639\\u0627\\u0645\\u0644 \\u0645\\u0633\\u0627\\u062d\\u0629 \\u0627\\u0644\\u0623\\u062f\\u0648\\u0627\\u0631)\"),G(),R(23,\"textarea\",1118),Ct(\"ngM"
+    },
+    {
+      "field": "ALTITUDES",
+      "position": 2787350,
+      "snippet": "\",t.VIEW_BUILDINGSYSTEM7[0].PLANNINGREQUIREMENTS),oe(4),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].USES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].BOUNCES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].ALTITUDES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONFACTOR),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONRATIO),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].PARKING),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].NOTES),oe(5),Ee(\"disabled\",t.noChangeYet)}}function Aat(n,r){"
+    },
+    {
+      "field": "PARKING",
+      "position": 2764682,
+      "snippet": "0639 : \",t.LOCATION_NAME,\" \"),oe(3),ai(\" \\u0631\\u0642\\u0645 \\u0627\\u0644\\u0645\\u0648\\u0642\\u0639 : \",t.LOCATION_NUM,\" \"),oe(3),ai(\" \\u0639\\u062f\\u062f \\u0627\\u0644\\u0645\\u0648\\u0627\\u0642\\u0641 : \",t.PARKING_NUM,\" \"),oe(3),ai(\" \\u062d\\u0627\\u0644\\u0629 \\u062a\\u0631\\u0643\\u064a\\u0628 \\u0627\\u0644\\u0644\\u0648\\u062d\\u0629 : \",t.STATUS_FOOD,\" \"),oe(3),ai(\" \\u0639\\u0631\\u0636 \\u0627\\u0644\\u0634\\u0627\\u0631\\u0639 : \",t.STREET_WIDTH,\" \"),oe(4),V1(\"href\",\"https://www.google.com/maps/search/?api=1&query="
+    },
+    {
+      "field": "PARKING",
+      "position": 2786568,
+      "snippet": "abel\",515),de(32,\" \\u0645\\u0648\\u0627\\u0642\\u0641 \\u0627\\u0644\\u0633\\u064a\\u0627\\u0631\\u0627\\u062a\"),G(),R(33,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].PARKING=o})(\"ngModelChange\",function(o){return Mt(e),Fe().changeVal(\"PARKING\",o)}),de(34,\"                  \"),G()(),R(35,\"div\",303)(36,\"label\",515),de(37,\" \\u0627\\u0644\\u0645\\u0644\\u0627\\u062d\\u0638\\u0627\\u062a\"),G(),R(38,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDI"
+    },
+    {
+      "field": "PARKING",
+      "position": 2786637,
+      "snippet": "u064a\\u0627\\u0631\\u0627\\u062a\"),G(),R(33,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].PARKING=o})(\"ngModelChange\",function(o){return Mt(e),Fe().changeVal(\"PARKING\",o)}),de(34,\"                  \"),G()(),R(35,\"div\",303)(36,\"label\",515),de(37,\" \\u0627\\u0644\\u0645\\u0644\\u0627\\u062d\\u0638\\u0627\\u062a\"),G(),R(38,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].NOTES=o}),de(39,\"                  \"),G()(),R(40,\"div\",4"
+    },
+    {
+      "field": "PLANNINGREQUIREMENTS",
+      "position": 2784487,
+      "snippet": "27\\u0634\\u062a\\u0631\\u0627\\u0637\\u0627\\u062a \\u0627\\u0644\\u062a\\u062e\\u0637\\u064a\\u0637\\u064a\\u0629\"),G(),R(4,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].PLANNINGREQUIREMENTS=o})(\"ngModelChange\",function(o){return Mt(e),Fe().changeVal(\"PLANNINGREQUIREMENTS\",o)}),G()(),R(5,\"div\",303)(6,\"label\",515),de(7,\" \\u0627\\u0644\\u0627\\u0633\\u062a\\u062e\\u062f\\u0645\\u0627\\u062a\"),G(),R(8,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDI"
+    },
+    {
+      "field": "PLANNINGREQUIREMENTS",
+      "position": 2784569,
+      "snippet": "u0637\\u064a\\u0629\"),G(),R(4,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].PLANNINGREQUIREMENTS=o})(\"ngModelChange\",function(o){return Mt(e),Fe().changeVal(\"PLANNINGREQUIREMENTS\",o)}),G()(),R(5,\"div\",303)(6,\"label\",515),de(7,\" \\u0627\\u0644\\u0627\\u0633\\u062a\\u062e\\u062f\\u0645\\u0627\\u062a\"),G(),R(8,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].USES=o})(\"ngModelChange\",function(o){return Mt(e),Fe().changeVal(\"USE"
+    },
+    {
+      "field": "PLANNINGREQUIREMENTS",
+      "position": 2787178,
+      "snippet": ",1119),Ct(\"click\",function(){Mt(e);var o=Fe();return o.SaveBuildingUseCodeAll7(o.VIEW_BUILDINGSYSTEM7[0])}),Nn(44,\"i\",1120),G()()()()()}if(2&n){var t=Fe();oe(4),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].PLANNINGREQUIREMENTS),oe(4),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].USES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].BOUNCES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].ALTITUDES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONFACTOR),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].CONSTRU"
+    },
+    {
+      "field": "USES",
+      "position": 2784800,
+      "snippet": "),R(5,\"div\",303)(6,\"label\",515),de(7,\" \\u0627\\u0644\\u0627\\u0633\\u062a\\u062e\\u062f\\u0645\\u0627\\u062a\"),G(),R(8,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].USES=o})(\"ngModelChange\",function(o){return Mt(e),Fe().changeVal(\"USES\",o)}),de(9,\"                  \"),G()(),R(10,\"div\",303)(11,\"label\",515),de(12,\" \\u0627\\u0644\\u0627\\u0631\\u062a\\u062f\\u0627\\u062f\\u0627\\u062a\"),G(),R(13,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDIN"
+    },
+    {
+      "field": "USES",
+      "position": 2784866,
+      "snippet": "62a\\u062e\\u062f\\u0645\\u0627\\u062a\"),G(),R(8,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].USES=o})(\"ngModelChange\",function(o){return Mt(e),Fe().changeVal(\"USES\",o)}),de(9,\"                  \"),G()(),R(10,\"div\",303)(11,\"label\",515),de(12,\" \\u0627\\u0644\\u0627\\u0631\\u062a\\u062f\\u0627\\u062f\\u0627\\u062a\"),G(),R(13,\"textarea\",1118),Ct(\"ngModelChange\",function(o){return Mt(e),Fe().VIEW_BUILDINGSYSTEM7[0].BOUNCES=o})(\"ngModelChange\",function(o){return Mt(e),F"
+    },
+    {
+      "field": "USES",
+      "position": 2787245,
+      "snippet": "UseCodeAll7(o.VIEW_BUILDINGSYSTEM7[0])}),Nn(44,\"i\",1120),G()()()()()}if(2&n){var t=Fe();oe(4),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].PLANNINGREQUIREMENTS),oe(4),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].USES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].BOUNCES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].ALTITUDES),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONFACTOR),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].CONSTRUCTIONRATIO),oe(5),Ee(\"ngModel\",t.VIEW_BUILDINGSYSTEM7[0].PARKING),o"
+    },
+    {
+      "field": "NOTES",
+      "position": 789530,
+      "snippet": "\"P_REPORT_NUMBER\",o).set(\"P_REPORT_YEAR\",s);this.http.get(this.urlAPI+\"GetRequestNotes\",{params:l}).subscribe(function(d){var p=JSON.parse(d.toString()),b=\"\";p.forEach(function(D,H){b=b+(H+1)+\" : \"+D.NOTES+\"\\r\\n\"}),a.ngPopups.confirm(b,{title:\"\\u0627\\u0644\\u0645\\u0644\\u0627\\u062d\\u0638\\u0627\\u062a\"}).subscribe(function(D){}),a.ref.detectChanges()})}}]),r}();return n.\\u0275fac=function(e){return new(e||n)(xn(W2),xn(CO),xn(g2),xn(m2),xn(N8),xn(Y4),xn(Y0),xn(Wk),xn(_2))},n.\\u0275cmp=Ya({type:n,sele"
+    },
+    {
+      "field": "NOTES",
+      "position": 1312499,
+      "snippet": ",510:\"INSERT.MAP.OBJECT\",511:\"OPTIONS.MENONO\",517:\"MSOCHECKS\",518:\"NORMAL\",519:\"LAYOUT\",520:\"RM.PRINT.AREA\",521:\"CLEAR.PRINT.AREA\",522:\"ADD.PRINT.AREA\",523:\"MOVE.BRK\",545:\"HIDECURR.NOTE\",546:\"HIDEALL.NOTES\",547:\"DELETE.NOTE\",548:\"TRAVERSE.NOTES\",549:\"ACTIVATE.NOTES\",620:\"PROTECT.REVISIONS\",621:\"UNPROTECT.REVISIONS\",647:\"OPTIONS.ME\",653:\"WEB.PUBLISH\",667:\"NEWWEBQUERY\",673:\"PIVOT.TABLE.CHART\",753:\"OPTIONS.SAVE\",755:\"OPTIONS.SPELL\",808:\"HIDEALL.INKANNOTS\"},ale={0:\"COUNT\",1:\"IF\",2:\"ISNA\",3:\"ISERROR\""
+    },
+    {
+      "field": "NOTES",
+      "position": 1312538,
+      "snippet": "ENONO\",517:\"MSOCHECKS\",518:\"NORMAL\",519:\"LAYOUT\",520:\"RM.PRINT.AREA\",521:\"CLEAR.PRINT.AREA\",522:\"ADD.PRINT.AREA\",523:\"MOVE.BRK\",545:\"HIDECURR.NOTE\",546:\"HIDEALL.NOTES\",547:\"DELETE.NOTE\",548:\"TRAVERSE.NOTES\",549:\"ACTIVATE.NOTES\",620:\"PROTECT.REVISIONS\",621:\"UNPROTECT.REVISIONS\",647:\"OPTIONS.ME\",653:\"WEB.PUBLISH\",667:\"NEWWEBQUERY\",673:\"PIVOT.TABLE.CHART\",753:\"OPTIONS.SAVE\",755:\"OPTIONS.SPELL\",808:\"HIDEALL.INKANNOTS\"},ale={0:\"COUNT\",1:\"IF\",2:\"ISNA\",3:\"ISERROR\",4:\"SUM\",5:\"AVERAGE\",6:\"MIN\",7:\"MAX\",8:"
+    }
+  ],
+  "embedded_objects": [
+    {
+      "pattern_idx": 0,
+      "match": "{appid:\"1\",username:this.encrdecr.set(t),password:this.encrdecr.set(a),code:o}"
+    },
+    {
+      "pattern_idx": 0,
+      "match": "{if(void 0!==z1)return z1.utils.encode(pw,n);for(var r=[],e=n.split(\"\"),t=0;t<e.length;++t)r[t]=e[t].charCodeAt(0);return r}"
+    },
+    {
+      "pattern_idx": 1,
+      "match": "[{PLANNINGREQUIREMENTS:e.PLANNINGREQUIREMENTS,BUILDINGUSECODE:e.BUILDINGUSECODE,USES:e.USES,BOUNCES:e.BOUNCES,ALTITUDES:e.ALTITUDES,CONSTRUCTIONFACTOR:e.CONSTRUCTIONFACTOR,CONSTRUCTIONRATIO:e.CONSTRUCTIONRATIO,PARKING:e.PARKING,NOTES:e.NOTES}"
+    },
+    {
+      "type": "large_array",
+      "match": "[{key:\"activeDate\",get:function(){return this._activeDate},set:function(t){this._activeDate=t}},{key:\"ngOnInit\",value:function(){this.uniqueId=\"datepicker--\".concat(Math.floor(1e4*Math.random())),this.initDate?(this.activeDate=this.initDate,this.selectedDate=new Date(this.activeDate.valueOf()),this.update.emit(this.activeDate)):void 0===this.activeDate&&(this.activeDate=new Date)}},{key:\"ngOnChanges\",value:function(t){this.refreshView(),this.checkIfActiveDateGotUpdated(t.activeDate)}},{key:\"checkIfActiveDateGotUpdated\",value:function(t){if(t&&!t.firstChange){var a=t.previousValue;a&&a instanceof Date&&a.getTime()!==t.currentValue.getTime()&&this.activeDateChange.emit(this.activeDate)}}},{key:\"setCompareHandler\",value:function(t,a){\"day\"===a&&(this.compareHandlerDay=t),\"month\"===a&&(this.compareHandlerMonth=t),\"year\"===a&&(this.compareHandlerYear=t)}},{key:\"compare\",value:function(t,a){if(void 0!==t&&void 0!==a){if(\"day\"===this.datepickerMode&&this.compareHandlerDay)return this.compareHandlerDay(t,a);if(\"month\"===this.datepickerMode&&this.compareHandlerMonth)return this.compareHandlerMonth(t,a);if(\"year\"===this.datepickerMode&&this.compareHandlerYear)return this.compareHandlerYear(t,a)}}},{key:\"setRefreshViewHandler\",value:function(t,a){\"day\"===a&&(this.refreshViewHandlerDay=t),\"month\"===a&&(this.refreshViewHandlerMonth=t),\"year\"===a&&(this.refreshViewHandlerYear=t)}},{key:\"refreshView\",value:function(){\"day\"===this.datepickerMode&&this.refreshViewHandlerDay&&this.refreshViewHandlerDay(),\"month\"===this.datepickerMode&&this.refreshViewHandlerMonth&&this.refreshViewHandlerMonth(),\"year\"===this.datepickerMode&&this.refreshViewHandlerYear&&this.refreshViewHandlerYear()}},{key:\"dateFilter\",value:function(t,a){return this.dateFormatter.format(t,a,this.locale)}},{key:\"isActive\",value:function(t){return 0===this.compare(t.date,this.activeDate)&&(this.activeDateId=t.uid,!0)}},{key:\"createDateObject\",value:function(t,a){var o={};return o.date=new Date(t.getFullYear(),t.getMont"
+    },
+    {
+      "type": "url_pattern",
+      "match": "ALTITUDES"
+    },
+    {
+      "type": "url_pattern",
+      "match": "BOUNCES"
+    },
+    {
+      "type": "url_pattern",
+      "match": "BUILDINGNO"
+    },
+    {
+      "type": "url_pattern",
+      "match": "BUILDINGUSECODEALL7ID"
+    },
+    {
+      "type": "url_pattern",
+      "match": "Building Number"
+    },
+    {
+      "type": "url_pattern",
+      "match": "Building conditions system"
+    },
+    {
+      "type": "url_pattern",
+      "match": "Building system request"
+    },
+    {
+      "type": "url_pattern",
+      "match": "BuildingGuide"
+    },
+    {
+      "type": "url_pattern",
+      "match": "BuildingUseCode"
+    },
+    {
+      "type": "url_pattern",
+      "match": "BuildingUseCodeCitizen"
+    },
+    {
+      "type": "url_pattern",
+      "match": "Building_system"
+    },
+    {
+      "type": "url_pattern",
+      "match": "FLOOR"
+    },
+    {
+      "type": "url_pattern",
+      "match": "Floor"
+    },
+    {
+      "type": "url_pattern",
+      "match": "GetVIEW_BUILDINGSYSTEM"
+    },
+    {
+      "type": "url_pattern",
+      "match": "GetVIEW_BUILDINGSYSTEM7"
+    },
+    {
+      "type": "url_pattern",
+      "match": "GetVIEW_BUILDINGSYSTEMShow"
+    },
+    {
+      "type": "url_pattern",
+      "match": "GetViewerPreferences"
+    },
+    {
+      "type": "url_pattern",
+      "match": "building"
+    },
+    {
+      "type": "url_pattern",
+      "match": "building2"
+    },
+    {
+      "type": "url_pattern",
+      "match": "buildingLicenseAccordionContent"
+    },
+    {
+      "type": "url_pattern",
+      "match": "buildingLicenseResultContent"
+    },
+    {
+      "type": "url_pattern",
+      "match": "buildingSystemMiniMapDiv"
+    },
+    {
+      "type": "url_pattern",
+      "match": "condition"
+    },
+    {
+      "type": "url_pattern",
+      "match": "conditionalformatting"
+    },
+    {
+      "type": "url_pattern",
+      "match": "floor"
+    },
+    {
+      "type": "url_pattern",
+      "match": "floor and ceil options must be supplied"
+    },
+    {
+      "type": "url_pattern",
+      "match": "floorLabel"
+    },
+    {
+      "type": "url_pattern",
+      "match": "getViewerPreferences"
+    },
+    {
+      "type": "url_pattern",
+      "match": "getViewport"
+    },
+    {
+      "type": "url_pattern",
+      "match": "getViewportRect"
+    },
+    {
+      "type": "url_pattern",
+      "match": "getViewportScrollPosition"
+    },
+    {
+      "type": "url_pattern",
+      "match": "getViewportSize"
+    },
+    {
+      "type": "url_pattern",
+      "match": "https://mapservice.alriyadh.gov.sa/BuildingSystem/building-code-report-experimental?parcelId="
+    }
+  ],
+  "numeric_patterns": []
+}

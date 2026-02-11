@@ -1,0 +1,89 @@
+{
+  "total": 3,
+  "interesting": 2,
+  "requests": [
+    {
+      "ts": "2026-02-11T19:19:33.798053+00:00",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/Handler/proxy.ashx?https://maps.alriyadh.gov.sa/gprtl/rest/services/WebMercator/WMParcelsLayerOne/MapServer/identify?sr=4326&layers=top%3A2%2C9%2C2%2C9%2C2%2C9&tolerance=3&returnGeometry=true&imageDisplay=1440%2C900%2C96&mapExtent=46.61280088126661%2C24.81545394003369%2C46.613766476511955%2C24.816001711536746&geometry=%7B%22x%22%3A46.613283678889275%2C%22y%22%3A24.81572782608792%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&callback=window._EsriLeafletCallbacks.c4&f=json",
+      "method": "GET",
+      "type": "script",
+      "status": 200,
+      "post_data": null,
+      "query_params": {
+        "https://maps.alriyadh.gov.sa/gprtl/rest/services/WebMercator/WMParcelsLayerOne/MapServer/identify?sr": [
+          "4326"
+        ],
+        "layers": [
+          "top:2,9,2,9,2,9"
+        ],
+        "tolerance": [
+          "3"
+        ],
+        "returnGeometry": [
+          "true"
+        ],
+        "imageDisplay": [
+          "1440,900,96"
+        ],
+        "mapExtent": [
+          "46.61280088126661,24.81545394003369,46.613766476511955,24.816001711536746"
+        ],
+        "geometry": [
+          "{\"x\":46.613283678889275,\"y\":24.81572782608792,\"spatialReference\":{\"wkid\":4326}}"
+        ],
+        "geometryType": [
+          "esriGeometryPoint"
+        ],
+        "callback": [
+          "window._EsriLeafletCallbacks.c4"
+        ],
+        "f": [
+          "json"
+        ]
+      },
+      "response_body": "window._EsriLeafletCallbacks.c4({\"results\":[{\"layerId\":2,\"layerName\":\"GIS.PARCELS_AREA\",\"displayFieldName\":\"رقم القطعة\",\"value\":\"2045\",\"attributes\":{\"OBJECTID\":\"6859064\",\"رمز قطعة الأرض\":\"3710897\",\"رقم القطعة\":\"2045\",\"رقم البلوك\":\"0\",\"رقم المحضر\":\"0\",\"تاريخ المحضر\":\"0\",\"رقم المخطط\":\"3114\",\"البلديات الفرعية\":\"قطاع شمال مدينة الرياض\",\"الحي\":\"الملقا\",\"نظام شروط البناء\":\"م 111\",\"الاستخدام الرئيسي\":\"متعددة الإستخدام\",\"الاستخدام الثانوي\":\"متعدد الاستخدام\",\"استخدام الارض\":\"سكنى - تجاري\",\"اشترطات نظام البناء للقطعة\":\"يوجد\",\"حالة القطعة\":\"-\",\"صيغة الطبقة\":\"Polygon\",\"نظام البناء\":\"م 111\",\"مساحة القطعة\":\"1507.323898\"},\"geometryType\":\"esriGeometryPolygon\",\"geometry\":{\"rings\":[[[46.613530149124003,24.815617650504379],[46.613215715227639,24.815485396154571],[46.613037279715634,24.815838387720287],[46.613351651668502,24.815970766777287],[46.613530149124003,24.815617650504379]]],\"spatialReference\":{\"wkid\":4326,\"latestWkid\":4326}}}],\"exceededTransferLimit\":true});",
+      "interesting": true
+    },
+    {
+      "ts": "2026-02-11T19:19:35.002040+00:00",
+      "url": "https://mapservice.alriyadh.gov.sa/APIGEOPORTALN/Handler/proxy.ashx?https://maps.alriyadh.gov.sa/gprtl/rest/services/WebMercator/WMParcelsLayerOne/MapServer/2/query?returnGeometry=true&where=PARCELID%3D3710897&outSR=4326&outFields=*&callback=window._EsriLeafletCallbacks.c5&f=json",
+      "method": "GET",
+      "type": "script",
+      "status": 200,
+      "post_data": null,
+      "query_params": {
+        "https://maps.alriyadh.gov.sa/gprtl/rest/services/WebMercator/WMParcelsLayerOne/MapServer/2/query?returnGeometry": [
+          "true"
+        ],
+        "where": [
+          "PARCELID=3710897"
+        ],
+        "outSR": [
+          "4326"
+        ],
+        "outFields": [
+          "*"
+        ],
+        "callback": [
+          "window._EsriLeafletCallbacks.c5"
+        ],
+        "f": [
+          "json"
+        ]
+      },
+      "response_body": "window._EsriLeafletCallbacks.c5({\"displayFieldName\":\"PARCELNO\",\"fieldAliases\":{\"OBJECTID\":\"OBJECTID\",\"PARCELID\":\"رمز قطعة الأرض\",\"PARCELNO\":\"رقم القطعة\",\"BLOCKNO\":\"رقم البلوك\",\"MAHDARNO\":\"رقم المحضر\",\"MAHDARDATE\":\"تاريخ المحضر\",\"PLANNO\":\"رقم المخطط\",\"SUBMUNICIPALITY\":\"البلديات الفرعية\",\"DISTRICT\":\"الحي\",\"BUILDINGUSECODE\":\"نظام شروط البناء\",\"PARCELSUBTYPE\":\"الاستخدام الرئيسي\",\"LANDUSEAGROUP\":\"الاستخدام الثانوي\",\"LANDUSEADETAILED\":\"استخدام الارض\",\"REVIEWED_BLD_CODE\":\"اشترطات نظام البناء للقطعة\",\"IS_LABEL_DISPLAY\":\"حالة القطعة\",\"FLGBLDCODE\":\"نظام البناء\",\"SHAPE.AREA\":\"مساحة القطعة\"},\"geometryType\":\"esriGeometryPolygon\",\"spatialReference\":{\"wkid\":4326,\"latestWkid\":4326},\"fields\":[{\"name\":\"OBJECTID\",\"type\":\"esriFieldTypeOID\",\"alias\":\"OBJECTID\"},{\"name\":\"PARCELID\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"رمز قطعة الأرض\"},{\"name\":\"PARCELNO\",\"type\":\"esriFieldTypeString\",\"alias\":\"رقم القطعة\",\"length\":40},{\"name\":\"BLOCKNO\",\"type\":\"esriFieldTypeString\",\"alias\":\"رقم البلوك\",\"length\":20},{\"name\":\"MAHDARNO\",\"type\":\"esriFieldTypeString\",\"alias\":\"رقم المحضر\",\"length\":30},{\"name\":\"MAHDARDATE\",\"type\":\"esriFieldTypeString\",\"alias\":\"تاريخ المحضر\",\"length\":20},{\"name\":\"PLANNO\",\"type\":\"esriFieldTypeString\",\"alias\":\"رقم المخطط\",\"length\":25},{\"name\":\"SUBMUNICIPALITY\",\"type\":\"esriFieldTypeString\",\"alias\":\"البلديات الفرعية\",\"length\":10},{\"name\":\"DISTRICT\",\"type\":\"esriFieldTypeString\",\"alias\":\"الحي\",\"length\":6},{\"name\":\"BUILDINGUSECODE\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"نظام شروط البناء\"},{\"name\":\"PARCELSUBTYPE\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"الاستخدام الرئيسي\"},{\"name\":\"LANDUSEAGROUP\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"الاستخدام الثانوي\"},{\"name\":\"LANDUSEADETAILED\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"استخدام الارض\"},{\"name\":\"REVIEWED_BLD_CODE\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"اشترطات نظام البناء للقطعة\"},{\"name\":\"IS_LABEL_DISPLAY\",\"type\":\"esriFieldTypeString\",\"alias\":\"حالة القطعة\",\"length\":400},{\"name\":\"FLGBLDCODE\",\"type\":\"esriFieldTypeString\",\"alias\":\"نظام البناء\",\"length\":100},{\"name\":\"SHAPE.AREA\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"مساحة القطعة\"}],\"features\":[{\"attributes\":{\"OBJECTID\":6859064,\"PARCELID\":3710897,\"PARCELNO\":\"2045\",\"BLOCKNO\":\"0\",\"MAHDARNO\":\"0\",\"MAHDARDATE\":\"0\",\"PLANNO\":\"3114\",\"SUBMUNICIPALITY\":\"50785\",\"DISTRICT\":\"074\",\"BUILDINGUSECODE\":8,\"PARCELSUBTYPE\":7500,\"LANDUSEAGROUP\":7500,\"LANDUSEADETAILED\":7510,\"REVIEWED_BLD_CODE\":1,\"IS_LABEL_DISPLAY\":\"-\",\"FLGBLDCODE\":\"م 111\",\"SHAPE.AREA\":1507.3238979},\"geometry\":{\"rings\":[[[46.613530149124003,24.815617650504379],[46.613215715227639,24.815485396154571],[46.613037279715634,24.815838387720287],[46.613351651668502,24.815970766777287],[46.613530149124003,24.815617650504379]]]}}]});",
+      "interesting": true
+    },
+    {
+      "ts": "2026-02-11T19:19:35.245657+00:00",
+      "url": "https://mapservice.alriyadh.gov.sa/geoportal/fa-regular-400.2ffd018f0eda6f7b.woff2",
+      "method": "GET",
+      "type": "font",
+      "status": 200,
+      "post_data": null,
+      "query_params": {},
+      "response_body": null,
+      "interesting": false
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "building_guide_no_auth": {
+    "status": 401,
+    "response": "{\"Message\":\"Authorization has been denied for this request.\"}"
+  },
+  "building_guide_with_jwt": {
+    "status": 401,
+    "response": "{\"Message\":\"Authorization has been denied for this request.\"}"
+  },
+  "pbuildingsystem_info": {
+    "error": {
+      "code": 500,
+      "message": "Service GeoPortal/PBuildingSystem/MapServer not found ",
+      "details": []
+    }
+  },
+  "pbuildingsystem_identify": {
+    "error": {
+      "code": 500,
+      "message": "Service GeoPortal/PBuildingSystem/MapServer not found ",
+      "details": []
+    }
+  },
+  "pbuildingsystem_query_layer0": {
+    "error": {
+      "code": 500,
+      "message": "Service GeoPortal/PBuildingSystem/MapServer not found ",
+      "details": []
+    }
+  },
+  "pbuildingsystem_query_layer1": {
+    "error": {
+      "code": 500,
+      "message": "Service GeoPortal/PBuildingSystem/MapServer not found ",
+      "details": []
+    }
+  },
+  "pbuildingsystem_query_layer2": {
+    "error": {
+      "code": 500,
+      "message": "Service GeoPortal/PBuildingSystem/MapServer not found ",
+      "details": []
+    }
+  }
+}
