@@ -1,0 +1,374 @@
+{
+  "inputs_used": {
+    "land_area_sqm": {
+      "value": 35000,
+      "source": "auto"
+    },
+    "land_price_per_sqm": {
+      "value": 7000,
+      "source": "user"
+    },
+    "sale_price_per_sqm": {
+      "value": 12500,
+      "source": "user"
+    },
+    "max_floors": {
+      "value": null,
+      "source": "missing"
+    },
+    "far": {
+      "value": 1.5,
+      "source": "auto"
+    },
+    "coverage_ratio": {
+      "value": 0.6,
+      "source": "auto"
+    },
+    "allowed_uses": {
+      "value": [
+        "residential"
+      ],
+      "source": "auto"
+    },
+    "building_code": {
+      "value": "Al-Hada Test",
+      "source": "auto"
+    },
+    "district": {
+      "value": "الهدا",
+      "source": "auto"
+    },
+    "infrastructure_cost_per_sqm": {
+      "value": 500,
+      "source": "user"
+    },
+    "superstructure_cost_per_sqm": {
+      "value": 2500,
+      "source": "user"
+    },
+    "parking_area_sqm": {
+      "value": 15000,
+      "source": "user"
+    },
+    "parking_cost_per_sqm": {
+      "value": 2000,
+      "source": "user"
+    },
+    "efficiency_ratio": {
+      "value": 1.0,
+      "source": "user"
+    },
+    "brokerage_fee_pct": {
+      "value": 0.025,
+      "source": "default"
+    },
+    "real_estate_transfer_tax_pct": {
+      "value": 0.05,
+      "source": "default"
+    },
+    "brokerage_vat_pct": {
+      "value": 0.15,
+      "source": "default"
+    },
+    "developer_fee_pct": {
+      "value": 0.1,
+      "source": "default"
+    },
+    "other_indirect_pct": {
+      "value": 0.06,
+      "source": "default"
+    },
+    "contingency_pct": {
+      "value": 0.05,
+      "source": "default"
+    },
+    "presale_pct": {
+      "value": 0.0,
+      "source": "default"
+    },
+    "absorption_months": {
+      "value": 12,
+      "source": "default"
+    },
+    "bank_ltv_pct": {
+      "value": 0.6666666666,
+      "source": "user"
+    },
+    "interest_rate_pct": {
+      "value": 0.08,
+      "source": "user"
+    },
+    "arrangement_fee_pct": {
+      "value": 0.02,
+      "source": "default"
+    },
+    "fund_period_years": {
+      "value": 3,
+      "source": "user"
+    },
+    "cash_purchase_pct": {
+      "value": 1.0,
+      "source": "default"
+    },
+    "in_kind_pct": {
+      "value": 0.0,
+      "source": "default"
+    },
+    "management_fee_pct": {
+      "value": 0.015,
+      "source": "default"
+    },
+    "custodian_fee_annual": {
+      "value": 50000,
+      "source": "default"
+    },
+    "board_fee_annual": {
+      "value": 100000,
+      "source": "default"
+    },
+    "sharia_certificate_fee": {
+      "value": 5000,
+      "source": "default"
+    },
+    "sharia_board_fee_annual": {
+      "value": 5000,
+      "source": "default"
+    },
+    "legal_counsel_fee": {
+      "value": 50000,
+      "source": "default"
+    },
+    "auditor_fee_annual": {
+      "value": 50000,
+      "source": "default"
+    },
+    "valuation_fee_quarterly": {
+      "value": 20000,
+      "source": "default"
+    },
+    "other_reserve_pct": {
+      "value": 0.0005,
+      "source": "default"
+    },
+    "spv_formation_fee": {
+      "value": 25000,
+      "source": "default"
+    },
+    "structuring_fee_pct": {
+      "value": 0.01,
+      "source": "default"
+    },
+    "operator_fee_pct": {
+      "value": 0.0015,
+      "source": "default"
+    }
+  },
+  "land_costs": {
+    "land_price_total": 245000000.0,
+    "brokerage_fee": 6125000.0,
+    "transfer_tax": 12250000.0,
+    "brokerage_vat": 918750.0,
+    "total_land_acquisition": 264293750.0,
+    "cash_portion": 264293750.0,
+    "in_kind_portion": 0.0
+  },
+  "construction_costs": {
+    "gba_sqm": 52500.0,
+    "sellable_area_sqm": 52500.0,
+    "infrastructure_cost": 26250000.0,
+    "superstructure_cost": 131250000.0,
+    "parking_cost": 30000000.0,
+    "total_direct_cost": 187500000.0,
+    "developer_fee": 18750000.0,
+    "other_indirect": 11250000.0,
+    "contingency": 9375000.0,
+    "total_indirect_cost": 39375000.0,
+    "total_construction": 226875000.0
+  },
+  "revenue": {
+    "sellable_area_sqm": 52500.0,
+    "sale_price_per_sqm": 12500.0,
+    "gross_revenue": 656250000.0,
+    "net_revenue": 656250000.0
+  },
+  "financing": {
+    "bank_loan_amount": 163333333.317,
+    "interest_rate_pct": 0.08,
+    "arrangement_fee": 3266666.66634,
+    "total_interest": 33828312.56739859,
+    "interest_yearly": [
+      9022812.084217818,
+      11738833.817820776,
+      13066666.665359998
+    ]
+  },
+  "fund_fees": {
+    "management_fee": 7367531.25,
+    "custodian_fee": 150000,
+    "board_fee": 300000,
+    "sharia_fees": 20000,
+    "legal_counsel": 50000,
+    "auditor_fee": 150000,
+    "valuation_fee": 240000,
+    "other_reserve": 245584.375,
+    "spv_fee": 25000,
+    "structuring_fee": 3703020.8334542,
+    "operator_fee": 736753.125,
+    "total_fund_fees": 12987889.5834542
+  },
+  "fund_size": {
+    "total_fund_size": 541251618.8171928,
+    "equity_amount": 377918285.50019276,
+    "in_kind_contribution": 0.0,
+    "bank_loan": 163333333.317,
+    "equity_pct": 0.6982303098253352,
+    "debt_pct": 0.3017696901746647
+  },
+  "cash_flows": {
+    "years": [
+      1,
+      2,
+      3
+    ],
+    "inflows_sales": [
+      0.0,
+      0.0,
+      656250000.0
+    ],
+    "outflows_land": [
+      264293750.0,
+      0.0,
+      0.0
+    ],
+    "outflows_direct": [
+      61875000.0,
+      84375000.0,
+      41250000.0
+    ],
+    "outflows_indirect": [
+      12993750.0,
+      17718750.0,
+      8662500.0
+    ],
+    "outflows_interest": [
+      9022812.084217818,
+      11738833.817820776,
+      13066666.665359998
+    ],
+    "outflows_fees": [
+      13100449.9997942,
+      2020593.75,
+      1133512.5
+    ],
+    "outflows_total": [
+      361285762.08401203,
+      115853177.56782077,
+      64112679.165359996
+    ],
+    "net_cash_flow": [
+      -361285762.08401203,
+      -115853177.56782077,
+      592137320.83464
+    ],
+    "cumulative": [
+      -361285762.08401203,
+      -477138939.6518328,
+      114998381.1828072
+    ],
+    "beginning_cash": [
+      0.0,
+      -248500611.03128928,
+      -330403516.9290731
+    ],
+    "net_cash_waterfall": [
+      -248500611.03128928,
+      -330403516.9290731,
+      114998381.1828072
+    ],
+    "net_equity_cashflows": [
+      -377918285.50019276,
+      0.0,
+      0.0,
+      492916666.68299997
+    ],
+    "equity_cf_for_irr": [
+      -377918285.50019276,
+      0.0,
+      0.0,
+      492916666.68299997
+    ]
+  },
+  "kpis": {
+    "irr": 0.09259329851998999,
+    "equity_net_profit": 114998381.1828072,
+    "roe_total": 0.3042943027501339,
+    "roe_annualized": 0.10143143425004464,
+    "profit_margin": 0.17523562846903956,
+    "cost_to_revenue_ratio": 0.8247643715309605,
+    "yield_on_cost": 1.2124675052873104
+  },
+  "sensitivity": {
+    "sale_price_range": [
+      10000.0,
+      11250.0,
+      12500.0,
+      13750.0,
+      15000.0
+    ],
+    "construction_cost_range": [
+      2400.0,
+      2700.0,
+      3000.0,
+      3300.0000000000005,
+      3600.0
+    ],
+    "irr_matrix": [
+      [
+        0.021002886605732796,
+        0.0025995223117669664,
+        -0.014544859531947951,
+        -0.0305736452297789,
+        -0.04560797503968317
+      ],
+      [
+        0.07935825266464258,
+        0.05990304505644395,
+        0.04177877697394461,
+        0.024833866876125876,
+        0.008940250739986721
+      ],
+      [
+        0.1320057766862428,
+        0.11160160842724176,
+        0.09259329851998999,
+        0.0748218717774749,
+        0.058153017637408544
+      ],
+      [
+        0.18016482872061435,
+        0.1588926035831577,
+        0.13907562095995196,
+        0.12054814236430622,
+        0.10317014324422535
+      ],
+      [
+        0.2246848140180926,
+        0.20261012542187418,
+        0.18204557622698725,
+        0.16281917570568827,
+        0.14478561708535986
+      ]
+    ]
+  },
+  "data_health": {
+    "auto": 6,
+    "user": 10,
+    "default": 27,
+    "missing": 1,
+    "total_params": 44,
+    "confidence_pct": 36.4,
+    "missing_fields": [
+      "max_floors"
+    ]
+  }
+}
