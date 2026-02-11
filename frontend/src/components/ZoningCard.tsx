@@ -1,17 +1,26 @@
 import { motion } from 'framer-motion'
 import type { Regulations, Labels } from '../types'
-import { formatPct } from '../utils/formatters'
+import { formatPct, formatArea } from '../utils/formatters'
 
 interface Props {
   regulations: Regulations
   buildingCode: string
+  areaSqm: number | null
   labels: Labels
 }
 
-export default function ZoningCard({ regulations, buildingCode, labels }: Props) {
-  const items = [
-    { label: labels.maxFloors, value: regulations.max_floors ?? '—', icon: '🏢' },
-    { label: labels.far, value: regulations.far ?? '—', icon: '📐' },
+export default function ZoningCard({ regulations, buildingCode, areaSqm, labels }: Props) {
+  const far = regulations.far ?? 1
+  const gba = areaSqm ? areaSqm * far : null
+
+  const areaItems = [
+    { label: 'مساحة الأرض', value: formatArea(areaSqm), icon: '📏' },
+    { label: 'المساحة الإجمالية (GBA)', value: formatArea(gba), icon: '🏗️' },
+  ]
+
+  const regItems = [
+    { label: labels.maxFloors, value: String(regulations.max_floors ?? '—'), icon: '🏢' },
+    { label: labels.far, value: String(regulations.far ?? '—'), icon: '📐' },
     { label: labels.coverage, value: regulations.coverage_ratio ? formatPct(regulations.coverage_ratio) : '—', icon: '📊' },
   ]
 
@@ -32,11 +41,23 @@ export default function ZoningCard({ regulations, buildingCode, labels }: Props)
         </span>
       </div>
 
+      {/* Area row — prominent */}
+      <div className="grid grid-cols-2 gap-3 mb-3">
+        {areaItems.map((item) => (
+          <div key={item.label} className="text-center p-3 rounded-lg" style={{ background: 'var(--color-gold)', color: '#0A0A0F' }}>
+            <div className="text-lg mb-0.5">{item.icon}</div>
+            <div className="text-lg font-bold">{item.value}</div>
+            <div className="text-xs font-medium opacity-80">{item.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Regulation values */}
       <div className="grid grid-cols-3 gap-3 mb-4">
-        {items.map((item) => (
+        {regItems.map((item) => (
           <div key={item.label} className="text-center p-3 rounded-lg bg-[var(--color-bg)]">
-            <div className="text-2xl mb-1">{item.icon}</div>
-            <div className="text-xl font-bold" style={{ color: 'var(--color-gold)' }}>{String(item.value)}</div>
+            <div className="text-xl mb-1">{item.icon}</div>
+            <div className="text-xl font-bold" style={{ color: 'var(--color-gold)' }}>{item.value}</div>
             <div className="text-xs text-[var(--color-text-dim)] mt-1">{item.label}</div>
           </div>
         ))}

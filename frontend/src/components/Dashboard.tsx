@@ -52,6 +52,7 @@ export default function Dashboard({
           <ZoningCard
             regulations={land.regulations}
             buildingCode={land.building_code_label}
+            areaSqm={land.area_sqm}
             labels={labels}
           />
         </div>
