@@ -25,6 +25,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from backend.advisor import get_advice, search_market
 from backend.data_fetch_http import clear_caches, fetch_land_object
 from backend.excel_generator import generate_excel
+from backend.geocode import find_parcel_at_coords, parse_coordinates
 from computation_engine import compute_proforma
 
 load_dotenv()
@@ -79,6 +80,10 @@ app.add_middleware(
 # Request/Response models
 # ---------------------------------------------------------------------------
 
+class LocationRequest(BaseModel):
+    query: str  # Google Maps URL, coordinates, or parcel ID
+
+
 class ProformaRequest(BaseModel):
     parcel_id: int
     overrides: dict[str, Any] = {}
@@ -109,6 +114,57 @@ class SearchRequest(BaseModel):
 # ---------------------------------------------------------------------------
 # Endpoints
 # ---------------------------------------------------------------------------
+
+@app.post("/api/locate")
+async def locate_parcel(req: LocationRequest) -> dict:
+    """Find a parcel from a Google Maps URL, coordinates, or parcel ID.
+
+    Accepts:
+      - Google Maps URL: https://www.google.com/maps/place/...@24.648,46.658...
+      - Coordinates: "24.648843, 46.658778"
+      - Parcel ID: "3834663"
+    """
+    if not _http_client:
+        raise HTTPException(500, "Server not ready")
+
+    query = req.query.strip()
+
+    # Try as parcel ID first
+    try:
+        pid = int(query)
+        if pid > 100000:  # looks like a parcel ID
+            land = await fetch_land_object(_http_client, pid)
+            if land.get("parcel_number"):
+                return {"source": "parcel_id", "parcel_id": pid, "land_object": land}
+    except ValueError:
+        pass
+
+    # Try as coordinates or Google Maps URL
+    coords = parse_coordinates(query)
+    if not coords:
+        raise HTTPException(400, "Could not parse location. Paste a Google Maps link or coordinates (lat, lng).")
+
+    lat, lng = coords
+    log.info("Parsed coordinates: lat=%.6f, lng=%.6f", lat, lng)
+
+    # Find parcel at those coordinates
+    result = await find_parcel_at_coords(_http_client, lat, lng)
+    if not result or not result.get("parcel_id"):
+        raise HTTPException(404, f"No parcel found at ({lat:.6f}, {lng:.6f}). The location may be outside Riyadh's parcel database.")
+
+    parcel_id = result["parcel_id"]
+    log.info("Found parcel %s at coordinates", parcel_id)
+
+    # Fetch full land object
+    land = await fetch_land_object(_http_client, parcel_id)
+    return {
+        "source": "coordinates",
+        "coordinates": {"lat": lat, "lng": lng},
+        "parcel_id": parcel_id,
+        "parcel_summary": result,
+        "land_object": land,
+    }
+
 
 @app.post("/api/parcel/{parcel_id}")
 async def get_parcel(parcel_id: int) -> dict:

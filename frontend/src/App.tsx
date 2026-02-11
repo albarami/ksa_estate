@@ -40,9 +40,20 @@ function AppInner() {
   // Use fresh proforma from query if available
   const liveProforma = proformaQuery.data?.proforma ?? proforma
 
-  const handleSubmit = useCallback((id: number) => {
-    setParcelId(id)
-    setScreen('loading')
+  const [inputQuery, setInputQuery] = useState<string>('')
+
+  const handleSubmit = useCallback((query: string) => {
+    setInputQuery(query)
+    // If it's a plain number, use it directly as parcel ID
+    const asNum = parseInt(query)
+    if (!isNaN(asNum) && String(asNum) === query.trim()) {
+      setParcelId(asNum)
+      setScreen('loading')
+    } else {
+      // It's a URL or coordinates — use the locate endpoint
+      setScreen('loading')
+      setParcelId(null)  // will be resolved by LoadingProgress
+    }
   }, [])
 
   const handleLoadComplete = useCallback((l: LandObject, pf: ProFormaResult) => {
@@ -81,9 +92,10 @@ function AppInner() {
         <ParcelInput labels={labels} onSubmit={handleSubmit} />
       )}
 
-      {screen === 'loading' && parcelId && (
+      {screen === 'loading' && (
         <LoadingProgress
           parcelId={parcelId}
+          query={parcelId ? undefined : inputQuery}
           overrides={overrides}
           labels={labels}
           onComplete={handleLoadComplete}

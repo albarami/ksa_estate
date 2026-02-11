@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { fetchParcel, fetchProforma } from '../utils/api'
+import { fetchParcel, fetchProforma, locateParcel } from '../utils/api'
 import type { LandObject, ProFormaResult, Overrides, Labels } from '../types'
-// LandObject used in onComplete callback type
 
 interface Props {
-  parcelId: number
+  parcelId: number | null
+  query?: string  // Google Maps URL or coordinates (when parcelId is null)
   overrides: Overrides
   labels: Labels
   onComplete: (land: LandObject, proforma: ProFormaResult) => void
@@ -14,30 +14,39 @@ interface Props {
 
 type Step = 'parcel' | 'regulations' | 'proforma' | 'done'
 
-export default function LoadingProgress({ parcelId, overrides, labels, onComplete, onError }: Props) {
+export default function LoadingProgress({ parcelId, query, overrides, labels, onComplete, onError }: Props) {
   const [step, setStep] = useState<Step>('parcel')
+
   useEffect(() => {
     let cancelled = false
 
     async function run() {
       try {
-        // Step 1: fetch parcel (includes regs + SREM)
-        setStep('parcel')
-        await fetchParcel(parcelId)
-        if (cancelled) return
-        setStep('regulations')
+        let pid = parcelId
 
-        // Brief pause to show step 2 (data already in landObj)
+        // Step 1: locate or fetch parcel
+        setStep('parcel')
+        if (!pid && query) {
+          const located = await locateParcel(query)
+          if (cancelled) return
+          pid = located.parcel_id
+        } else if (pid) {
+          await fetchParcel(pid)
+          if (cancelled) return
+        } else {
+          onError('No parcel ID or location provided')
+          return
+        }
+
+        setStep('regulations')
         await new Promise(r => setTimeout(r, 400))
         if (cancelled) return
-        setStep('proforma')
 
-        // Step 3: compute proforma
-        const result = await fetchProforma(parcelId, overrides)
+        setStep('proforma')
+        const result = await fetchProforma(pid!, overrides)
         if (cancelled) return
         setStep('done')
 
-        // Brief pause to show completion
         await new Promise(r => setTimeout(r, 300))
         if (cancelled) return
         onComplete(result.land_object, result.proforma)
@@ -48,7 +57,7 @@ export default function LoadingProgress({ parcelId, overrides, labels, onComplet
 
     run()
     return () => { cancelled = true }
-  }, [parcelId]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [parcelId, query]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const steps: { key: Step; label: string }[] = [
     { key: 'parcel', label: labels.step1 },
@@ -66,8 +75,8 @@ export default function LoadingProgress({ parcelId, overrides, labels, onComplet
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-md space-y-4 px-4"
       >
-        <h2 className="text-2xl font-bold text-center mb-8" style={{ color: 'var(--color-gold)' }}>
-          {parcelId.toLocaleString()}
+        <h2 className="text-2xl font-bold text-center mb-8 truncate max-w-md" style={{ color: 'var(--color-gold)' }}>
+          {parcelId ? parcelId.toLocaleString() : '📍 ' + (query || '').substring(0, 50)}
         </h2>
 
         {steps.map((s, i) => {

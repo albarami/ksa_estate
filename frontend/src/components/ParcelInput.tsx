@@ -6,15 +6,15 @@ const EXAMPLES = [3710897, 3710898, 3900000]
 
 interface Props {
   labels: Labels
-  onSubmit: (id: number) => void
+  onSubmit: (query: string) => void
 }
 
 export default function ParcelInput({ labels, onSubmit }: Props) {
   const [value, setValue] = useState('')
 
   const handleSubmit = () => {
-    const id = parseInt(value.trim())
-    if (id > 0) onSubmit(id)
+    const trimmed = value.trim()
+    if (trimmed) onSubmit(trimmed)
   }
 
   return (
@@ -53,8 +53,8 @@ export default function ParcelInput({ labels, onSubmit }: Props) {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
-          placeholder={labels.enterParcel}
-          className="flex-1 bg-[var(--color-card)] border border-[var(--color-border)] rounded-xl px-5 py-4 text-xl text-center outline-none focus:border-[var(--color-gold)] transition-colors"
+          placeholder="رقم القطعة أو رابط Google Maps"
+          className="flex-1 bg-[var(--color-card)] border border-[var(--color-border)] rounded-xl px-5 py-4 text-lg text-center outline-none focus:border-[var(--color-gold)] transition-colors"
           dir="ltr"
         />
         <button
@@ -76,7 +76,7 @@ export default function ParcelInput({ labels, onSubmit }: Props) {
         {EXAMPLES.map((id) => (
           <button
             key={id}
-            onClick={() => { setValue(String(id)); onSubmit(id) }}
+            onClick={() => { setValue(String(id)); onSubmit(String(id)) }}
             className="px-3 py-1 rounded-lg text-sm border border-[var(--color-border)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] transition-colors"
           >
             {id.toLocaleString()}

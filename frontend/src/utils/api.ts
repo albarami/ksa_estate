@@ -12,6 +12,14 @@ export async function fetchParcel(id: number): Promise<LandObject> {
   return json(`${BASE}/parcel/${id}`, { method: 'POST' })
 }
 
+export async function locateParcel(query: string): Promise<{ parcel_id: number; land_object: LandObject }> {
+  return json(`${BASE}/locate`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query }),
+  })
+}
+
 export async function fetchProforma(
   id: number,
   overrides: Overrides = {},
