@@ -4,24 +4,29 @@ import { fetchProforma } from '../utils/api'
 import type { Overrides } from '../types'
 
 export function useProforma(parcelId: number | null, overrides: Overrides) {
+  // Serialize for stable comparison
+  const serialized = JSON.stringify(overrides)
+  const [debouncedKey, setDebouncedKey] = useState(serialized)
   const [debouncedOverrides, setDebouncedOverrides] = useState(overrides)
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined)
 
-  // Debounce override changes by 500ms
-  const serialized = JSON.stringify(overrides)
   useEffect(() => {
-    clearTimeout(timer.current)
-    timer.current = setTimeout(() => setDebouncedOverrides(JSON.parse(serialized)), 500)
-    return () => clearTimeout(timer.current)
-  }, [serialized])
+    // If same serialized value, skip
+    if (serialized === debouncedKey) return
 
-  const debouncedKey = JSON.stringify(debouncedOverrides)
+    clearTimeout(timer.current)
+    timer.current = setTimeout(() => {
+      setDebouncedKey(serialized)
+      setDebouncedOverrides(JSON.parse(serialized))
+    }, 400)
+
+    return () => clearTimeout(timer.current)
+  }, [serialized, debouncedKey])
 
   return useQuery({
     queryKey: ['proforma', parcelId, debouncedKey],
     queryFn: () => fetchProforma(parcelId!, debouncedOverrides),
-    enabled: !!parcelId,
-    staleTime: 30_000,
-    refetchOnMount: false,
+    enabled: parcelId != null && parcelId > 0,
+    staleTime: 10_000,
   })
 }

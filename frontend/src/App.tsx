@@ -18,8 +18,13 @@ const DEFAULT_OVERRIDES: Overrides = {
   sale_price_per_sqm: 12500,
   infrastructure_cost_per_sqm: 500,
   superstructure_cost_per_sqm: 2500,
+  parking_area_sqm: 15000,
+  parking_cost_per_sqm: 2000,
+  far: 1.5,
   fund_period_years: 3,
   bank_ltv_pct: 0.667,
+  interest_rate_pct: 0.08,
+  efficiency_ratio: 1.0,
 }
 
 type Screen = 'input' | 'loading' | 'dashboard'

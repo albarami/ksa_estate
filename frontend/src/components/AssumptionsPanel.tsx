@@ -29,6 +29,7 @@ export default function AssumptionsPanel({ overrides, onChange, labels }: Props)
     { id: 'land_price_per_sqm', label: labels.landPrice, min: 500, max: 20000, step: 100, format: n => `${n.toLocaleString()} ر.س` },
     { id: 'sale_price_per_sqm', label: labels.salePrice, min: 2000, max: 25000, step: 100, format: n => `${n.toLocaleString()} ر.س` },
     { id: '_construction_total', label: labels.constructionCost, min: 1500, max: 6000, step: 100, format: n => `${n.toLocaleString()} ر.س` },
+    { id: 'parking_area_sqm', label: 'مواقف (م²)', min: 0, max: 30000, step: 1000, format: n => `${n.toLocaleString()} م²` },
     { id: 'far', label: 'معامل البناء (FAR)', min: 0.5, max: 3.0, step: 0.1, format: n => n.toFixed(1) },
     { id: 'fund_period_years', label: labels.fundPeriod, min: 2, max: 5, step: 1, format: n => `${n} ${labels.year}` },
     { id: 'bank_ltv_pct', label: labels.bankLtv, min: 0, max: 0.80, step: 0.01, format: n => `${(n * 100).toFixed(0)}%` },
@@ -37,12 +38,14 @@ export default function AssumptionsPanel({ overrides, onChange, labels }: Props)
   const getValue = (id: string): number => {
     if (id === '_construction_total') return totalConstCost
     if (id === 'far') return (overrides.far as number) ?? 1.5
-    return (overrides[id] as number) ?? {
+    const defaults: Record<string, number> = {
       land_price_per_sqm: 7000,
       sale_price_per_sqm: 12500,
+      parking_area_sqm: 15000,
       fund_period_years: 3,
       bank_ltv_pct: 0.667,
-    }[id] ?? 0
+    }
+    return (overrides[id] as number) ?? defaults[id] ?? 0
   }
 
   const handleChange = (id: string, val: number) => {
@@ -63,8 +66,13 @@ export default function AssumptionsPanel({ overrides, onChange, labels }: Props)
       sale_price_per_sqm: 12500,
       infrastructure_cost_per_sqm: 500,
       superstructure_cost_per_sqm: 2500,
+      parking_area_sqm: 15000,
+      parking_cost_per_sqm: 2000,
+      far: 1.5,
       fund_period_years: 3,
       bank_ltv_pct: 0.667,
+      interest_rate_pct: 0.08,
+      efficiency_ratio: 1.0,
     })
   }
 
