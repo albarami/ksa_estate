@@ -1,0 +1,260 @@
+{
+  "_meta": {
+    "description": "Generic real estate fund pro-forma computation template. Extracted from Al-Hada Opportunity.xlsx as a reference model. All numbers are formulas or defaults — nothing is hardcoded to Al-Hada.",
+    "version": "1.0",
+    "note": "ALL math is done by Python/NumPy/numpy-financial. The LLM agent is ONLY for reasoning, recommendations, and market analysis — never for calculations."
+  },
+
+  "inputs": {
+    "_doc": "Parameters that change per parcel. Sources: [auto] = from data_fetch.py, [user] = user-adjustable, [default] = industry default",
+
+    "land": {
+      "land_area_sqm":            {"source": "auto:geoportal", "field": "area_sqm", "al_hada_value": 35000},
+      "land_price_per_sqm":       {"source": "user", "default": null, "note": "User inputs or from SREM market data", "al_hada_value": 7000},
+      "cash_purchase_pct":        {"source": "user", "default": 1.0, "note": "1.0 = 100% cash, <1 means partial in-kind", "al_hada_value": 1.0},
+      "in_kind_pct":              {"source": "user", "default": 0.0, "note": "Land owner contributes land as equity", "al_hada_value": 0.0}
+    },
+
+    "acquisition_costs": {
+      "brokerage_fee_pct":            {"source": "default", "default": 0.025,  "label_ar": "السعي", "al_hada_value": 0.025},
+      "real_estate_transfer_tax_pct": {"source": "default", "default": 0.05,   "label_ar": "ضريبة التصرفات العقارية", "al_hada_value": 0.05},
+      "brokerage_vat_pct":            {"source": "default", "default": 0.15,   "label_ar": "ضريبة السعي", "al_hada_value": 0.15}
+    },
+
+    "construction": {
+      "gba_sqm":                      {"source": "auto:formula", "formula": "land_area_sqm * far", "note": "Gross Building Area from FAR regulation"},
+      "sellable_area_sqm":            {"source": "auto:formula", "formula": "gba_sqm * efficiency_ratio"},
+      "efficiency_ratio":             {"source": "user", "default": 0.85, "note": "Sellable / GBA ratio (typical 80-90%)"},
+      "infrastructure_cost_per_sqm":  {"source": "user", "default": 500,  "label_ar": "تطوير البنية التحتية", "al_hada_value": 500},
+      "superstructure_cost_per_sqm":  {"source": "user", "default": 2500, "label_ar": "تطوير البنية العلوية", "al_hada_value": 2500},
+      "parking_area_sqm":             {"source": "user", "default": null, "note": "Basement parking area if applicable"},
+      "parking_cost_per_sqm":         {"source": "user", "default": 2000, "label_ar": "مواقف(قبو)", "al_hada_value": 2000}
+    },
+
+    "soft_costs": {
+      "developer_fee_pct":            {"source": "default", "default": 0.10,  "label_ar": "أتعاب المطور", "al_hada_value": 0.10, "note": "% of direct construction cost"},
+      "other_indirect_pct":           {"source": "default", "default": 0.06,  "label_ar": "تكاليف غير مباشرة أخرى", "al_hada_value": 0.06},
+      "contingency_pct":              {"source": "default", "default": 0.05,  "label_ar": "احتياطي", "al_hada_value": 0.05}
+    },
+
+    "revenue": {
+      "sale_price_per_sqm":           {"source": "user", "default": null, "note": "User inputs or LLM recommends based on SREM comps", "al_hada_value": 12500},
+      "presale_pct":                  {"source": "user", "default": 0.0, "note": "% sold before completion"},
+      "absorption_months":            {"source": "user", "default": 12, "note": "Months to sell all units after completion"}
+    },
+
+    "financing": {
+      "bank_ltv_pct":                 {"source": "user", "default": 0.667, "label_ar": "نسبة التمويل البنكي", "al_hada_value": 0.667, "note": "Bank financing as % of land value"},
+      "interest_rate_pct":            {"source": "user", "default": 0.08,  "label_ar": "فوائد تمويل", "al_hada_value": 0.08},
+      "arrangement_fee_pct":          {"source": "default", "default": 0.02,  "label_ar": "أتعاب ترتيب تمويل", "al_hada_value": 0.02}
+    },
+
+    "fund_fees": {
+      "management_fee_pct":           {"source": "default", "default": 0.015,  "label_ar": "رسوم إدارة الصندوق", "al_hada_value": 0.015, "note": "Annual % of total cost outflows"},
+      "custodian_fee_annual":         {"source": "default", "default": 50000,  "label_ar": "رسوم أمين الحفظ", "al_hada_value": 50000},
+      "board_fee_annual":             {"source": "default", "default": 100000, "label_ar": "مجلس الإدارة", "al_hada_value": 100000, "note": "5 members × 20,000 SAR"},
+      "sharia_certificate_fee":       {"source": "default", "default": 5000,   "label_ar": "إصدار الشهادة الشرعية للصندوق"},
+      "sharia_board_fee_annual":      {"source": "default", "default": 5000,   "label_ar": "أتعاب الهيئة الشرعية"},
+      "legal_counsel_fee":            {"source": "default", "default": 50000,  "label_ar": "مستشار قانوني"},
+      "auditor_fee_annual":           {"source": "default", "default": 50000,  "label_ar": "مراجع الحسابات"},
+      "valuation_fee_quarterly":      {"source": "default", "default": 20000,  "label_ar": "التقييم"},
+      "other_reserve_pct":            {"source": "default", "default": 0.0005, "label_ar": "احتياطي مصروفات أخرى"},
+      "spv_formation_fee":            {"source": "default", "default": 25000,  "label_ar": "رسوم إنشاء الشركة ذات الغرض الخاص"},
+      "structuring_fee_pct":          {"source": "default", "default": 0.01,   "label_ar": "رسوم هيكلة", "note": "% of total equity"},
+      "operator_fee_pct":             {"source": "default", "default": 0.0015, "label_ar": "أتعاب المشغل"}
+    },
+
+    "zoning_from_geoportal": {
+      "max_floors":     {"source": "auto:geoportal", "field": "regulations.max_floors"},
+      "far":            {"source": "auto:geoportal", "field": "regulations.far"},
+      "coverage_ratio": {"source": "auto:geoportal", "field": "regulations.coverage_ratio"},
+      "allowed_uses":   {"source": "auto:geoportal", "field": "regulations.allowed_uses"},
+      "building_code":  {"source": "auto:geoportal", "field": "building_code_label"}
+    },
+
+    "fund_structure": {
+      "fund_type":       {"source": "user", "default": "صندوق استثمار عقاري خاص", "label_en": "Private Real Estate Investment Fund"},
+      "fund_period_years": {"source": "user", "default": 3, "al_hada_value": 3}
+    },
+
+    "phasing": {
+      "_doc": "S-curve construction phasing — % of cost disbursed per year",
+      "land_acquisition": {"Y1": 1.00, "Y2": 0.00, "Y3": 0.00},
+      "direct_costs":     {"Y1": 0.33, "Y2": 0.45, "Y3": 0.22, "_note": "S-curve: ramp-up, peak, wind-down"},
+      "indirect_costs":   {"Y1": 0.33, "Y2": 0.45, "Y3": 0.22},
+      "revenue_collection": {"Y1": 0.00, "Y2": 0.00, "Y3": 1.00, "_note": "All sales in final year (conservative)"}
+    }
+  },
+
+  "formulas": {
+    "_doc": "Every computation as a named formula. Python/NumPy executes these — NEVER the LLM.",
+
+    "land_costs": {
+      "land_price_total":          "land_area_sqm * land_price_per_sqm",
+      "brokerage_fee":             "brokerage_fee_pct * land_price_total",
+      "transfer_tax":              "real_estate_transfer_tax_pct * land_price_total",
+      "brokerage_vat":             "brokerage_vat_pct * brokerage_fee",
+      "total_land_acquisition":    "land_price_total + brokerage_fee + transfer_tax + brokerage_vat",
+      "cash_portion":              "total_land_acquisition * cash_purchase_pct",
+      "in_kind_portion":           "land_price_total * in_kind_pct"
+    },
+
+    "construction_costs": {
+      "infrastructure_cost":       "gba_sqm * infrastructure_cost_per_sqm",
+      "superstructure_cost":       "gba_sqm * superstructure_cost_per_sqm",
+      "parking_cost":              "parking_area_sqm * parking_cost_per_sqm",
+      "total_direct_cost":         "infrastructure_cost + superstructure_cost + parking_cost"
+    },
+
+    "soft_costs_calc": {
+      "developer_fee":             "developer_fee_pct * total_direct_cost",
+      "other_indirect":            "other_indirect_pct * total_direct_cost",
+      "contingency":               "contingency_pct * total_direct_cost",
+      "total_indirect_cost":       "developer_fee + other_indirect + contingency",
+      "total_construction":        "total_direct_cost + total_indirect_cost"
+    },
+
+    "revenue_calc": {
+      "gross_revenue":             "sellable_area_sqm * sale_price_per_sqm",
+      "net_revenue":               "gross_revenue"
+    },
+
+    "financing_calc": {
+      "bank_loan_amount":          "bank_ltv_pct * land_price_total",
+      "total_interest":            "interest_rate_pct * bank_loan_amount * fund_period_years",
+      "arrangement_fee":           "arrangement_fee_pct * bank_loan_amount"
+    },
+
+    "fund_fees_calc": {
+      "total_management_fees":     "management_fee_pct * (total_land_acquisition + total_construction) * fund_period_years",
+      "total_custodian_fees":      "custodian_fee_annual * fund_period_years",
+      "total_board_fees":          "board_fee_annual * fund_period_years",
+      "total_sharia_fees":         "(sharia_certificate_fee) + (sharia_board_fee_annual * fund_period_years)",
+      "total_valuation_fees":      "valuation_fee_quarterly * 4 * fund_period_years",
+      "total_auditor_fees":        "auditor_fee_annual * fund_period_years",
+      "total_other_reserve":       "other_reserve_pct * (total_land_acquisition + total_construction) * fund_period_years",
+      "total_spv_fee":             "spv_formation_fee",
+      "total_structuring_fee":     "structuring_fee_pct * equity_amount",
+      "total_operator_fees":       "operator_fee_pct * (total_land_acquisition + total_construction) * fund_period_years",
+      "total_fund_fees":           "SUM(all above)"
+    },
+
+    "fund_size": {
+      "total_fund_size":           "total_land_acquisition + total_construction + total_fund_fees + total_interest + arrangement_fee",
+      "equity_amount":             "total_fund_size - bank_loan_amount - in_kind_portion",
+      "equity_pct":                "equity_amount / total_fund_size",
+      "debt_pct":                  "bank_loan_amount / total_fund_size"
+    },
+
+    "cash_flow_per_year": {
+      "_doc": "For each year Y in [Y1, Y2, ..., Yn]:",
+      "inflows": {
+        "sales_revenue":           "gross_revenue * revenue_phasing[Y]"
+      },
+      "outflows": {
+        "land_acquisition":        "total_land_acquisition * land_phasing[Y]",
+        "direct_costs":            "total_direct_cost * direct_cost_phasing[Y]",
+        "indirect_costs":          "total_indirect_cost * indirect_cost_phasing[Y]",
+        "interest_expense":        "interest_rate_pct * debt_outstanding[Y]",
+        "management_fees":         "management_fee_pct * SUM(outflows_excl_fees[Y])",
+        "fixed_annual_fees":       "custodian + board + sharia + auditor + valuation + other_reserve + operator"
+      },
+      "net_cash_flow":             "inflows - outflows",
+      "cumulative_cash_flow":      "cumulative[Y-1] + net_cash_flow[Y]"
+    },
+
+    "kpis": {
+      "irr":                       "numpy_financial.irr([-equity_amount, 0, ..., 0, net_equity_cashflow_final])",
+      "equity_net_profit":         "SUM(net_equity_cashflows)",
+      "roe_total":                 "equity_net_profit / equity_amount",
+      "roe_annualized":            "roe_total / fund_period_years",
+      "profit_margin":             "equity_net_profit / gross_revenue",
+      "cost_to_revenue_ratio":     "total_fund_size / gross_revenue",
+      "yield_on_cost":             "gross_revenue / total_fund_size"
+    }
+  },
+
+  "arabic_labels": {
+    "land_section": "افتراضات الأرض",
+    "land_area": "مساحة الأرض",
+    "land_price_per_sqm": "سعر الاستحواذ بالمتر",
+    "brokerage": "السعي",
+    "transfer_tax": "ضريبة التصرفات العقارية",
+    "brokerage_vat": "ضريبة السعي",
+    "total_land": "الإجمالي",
+    "cost_section": "افتراضات التكاليف",
+    "direct_costs": "التكاليف المباشرة",
+    "infrastructure": "تطوير البنية التحتية",
+    "superstructure": "تطوير البنية العلوية",
+    "parking": "مواقف(قبو)",
+    "total_direct": "إجمالي التكاليف المباشرة",
+    "indirect_costs": "التكاليف غير المباشرة",
+    "developer_fee": "أتعاب المطور",
+    "other_indirect": "تكاليف غير مباشرة أخرى",
+    "contingency": "احتياطي",
+    "total_indirect": "إجمالي التكاليف غير المباشرة",
+    "total_all_costs": "إجمالي التكاليف المباشرة وغير المباشرة",
+    "sales_section": "افتراضات المبيعات",
+    "residential_sales": "بيع شقق سكنية",
+    "sale_price_per_sqm": "قيمة المتر",
+    "total_sales": "إجمالي المبيعات",
+    "financing_section": "رسوم الصندوق والتمويل",
+    "interest": "فوائد تمويل",
+    "arrangement_fee": "أتعاب ترتيب تمويل",
+    "management_fee": "رسوم إدارة الصندوق",
+    "custodian_fee": "رسوم أمين الحفظ",
+    "board_fee": "مجلس الإدارة",
+    "sharia_cert": "إصدار الشهادة الشرعية للصندوق",
+    "sharia_board": "أتعاب الهيئة الشرعية",
+    "legal_counsel": "مستشار قانوني",
+    "auditor": "مراجع الحسابات",
+    "valuation": "التقييم",
+    "other_reserve": "احتياطي مصروفات أخرى",
+    "spv_fee": "رسوم إنشاء الشركة ذات الغرض الخاص",
+    "structuring_fee": "رسوم هيكلة",
+    "operator_fee": "أتعاب المشغل",
+    "total_fund_size": "إجمالي حجم الصندوق",
+    "capital_structure": "هيكل رأس المال",
+    "equity": "حقوق الملكية",
+    "in_kind": "العيني",
+    "bank_financing": "التمويل البنكي",
+    "cashflow_section": "التدفقات النقدية",
+    "inflows": "التدفقات النقدية الداخلة",
+    "outflows": "التدفقات النقدية الخارجة",
+    "net_cashflow": "صافي التدفقات النقدية",
+    "cumulative_cf": "التدفقات التراكمية",
+    "kpis_section": "مؤشرات الأداء",
+    "irr": "معدل العائد الداخلي",
+    "roe": "العائد على حقوق الملكية",
+    "roe_annualized": "العائد السنوي على حقوق الملكية",
+    "net_profit": "صافي الربح",
+    "currency": "بالريال السعودي"
+  },
+
+  "al_hada_reference": {
+    "_doc": "Al-Hada values preserved ONLY as a reference/validation check — NOT used in computation",
+    "land_area_sqm": 35000,
+    "land_price_per_sqm": 7000,
+    "total_land_cost": 264293750,
+    "gba_sqm": 52500,
+    "infrastructure_cost_per_sqm": 500,
+    "superstructure_cost_per_sqm": 2500,
+    "parking_area_sqm": 15000,
+    "parking_cost_per_sqm": 2000,
+    "total_direct_cost": 187500000,
+    "total_indirect_cost": 39375000,
+    "total_construction": 226875000,
+    "sale_price_per_sqm": 12500,
+    "gross_revenue": 656250000,
+    "total_fund_size": 541637996,
+    "equity_amount": 378304663,
+    "bank_loan": 163333333,
+    "equity_pct": 0.698,
+    "debt_pct": 0.302,
+    "irr": 0.0922,
+    "roe_total": 0.303,
+    "roe_annualized": 0.101,
+    "net_profit": 114612004,
+    "fund_period_years": 3
+  }
+}

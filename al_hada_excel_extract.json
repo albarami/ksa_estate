@@ -1,0 +1,2899 @@
+{
+  "sheet_names": [
+    "Assumptions",
+    "CF"
+  ],
+  "sheets": {
+    "Assumptions": {
+      "dimensions": "B1:P73",
+      "max_row": 73,
+      "max_col": 16,
+      "merged_cells": [
+        "E4:F4",
+        "E6:F6",
+        "E7:F7",
+        "E2:F2",
+        "F27:H27",
+        "E5:F5",
+        "F26:H26",
+        "E3:F3",
+        "F24:H24",
+        "F25:H25"
+      ],
+      "rows": [
+        {
+          "row": 2,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D2",
+              "formula": null,
+              "value": "https://maps.app.goo.gl/yFKfXytVnSZRiYGC9",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E2",
+              "formula": null,
+              "value": "Hada Land 35,000 m2",
+              "type": "str",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"?_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 3,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D3",
+              "formula": null,
+              "value": "Fund Name ",
+              "type": "str",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 5,
+              "ref": "E3",
+              "formula": null,
+              "value": "xxx",
+              "type": "str",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L3",
+              "formula": null,
+              "value": "بالريال السعودي",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "row": 4,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D4",
+              "formula": null,
+              "value": "Fund Type ",
+              "type": "str",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 5,
+              "ref": "E4",
+              "formula": null,
+              "value": "صندوق استثمار عقاري خاص",
+              "type": "str",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L4",
+              "formula": null,
+              "value": "السنة",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N4",
+              "formula": null,
+              "value": 2025,
+              "type": "int"
+            },
+            {
+              "col": 15,
+              "ref": "O4",
+              "formula": null,
+              "value": 2026,
+              "type": "int"
+            },
+            {
+              "col": 16,
+              "ref": "P4",
+              "formula": null,
+              "value": 2027,
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "row": 5,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D5",
+              "formula": null,
+              "value": "Fund Period- year",
+              "type": "str",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 5,
+              "ref": "E5",
+              "formula": null,
+              "value": 3,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 14,
+              "ref": "N5",
+              "formula": null,
+              "value": "Y1",
+              "type": "str"
+            },
+            {
+              "col": 15,
+              "ref": "O5",
+              "formula": null,
+              "value": "Y2",
+              "type": "str"
+            },
+            {
+              "col": 16,
+              "ref": "P5",
+              "formula": null,
+              "value": "Y3",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "row": 6,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D6",
+              "formula": null,
+              "value": "Fund Size- SAR",
+              "type": "str",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 5,
+              "ref": "E6",
+              "formula": "=F54",
+              "value": 541637996.2786064,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L6",
+              "formula": null,
+              "value": "التدفقات النقدية الداخلة ",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "row": 7,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D7",
+              "formula": null,
+              "value": "Total Equity",
+              "type": "str",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 5,
+              "ref": "E7",
+              "formula": "=F57",
+              "value": 378304662.9452731,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L7",
+              "formula": null,
+              "value": "المبيعات ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N7",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O7",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P7",
+              "formula": "=Assumptions!H33",
+              "value": 656250000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 8,
+          "cells": [
+            {
+              "col": 12,
+              "ref": "L8",
+              "formula": null,
+              "value": "الإجمالي ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N8",
+              "formula": "=SUM(N7)",
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O8",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P8",
+              "formula": "=SUM(P7)",
+              "value": 656250000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 9,
+          "cells": [
+            {
+              "col": 2,
+              "ref": "B9",
+              "formula": null,
+              "value": "الأرض",
+              "type": "str",
+              "format": "_(* #,##0.0_);_(* \\(#,##0.0\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 4,
+              "ref": "D9",
+              "formula": null,
+              "value": "افتراضات الأرض",
+              "type": "str"
+            },
+            {
+              "col": 12,
+              "ref": "L9",
+              "formula": null,
+              "value": "التدفقات النقدية الخارجة ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N9",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P9",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 10,
+          "cells": [
+            {
+              "col": 6,
+              "ref": "F10",
+              "formula": null,
+              "value": "الإجمالي ",
+              "type": "str"
+            },
+            {
+              "col": 8,
+              "ref": "H10",
+              "formula": null,
+              "value": "النقدي",
+              "type": "str"
+            },
+            {
+              "col": 9,
+              "ref": "I10",
+              "formula": null,
+              "value": "العيني ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N10",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P10",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 11,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D11",
+              "formula": null,
+              "value": "مساحة الأرض ",
+              "type": "str"
+            },
+            {
+              "col": 6,
+              "ref": "F11",
+              "formula": null,
+              "value": 35000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 8,
+              "ref": "H11",
+              "formula": null,
+              "value": 1,
+              "type": "int",
+              "format": "0%"
+            },
+            {
+              "col": 9,
+              "ref": "I11",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "0%"
+            },
+            {
+              "col": 12,
+              "ref": "L11",
+              "formula": null,
+              "value": "إجمالي الاستحواذ على الأرض ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N11",
+              "formula": "=Assumptions!E66*Assumptions!$F$16",
+              "value": 264293750,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O11",
+              "formula": "=Assumptions!F66*Assumptions!$F$16",
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P11",
+              "formula": "=Assumptions!G66*Assumptions!$F$16",
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 12,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D12",
+              "formula": null,
+              "value": "سعر الاستحواذ بالمتر ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E12",
+              "formula": null,
+              "value": 7000,
+              "type": "int",
+              "format": "_(* #,##0.00_);_(* \\(#,##0.00\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 6,
+              "ref": "F12",
+              "formula": "=$E$12*F11",
+              "value": 245000000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 8,
+              "ref": "H12",
+              "formula": "=H11*$F$16",
+              "value": 264293750,
+              "type": "int",
+              "format": "_(* #,##0.00_);_(* \\(#,##0.00\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 9,
+              "ref": "I12",
+              "formula": "=I11*F12",
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0.00_);_(* \\(#,##0.00\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L12",
+              "formula": null,
+              "value": "التكاليف المباشرة ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N12",
+              "formula": "=Assumptions!E69*Assumptions!$H$23",
+              "value": 61875000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O12",
+              "formula": "=Assumptions!F69*Assumptions!$H$23",
+              "value": 84375000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P12",
+              "formula": "=Assumptions!G69*Assumptions!$H$23",
+              "value": 41249999.99999999,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 13,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D13",
+              "formula": null,
+              "value": "السعي",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E13",
+              "formula": null,
+              "value": 0.025,
+              "type": "float",
+              "format": "0.0%"
+            },
+            {
+              "col": 6,
+              "ref": "F13",
+              "formula": "=$E$13*F12",
+              "value": 6125000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L13",
+              "formula": null,
+              "value": "التكاليف غير المباشرة ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N13",
+              "formula": "=Assumptions!$H$28*Assumptions!E72",
+              "value": 12993750,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O13",
+              "formula": "=Assumptions!$H$28*Assumptions!F72",
+              "value": 17718750,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P13",
+              "formula": "=Assumptions!$H$28*Assumptions!G72",
+              "value": 8662499.999999998,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 14,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D14",
+              "formula": null,
+              "value": "ضريبة التصرفات العقارية",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E14",
+              "formula": null,
+              "value": 0.05,
+              "type": "float",
+              "format": "0%"
+            },
+            {
+              "col": 6,
+              "ref": "F14",
+              "formula": "=E14*F12",
+              "value": 12250000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L14",
+              "formula": null,
+              "value": "فوائد تمويل ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N14",
+              "formula": "=Assumptions!$E$38*N37",
+              "value": 8000000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O14",
+              "formula": "=Assumptions!$E$38*O37",
+              "value": 13066666.64,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P14",
+              "formula": "=Assumptions!$E$38*P37",
+              "value": 13066666.666666666,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 15,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D15",
+              "formula": null,
+              "value": "ضريبة السعي",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E15",
+              "formula": null,
+              "value": 0.15,
+              "type": "float",
+              "format": "0%"
+            },
+            {
+              "col": 6,
+              "ref": "F15",
+              "formula": "=E15*F13",
+              "value": 918750,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L15",
+              "formula": null,
+              "value": "أتعاب ترتيب تمويل ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N15",
+              "formula": "=Assumptions!E39*Assumptions!F59",
+              "value": 3266666.6666666665,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O15",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P15",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 16,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D16",
+              "formula": null,
+              "value": "الإجمالي",
+              "type": "str"
+            },
+            {
+              "col": 6,
+              "ref": "F16",
+              "formula": "=SUM(F12:F15)",
+              "value": 264293750,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L16",
+              "formula": "=Assumptions!D40",
+              "value": "رسوم إدارة الصندوق ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N16",
+              "formula": "=Assumptions!$E$40*(SUM(Assumptions!N11:N13))",
+              "value": 5087437.5,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O16",
+              "formula": "=Assumptions!$E$40*(SUM(Assumptions!O11:O13))",
+              "value": 1531406.25,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P16",
+              "formula": "=Assumptions!$E$40*(SUM(Assumptions!P11:P13))",
+              "value": 748687.4999999999,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 17,
+          "cells": [
+            {
+              "col": 12,
+              "ref": "L17",
+              "formula": "=Assumptions!D41",
+              "value": "رسوم أمين الحفظ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N17",
+              "formula": "=Assumptions!$E$41",
+              "value": 50000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O17",
+              "formula": "=Assumptions!$E$41",
+              "value": 50000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P17",
+              "formula": "=Assumptions!$E$41",
+              "value": 50000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 18,
+          "cells": [
+            {
+              "col": 2,
+              "ref": "B18",
+              "formula": null,
+              "value": "التكاليف",
+              "type": "str",
+              "format": "_(* #,##0.0_);_(* \\(#,##0.0\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 4,
+              "ref": "D18",
+              "formula": null,
+              "value": "افتراضات التكاليف ",
+              "type": "str"
+            },
+            {
+              "col": 12,
+              "ref": "L18",
+              "formula": "=Assumptions!D42",
+              "value": "مجلس الإدارة ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N18",
+              "formula": "=Assumptions!$E$42",
+              "value": 100000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O18",
+              "formula": "=Assumptions!$E$42",
+              "value": 100000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P18",
+              "formula": "=Assumptions!$E$42",
+              "value": 100000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 19,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D19",
+              "formula": null,
+              "value": "التكاليف المباشرة ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E19",
+              "formula": null,
+              "value": "%",
+              "type": "str",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 6,
+              "ref": "F19",
+              "formula": null,
+              "value": "المساحة ",
+              "type": "str",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 7,
+              "ref": "G19",
+              "formula": null,
+              "value": "التكلفة/ متر ",
+              "type": "str",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 8,
+              "ref": "H19",
+              "formula": null,
+              "value": "الإجمالي ",
+              "type": "str"
+            },
+            {
+              "col": 12,
+              "ref": "L19",
+              "formula": "=Assumptions!D43",
+              "value": "  إصدار الشهادة الشرعية للصندوق  ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N19",
+              "formula": "=Assumptions!E43",
+              "value": 5000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O19",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P19",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 20,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D20",
+              "formula": null,
+              "value": "تطوير البنية التحتية",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E20",
+              "formula": null,
+              "value": 1,
+              "type": "int",
+              "format": "0%"
+            },
+            {
+              "col": 6,
+              "ref": "F20",
+              "formula": null,
+              "value": 52500,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 7,
+              "ref": "G20",
+              "formula": null,
+              "value": 500,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 8,
+              "ref": "H20",
+              "formula": "=G20*F20",
+              "value": 26250000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L20",
+              "formula": "=Assumptions!D44",
+              "value": "أتعاب الهيئة الشرعية ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N20",
+              "formula": "=Assumptions!$E$44",
+              "value": 5000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O20",
+              "formula": "=Assumptions!$E$44",
+              "value": 5000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P20",
+              "formula": "=Assumptions!$E$44",
+              "value": 5000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 21,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D21",
+              "formula": null,
+              "value": "تطوير البنية العلوية",
+              "type": "str"
+            },
+            {
+              "col": 6,
+              "ref": "F21",
+              "formula": "=F20",
+              "value": 52500,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 7,
+              "ref": "G21",
+              "formula": null,
+              "value": 2500,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 8,
+              "ref": "H21",
+              "formula": "=G21*F21",
+              "value": 131250000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L21",
+              "formula": "=Assumptions!D45",
+              "value": "مستشار قانوني",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N21",
+              "formula": "=Assumptions!E45",
+              "value": 50000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O21",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P21",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 22,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D22",
+              "formula": null,
+              "value": "مواقف(قبو)",
+              "type": "str"
+            },
+            {
+              "col": 6,
+              "ref": "F22",
+              "formula": null,
+              "value": 15000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 7,
+              "ref": "G22",
+              "formula": null,
+              "value": 2000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 8,
+              "ref": "H22",
+              "formula": "=G22*F22",
+              "value": 30000000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L22",
+              "formula": "=Assumptions!D46",
+              "value": "مراجع الحسابات ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N22",
+              "formula": "=Assumptions!$E$46",
+              "value": 50000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O22",
+              "formula": "=Assumptions!$E$46",
+              "value": 50000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P22",
+              "formula": "=Assumptions!$E$46",
+              "value": 50000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 23,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D23",
+              "formula": null,
+              "value": "إجمالي التكاليف المباشرة ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E23",
+              "formula": null,
+              "value": "-",
+              "type": "str",
+              "format": "_(* #,##0.00_);_(* \\(#,##0.00\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 6,
+              "ref": "F23",
+              "formula": null,
+              "value": "-",
+              "type": "str",
+              "format": "_(* #,##0.00_);_(* \\(#,##0.00\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 7,
+              "ref": "G23",
+              "formula": null,
+              "value": "-",
+              "type": "str",
+              "format": "_(* #,##0.00_);_(* \\(#,##0.00\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 8,
+              "ref": "H23",
+              "formula": "=SUM(H20:H22)",
+              "value": 187500000,
+              "type": "int",
+              "format": "_(* #,##0.00_);_(* \\(#,##0.00\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L23",
+              "formula": "=Assumptions!D47",
+              "value": "التقييم ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N23",
+              "formula": "=Assumptions!$E$47*4",
+              "value": 80000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O23",
+              "formula": "=Assumptions!$E$47*4",
+              "value": 80000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P23",
+              "formula": "=Assumptions!$E$47*4",
+              "value": 80000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 24,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D24",
+              "formula": null,
+              "value": "التكاليف غير المباشرة ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E24",
+              "formula": null,
+              "value": "%",
+              "type": "str"
+            },
+            {
+              "col": 6,
+              "ref": "F24",
+              "formula": null,
+              "value": "الإجمالي ",
+              "type": "str"
+            },
+            {
+              "col": 12,
+              "ref": "L24",
+              "formula": "=Assumptions!D48",
+              "value": "احتياطي مصروفات أخرى",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N24",
+              "formula": "=Assumptions!$E$48*SUM(Assumptions!N11:N13)",
+              "value": 169581.25,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O24",
+              "formula": "=Assumptions!$E$48*SUM(Assumptions!O11:O13)",
+              "value": 51046.875,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P24",
+              "formula": "=Assumptions!$E$48*SUM(Assumptions!P11:P13)",
+              "value": 24956.249999999996,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 25,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D25",
+              "formula": null,
+              "value": "أتعاب المطور ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E25",
+              "formula": null,
+              "value": 0.1,
+              "type": "float",
+              "format": "0.0%"
+            },
+            {
+              "col": 6,
+              "ref": "F25",
+              "formula": "=E25*H23",
+              "value": 18750000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L25",
+              "formula": "=Assumptions!D49",
+              "value": "رسوم إنشاء الشركة ذات الغرض الخاص",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N25",
+              "formula": "=Assumptions!E49",
+              "value": 25000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O25",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P25",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 26,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D26",
+              "formula": null,
+              "value": "تكاليف غير مباشرة أخرى ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E26",
+              "formula": null,
+              "value": 0.06,
+              "type": "float",
+              "format": "0.0%"
+            },
+            {
+              "col": 6,
+              "ref": "F26",
+              "formula": "=E26*H23",
+              "value": 11250000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L26",
+              "formula": "=Assumptions!D50",
+              "value": "رسوم هيكلة ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N26",
+              "formula": "=Assumptions!E50*Assumptions!G60",
+              "value": 3784377.5552731366,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O26",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P26",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 27,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D27",
+              "formula": null,
+              "value": "احتياطي ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E27",
+              "formula": null,
+              "value": 0.05,
+              "type": "float",
+              "format": "0.0%"
+            },
+            {
+              "col": 6,
+              "ref": "F27",
+              "formula": "=E27*H23",
+              "value": 9375000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L27",
+              "formula": "=Assumptions!D51",
+              "value": "أتعاب المشغل",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N27",
+              "formula": "=Assumptions!$E$51*(SUM(Assumptions!N11:N13))",
+              "value": 508743.75,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O27",
+              "formula": "=Assumptions!$E$51*(SUM(Assumptions!O11:O13))",
+              "value": 153140.625,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P27",
+              "formula": "=Assumptions!$E$51*(SUM(Assumptions!P11:P13))",
+              "value": 74868.74999999999,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 28,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D28",
+              "formula": null,
+              "value": "إجمالي التكاليف غير المباشرة ",
+              "type": "str"
+            },
+            {
+              "col": 8,
+              "ref": "H28",
+              "formula": "=F25+F26+F27",
+              "value": 39375000,
+              "type": "int",
+              "format": "_(* #,##0.00_);_(* \\(#,##0.00\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L28",
+              "formula": null,
+              "value": "الإجمالي ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N28",
+              "formula": "=SUM(N11:N27)",
+              "value": 360344306.7219398,
+              "type": "float",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 15,
+              "ref": "O28",
+              "formula": "=SUM(O11:O27)",
+              "value": 117181010.39,
+              "type": "float",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 16,
+              "ref": "P28",
+              "formula": "=SUM(P11:P27)",
+              "value": 64112679.16666666,
+              "type": "float",
+              "format": "#,##0_);[Red](#,##0)"
+            }
+          ]
+        },
+        {
+          "row": 29,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D29",
+              "formula": null,
+              "value": "إجمالي التكاليف المباشرة وغير المباشرة ",
+              "type": "str"
+            },
+            {
+              "col": 8,
+              "ref": "H29",
+              "formula": "=H28+H23",
+              "value": 226875000,
+              "type": "int",
+              "format": "_(* #,##0.00_);_(* \\(#,##0.00\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 30,
+          "cells": [
+            {
+              "col": 12,
+              "ref": "L30",
+              "formula": null,
+              "value": "صافي التدفقات النقدية ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N30",
+              "formula": "=N8-N28-N29",
+              "value": -360344306.7219398,
+              "type": "float",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 15,
+              "ref": "O30",
+              "formula": "=O8-O28-O29",
+              "value": -117181010.39,
+              "type": "float",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 16,
+              "ref": "P30",
+              "formula": "=P8-P28-P29",
+              "value": 592137320.8333334,
+              "type": "float",
+              "format": "#,##0_);[Red](#,##0)"
+            }
+          ]
+        },
+        {
+          "row": 31,
+          "cells": [
+            {
+              "col": 2,
+              "ref": "B31",
+              "formula": null,
+              "value": "المبيعات",
+              "type": "str",
+              "format": "_(* #,##0.0_);_(* \\(#,##0.0\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 4,
+              "ref": "D31",
+              "formula": null,
+              "value": "افتراضات المبيعات",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E31",
+              "formula": null,
+              "value": "%",
+              "type": "str"
+            },
+            {
+              "col": 6,
+              "ref": "F31",
+              "formula": null,
+              "value": "المساحة ",
+              "type": "str"
+            },
+            {
+              "col": 7,
+              "ref": "G31",
+              "formula": null,
+              "value": "قيمة المتر ",
+              "type": "str"
+            },
+            {
+              "col": 8,
+              "ref": "H31",
+              "formula": null,
+              "value": "إجمالي المبيعات ",
+              "type": "str"
+            },
+            {
+              "col": 12,
+              "ref": "L31",
+              "formula": null,
+              "value": "Cumulative Cash Flow",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N31",
+              "formula": "=N30",
+              "value": -360344306.7219398,
+              "type": "float",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 15,
+              "ref": "O31",
+              "formula": "=O30+N31",
+              "value": -477525317.1119398,
+              "type": "float",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 16,
+              "ref": "P31",
+              "formula": "=P30+O31",
+              "value": 114612003.72139359,
+              "type": "float",
+              "format": "#,##0_);[Red](#,##0)"
+            }
+          ]
+        },
+        {
+          "row": 32,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D32",
+              "formula": null,
+              "value": "بيع شقق سكنية",
+              "type": "str"
+            },
+            {
+              "col": 6,
+              "ref": "F32",
+              "formula": "=F20",
+              "value": 52500,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 7,
+              "ref": "G32",
+              "formula": null,
+              "value": 12500,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 8,
+              "ref": "H32",
+              "formula": "=G32*F32",
+              "value": 656250000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 14,
+              "ref": "N32",
+              "formula": "=N31+N35",
+              "value": -360344306.7219398,
+              "type": "float",
+              "format": "#,##0_);[Red](#,##0)"
+            }
+          ]
+        },
+        {
+          "row": 33,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D33",
+              "formula": null,
+              "value": "الإجمالي",
+              "type": "str"
+            },
+            {
+              "col": 8,
+              "ref": "H33",
+              "formula": "=H32",
+              "value": 656250000,
+              "type": "int",
+              "format": "_(* #,##0.00_);_(* \\(#,##0.00\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L33",
+              "formula": null,
+              "value": "تمويل رأس مال الصندوق",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "row": 34,
+          "cells": [
+            {
+              "col": 12,
+              "ref": "L34",
+              "formula": "=Assumptions!D57",
+              "value": "Equity",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N34",
+              "formula": "=Assumptions!F57",
+              "value": 378304662.9452731,
+              "type": "float",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 16,
+              "ref": "P34",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 35,
+          "cells": [
+            {
+              "col": 12,
+              "ref": "L35",
+              "formula": null,
+              "value": "In-Kind Contribution",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N35",
+              "formula": "=Assumptions!I12",
+              "value": 0,
+              "type": "int",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 16,
+              "ref": "P35",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 36,
+          "cells": [
+            {
+              "col": 2,
+              "ref": "B36",
+              "formula": null,
+              "value": "رسوم الصندوق والتمويل",
+              "type": "str",
+              "format": "_(* #,##0.0_);_(* \\(#,##0.0\\);_(* \"-\"?_);_(@_)"
+            },
+            {
+              "col": 4,
+              "ref": "D36",
+              "formula": null,
+              "value": "Financing & Fund Cost Assumptions",
+              "type": "str"
+            },
+            {
+              "col": 12,
+              "ref": "L36",
+              "formula": null,
+              "value": "Debt Withdrawl",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N36",
+              "formula": null,
+              "value": 100000000,
+              "type": "int",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 15,
+              "ref": "O36",
+              "formula": "=63333333",
+              "value": 63333333,
+              "type": "int",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 16,
+              "ref": "P36",
+              "formula": "=Assumptions!F59-Assumptions!N36-Assumptions!O36",
+              "value": 0.3333333134651184,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 37,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D37",
+              "formula": null,
+              "value": " Cost",
+              "type": "str"
+            },
+            {
+              "col": 6,
+              "ref": "F37",
+              "formula": null,
+              "value": "Total (SAR)",
+              "type": "str"
+            },
+            {
+              "col": 12,
+              "ref": "L37",
+              "formula": null,
+              "value": "Debt Outstanding",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N37",
+              "formula": "=N36",
+              "value": 100000000,
+              "type": "int",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 15,
+              "ref": "O37",
+              "formula": "=O36+N37",
+              "value": 163333333,
+              "type": "int",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 16,
+              "ref": "P37",
+              "formula": "=P36+O37",
+              "value": 163333333.3333333,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 38,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D38",
+              "formula": "=Assumptions!L14",
+              "value": "فوائد تمويل ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E38",
+              "formula": null,
+              "value": 0.08,
+              "type": "float",
+              "format": "0.00%"
+            },
+            {
+              "col": 6,
+              "ref": "F38",
+              "formula": "=SUM(Assumptions!N14:P14)",
+              "value": 34133333.306666665,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L38",
+              "formula": null,
+              "value": "Debt Repayment",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N38",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O38",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P38",
+              "formula": "=P37",
+              "value": 163333333.3333333,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 39,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D39",
+              "formula": "=Assumptions!L15",
+              "value": "أتعاب ترتيب تمويل ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E39",
+              "formula": null,
+              "value": 0.02,
+              "type": "float",
+              "format": "0.00%"
+            },
+            {
+              "col": 6,
+              "ref": "F39",
+              "formula": "=SUM(Assumptions!N15:P15)",
+              "value": 3266666.6666666665,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L39",
+              "formula": null,
+              "value": "Beginning Cash",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N39",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 15,
+              "ref": "O39",
+              "formula": "=N40",
+              "value": 117960356.2233333,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 16,
+              "ref": "P39",
+              "formula": "=O40",
+              "value": 64112678.8333333,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 40,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D40",
+              "formula": null,
+              "value": "رسوم إدارة الصندوق ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E40",
+              "formula": null,
+              "value": 0.015,
+              "type": "float",
+              "format": "0.00%"
+            },
+            {
+              "col": 6,
+              "ref": "F40",
+              "formula": "=SUM(Assumptions!N16:P16)",
+              "value": 7367531.25,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L40",
+              "formula": null,
+              "value": "Net Cashflows",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N40",
+              "formula": "=N30+SUM(N34,N35,N36,-N38,N39)",
+              "value": 117960356.2233333,
+              "type": "float",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 15,
+              "ref": "O40",
+              "formula": "=O30+SUM(O34,O35,O36,-O38,O39)",
+              "value": 64112678.8333333,
+              "type": "float",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 16,
+              "ref": "P40",
+              "formula": "=P30+SUM(P34,P35,P36,-P38,P39)",
+              "value": 492916666.6666667,
+              "type": "float",
+              "format": "#,##0_);[Red](#,##0)"
+            }
+          ]
+        },
+        {
+          "row": 41,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D41",
+              "formula": null,
+              "value": "رسوم أمين الحفظ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E41",
+              "formula": null,
+              "value": 50000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 6,
+              "ref": "F41",
+              "formula": "=SUM(Assumptions!N17:P17)",
+              "value": 150000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L41",
+              "formula": null,
+              "value": "Net Equity Cashflow",
+              "type": "str"
+            },
+            {
+              "col": 13,
+              "ref": "M41",
+              "formula": "=-N34-N35",
+              "value": -378304662.9452731,
+              "type": "float",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 14,
+              "ref": "N41",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 15,
+              "ref": "O41",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "#,##0_);[Red](#,##0)"
+            },
+            {
+              "col": 16,
+              "ref": "P41",
+              "formula": "=P40",
+              "value": 492916666.6666667,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 42,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D42",
+              "formula": null,
+              "value": "مجلس الإدارة ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E42",
+              "formula": "=20000*5",
+              "value": 100000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 6,
+              "ref": "F42",
+              "formula": "=SUM(Assumptions!N18:P18)",
+              "value": 300000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 43,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D43",
+              "formula": null,
+              "value": "  إصدار الشهادة الشرعية للصندوق  ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E43",
+              "formula": null,
+              "value": 5000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 6,
+              "ref": "F43",
+              "formula": "=SUM(Assumptions!N19:P19)",
+              "value": 5000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L43",
+              "formula": null,
+              "value": "Project KPIs",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "row": 44,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D44",
+              "formula": null,
+              "value": "أتعاب الهيئة الشرعية ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E44",
+              "formula": null,
+              "value": 5000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 6,
+              "ref": "F44",
+              "formula": "=SUM(Assumptions!N20:P20)",
+              "value": 15000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L44",
+              "formula": null,
+              "value": "IRR",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N44",
+              "formula": "=IRR(M41:P41)",
+              "value": 0.09222120228426212,
+              "type": "float",
+              "format": "0.00%"
+            }
+          ]
+        },
+        {
+          "row": 45,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D45",
+              "formula": null,
+              "value": "مستشار قانوني",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E45",
+              "formula": null,
+              "value": 50000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 6,
+              "ref": "F45",
+              "formula": "=SUM(Assumptions!N21:P21)",
+              "value": 50000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L45",
+              "formula": null,
+              "value": "Equity Net Profit",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N45",
+              "formula": "=SUM(M41:P41)",
+              "value": 114612003.72139359,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 46,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D46",
+              "formula": null,
+              "value": "مراجع الحسابات ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E46",
+              "formula": null,
+              "value": 50000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 6,
+              "ref": "F46",
+              "formula": "=SUM(Assumptions!N22:P22)",
+              "value": 150000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L46",
+              "formula": null,
+              "value": "ROE",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N46",
+              "formula": "=-N45/M41",
+              "value": 0.30296217558908006,
+              "type": "float",
+              "format": "0.0%"
+            }
+          ]
+        },
+        {
+          "row": 47,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D47",
+              "formula": null,
+              "value": "التقييم ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E47",
+              "formula": null,
+              "value": 20000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 6,
+              "ref": "F47",
+              "formula": "=SUM(Assumptions!N23:P23)",
+              "value": 240000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 12,
+              "ref": "L47",
+              "formula": null,
+              "value": "ROE Annulized ",
+              "type": "str"
+            },
+            {
+              "col": 14,
+              "ref": "N47",
+              "formula": "=N46/Assumptions!E5",
+              "value": 0.10098739186302669,
+              "type": "float",
+              "format": "0.00%"
+            }
+          ]
+        },
+        {
+          "row": 48,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D48",
+              "formula": null,
+              "value": "احتياطي مصروفات أخرى",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E48",
+              "formula": null,
+              "value": 0.0005,
+              "type": "float",
+              "format": "0.00%"
+            },
+            {
+              "col": 6,
+              "ref": "F48",
+              "formula": "=SUM(Assumptions!N24:P24)",
+              "value": 245584.375,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 49,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D49",
+              "formula": null,
+              "value": "رسوم إنشاء الشركة ذات الغرض الخاص",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E49",
+              "formula": null,
+              "value": 25000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 6,
+              "ref": "F49",
+              "formula": "=SUM(Assumptions!N25:P25)",
+              "value": 25000,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 50,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D50",
+              "formula": null,
+              "value": "رسوم هيكلة ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E50",
+              "formula": null,
+              "value": 0.01,
+              "type": "float",
+              "format": "0%"
+            },
+            {
+              "col": 6,
+              "ref": "F50",
+              "formula": "=SUM(Assumptions!N26:P26)",
+              "value": 3784377.5552731366,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 51,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D51",
+              "formula": null,
+              "value": "أتعاب المشغل",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E51",
+              "formula": null,
+              "value": 0.0015,
+              "type": "float",
+              "format": "0.00%"
+            },
+            {
+              "col": 6,
+              "ref": "F51",
+              "formula": "=SUM(Assumptions!N27:P27)",
+              "value": 736753.125,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 52,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D52",
+              "formula": null,
+              "value": "Total Financing & Fund Cost Assumptions",
+              "type": "str"
+            },
+            {
+              "col": 6,
+              "ref": "F52",
+              "formula": "=SUM(F38:F51)",
+              "value": 50469246.27860647,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 54,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D54",
+              "formula": null,
+              "value": "Total Fund Size",
+              "type": "str"
+            },
+            {
+              "col": 6,
+              "ref": "F54",
+              "formula": "=F16+H29+F52",
+              "value": 541637996.2786064,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 56,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D56",
+              "formula": null,
+              "value": "Capital Structure",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "row": 57,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D57",
+              "formula": null,
+              "value": "Equity",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E57",
+              "formula": "=F57/$F$60",
+              "value": 0.6984455772018654,
+              "type": "float",
+              "format": "0%"
+            },
+            {
+              "col": 6,
+              "ref": "F57",
+              "formula": "=F54-SUM(F58:F59)",
+              "value": 378304662.9452731,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 58,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D58",
+              "formula": null,
+              "value": "In- Kind Contribution (Land Owner)",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E58",
+              "formula": "=F58/$F$60",
+              "value": 0,
+              "type": "int",
+              "format": "0%"
+            },
+            {
+              "col": 6,
+              "ref": "F58",
+              "formula": "=I12",
+              "value": 0,
+              "type": "int",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 59,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D59",
+              "formula": null,
+              "value": "Bank Financing",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E59",
+              "formula": "=F59/$F$60",
+              "value": 0.30155442279813455,
+              "type": "float",
+              "format": "0%"
+            },
+            {
+              "col": 6,
+              "ref": "F59",
+              "formula": "=G59*F12",
+              "value": 163333333.3333333,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 7,
+              "ref": "G59",
+              "formula": null,
+              "value": 0.6666666666666666,
+              "type": "float",
+              "format": "0%"
+            }
+          ]
+        },
+        {
+          "row": 60,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D60",
+              "formula": null,
+              "value": "Total Capital",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E60",
+              "formula": "=SUM(E57:E59)",
+              "value": 1,
+              "type": "int",
+              "format": "0%"
+            },
+            {
+              "col": 6,
+              "ref": "F60",
+              "formula": "=SUM(F57:F59)",
+              "value": 541637996.2786064,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 7,
+              "ref": "G60",
+              "formula": null,
+              "value": 378437755.52731365,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        },
+        {
+          "row": 62,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D62",
+              "formula": null,
+              "value": "Fund Assumptions",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "row": 63,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D63",
+              "formula": null,
+              "value": "Fund Duration",
+              "type": "str"
+            },
+            {
+              "col": 6,
+              "ref": "F63",
+              "formula": null,
+              "value": 3,
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "row": 65,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D65",
+              "formula": null,
+              "value": "الاستحواذ على الأرض",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E65",
+              "formula": null,
+              "value": "Y1",
+              "type": "str"
+            },
+            {
+              "col": 6,
+              "ref": "F65",
+              "formula": null,
+              "value": "Y2",
+              "type": "str"
+            },
+            {
+              "col": 7,
+              "ref": "G65",
+              "formula": null,
+              "value": "Y3",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "row": 66,
+          "cells": [
+            {
+              "col": 5,
+              "ref": "E66",
+              "formula": null,
+              "value": 1,
+              "type": "int",
+              "format": "0.00%"
+            },
+            {
+              "col": 6,
+              "ref": "F66",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "0.00%"
+            },
+            {
+              "col": 7,
+              "ref": "G66",
+              "formula": null,
+              "value": 0,
+              "type": "int",
+              "format": "0.00%"
+            },
+            {
+              "col": 8,
+              "ref": "H66",
+              "formula": "=SUM(E66:G66)",
+              "value": 1,
+              "type": "int",
+              "format": "0.00%"
+            }
+          ]
+        },
+        {
+          "row": 68,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D68",
+              "formula": null,
+              "value": "التكاليف المباشرة",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E68",
+              "formula": null,
+              "value": "Y1",
+              "type": "str"
+            },
+            {
+              "col": 6,
+              "ref": "F68",
+              "formula": null,
+              "value": "Y2",
+              "type": "str"
+            },
+            {
+              "col": 7,
+              "ref": "G68",
+              "formula": null,
+              "value": "Y3",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "row": 69,
+          "cells": [
+            {
+              "col": 5,
+              "ref": "E69",
+              "formula": null,
+              "value": 0.33,
+              "type": "float",
+              "format": "0.00%"
+            },
+            {
+              "col": 6,
+              "ref": "F69",
+              "formula": null,
+              "value": 0.45,
+              "type": "float",
+              "format": "0.00%"
+            },
+            {
+              "col": 7,
+              "ref": "G69",
+              "formula": null,
+              "value": 0.21999999999999997,
+              "type": "float",
+              "format": "0.00%"
+            },
+            {
+              "col": 8,
+              "ref": "H69",
+              "formula": "=SUM(E69:G69)",
+              "value": 1,
+              "type": "int",
+              "format": "0.00%"
+            }
+          ]
+        },
+        {
+          "row": 71,
+          "cells": [
+            {
+              "col": 4,
+              "ref": "D71",
+              "formula": null,
+              "value": "التكاليف غير المباشرة ",
+              "type": "str"
+            },
+            {
+              "col": 5,
+              "ref": "E71",
+              "formula": null,
+              "value": "Y1",
+              "type": "str"
+            },
+            {
+              "col": 6,
+              "ref": "F71",
+              "formula": null,
+              "value": "Y2",
+              "type": "str"
+            },
+            {
+              "col": 7,
+              "ref": "G71",
+              "formula": null,
+              "value": "Y3",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "row": 72,
+          "cells": [
+            {
+              "col": 5,
+              "ref": "E72",
+              "formula": null,
+              "value": 0.33,
+              "type": "float",
+              "format": "0.00%"
+            },
+            {
+              "col": 6,
+              "ref": "F72",
+              "formula": null,
+              "value": 0.45,
+              "type": "float",
+              "format": "0.00%"
+            },
+            {
+              "col": 7,
+              "ref": "G72",
+              "formula": null,
+              "value": 0.21999999999999997,
+              "type": "float",
+              "format": "0.00%"
+            },
+            {
+              "col": 8,
+              "ref": "H72",
+              "formula": "=SUM(E72:G72)",
+              "value": 1,
+              "type": "int",
+              "format": "0.00%"
+            }
+          ]
+        },
+        {
+          "row": 73,
+          "cells": [
+            {
+              "col": 5,
+              "ref": "E73",
+              "formula": "=H29*E72",
+              "value": 74868750,
+              "type": "int",
+              "format": "_(* #,##0.00_);_(* \\(#,##0.00\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 6,
+              "ref": "F73",
+              "formula": "=H29*F72",
+              "value": 102093750,
+              "type": "int",
+              "format": "_(* #,##0.00_);_(* \\(#,##0.00\\);_(* \"-\"??_);_(@_)"
+            },
+            {
+              "col": 7,
+              "ref": "G73",
+              "formula": "=H29*G72",
+              "value": 49912499.99999999,
+              "type": "float",
+              "format": "_(* #,##0.00_);_(* \\(#,##0.00\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        }
+      ]
+    },
+    "CF": {
+      "dimensions": "G13:J42",
+      "max_row": 42,
+      "max_col": 10,
+      "merged_cells": [],
+      "rows": [
+        {
+          "row": 41,
+          "cells": [
+            {
+              "col": 9,
+              "ref": "I41",
+              "formula": null,
+              "value": "Debt Withdrawl =",
+              "type": "str"
+            },
+            {
+              "col": 10,
+              "ref": "J41",
+              "formula": null,
+              "value": 100194753.96918178,
+              "type": "float",
+              "format": "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"??_);_(@_)"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
