@@ -1,0 +1,49 @@
+{
+  "title": "U Maps",
+  "selects": [],
+  "inputs": [
+    {
+      "id": "searchName",
+      "name": "",
+      "placeholder": "بحث عن موقع",
+      "class": "ng-untouched ng-pristine ng-valid",
+      "type": "search"
+    }
+  ],
+  "buttons": [
+    {
+      "id": "",
+      "text": "",
+      "class": "esri-widget--button esri-interactive icon ng-tns-c265-3"
+    },
+    {
+      "id": "maximizeWidget",
+      "text": "",
+      "class": "maximize-button"
+    },
+    {
+      "id": "maximizeLandMark",
+      "text": "",
+      "class": "maximize-button"
+    }
+  ],
+  "links": [],
+  "iframes": [],
+  "map_elements": [
+    {
+      "tag": "APP-MAP",
+      "id": "",
+      "class": "app-map ng-tns-c277-4 ng-star-inserted"
+    },
+    {
+      "tag": "DIV",
+      "id": "",
+      "class": "map ng-tns-c277-4"
+    },
+    {
+      "tag": "DIV",
+      "id": "",
+      "class": "map ng-tns-c277-4 esri-view esri-view-width-xlarge esri-view-width-greater-than-xsmall esri-view-wid"
+    }
+  ]
+}
