@@ -29,12 +29,14 @@ export default function AssumptionsPanel({ overrides, onChange, labels }: Props)
     { id: 'land_price_per_sqm', label: labels.landPrice, min: 500, max: 20000, step: 100, format: n => `${n.toLocaleString()} ر.س` },
     { id: 'sale_price_per_sqm', label: labels.salePrice, min: 2000, max: 25000, step: 100, format: n => `${n.toLocaleString()} ر.س` },
     { id: '_construction_total', label: labels.constructionCost, min: 1500, max: 6000, step: 100, format: n => `${n.toLocaleString()} ر.س` },
+    { id: 'far', label: 'معامل البناء (FAR)', min: 0.5, max: 3.0, step: 0.1, format: n => n.toFixed(1) },
     { id: 'fund_period_years', label: labels.fundPeriod, min: 2, max: 5, step: 1, format: n => `${n} ${labels.year}` },
     { id: 'bank_ltv_pct', label: labels.bankLtv, min: 0, max: 0.80, step: 0.01, format: n => `${(n * 100).toFixed(0)}%` },
   ]
 
   const getValue = (id: string): number => {
     if (id === '_construction_total') return totalConstCost
+    if (id === 'far') return (overrides.far as number) ?? 1.2
     return (overrides[id] as number) ?? {
       land_price_per_sqm: 5000,
       sale_price_per_sqm: 8000,
@@ -45,10 +47,11 @@ export default function AssumptionsPanel({ overrides, onChange, labels }: Props)
 
   const handleChange = (id: string, val: number) => {
     if (id === '_construction_total') {
-      // Split: infrastructure stays at 500, superstructure gets the rest
       const newInfra = 500
       const newSuper = Math.max(val - newInfra, 0)
       onChange({ ...overrides, infrastructure_cost_per_sqm: newInfra, superstructure_cost_per_sqm: newSuper })
+    } else if (id === 'far') {
+      onChange({ ...overrides, far: val })
     } else {
       onChange({ ...overrides, [id]: val })
     }
