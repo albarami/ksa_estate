@@ -1,0 +1,134 @@
+[
+  {
+    "href": "https://prod-srem-business-api-srem.moj.gov.sa/api/v1/Download/DownloadGuide",
+    "text": "تحميل \"الدليل الإرشادي\" لمنصة البورصة العقارية"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/realestate-stock-indexes",
+    "text": "مؤشر البورصة العقارية اليومي"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/",
+    "text": "الصفقات المباشرة"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/realestates-info",
+    "text": "البيانات العقارية"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/my-realestates",
+    "text": "العقارات المملوكة"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/deed-inquiry",
+    "text": "الاستعلام عن الصكوك العقارية"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/heir-realestates",
+    "text": "عقارات المورث"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/merge-split/split",
+    "text": "فرز المخططات"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/merge-split/split-land",
+    "text": "تجزئة الاراضي"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/merge-split/merge",
+    "text": "دمج الاراضي"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/merge-split/update-shape-file",
+    "text": "رفع ملف البيانات الجغرافية (Shapefile)"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/deal",
+    "text": "ادراج صفقة\n( صفقة خاصة، هبة، دون مشتري محدد )"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/open-market",
+    "text": "العروض العقارية\n( ادراج طلب شراء , قبول صفقة حرة )"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/open-market/realestate-map",
+    "text": "الخريطة العقارية\n( ادراج طلب شراء , قبول صفقة حرة )"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/my-mortgage-realestates",
+    "text": "العقارات المرهونة"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/",
+    "text": "رهن جديد\n( متاح لوكلاء الجهات المرتهنة )"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/mortgage/release",
+    "text": "فك رهن\n( متاح للمرتهن )"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/mortgage/edit-mortgage-amount",
+    "text": "تعديل قيمة الرهن\n( متاح للمرتهن )"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/mortgage/epu",
+    "text": "الموافقة على فرز او دمج عقار مرهون\n( متاح للمرتهن )"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/",
+    "text": "نقل رهن\n( متاح لوكلاء الجهات المرتهنة )"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/transactions",
+    "text": "العمليات"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/archived-transactions",
+    "text": "أرشيف العمليات"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/deed-upgrade-container",
+    "text": "خدمات تحديث/تعديل صك"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/deed-upgrade/requests",
+    "text": "طلبات تحديث وتعديل الصكوك"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/profile",
+    "text": "استعراض الملف الشخصي"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/profile",
+    "text": "الوكالات العقارية"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/profile/wallet",
+    "text": "المحفظة الوسيطة"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/profile/update-dob",
+    "text": "تحديث تاريخ الميلاد"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/profile",
+    "text": "الملف الشخصي"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/profile/wallet",
+    "text": "المحفظة الوسيطة"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/terms",
+    "text": "الشروط والأحكام"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/about",
+    "text": "حول البورصة العقارية"
+  },
+  {
+    "href": "https://srem.moj.gov.sa/FAQs",
+    "text": "الأسئلة الشائعة"
+  }
+]
