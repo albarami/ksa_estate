@@ -1,0 +1,75 @@
+[
+  {
+    "parcel_id": 3710897,
+    "building_code": "م 111",
+    "allowed_uses": [
+      "offices",
+      "commercial",
+      "residential"
+    ],
+    "max_floors": 2,
+    "floors_description": "أول + أرﴈ",
+    "far": 1.2,
+    "coverage_ratio": 0.6,
+    "setbacks": {
+      "raw": "م2 أد_ ﺑﺤﺪ اﻟﺸﺎرع ﻋﺮض( 5/1 )ﺧﻤﺲ ﻓﺄﻛc م30 ﻟﻠﺸﻮارع أد_ ﻛﺤﺪ م6 eﻘﺪار وارﺗﺪاد اﻷﻗﻞ ﻋﲆ م2 اﳌﺠﺎورﻳﻦ ﺟﻬﺔ",
+      "meter_values": [
+        2.0,
+        30.0,
+        6.0,
+        2.0
+      ]
+    },
+    "parking": "أﻣ? ﺳﻤﻮ ﻋﲆ اﳌﻌﺮوض اﻟﺘﻌﻤﻴﻢ eﻮﺟﺐ اﻟﺴﻴﺎرات ﳌﻮاﻗﻒ اﻟﺘﺨﻄﻴﻄﻴﺔ واﳌﺘﻄﻠﺒﺎت اﻻﺷﱰاﻃﺎت ﺗﺎرﻳﺦ و 4600018452/3 رﻗﻢ اﻟﺮﻳﺎض ﻣﻨﻄﻘﺔ 09-09-1446ﺗﺎرﻳﺦ و 4400426840/5 رﻗﻢ اﻹﺳﻜﺎن و اﻟﺒﻠﺪﻳﺎت وزارة ﻗﺮار ﻋﲆ إﺳﺘﻨﺎداً اﻟﺮﻳﺎض ﻣﺪﻳﻨﺔ ﻟﺘﻄﻮﻳﺮ اﳌﻠﻜﻴﺔ اﻟﻬﻴﺌﺔ ﻗﺮارات و 05-02-1445",
+    "notes": [
+      "اﻟﺮﺋﻴﴘ اﻻﺳﺘﺨﺪام ﺣﺴﺐ اﻻول اﻟﺪور ﻣﺴﻄﺢ ﻣﻦ ﻋﻠﻮﻳﺔ ﻣﻼﺣﻖ 50%",
+      "اﻟﺒﻨﺎء ﻣﻌﺎﻣﻞ ﺿﻤﻦ ﺗﺤﺴﺐ ﻻ اﻟﻌﻠﻮﻳﺔ اﳌﻼﺣﻖ",
+      ".اﻟﻔﻠﻞ ﺟﻬﺔ ﻣﺒﺎﴍة ﻧﻮاﻓﺬ ﻓﺘﺢ وzﻨﻊ اﻟﺸﻮارع ﺟﻬﺔ اﳌﺒﻨﻲ ﺣﺪ ﻣﻦ م2 اﻟﻌﻠﻮﻳﺔ اﳌﻼﺣﻖ ارﺗﺪاد",
+      "%65 ﻋﻦ اﻻول ﻟﻠﺪور اﻟﺒﻨﺎء ﻧﺴﺒﺔ ﻳﺰﻳﺪ ﻻ ﺑﺤﻴﺚ ﻓﺄﻛc م10 ﻋﺮض اﻟﺸﻮارع ﺟﻬﺔ ﻓﻘﻂ م1 ﺑﺎﻟﱪوز ﻳﺴﻤﺢ",
+      "اﻟﺸﺎرع ﺟﻬﺔ اﻻرﺗﺪاد ﻳﻠﺰم ﻣﻌﻪ ﻣﺘﻌﺎﻣﺪ ﻓﺮﻋﻲ وﺷﺎرع اﻟﺪاﺋﺮي ﻃﺮﻳﻖ ﻋﲆ ﺗﻘﻊ اﻟﺘﻲ اﻟﻘﻄﻊ",
+      "م4 اد_ ﺑﺤﺪ( 5/1 )ﺧﻤﺲ اﻟﻔﺮﻋﻲ اﻟﺘﺠﺎري اﻟﻌﻤﻖ ﺣﺪود ﰲ اﻟﺮﺋﻴﴘ اﻟﺸﺎرع ﺟﻬﺔ واﻟﺨﺮوج اﻟﺪﺧﻮل",
+      "اﻟﻔﺮﻋﻴﺔ اﻟﺸﻮارع ﺟﻬﺔ اﳌﻌﺎرض ﻓﺘﺢ zﻨﻊ",
+      "اﻟﺠﺎر ﺧﺼﻮﺻﻴﺔ ﻋﲆ اﳌﺤﺎﻓﻈﺔ",
+      "ﺟﻬﺔ ﻣﱰ 20 ﺑﺎرﺗﺪاد اﻻﻟﺘﺰام ﻣﻊ ﻟﻬﺎ اﳌﻈﺎﻫﺮة اﻟﺴﻜﻨﻴﺔ اﻟﻘﻄﻊ ﻣﻊ اﻟﺘﺠﺎرﻳﺔ اﻟﻘﻄﻊ ﺑﺪﻣﺞ ﻳﺴﻤﺢ",
+      "ﻛﺎﻣﻞ ﺗﻄﺒﻴﻖ ﻣﺮاﻋﺎة ﻣﻊ ﻓﺄﻛc ﻣﱰ 40 ﻋﻦ اﻟﺸﺎرع ﻋﺮض ﻳﻘﻞ ﻻ ان ﺑﴩط اﻟﺮﺋﻴﴘ اﻟﺘﺠﺎري اﻟﺸﺎرع ﺑﺎﻟﺪﻣﺞ اﻟﺨﺎﺻﺔ اﳌﻠﻜﻴﺔ اﻟﻬﻴﺌﺔ ﴍوط اﻟﺤﺎﻓﻼت و اﻟﻜﻬﺮﺑﺎ اﻟﻘﻄﺎر )اﻟﻌﺎم اﻟﻨﻘﻞ ﻣﺴﺎرات و اﻷﻧﺸﻄﺔ اﻋﺼﺎب ﺿﻤﻦ اﻟﻮاﻗﻌﻪ اﻻراﴈ ﻗﻄﻊ"
+    ],
+    "plan_number": "3114",
+    "parcel_number": "2045",
+    "district": "الملقا",
+    "municipality": "اﻟﺮﻳﺎض ﻣﺪﻳﻨﺔ ﺷ\u0017ل ﻗﻄﺎع"
+  },
+  {
+    "parcel_id": 3710898,
+    "building_code": "س 111",
+    "allowed_uses": [
+      "residential"
+    ],
+    "max_floors": 2,
+    "floors_description": "أول + أرﴈ",
+    "far": 1.2,
+    "coverage_ratio": 0.65,
+    "setbacks": {
+      "raw": "واﻹﺳﻜﺎن واﻟﻘﺮوﻳﺔ اﻟﺒﻠﺪﻳﺔ اﻟﺸﺆون وزارة ﻣﻦ اﻟﺼﺎدرة واﻻﺷﱰاﻃﺎت ﺑﺎﻻﻟﻮاﺋﺢ ورد ﻣﺎ ﺣﺴﺐ"
+    },
+    "parking": "أﻣ? ﺳﻤﻮ ﻋﲆ اﳌﻌﺮوض اﻟﺘﻌﻤﻴﻢ kﻮﺟﺐ اﻟﺴﻴﺎرات ﳌﻮاﻗﻒ اﻟﺘﺨﻄﻴﻄﻴﺔ واﳌﺘﻄﻠﺒﺎت اﻻﺷﱰاﻃﺎت ﺗﺎرﻳﺦ و 4600018452/3 رﻗﻢ اﻟﺮﻳﺎض ﻣﻨﻄﻘﺔ 09-09-1446ﺗﺎرﻳﺦ و 4400426840/5 رﻗﻢ اﻹﺳﻜﺎن و اﻟﺒﻠﺪﻳﺎت وزارة ﻗﺮار ﻋﲆ إﺳﺘﻨﺎداً اﻟﺮﻳﺎض ﻣﺪﻳﻨﺔ ﻟﺘﻄﻮﻳﺮ اﳌﻠﻜﻴﺔ اﻟﻬﻴﺌﺔ ﻗﺮارات و 05-02-1445",
+    "notes": [
+      ".اول + ارﴈ دور , ﻣﻨﺨﻔﻀﺔ اﻟﻜﺜﺎﻓﺔ , واﺣﺪة ﻻﴎة اﻟﺴﻜﻨﻲ اﻻﺳﺘﺨﺪام : ﺗﻌﻨﻲ 111 س",
+      ".اﳌﺤﻠﻴﺔ اﻟﻌ\u0017رة ﺑﺘﻄﺒﻴﻖ اﻻﻟﺘﺰام",
+      ".اﻟﺮﺋﻴﴘ اﻻﺳﺘﺨﺪام ﺣﺴﺐ ﺗﺴﺘﺨﺪم اﻻول اﻟﺪور ﻣﺴﻄﺢ ﻣﻦ ﻋﻠﻮﻳﺔ ﻣﻼﺣﻖ 50%",
+      ".اﻟﺒﻨﺎء ﻣﻌﺎﻣﻞ ﺿﻤﻦ ﺗﺤﺴﺐ ﻻ اﻟﻌﻠﻮﻳﺔ اﳌﻼﺣﻖ",
+      ".اﻟﻔﻠﻞ ﺟﻬﺔ ﻣﺒﺎﴍة ﻧﻮاﻓﺬ ﻓﺘﺢ و}ﻨﻊ اﻟﺸﻮارع ﺟﻬﺔ اﳌﺒﻨﻲ ﺣﺪ ﻣﻦ م2 اﻟﻌﻠﻮﻳﺔ اﳌﻼﺣﻖ ارﺗﺪاد",
+      "%65 ﻋﻦ اﻻول ﻟﻠﺪور اﻟﺒﻨﺎء ﻧﺴﺒﺔ ﻳﺰﻳﺪ ﻻ ﺑﺤﻴﺚ ﻓﺄﻛ م10 ﻋﺮض اﻟﺸﻮارع ﺟﻬﺔ ﻓﻘﻂ م1 ﺑﺎﻟﱪوز ﻳﺴﻤﺢ",
+      ".اﻟﺸﺎرع ﺟﻬﺔ اﻻرﺗﺪاد ﻳﻠﺰم ﻣﻌﻪ ﻣﺘﻌﺎﻣﺪ ﻓﺮﻋﻲ وﺷﺎرع اﻟﺪاﺋﺮي ﻃﺮﻳﻖ ﻋﲆ ﺗﻘﻊ اﻟﺘﻲ اﻟﻘﻄﻊ",
+      ".م4 اد ﺑﺤﺪ( 5/1 )ﺧﻤﺲ اﻟﻔﺮﻋﻲ ﻫـ01/10/1446 ﺦﻳرﺎﺗو 4600679000 ﻢﻗر ﺔﻠﻣﺎﻌﳌﺎﺑ ﺎﻬﻨﻋ فﺎﻘﻳﻹا ﻊﻓر ﻢﺗ ﻲﺘﻟا ﴈارﻷا ﻊﻄﻗ",
+      "اﳌﺤﻠﻴﺔ ﻟﻠﻌ\u0017رة اﻟﺘﺼﻤﻴﻤﻴﺔ اﳌﻮﺟﻬﺎت ﻋﻠﻴﻬﺎ ﺗﻄﺒﻖ ﻳﺘﻢ"
+    ],
+    "plan_number": "3114",
+    "parcel_number": "1703",
+    "district": "الملقا",
+    "municipality": "اﻟﺮﻳﺎض ﻣﺪﻳﻨﺔ ﺷ\u0017ل ﻗﻄﺎع"
+  },
+  {
+    "parcel_id": 3900000,
+    "error": "APIRequestContext.get: Timeout 30000ms exceeded.\nCall log:\n  - → GET https://mapservice.alriyadh.gov.sa/BuildingSystem/building-code-report-experimental?parcelId=3900000\n    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/145.0.7632.6 Safari/537.36\n    - accept: */*\n    - accept-encoding: gzip,deflate,br\n    - Referer: https://mapservice.alriyadh.gov.sa/geoportal/geomap\n    - cookie: geoPersistentId=b94f6303feb2414fb9471cbe5855f8ef; TS01f65b9f=0199378a6836bcc08d3e8c1b883f78dd3009968e03d6bd8462908892a6ea82bbd1b057845805821eb35cef726fc98fe3658965045e4240897e6a6690106845d47562fc46dfea9c0dc06b7a96f072fe2555a8a932a7\n  - ← 200 OK\n    - content-length: 30254098\n    - content-type: application/pdf\n    - strict-transport-security: max-age=2592000, max-age=31536000; includeSubDomains; preload\n    - content-disposition: inline;filename=3900000.pdf\n    - server-timing: dtTrId;desc=\"d495f3332bde3e866c82dbda812c200a\", dtSInfo;desc=\"0\"\n    - x-content-type-options: nosniff\n    - x-frame-options: *\n    - x-xss-protection: 1; mode=block\n    - referrer-policy: same-origin\n    - content-security-policy: worker-src 'self' blob:;child-src blob: ;default-src 'self'; connect-src * blob:; font-src *; frame-src * blob:; img-src * data: blob:; media-src *; object-src *; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline';\n    - permissions-policy: self\n    - set-cookie: dtCookie=v_4_srv_19_sn_F042C548C7BD2C075F4CE6EA77B71283_perc_100000_ol_0_mul_1_app-3A00f1bf7a7a1cace8_1_rcs-3Acss_0; Path=/; Domain=.gov.sa,TS01f65b9f=0199378a68e5fbc9ce7396cf6bcf421057d38ebf4ed6bd8462908892a6ea82bbd1b057845805821eb35cef726fc98fe3658965045e4240897e6a6690106845d47562fc46df4c692af40db71174d79fe8c03068173a; Path=/; Domain=.mapservice.alriyadh.gov.sa\n    - date: Wed, 11 Feb 2026 19:35:20 GMT\n"
+  }
+]
