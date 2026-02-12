@@ -586,25 +586,25 @@ def _build_zoning_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
     ws.column_dimensions["B"].width = 28
     ws.column_dimensions["D"].width = 35
 
-    _c(ws, 1, 2, "تقرير أنظمة البناء والتنظيم", Font(name=FONT_AR, size=16, bold=True, color="FFFFFF"), FILL_HEADER, align=CENTER)
+    _c(ws, 1, 2, L["zoning_title"], Font(name=FONT_AR, size=16, bold=True, color="FFFFFF"), FILL_HEADER, align=CENTER)
     ws.merge_cells("B1:D1")
 
     regs = land.get("regulations", {})
     items = [
-        ("رقم القطعة", land.get("parcel_number")),
-        ("رقم المخطط", land.get("plan_number")),
-        ("الحي", land.get("district_name")),
-        ("البلدية", land.get("municipality")),
-        ("مساحة الأرض (م²)", land.get("area_sqm")),
-        ("نظام البناء", land.get("building_code_label")),
+        (L["parcel_no"], land.get("parcel_number")),
+        (L["plan_no"], land.get("plan_number")),
+        (L["district"], land.get("district_name")),
+        (L["municipality"], land.get("municipality")),
+        (L["area_label"], land.get("area_sqm")),
+        (L["building_code"], land.get("building_code_label")),
         ("", ""),
-        ("عدد الأدوار", regs.get("max_floors")),
-        ("معامل البناء (FAR)", regs.get("far")),
-        ("نسبة التغطية", regs.get("coverage_ratio")),
-        ("الاستخدامات المسموحة", ", ".join(regs.get("allowed_uses", []))),
-        ("الارتدادات (م)", ", ".join(str(v) for v in regs.get("setback_values_m", []))),
-        ("الاستخدام الرئيسي", land.get("primary_use_label")),
-        ("استخدام الأرض", land.get("detailed_use_label")),
+        (L["max_floors"], regs.get("max_floors")),
+        (L["far_label"], regs.get("far")),
+        (L["coverage_label"], regs.get("coverage_ratio")),
+        (L["allowed_uses"], ", ".join(regs.get("allowed_uses") or [])),
+        (L["setbacks_label"], ", ".join(str(v) for v in (regs.get("setback_values_m") or []))),
+        (L["primary_use"], land.get("primary_use_label")),
+        (L["land_use"], land.get("detailed_use_label")),
     ]
     r = 3
     for label, val in items:
@@ -618,13 +618,16 @@ def _build_zoning_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
         r += 1
 
     # Notes
-    notes = regs.get("notes", [])
+    notes = regs.get("notes") or []
     if notes:
         r += 1
-        _c(ws, r, 2, "الملاحظات", F_HEADER)
+        _c(ws, r, 2, L["notes"], F_HEADER)
         r += 1
         for note in notes:
-            _c(ws, r, 2, note, F_SMALL, align=Alignment(wrap_text=True))
+            # Sanitize illegal characters for openpyxl
+            import re as _re
+            clean = _re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', str(note))
+            _c(ws, r, 2, clean, F_SMALL, align=Alignment(wrap_text=True))
             ws.merge_cells(f"B{r}:D{r}")
             r += 1
 
@@ -639,16 +642,16 @@ def _build_market_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
     ws.column_dimensions["B"].width = 25
     ws.column_dimensions["D"].width = 25
 
-    _c(ws, 1, 2, "بيانات البورصة العقارية (SREM)", Font(name=FONT_AR, size=16, bold=True, color="FFFFFF"), FILL_HEADER, align=CENTER)
+    _c(ws, 1, 2, L["market_title"], Font(name=FONT_AR, size=16, bold=True, color="FFFFFF"), FILL_HEADER, align=CENTER)
     ws.merge_cells("B1:D1")
 
     mkt = land.get("market", {})
     items = [
-        ("مؤشر السوق", mkt.get("srem_market_index")),
-        ("التغير", mkt.get("srem_index_change")),
-        ("عدد الصفقات اليومية", mkt.get("daily_total_transactions")),
-        ("إجمالي القيمة اليومية (ر.س)", mkt.get("daily_total_value_sar")),
-        ("متوسط السعر / م²", mkt.get("daily_avg_price_sqm")),
+        (L["market_index"], mkt.get("srem_market_index")),
+        (L["market_change"], mkt.get("srem_index_change")),
+        (L["daily_transactions"], mkt.get("daily_total_transactions")),
+        (L["daily_value"], mkt.get("daily_total_value_sar")),
+        (L["avg_price"], mkt.get("daily_avg_price_sqm")),
     ]
     r = 3
     for label, val in items:
@@ -657,15 +660,15 @@ def _build_market_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
         r += 1
 
     # Trending districts
-    trending = mkt.get("trending_districts", [])
+    trending = mkt.get("trending_districts") or []
     if trending:
         r += 2
-        _c(ws, r, 2, "الأحياء الأكثر تداولاً", F_HEADER)
+        _c(ws, r, 2, L["trending_title"], F_HEADER)
         r += 1
-        _c(ws, r, 2, "الحي", F_BOLD, FILL_SECTION, align=CENTER, border=BORDER_THIN)
-        _c(ws, r, 3, "المدينة", F_BOLD, FILL_SECTION, align=CENTER, border=BORDER_THIN)
-        _c(ws, r, 4, "الصفقات", F_BOLD, FILL_SECTION, align=CENTER, border=BORDER_THIN)
-        _c(ws, r, 5, "القيمة (ر.س)", F_BOLD, FILL_SECTION, align=CENTER, border=BORDER_THIN)
+        _c(ws, r, 2, L["district"], F_BOLD, FILL_SECTION, align=CENTER, border=BORDER_THIN)
+        _c(ws, r, 3, L["city"], F_BOLD, FILL_SECTION, align=CENTER, border=BORDER_THIN)
+        _c(ws, r, 4, L["deals"], F_BOLD, FILL_SECTION, align=CENTER, border=BORDER_THIN)
+        _c(ws, r, 5, L["value_sar"], F_BOLD, FILL_SECTION, align=CENTER, border=BORDER_THIN)
         r += 1
         for d in trending:
             _c(ws, r, 2, d.get("name"), F_NORMAL, align=CENTER, border=BORDER_THIN)
@@ -675,7 +678,7 @@ def _build_market_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
             r += 1
 
     r += 2
-    _c(ws, r, 2, "المصدر: البورصة العقارية - وزارة العدل", F_SMALL)
+    _c(ws, r, 2, L["market_source"], F_SMALL)
 
 
 # ---------------------------------------------------------------------------
