@@ -1,4 +1,5 @@
-import { getExcelUrl } from '../utils/api'
+import { useState } from 'react'
+import { downloadExcel } from '../utils/api'
 import type { Overrides, Labels, Lang } from '../types'
 
 interface Props {
@@ -9,10 +10,17 @@ interface Props {
 }
 
 export default function DownloadBar({ parcelId, overrides, labels, lang }: Props) {
-  const params: Record<string, number | string> = { lang }
-  if (overrides.land_price_per_sqm) params.land_price_per_sqm = overrides.land_price_per_sqm as number
-  if (overrides.sale_price_per_sqm) params.sale_price_per_sqm = overrides.sale_price_per_sqm as number
-  if (overrides.fund_period_years) params.fund_period_years = overrides.fund_period_years as number
+  const [downloading, setDownloading] = useState(false)
+
+  const handleDownload = async () => {
+    setDownloading(true)
+    try {
+      await downloadExcel(parcelId, overrides, lang)
+    } catch (err) {
+      alert(`Download failed: ${err}`)
+    }
+    setDownloading(false)
+  }
 
   return (
     <div className="fixed bottom-0 inset-x-0 bg-[var(--color-card)] border-t border-[var(--color-border)] px-6 py-3 flex items-center justify-between z-50">
@@ -21,21 +29,19 @@ export default function DownloadBar({ parcelId, overrides, labels, lang }: Props
       </div>
       <div className="flex gap-3">
         <button
-          onClick={() => {
-            navigator.clipboard.writeText(window.location.href)
-          }}
+          onClick={() => navigator.clipboard.writeText(window.location.href)}
           className="px-4 py-2 rounded-lg border border-[var(--color-border)] text-sm hover:border-[var(--color-gold)] transition-colors"
         >
           {labels.share}
         </button>
-        <a
-          href={getExcelUrl(parcelId, params as Record<string, number>)}
-          download
-          className="px-6 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105 active:scale-95"
+        <button
+          onClick={handleDownload}
+          disabled={downloading}
+          className="px-6 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105 active:scale-95 disabled:opacity-50"
           style={{ background: 'var(--color-gold)', color: '#0A0A0F' }}
         >
-          {labels.downloadExcel}
-        </a>
+          {downloading ? '...' : labels.downloadExcel}
+        </button>
       </div>
     </div>
   )

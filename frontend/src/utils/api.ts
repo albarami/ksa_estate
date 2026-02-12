@@ -62,3 +62,23 @@ export function getExcelUrl(id: number, params: Record<string, number>): string 
   }
   return `${BASE}/excel/${id}?${qs.toString()}`
 }
+
+export async function downloadExcel(
+  id: number,
+  overrides: Record<string, unknown>,
+  lang: string,
+): Promise<void> {
+  const res = await fetch(`${BASE}/excel`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ parcel_id: id, overrides, lang }),
+  })
+  if (!res.ok) throw new Error(`Excel download failed: ${res.status}`)
+  const blob = await res.blob()
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `proforma_${id}.xlsx`
+  a.click()
+  URL.revokeObjectURL(url)
+}

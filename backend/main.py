@@ -265,15 +265,45 @@ async def advisor_search(req: SearchRequest) -> dict:
         raise HTTPException(500, str(exc))
 
 
+class ExcelRequest(BaseModel):
+    parcel_id: int
+    overrides: dict[str, Any] = {}
+    lang: str = "ar"
+
+
+@app.post("/api/excel")
+async def download_excel_post(req: ExcelRequest) -> Response:
+    """Generate and download .xlsx pro-forma with full overrides (POST)."""
+    if not _http_client:
+        raise HTTPException(500, "Server not ready")
+    try:
+        land = await fetch_land_object(_http_client, req.parcel_id)
+        if not land.get("parcel_number"):
+            raise HTTPException(404, f"Parcel {req.parcel_id} not found")
+
+        result = compute_proforma(land, req.overrides)
+        xlsx_bytes = generate_excel(result, land, lang=req.lang)
+
+        return Response(
+            content=xlsx_bytes,
+            media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            headers={
+                "Content-Disposition": f'attachment; filename="proforma_{req.parcel_id}.xlsx"',
+            },
+        )
+    except HTTPException:
+        raise
+    except Exception as exc:
+        log.error("Excel error: %s", exc, exc_info=True)
+        raise HTTPException(500, str(exc))
+
+
 @app.get("/api/excel/{parcel_id}")
 async def download_excel(
     parcel_id: int,
-    land_price_per_sqm: float | None = Query(None),
-    sale_price_per_sqm: float | None = Query(None),
-    fund_period_years: int | None = Query(None),
     lang: str = Query("ar"),
 ) -> Response:
-    """Generate and download .xlsx pro-forma."""
+    """Generate and download .xlsx pro-forma (GET fallback, uses defaults)."""
     if not _http_client:
         raise HTTPException(500, "Server not ready")
     try:
@@ -282,12 +312,6 @@ async def download_excel(
             raise HTTPException(404, f"Parcel {parcel_id} not found")
 
         overrides: dict[str, Any] = {}
-        if land_price_per_sqm is not None:
-            overrides["land_price_per_sqm"] = land_price_per_sqm
-        if sale_price_per_sqm is not None:
-            overrides["sale_price_per_sqm"] = sale_price_per_sqm
-        if fund_period_years is not None:
-            overrides["fund_period_years"] = fund_period_years
 
         result = compute_proforma(land, overrides)
         xlsx_bytes = generate_excel(result, land, lang=lang)
