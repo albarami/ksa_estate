@@ -42,19 +42,28 @@ export default function IntakeFlow({ labels: _labels, onComplete, onCancel }: Pr
     if (!landPrice || !extracted) return
     setStep('analyzing')
 
-    const area = (extracted.land_area_sqm as number) || (geoportal?.area_sqm) || 0
+    // BUG 1 FIX: Document area takes priority over Geoportal (which may hit parent parcel)
+    const docArea = extracted.land_area_sqm as number
+    const geoArea = geoportal?.area_sqm
+    const area = docArea || geoArea || 0
+
     const price = parseFloat(landPrice)
     const far = (merged?.geoportal_regulations as Record<string, unknown>)?.far as number || 1.2
-    // Use district-level market price if reliable (>500 = real residential land), else fallback
-    const districtPrice = geoportal?.market?.district?.avg_price_sqm
-    const avgMarketPrice = (districtPrice && districtPrice > 500) ? districtPrice : 8000
+
+    // BUG 2 FIX: SREM price is for RAW LAND transactions, NOT finished unit sales.
+    // Default sale price = construction cost * 2 (typical developer margin)
+    const infraCost = 500
+    const superCost = 2500
+    const defaultSalePrice = (infraCost + superCost) * 2  // 6,000 SAR/m²
 
     // Build overrides with document data + user price + smart defaults
     const overrides: Overrides = {
+      // BUG 1 FIX: Force document area into computation via override
+      land_area_sqm: area,
       land_price_per_sqm: price,
-      sale_price_per_sqm: avgMarketPrice > 100 ? avgMarketPrice : 8000,
-      infrastructure_cost_per_sqm: 500,
-      superstructure_cost_per_sqm: 2500,
+      sale_price_per_sqm: defaultSalePrice,
+      infrastructure_cost_per_sqm: infraCost,
+      superstructure_cost_per_sqm: superCost,
       parking_area_sqm: 0,
       far: far,
       in_kind_pct: 0,
@@ -65,10 +74,17 @@ export default function IntakeFlow({ labels: _labels, onComplete, onCancel }: Pr
     }
 
     try {
-      // If we have a geoportal parcel, use it
+      // If we have a geoportal parcel, use it — but override area with document area
       if (geoportal?.parcel_id) {
         const result = await fetchProforma(geoportal.parcel_id, overrides)
-        onComplete(result.land_object, result.proforma, overrides)
+        // BUG 1 FIX: Replace Geoportal area with document area in the land object shown to user
+        const landObj = { ...result.land_object }
+        if (docArea && docArea !== result.land_object.area_sqm) {
+          landObj.area_sqm = docArea
+          // Store Geoportal area for reference (displayed in conflicts)
+          ;(landObj as Record<string, unknown>).geoportal_area_sqm = result.land_object.area_sqm
+        }
+        onComplete(landObj, result.proforma, overrides)
       } else {
         // No geoportal parcel — build a minimal land object from document
         const fakeLand: LandObject = {
@@ -195,12 +211,12 @@ export default function IntakeFlow({ labels: _labels, onComplete, onCancel }: Pr
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     {marketAvg && (
                       <div className="p-2 rounded-lg bg-[var(--color-card)]">
-                        <div className="text-xs text-[var(--color-text-dim)]">متوسط السعر</div>
+                        <div className="text-xs text-[var(--color-text-dim)]">سعر الأرض (صفقات)</div>
                         <div className="font-bold" style={{ color: 'var(--color-gold)' }}>
                           {marketAvg.toLocaleString()} ر.س/م²
                         </div>
                         <div className="text-[10px] text-[var(--color-text-dim)]">
-                          {marketPeriod === 'city_average' ? 'متوسط الرياض' : `${districtMarket?.district_name || ''}`}
+                          {marketPeriod === 'riyadh_average' ? 'متوسط صفقات الرياض' : `صفقات ${districtMarket?.district_name || ''}`}
                         </div>
                       </div>
                     )}
@@ -243,7 +259,8 @@ export default function IntakeFlow({ labels: _labels, onComplete, onCancel }: Pr
                 <label className="block text-sm mb-2 font-semibold">كم سعر المتر المطلوب؟</label>
                 {marketAvg && (
                   <p className="text-xs text-[var(--color-text-dim)] mb-2">
-                    متوسط السوق: <span className="font-bold" style={{ color: 'var(--color-gold)' }}>{marketAvg.toLocaleString()} ر.س/م²</span>
+                    متوسط صفقات الأراضي: <span className="font-bold" style={{ color: 'var(--color-gold)' }}>{marketAvg.toLocaleString()} ر.س/م²</span>
+                    <span className="text-[var(--color-text-dim)]"> (أرض خام، ليس وحدات مبنية)</span>
                   </p>
                 )}
                 <div className="flex gap-2">

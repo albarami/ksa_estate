@@ -91,7 +91,7 @@ export default function Dashboard({
             labels={labels}
             landDefaults={{
               far: land.regulations?.far ?? undefined,
-              sale_price_per_sqm: land.market?.district?.avg_price_sqm ?? undefined,
+              // SREM avg is for raw LAND, not finished units — don't use as sale price default
             }}
           />
 

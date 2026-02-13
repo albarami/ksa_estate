@@ -131,9 +131,9 @@ export default function DistrictCard({
         )}
         {hasMarket && (
           <Stat
-            label="متوسط السعر"
-            value={`${numFmt.format(districtMarket!.avg_price_sqm!)} ر.س`}
-            sub={districtMarket!.period === 'city_average' ? 'متوسط الرياض' : 'متوسط الحي'}
+            label="سعر الأرض (صفقات)"
+            value={`${numFmt.format(avgPrice!)} ر.س/م²`}
+            sub={districtMarket!.period === 'riyadh_average' ? 'متوسط الرياض' : 'متوسط الحي'}
             color="var(--color-gold)"
           />
         )}

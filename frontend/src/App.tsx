@@ -14,9 +14,10 @@ const queryClient = new QueryClient({
 })
 
 // Defaults — financial assumptions only. Zoning (FAR) comes from parcel.
+// sale_price = construction * 2 (typical margin). SREM avg is for raw LAND, not finished units.
 const DEFAULT_OVERRIDES: Overrides = {
-  land_price_per_sqm: 7000,
-  sale_price_per_sqm: 12500,
+  land_price_per_sqm: 5000,
+  sale_price_per_sqm: 6000,  // (500 infra + 2500 super) * 2 = 6000 finished unit price
   infrastructure_cost_per_sqm: 500,
   superstructure_cost_per_sqm: 2500,
   parking_area_sqm: 0,
@@ -65,13 +66,13 @@ function AppInner() {
     setLand(l)
     setInitialProforma(pf)
     setParcelId(l.parcel_id)
-    // Seed overrides from actual parcel data — no hardcoding
-    const districtAvg = l.market?.district?.avg_price_sqm
+    // Seed overrides from actual parcel data
+    // SREM district avg is for raw LAND transactions — NOT for finished unit sale price
+    // Sale price default = construction cost * 2 (typical developer margin)
     setOverrides(prev => ({
       ...prev,
       far: l.regulations?.far ?? prev.far,
-      // Only use district price if it's a real per-m² price (>500 = real residential land)
-      sale_price_per_sqm: districtAvg && districtAvg > 500 ? districtAvg : prev.sale_price_per_sqm,
+      // sale_price stays at construction*2 default (6000), user adjusts from there
     }))
     setScreen('dashboard')
   }, [])
