@@ -277,33 +277,35 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict, L: dict, rtl: b
     ws.merge_cells("E7:F7")
 
     # === RIGHT SIDE: Cash Flows Y1..Y3 ===
-    _c(ws, 7, 12, "المبيعات ", F_NORMAL)
+    _c(ws, 7, 12, L.get("cf_sales", "Sales"), F_NORMAL)
     for i, yr in enumerate(years):
         sales_val = cf.get("inflows_sales", [0]*3)[i] if i < len(cf.get("inflows_sales", [])) else 0
         _c(ws, 7, 14 + i, sales_val, F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    _c(ws, 8, 12, "الإجمالي ", F_BOLD)
+    _c(ws, 8, 12, L.get("total_label", "Total"), F_BOLD)
     for i in range(len(years)):
         _c(ws, 8, 14 + i, f"=SUM({get_column_letter(14+i)}7)", F_BOLD, fmt=SAR_FMT, align=CENTER)
 
     # === ROW 9: Land section ===
     _c(ws, 9, 2, L["land_section"], F_HEADER, FILL_SECTION)
     _c(ws, 9, 4, L["land_assumptions"], F_HEADER)
-    _c(ws, 9, 12, "التدفقات النقدية الخارجة ", F_BOLD)
+    _c(ws, 9, 12, L.get("cf_outflows", "Cash Outflows"), F_BOLD)
 
     # ROW 10: Column headers
-    _c(ws, 10, 6, "الإجمالي ", F_BOLD, align=CENTER)
-    _c(ws, 10, 8, "النقدي", F_BOLD, align=CENTER)
-    _c(ws, 10, 9, "العيني ", F_BOLD, align=CENTER)
+    _c(ws, 10, 6, L.get("total_label", "Total"), F_BOLD, align=CENTER)
+    _c(ws, 10, 8, L.get("cash", "Cash"), F_BOLD, align=CENTER)
+    _c(ws, 10, 9, L.get("inkind", "In-Kind"), F_BOLD, align=CENTER)
 
-    # ROW 11: Land area
+    # ROW 11: Land area + cash/in-kind split
+    in_kind_pct = lc.get("in_kind_pct", 0) or 0
+    cash_pct = 1.0 - in_kind_pct
     _c(ws, 11, 4, L["land_area"], F_NORMAL)
     _c(ws, 11, 6, land.get("area_sqm", 0), F_NORMAL, fmt=SAR_FMT, align=CENTER)
-    _c(ws, 11, 8, iv("cash_purchase_pct") or 1, F_NORMAL, fmt=PCT_FMT, align=CENTER)
-    _c(ws, 11, 9, iv("in_kind_pct") or 0, F_NORMAL, fmt=PCT_FMT, align=CENTER)
+    _c(ws, 11, 8, cash_pct, F_NORMAL, fmt=PCT_FMT, align=CENTER)
+    _c(ws, 11, 9, in_kind_pct, F_NORMAL, fmt=PCT_FMT, align=CENTER)
 
     # Cash flows: land acquisition
-    _c(ws, 11, 12, "إجمالي الاستحواذ على الأرض ", F_NORMAL)
+    _c(ws, 11, 12, L.get("cf_land", "Land Acquisition"), F_NORMAL)
     for i in range(len(years)):
         land_cf = cf.get("outflows_land", [0]*3)[i] if i < len(cf.get("outflows_land", [])) else 0
         _c(ws, 11, 14 + i, land_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
@@ -312,31 +314,31 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict, L: dict, rtl: b
     _c(ws, 12, 4, L["land_price"], F_NORMAL)
     _c(ws, 12, 5, iv("land_price_per_sqm") or 0, F_NORMAL, fmt=SAR2_FMT, align=CENTER)
     _c(ws, 12, 6, "=$E$12*F11", F_NORMAL, fmt=SAR_FMT, align=CENTER)
-    _c(ws, 12, 8, "=H11*$F$16", F_NORMAL, fmt=SAR2_FMT, align=CENTER)
+    _c(ws, 12, 8, "=H11*F12", F_NORMAL, fmt=SAR2_FMT, align=CENTER)
     _c(ws, 12, 9, "=I11*F12", F_NORMAL, fmt=SAR2_FMT, align=CENTER)
 
     # CF: direct costs
-    _c(ws, 12, 12, "التكاليف المباشرة ", F_NORMAL)
+    _c(ws, 12, 12, L.get("cf_direct", "Direct Costs"), F_NORMAL)
     for i in range(len(years)):
         d_cf = cf.get("outflows_direct", [0]*3)[i] if i < len(cf.get("outflows_direct", [])) else 0
         _c(ws, 12, 14 + i, d_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    # ROW 13: Brokerage
+    # ROW 13: Brokerage (on cash portion only: F12 * H11 = cash value)
     _c(ws, 13, 4, L["brokerage"], F_NORMAL)
     _c(ws, 13, 5, iv("brokerage_fee_pct") or 0.025, F_NORMAL, fmt=PCTD_FMT, align=CENTER)
-    _c(ws, 13, 6, "=$E$13*F12", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 13, 6, "=$E$13*F12*H11", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    _c(ws, 13, 12, "التكاليف غير المباشرة ", F_NORMAL)
+    _c(ws, 13, 12, L.get("cf_indirect", "التكاليف غير المباشرة"), F_NORMAL)
     for i in range(len(years)):
         i_cf = cf.get("outflows_indirect", [0]*3)[i] if i < len(cf.get("outflows_indirect", [])) else 0
         _c(ws, 13, 14 + i, i_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    # ROW 14: Transfer tax
+    # ROW 14: Transfer tax (on cash portion only — no tax on in-kind)
     _c(ws, 14, 4, L["transfer_tax"], F_NORMAL)
     _c(ws, 14, 5, iv("real_estate_transfer_tax_pct") or 0.05, F_NORMAL, fmt=PCT_FMT, align=CENTER)
-    _c(ws, 14, 6, "=E14*F12", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 14, 6, "=E14*F12*H11", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    _c(ws, 14, 12, "فوائد تمويل ", F_NORMAL)
+    _c(ws, 14, 12, L.get("cf_interest", "Interest"), F_NORMAL)
     for i in range(len(years)):
         int_cf = cf.get("outflows_interest", [0]*3)[i] if i < len(cf.get("outflows_interest", [])) else 0
         _c(ws, 14, 14 + i, int_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
@@ -346,7 +348,7 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict, L: dict, rtl: b
     _c(ws, 15, 5, iv("brokerage_vat_pct") or 0.15, F_NORMAL, fmt=PCT_FMT, align=CENTER)
     _c(ws, 15, 6, "=E15*F13", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    _c(ws, 15, 12, "أتعاب ترتيب تمويل ", F_NORMAL)
+    _c(ws, 15, 12, L.get("arrangement_fee", "Arrangement Fee"), F_NORMAL)
     _c(ws, 15, 14, fin.get("arrangement_fee", 0), F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
     # ROW 16: TOTAL LAND = SUM(F12:F15) (LIVE FORMULA)
@@ -459,10 +461,10 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict, L: dict, rtl: b
     _c(ws, 33, 8, "=H32", F_TOTAL, FILL_TOTAL, fmt=SAR2_FMT, align=CENTER)
 
     # === Fund structure (right side) ===
-    _c(ws, 33, 12, "تمويل رأس مال الصندوق", F_BOLD)
-    _c(ws, 34, 12, "Equity", F_NORMAL)
+    _c(ws, 33, 12, L.get("cf_fund_capital", "Fund Capital Structure"), F_BOLD)
+    _c(ws, 34, 12, L.get("equity", "Equity"), F_NORMAL)
     _c(ws, 34, 14, "=F57", F_NORMAL, fmt=NUM_FMT, align=CENTER)
-    _c(ws, 35, 12, "In-Kind Contribution", F_NORMAL)
+    _c(ws, 35, 12, L.get("inkind_owner", "In-Kind Contribution"), F_NORMAL)
     _c(ws, 35, 14, "=I12", F_NORMAL, fmt=NUM_FMT, align=CENTER)
 
     bank_loan = fin.get("bank_loan_amount", 0) if isinstance(fin.get("bank_loan_amount"), (int, float)) else 0
@@ -483,22 +485,23 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict, L: dict, rtl: b
         net = cf.get("net_cash_flow", [0]*3)[i] if i < len(cf.get("net_cash_flow", [])) else 0
         _c(ws, 40, 14 + i, net, F_BOLD, fmt=NUM_FMT, align=CENTER, border=BORDER_TOP_MED)
 
-    # Equity cash flow for IRR
+    # Equity cash flow for IRR: initial = -(equity + in_kind)
     equity_amount = fs.get("equity_amount", 0)
-    _c(ws, 41, 12, "Net Equity Cashflow", F_BOLD)
-    _c(ws, 41, 13, -equity_amount, F_BOLD, fmt=NUM_FMT, align=CENTER)
+    in_kind_contrib = fs.get("in_kind_contribution", 0)
+    total_invested = equity_amount + in_kind_contrib
+    _c(ws, 41, 12, L.get("cf_net_equity", "Net Equity Cashflow"), F_BOLD)
+    _c(ws, 41, 13, -total_invested, F_BOLD, fmt=NUM_FMT, align=CENTER)
     for i in range(len(years)):
         val = 0
         if i == len(years) - 1:
-            # Final year: surplus
             eq_cf = pf.get("cash_flows", {}).get("equity_cf_for_irr", [])
             if eq_cf and len(eq_cf) > len(years):
                 val = eq_cf[-1]
         _c(ws, 41, 14 + i, val, F_BOLD, fmt=SAR_FMT, align=CENTER)
 
     # === ROW 36: Fund fees section ===
-    _c(ws, 36, 2, "رسوم الصندوق والتمويل", F_HEADER, FILL_SECTION)
-    _c(ws, 36, 4, "Financing & Fund Cost Assumptions", F_HEADER)
+    _c(ws, 36, 2, L.get("financing_section", "Fund Fees"), F_HEADER, FILL_SECTION)
+    _c(ws, 36, 4, L.get("total_financing", "Financing & Fund Cost"), F_HEADER)
 
     _c(ws, 37, 4, " Cost", F_BOLD)
     _c(ws, 37, 6, "Total (SAR)", F_BOLD, align=CENTER)
