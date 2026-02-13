@@ -16,6 +16,15 @@
 - [x] Update `types.ts` with `PlanInfo`, `DistrictDemographics`, `DistrictMarket`, KPI intelligence fields
 - [x] Test with Al-Malqa parcel (3710897) — all 7 sources active, 100% health
 
+- [x] Remove hardcoded defaults from AssumptionsPanel — use landDefaults from actual parcel/market data
+- [x] Remove hardcoded sale_price in App.tsx — seed from district market avg
+- [x] Excel: add plan info (Layer 3) to Zoning sheet
+- [x] Excel: add district demographics (Layer 4) to Zoning sheet
+- [x] Excel: add district market data + index history to Market sheet
+- [x] Excel: add deal score, break-even, revenue multiple, risk flags to Market sheet
+- [x] Excel: add data sources transparency section
+- [x] Extract LABELS dict to `backend/excel_labels.py` (keep generator manageable)
+
 ## Pending
 
 - [ ] Test with Al-Aarid (العارض) parcel

@@ -10,6 +10,7 @@ Sheet 5: Scenario Comparison — 3 scenarios side-by-side
 from __future__ import annotations
 
 import io
+import re
 from typing import Any
 
 from openpyxl import Workbook
@@ -17,142 +18,7 @@ from openpyxl.chart import BarChart, PieChart, Reference
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side, numbers
 from openpyxl.utils import get_column_letter
 
-# ---------------------------------------------------------------------------
-# Bilingual labels
-# ---------------------------------------------------------------------------
-
-LABELS = {
-    "ar": {
-        "assumptions": "Assumptions", "fund_name": "Fund Name", "fund_type_label": "Fund Type",
-        "fund_type_val": "صندوق استثمار عقاري خاص", "fund_period": "Fund Period- year",
-        "fund_size_label": "Fund Size- SAR", "total_equity": "Total Equity",
-        "currency": "بالريال السعودي", "year_label": "السنة",
-        "land_section": "الأرض", "land_assumptions": "افتراضات الأرض",
-        "land_area": "مساحة الأرض ", "land_price": "سعر الاستحواذ بالمتر ",
-        "brokerage": "السعي", "transfer_tax": "ضريبة التصرفات العقارية",
-        "brokerage_vat": "ضريبة السعي", "total": "الإجمالي",
-        "total_label": "الإجمالي ", "cash": "النقدي", "inkind": "العيني ",
-        "costs_section": "التكاليف", "cost_assumptions": "افتراضات التكاليف ",
-        "direct_costs": "التكاليف المباشرة ", "area_col": "المساحة ",
-        "cost_per_m": "التكلفة/ متر ", "total_col": "الإجمالي ",
-        "infrastructure": "تطوير البنية التحتية", "superstructure": "تطوير البنية العلوية",
-        "parking": "مواقف(قبو)", "total_direct": "إجمالي التكاليف المباشرة ",
-        "indirect_costs": "التكاليف غير المباشرة ", "developer_fee": "أتعاب المطور ",
-        "other_indirect": "تكاليف غير مباشرة أخرى ", "contingency": "احتياطي ",
-        "total_indirect": "إجمالي التكاليف غير المباشرة ",
-        "total_all_costs": "إجمالي التكاليف المباشرة وغير المباشرة ",
-        "sales_section": "المبيعات", "sales_assumptions": "افتراضات المبيعات",
-        "unit_sales": "بيع وحدات", "price_per_m": "قيمة المتر ", "total_sales": "إجمالي المبيعات ",
-        "financing_section": "رسوم الصندوق والتمويل",
-        "interest": "فوائد تمويل ", "arrangement_fee": "أتعاب ترتيب تمويل ",
-        "mgmt_fee": "رسوم إدارة الصندوق ", "custodian": "رسوم أمين الحفظ",
-        "board": "مجلس الإدارة ", "sharia_cert": "إصدار الشهادة الشرعية للصندوق",
-        "sharia_board": "أتعاب الهيئة الشرعية ", "legal": "مستشار قانوني",
-        "auditor": "مراجع الحسابات ", "valuation": "التقييم ",
-        "reserve": "احتياطي مصروفات أخرى", "spv": "رسوم إنشاء الشركة ذات الغرض الخاص",
-        "structuring": "رسوم هيكلة ", "operator": "أتعاب المشغل",
-        "total_financing": "Total Financing & Fund Cost",
-        "total_fund_size": "Total Fund Size", "capital_structure": "Capital Structure",
-        "equity": "Equity", "inkind_owner": "In-Kind (Land Owner)",
-        "bank_financing": "Bank Financing", "total_capital": "Total Capital",
-        "cf_inflows": "التدفقات النقدية الداخلة ", "cf_sales": "المبيعات ",
-        "cf_outflows": "التدفقات النقدية الخارجة ",
-        "cf_land": "إجمالي الاستحواذ على الأرض ", "cf_direct": "التكاليف المباشرة ",
-        "cf_indirect": "التكاليف غير المباشرة ", "cf_interest": "فوائد تمويل ",
-        "cf_fees": "رسوم إدارة الصندوق ",
-        "cf_total": "الإجمالي ", "cf_net": "صافي التدفقات النقدية ",
-        "cf_cumulative": "Cumulative Cash Flow", "cf_fund_capital": "تمويل رأس مال الصندوق",
-        "cf_net_equity": "Net Equity Cashflow", "cf_net_cash": "Net Cashflows",
-        "kpi_title": "Project KPIs", "irr": "IRR", "net_profit": "Equity Net Profit",
-        "roe": "ROE", "roe_annual": "ROE Annualized ",
-        "zoning_title": "تقرير أنظمة البناء والتنظيم",
-        "parcel_no": "رقم القطعة", "plan_no": "رقم المخطط", "district": "الحي",
-        "municipality": "البلدية", "area_label": "مساحة الأرض (م²)",
-        "building_code": "نظام البناء", "max_floors": "عدد الأدوار",
-        "far_label": "معامل البناء (FAR)", "coverage_label": "نسبة التغطية",
-        "allowed_uses": "الاستخدامات المسموحة", "setbacks_label": "الارتدادات (م)",
-        "primary_use": "الاستخدام الرئيسي", "land_use": "استخدام الأرض",
-        "notes": "الملاحظات",
-        "market_title": "بيانات البورصة العقارية (SREM)", "market_index": "مؤشر السوق",
-        "market_change": "التغير", "daily_transactions": "عدد الصفقات اليومية",
-        "daily_value": "إجمالي القيمة اليومية (ر.س)", "avg_price": "متوسط السعر / م²",
-        "trending_title": "الأحياء الأكثر تداولاً", "city": "المدينة",
-        "deals": "الصفقات", "value_sar": "القيمة (ر.س)",
-        "market_source": "المصدر: البورصة العقارية - وزارة العدل",
-        "sensitivity_title": "تحليل الحساسية - معدل العائد الداخلي (IRR)",
-        "sale_vs_cost": "سعر البيع ↓ \\ التكلفة →",
-        "scenario_title": "مقارنة السيناريوهات", "scenario": "السيناريو",
-        "conservative": "متحفظ", "base": "أساسي", "aggressive": "جريء",
-        "sale_price_label": "سعر البيع / م²",
-    },
-    "en": {
-        "assumptions": "Assumptions", "fund_name": "Fund Name", "fund_type_label": "Fund Type",
-        "fund_type_val": "Private Real Estate Investment Fund", "fund_period": "Fund Period (years)",
-        "fund_size_label": "Fund Size (SAR)", "total_equity": "Total Equity",
-        "currency": "Saudi Riyal (SAR)", "year_label": "Year",
-        "land_section": "Land", "land_assumptions": "Land Assumptions",
-        "land_area": "Land Area", "land_price": "Acquisition Price / m²",
-        "brokerage": "Brokerage Fee", "transfer_tax": "Real Estate Transfer Tax",
-        "brokerage_vat": "Brokerage VAT", "total": "Total",
-        "total_label": "Total", "cash": "Cash", "inkind": "In-Kind",
-        "costs_section": "Costs", "cost_assumptions": "Cost Assumptions",
-        "direct_costs": "Direct Costs", "area_col": "Area",
-        "cost_per_m": "Cost / m²", "total_col": "Total",
-        "infrastructure": "Infrastructure Development", "superstructure": "Superstructure Development",
-        "parking": "Parking (Basement)", "total_direct": "Total Direct Costs",
-        "indirect_costs": "Indirect Costs", "developer_fee": "Developer Fee",
-        "other_indirect": "Other Indirect Costs", "contingency": "Contingency",
-        "total_indirect": "Total Indirect Costs",
-        "total_all_costs": "Total Direct + Indirect Costs",
-        "sales_section": "Revenue", "sales_assumptions": "Revenue Assumptions",
-        "unit_sales": "Unit Sales", "price_per_m": "Price / m²", "total_sales": "Total Revenue",
-        "financing_section": "Fund Fees & Financing",
-        "interest": "Interest Expense", "arrangement_fee": "Arrangement Fee",
-        "mgmt_fee": "Fund Management Fee", "custodian": "Custodian Fee",
-        "board": "Board of Directors", "sharia_cert": "Sharia Certificate",
-        "sharia_board": "Sharia Board Fee", "legal": "Legal Counsel",
-        "auditor": "Auditor Fee", "valuation": "Valuation",
-        "reserve": "Other Reserve", "spv": "SPV Formation Fee",
-        "structuring": "Structuring Fee", "operator": "Operator Fee",
-        "total_financing": "Total Financing & Fund Cost",
-        "total_fund_size": "Total Fund Size", "capital_structure": "Capital Structure",
-        "equity": "Equity", "inkind_owner": "In-Kind (Land Owner)",
-        "bank_financing": "Bank Financing", "total_capital": "Total Capital",
-        "cf_inflows": "Cash Inflows", "cf_sales": "Sales Revenue",
-        "cf_outflows": "Cash Outflows",
-        "cf_land": "Total Land Acquisition", "cf_direct": "Direct Costs",
-        "cf_indirect": "Indirect Costs", "cf_interest": "Interest Expense",
-        "cf_fees": "Fund Management Fee",
-        "cf_total": "Total Outflows", "cf_net": "Net Cash Flow",
-        "cf_cumulative": "Cumulative Cash Flow", "cf_fund_capital": "Fund Capital Structure",
-        "cf_net_equity": "Net Equity Cashflow", "cf_net_cash": "Net Cashflows",
-        "kpi_title": "Project KPIs", "irr": "IRR", "net_profit": "Equity Net Profit",
-        "roe": "ROE", "roe_annual": "ROE Annualized",
-        "zoning_title": "Building Regulations & Zoning Report",
-        "parcel_no": "Parcel Number", "plan_no": "Plan Number", "district": "District",
-        "municipality": "Municipality", "area_label": "Land Area (m²)",
-        "building_code": "Building Code", "max_floors": "Max Floors",
-        "far_label": "FAR (Floor Area Ratio)", "coverage_label": "Coverage Ratio",
-        "allowed_uses": "Allowed Uses", "setbacks_label": "Setbacks (m)",
-        "primary_use": "Primary Use", "land_use": "Land Use",
-        "notes": "Notes",
-        "market_title": "Real Estate Market Data (SREM)", "market_index": "Market Index",
-        "market_change": "Change", "daily_transactions": "Daily Transactions",
-        "daily_value": "Daily Total Value (SAR)", "avg_price": "Average Price / m²",
-        "trending_title": "Top Trending Districts", "city": "City",
-        "deals": "Deals", "value_sar": "Value (SAR)",
-        "market_source": "Source: Saudi Real Estate Market (SREM) - Ministry of Justice",
-        "sensitivity_title": "Sensitivity Analysis - IRR",
-        "sale_vs_cost": "Sale Price ↓ \\ Cost →",
-        "scenario_title": "Scenario Comparison", "scenario": "Scenario",
-        "conservative": "Conservative", "base": "Base", "aggressive": "Aggressive",
-        "sale_price_label": "Sale Price / m²",
-    },
-}
-
-
-def _L(lang: str) -> dict[str, str]:
-    return LABELS.get(lang, LABELS["ar"])
+from backend.excel_labels import get_labels as _L
 
 
 # ---------------------------------------------------------------------------
@@ -594,6 +460,9 @@ def _build_zoning_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
     ws.merge_cells("B1:D1")
 
     regs = land.get("regulations", {})
+    plan_info = land.get("plan_info", {})
+    demo = land.get("district_demographics", {})
+
     items = [
         (L["parcel_no"], land.get("parcel_number")),
         (L["plan_no"], land.get("plan_number")),
@@ -610,6 +479,28 @@ def _build_zoning_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
         (L["primary_use"], land.get("primary_use_label")),
         (L["land_use"], land.get("detailed_use_label")),
     ]
+
+    # Plan info from Geoportal Layer 3
+    if plan_info:
+        items.append(("", ""))
+        items.append(("\u062d\u0627\u0644\u0629 \u0627\u0644\u0645\u062e\u0637\u0637" if rtl else "Plan Status", plan_info.get("plan_status")))
+        items.append(("\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0627\u0644\u0645\u062e\u0637\u0637" if rtl else "Plan Use", plan_info.get("plan_use")))
+        items.append(("\u0646\u0648\u0639 \u0627\u0644\u0645\u062e\u0637\u0637" if rtl else "Plan Type", plan_info.get("plan_type")))
+        items.append(("\u062a\u0627\u0631\u064a\u062e \u0627\u0644\u0645\u062e\u0637\u0637" if rtl else "Plan Date (Hijri)", plan_info.get("plan_date_hijri")))
+
+    # District demographics from Geoportal Layer 4
+    if demo:
+        items.append(("", ""))
+        pop = demo.get("population")
+        area_m2 = demo.get("area_m2")
+        pop_str = f"{int(pop):,}" if pop else None
+        items.append(("\u0633\u0643\u0627\u0646 \u0627\u0644\u062d\u064a" if rtl else "District Population", pop_str))
+        if area_m2:
+            area_km2 = float(area_m2) / 1_000_000
+            items.append(("\u0645\u0633\u0627\u062d\u0629 \u0627\u0644\u062d\u064a" if rtl else "District Area", f"{area_km2:.1f} \u0643\u0645\u00b2"))
+        en_name = demo.get("district_name_en")
+        if en_name:
+            items.append(("District Name (EN)", en_name))
     r = 3
     for label, val in items:
         if not label:
@@ -629,8 +520,7 @@ def _build_zoning_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
         r += 1
         for note in notes:
             # Sanitize illegal characters for openpyxl
-            import re as _re
-            clean = _re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', str(note))
+            clean = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', str(note))
             _c(ws, r, 2, clean, F_SMALL, align=Alignment(wrap_text=True))
             ws.merge_cells(f"B{r}:D{r}")
             r += 1
@@ -640,14 +530,16 @@ def _build_zoning_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
 # Sheet 3: Market Data
 # ---------------------------------------------------------------------------
 
-def _build_market_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
-    ws = wb.create_sheet("Market Data" if not rtl else "بيانات السوق")
+def _build_market_sheet(wb: Workbook, land: dict, pf: dict, L: dict, rtl: bool) -> None:
+    ws = wb.create_sheet("Market Data" if not rtl else "\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0633\u0648\u0642")
     ws.sheet_view.rightToLeft = rtl
-    ws.column_dimensions["B"].width = 25
+    ws.column_dimensions["B"].width = 28
+    ws.column_dimensions["C"].width = 5
     ws.column_dimensions["D"].width = 25
+    ws.column_dimensions["E"].width = 18
 
     _c(ws, 1, 2, L["market_title"], Font(name=FONT_AR, size=16, bold=True, color="FFFFFF"), FILL_HEADER, align=CENTER)
-    ws.merge_cells("B1:D1")
+    ws.merge_cells("B1:E1")
 
     mkt = land.get("market", {})
     items = [
@@ -662,6 +554,76 @@ def _build_market_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
         _c(ws, r, 2, label, F_BOLD, FILL_DATA, align=RIGHT_AL, border=BORDER_THIN)
         _c(ws, r, 4, val, F_NORMAL, fmt=SAR_FMT if isinstance(val, (int, float)) and val and val > 100 else "0.00", align=CENTER, border=BORDER_THIN)
         r += 1
+
+    # District-specific market data
+    dist_mkt = mkt.get("district", {})
+    if dist_mkt:
+        r += 1
+        dist_label = "\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u062d\u064a" if rtl else "District Market Data"
+        _c(ws, r, 2, dist_label, F_HEADER)
+        r += 1
+        dist_items = [
+            ("\u0627\u0644\u062d\u064a" if rtl else "District", dist_mkt.get("district_name")),
+            ("\u0645\u062a\u0648\u0633\u0637 \u0627\u0644\u0633\u0639\u0631 / \u0645\u00b2" if rtl else "Avg Price / m\u00b2", dist_mkt.get("avg_price_sqm")),
+            ("\u0627\u0644\u0641\u062a\u0631\u0629" if rtl else "Period", dist_mkt.get("period")),
+            ("\u0639\u062f\u062f \u0627\u0644\u0635\u0641\u0642\u0627\u062a" if rtl else "Total Deals", dist_mkt.get("total_deals")),
+            ("\u0645\u062a\u0648\u0633\u0637 \u0627\u0644\u0631\u064a\u0627\u0636" if rtl else "Riyadh City Avg", dist_mkt.get("city_avg_price_sqm")),
+        ]
+        for label, val in dist_items:
+            if val is not None:
+                _c(ws, r, 2, label, F_BOLD, FILL_DATA, align=RIGHT_AL, border=BORDER_THIN)
+                fmt = SAR_FMT if isinstance(val, (int, float)) and val and val > 100 else None
+                _c(ws, r, 4, val, F_NORMAL, fmt=fmt, align=CENTER, border=BORDER_THIN)
+                r += 1
+
+    # Index history
+    idx_hist = dist_mkt.get("index_history", []) if dist_mkt else []
+    if idx_hist:
+        r += 1
+        _c(ws, r, 2, "\u0645\u0624\u0634\u0631 \u0627\u0644\u0633\u0648\u0642 (\u0623\u0633\u0628\u0648\u0639\u064a)" if rtl else "Weekly Market Index", F_HEADER)
+        r += 1
+        _c(ws, r, 2, "\u0627\u0644\u062a\u0627\u0631\u064a\u062e" if rtl else "Date", F_BOLD, FILL_SECTION, align=CENTER, border=BORDER_THIN)
+        _c(ws, r, 4, "\u0627\u0644\u0645\u0624\u0634\u0631" if rtl else "Index", F_BOLD, FILL_SECTION, align=CENTER, border=BORDER_THIN)
+        _c(ws, r, 5, "\u0627\u0644\u062a\u063a\u064a\u0631" if rtl else "Change", F_BOLD, FILL_SECTION, align=CENTER, border=BORDER_THIN)
+        r += 1
+        for pt in idx_hist:
+            _c(ws, r, 2, pt.get("date", ""), F_NORMAL, align=CENTER, border=BORDER_THIN)
+            _c(ws, r, 4, pt.get("index"), F_NORMAL, fmt=SAR_FMT, align=CENTER, border=BORDER_THIN)
+            change = pt.get("change", 0)
+            cell = _c(ws, r, 5, change, F_NORMAL, fmt="0.00", align=CENTER, border=BORDER_THIN)
+            if change and change >= 0:
+                cell.fill = FILL_GREEN
+            elif change and change < 0:
+                cell.fill = FILL_RED
+            r += 1
+
+    # Intelligence KPIs
+    kpis = pf.get("kpis", {})
+    if kpis.get("deal_score") is not None:
+        r += 1
+        _c(ws, r, 2, "\u062a\u062d\u0644\u064a\u0644 \u0627\u0644\u0635\u0641\u0642\u0629" if rtl else "Deal Analysis", F_HEADER)
+        r += 1
+        intel_items = [
+            ("\u062a\u0642\u064a\u064a\u0645 \u0627\u0644\u0635\u0641\u0642\u0629" if rtl else "Deal Score", f"{kpis['deal_score']}/100"),
+            ("\u0646\u0642\u0637\u0629 \u0627\u0644\u062a\u0639\u0627\u062f\u0644" if rtl else "Break-even Price", f"{kpis.get('break_even_price_sqm', 0):,.0f} \u0631.\u0633/\u0645\u00b2"),
+            ("\u062a\u0643\u0644\u0641\u0629 \u0627\u0644\u0623\u0631\u0636/\u0645\u00b2 \u0645\u0628\u0646\u064a" if rtl else "Land Cost per GBA", f"{kpis.get('land_cost_per_gba', 0):,.0f} \u0631.\u0633"),
+            ("\u0645\u0636\u0627\u0639\u0641 \u0627\u0644\u0639\u0627\u0626\u062f" if rtl else "Revenue Multiple", f"{kpis.get('revenue_multiple', 0):.2f}x"),
+            ("\u0646\u0633\u0628\u0629 \u0631\u0633\u0648\u0645 \u0627\u0644\u0635\u0646\u062f\u0648\u0642" if rtl else "Fund Overhead", f"{kpis.get('fund_overhead_ratio', 0)*100:.1f}%"),
+        ]
+        for label, val in intel_items:
+            _c(ws, r, 2, label, F_BOLD, FILL_DATA, align=RIGHT_AL, border=BORDER_THIN)
+            _c(ws, r, 4, val, F_NORMAL, align=CENTER, border=BORDER_THIN)
+            r += 1
+
+        # Risk flags
+        risks = kpis.get("risk_flags", [])
+        if risks:
+            r += 1
+            _c(ws, r, 2, "\u0645\u062e\u0627\u0637\u0631" if rtl else "Risk Flags", F_BOLD)
+            r += 1
+            for flag in risks:
+                _c(ws, r, 2, flag, F_NORMAL, FILL_RED, border=BORDER_THIN)
+                r += 1
 
     # Trending districts
     trending = mkt.get("trending_districts") or []
@@ -679,6 +641,19 @@ def _build_market_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
             _c(ws, r, 3, d.get("city"), F_NORMAL, align=CENTER, border=BORDER_THIN)
             _c(ws, r, 4, d.get("deals"), F_NORMAL, align=CENTER, border=BORDER_THIN)
             _c(ws, r, 5, d.get("total_sar"), F_NORMAL, fmt=SAR_FMT, align=CENTER, border=BORDER_THIN)
+            r += 1
+
+    # Data sources
+    sources = land.get("data_sources", {})
+    if sources:
+        r += 2
+        _c(ws, r, 2, "\u0645\u0635\u0627\u062f\u0631 \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a" if rtl else "Data Sources", F_HEADER)
+        r += 1
+        for src, active in sources.items():
+            status = "\u2705 \u0646\u0634\u0637" if active else "\u274c \u063a\u064a\u0631 \u0645\u062a\u0627\u062d"
+            _c(ws, r, 2, src.replace("_", " "), F_NORMAL, border=BORDER_THIN)
+            cell = _c(ws, r, 4, status, F_NORMAL, align=CENTER, border=BORDER_THIN)
+            cell.fill = FILL_GREEN if active else FILL_RED
             r += 1
 
     r += 2
@@ -799,11 +774,11 @@ def generate_excel(result: dict, land_object: dict, lang: str = "ar") -> bytes:
     """
     wb = Workbook()
     L = _L(lang)
-    rtl = lang == "ar"
+    rtl = (lang == "ar")
 
     _build_assumptions_sheet(wb, result, land_object, L, rtl)
     _build_zoning_sheet(wb, land_object, L, rtl)
-    _build_market_sheet(wb, land_object, L, rtl)
+    _build_market_sheet(wb, land_object, result, L, rtl)
     _build_sensitivity_sheet(wb, result, L, rtl)
     _build_scenario_sheet(wb, result, land_object, L, rtl)
 

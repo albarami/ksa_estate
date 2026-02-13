@@ -89,6 +89,10 @@ export default function Dashboard({
             overrides={overrides}
             onChange={onOverridesChange}
             labels={labels}
+            landDefaults={{
+              far: land.regulations?.far ?? undefined,
+              sale_price_per_sqm: land.market?.district?.avg_price_sqm ?? undefined,
+            }}
           />
 
           <CashFlowChart cashFlows={proforma.cash_flows} labels={labels} />

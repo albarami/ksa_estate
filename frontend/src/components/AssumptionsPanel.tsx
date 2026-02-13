@@ -6,6 +6,8 @@ interface Props {
   overrides: Overrides
   onChange: (o: Overrides) => void
   labels: Labels
+  /** Defaults from the actual land object / market data — used for reset */
+  landDefaults?: Partial<Overrides>
 }
 
 interface SliderDef {
@@ -17,7 +19,7 @@ interface SliderDef {
   format: (n: number) => string
 }
 
-export default function AssumptionsPanel({ overrides, onChange, labels }: Props) {
+export default function AssumptionsPanel({ overrides, onChange, labels, landDefaults }: Props) {
   const [open, setOpen] = useState(true)
 
   // No combined construction cost — separate sliders now
@@ -41,19 +43,20 @@ export default function AssumptionsPanel({ overrides, onChange, labels }: Props)
   ]
 
   const getValue = (id: string): number => {
-    const defaults: Record<string, number> = {
-      land_price_per_sqm: 7000,
-      sale_price_per_sqm: 12500,
+    // Fallback defaults — only used if no override AND no landDefault
+    const fallbacks: Record<string, number> = {
+      land_price_per_sqm: 5000,
+      sale_price_per_sqm: 8000,
       infrastructure_cost_per_sqm: 500,
       superstructure_cost_per_sqm: 2500,
-      parking_area_sqm: 15000,
+      parking_area_sqm: 0,
       far: 1.0,
       in_kind_pct: 0,
       fund_period_years: 3,
       bank_ltv_pct: 0.667,
       interest_rate_pct: 0.08,
     }
-    return (overrides[id] as number) ?? defaults[id] ?? 0
+    return (overrides[id] as number) ?? (landDefaults?.[id] as number) ?? fallbacks[id] ?? 0
   }
 
   const handleChange = (id: string, val: number) => {
@@ -61,13 +64,14 @@ export default function AssumptionsPanel({ overrides, onChange, labels }: Props)
   }
 
   const reset = () => {
-    const currentFar = (overrides.far as number) ?? 1.0
+    // Reset to land-sourced defaults, keeping FAR from land regulations
+    const currentFar = (landDefaults?.far as number) ?? (overrides.far as number) ?? 1.0
     onChange({
-      land_price_per_sqm: 7000,
-      sale_price_per_sqm: 12500,
-      infrastructure_cost_per_sqm: 500,
-      superstructure_cost_per_sqm: 2500,
-      parking_area_sqm: 0,
+      land_price_per_sqm: (landDefaults?.land_price_per_sqm as number) ?? 5000,
+      sale_price_per_sqm: (landDefaults?.sale_price_per_sqm as number) ?? 8000,
+      infrastructure_cost_per_sqm: (landDefaults?.infrastructure_cost_per_sqm as number) ?? 500,
+      superstructure_cost_per_sqm: (landDefaults?.superstructure_cost_per_sqm as number) ?? 2500,
+      parking_area_sqm: (landDefaults?.parking_area_sqm as number) ?? 0,
       parking_cost_per_sqm: 2000,
       far: currentFar,
       in_kind_pct: 0,

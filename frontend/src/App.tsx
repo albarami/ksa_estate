@@ -65,10 +65,13 @@ function AppInner() {
     setLand(l)
     setInitialProforma(pf)
     setParcelId(l.parcel_id)
-    // Seed overrides with actual parcel zoning values (no hardcoding)
+    // Seed overrides from actual parcel data — no hardcoding
+    const districtAvg = l.market?.district?.avg_price_sqm
     setOverrides(prev => ({
       ...prev,
       far: l.regulations?.far ?? prev.far,
+      // Use district market avg as sale price hint if available
+      sale_price_per_sqm: districtAvg && districtAvg > 500 ? districtAvg : prev.sale_price_per_sqm,
     }))
     setScreen('dashboard')
   }, [])
