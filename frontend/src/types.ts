@@ -20,7 +20,27 @@ export interface LandObject {
   reviewed_bld_code: number
   regulations: Regulations
   market: MarketData
+  plan_info?: PlanInfo
+  district_demographics?: DistrictDemographics
+  data_sources?: Record<string, boolean>
   data_health: { fields_checked: number; fields_populated: number; score_pct: number }
+}
+
+export interface PlanInfo {
+  plan_date_hijri?: string
+  plan_year?: number
+  plan_status?: string
+  plan_use?: string
+  plan_type?: string
+}
+
+export interface DistrictDemographics {
+  population?: number
+  population_density?: number
+  area_m2?: number
+  district_name_ar?: string
+  district_name_en?: string
+  district_code?: string
 }
 
 export interface Regulations {
@@ -40,6 +60,19 @@ export interface MarketData {
   daily_total_value_sar: number | null
   daily_avg_price_sqm: number | null
   trending_districts: { name: string; city: string; deals: number; total_sar: number }[]
+  district?: DistrictMarket
+}
+
+export interface DistrictMarket {
+  district_name?: string
+  avg_price_sqm?: number | null
+  total_deals?: number
+  total_value?: number
+  period?: string
+  found?: boolean
+  note?: string
+  city_avg_price_sqm?: number
+  index_history?: { date: string; index: number; change: number }[]
 }
 
 export interface ProFormaResult {
@@ -77,6 +110,13 @@ export interface KPIs {
   profit_margin: number
   cost_to_revenue_ratio: number
   yield_on_cost: number
+  // Intelligence metrics
+  break_even_price_sqm?: number
+  land_cost_per_gba?: number
+  revenue_multiple?: number
+  fund_overhead_ratio?: number
+  deal_score?: number
+  risk_flags?: string[]
 }
 
 export interface Sensitivity {

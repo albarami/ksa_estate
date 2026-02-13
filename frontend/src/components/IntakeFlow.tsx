@@ -45,7 +45,8 @@ export default function IntakeFlow({ labels: _labels, onComplete, onCancel }: Pr
     const area = (extracted.land_area_sqm as number) || (geoportal?.area_sqm) || 0
     const price = parseFloat(landPrice)
     const far = (merged?.geoportal_regulations as Record<string, unknown>)?.far as number || 1.2
-    const avgMarketPrice = (geoportal?.market?.daily_avg_price_sqm) || 8000
+    // Use district-level market price if available, then daily avg, then fallback
+    const avgMarketPrice = (geoportal?.market?.district?.avg_price_sqm) || (geoportal?.market?.daily_avg_price_sqm) || 8000
 
     // Build overrides with document data + user price + smart defaults
     const overrides: Overrides = {
@@ -110,6 +111,17 @@ export default function IntakeFlow({ labels: _labels, onComplete, onCancel }: Pr
   const status = extracted?.land_status || ''
   const code = merged?.geoportal_building_code || extracted?.building_code || ''
 
+  // Market context from geoportal district data
+  const districtMarket = geoportal?.market?.district
+  const marketAvg = districtMarket?.avg_price_sqm
+  const marketPeriod = districtMarket?.period
+  const indexHistory = districtMarket?.index_history || []
+  const latestIndex = indexHistory.length > 0 ? indexHistory[indexHistory.length - 1] : null
+
+  // Plan info from Geoportal layer 3
+  const planInfo = geoportal?.plan_info
+  const districtDemo = geoportal?.district_demographics
+
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
       <motion.div
@@ -172,6 +184,51 @@ export default function IntakeFlow({ labels: _labels, onComplete, onCancel }: Pr
                 </div>
               </div>
 
+              {/* Market context */}
+              {(marketAvg || planInfo?.plan_status || districtDemo?.population) && (
+                <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4 mb-4">
+                  <h4 className="text-sm font-bold mb-3 flex items-center gap-2" style={{ color: 'var(--color-gold)' }}>
+                    <span>📊</span> سياق السوق
+                  </h4>
+                  <div className="grid grid-cols-2 gap-2 text-sm">
+                    {marketAvg && (
+                      <div className="p-2 rounded-lg bg-[var(--color-card)]">
+                        <div className="text-xs text-[var(--color-text-dim)]">متوسط السعر</div>
+                        <div className="font-bold" style={{ color: 'var(--color-gold)' }}>
+                          {marketAvg.toLocaleString()} ر.س/م²
+                        </div>
+                        <div className="text-[10px] text-[var(--color-text-dim)]">
+                          {marketPeriod === 'city_average' ? 'متوسط الرياض' : `${districtMarket?.district_name || ''}`}
+                        </div>
+                      </div>
+                    )}
+                    {latestIndex && (
+                      <div className="p-2 rounded-lg bg-[var(--color-card)]">
+                        <div className="text-xs text-[var(--color-text-dim)]">مؤشر السوق</div>
+                        <div className="font-bold">{latestIndex.index.toLocaleString()}</div>
+                        <div className={`text-[10px] ${latestIndex.change >= 0 ? 'text-[var(--color-positive)]' : 'text-[var(--color-negative)]'}`}>
+                          {latestIndex.change >= 0 ? '+' : ''}{latestIndex.change.toFixed(1)}
+                        </div>
+                      </div>
+                    )}
+                    {planInfo?.plan_status && (
+                      <div className="p-2 rounded-lg bg-[var(--color-card)]">
+                        <div className="text-xs text-[var(--color-text-dim)]">حالة المخطط</div>
+                        <div className="font-bold">{planInfo.plan_status}</div>
+                        {planInfo.plan_use && <div className="text-[10px] text-[var(--color-text-dim)]">{planInfo.plan_use} / {planInfo.plan_type}</div>}
+                      </div>
+                    )}
+                    {districtDemo?.population && (
+                      <div className="p-2 rounded-lg bg-[var(--color-card)]">
+                        <div className="text-xs text-[var(--color-text-dim)]">سكان الحي</div>
+                        <div className="font-bold">{districtDemo.population.toLocaleString()}</div>
+                        {districtDemo.district_name_en && <div className="text-[10px] text-[var(--color-text-dim)]">{districtDemo.district_name_en}</div>}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
               {/* Conflicts */}
               {conflicts.length > 0 && (
                 <div className="rounded-xl border border-[var(--color-warning)] bg-[var(--color-warning)]/10 p-3 mb-4 text-sm">
@@ -182,12 +239,17 @@ export default function IntakeFlow({ labels: _labels, onComplete, onCancel }: Pr
               {/* Price input — THE ONE REQUIRED QUESTION */}
               <div className="rounded-xl border border-[var(--color-gold)] bg-[var(--color-card)] p-4 mb-4">
                 <label className="block text-sm mb-2 font-semibold">كم سعر المتر المطلوب؟</label>
+                {marketAvg && (
+                  <p className="text-xs text-[var(--color-text-dim)] mb-2">
+                    متوسط السوق: <span className="font-bold" style={{ color: 'var(--color-gold)' }}>{marketAvg.toLocaleString()} ر.س/م²</span>
+                  </p>
+                )}
                 <div className="flex gap-2">
                   <input
                     type="number"
                     value={landPrice}
                     onChange={e => setLandPrice(e.target.value)}
-                    placeholder="مثال: 7000"
+                    placeholder={marketAvg ? `متوسط: ${marketAvg.toLocaleString()}` : 'مثال: 7000'}
                     className="flex-1 bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg px-4 py-3 text-lg text-center outline-none focus:border-[var(--color-gold)]"
                     dir="ltr"
                   />

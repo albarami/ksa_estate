@@ -3,6 +3,8 @@ import type { LandObject, ProFormaResult, Overrides, Labels, Lang } from '../typ
 import TopBar from './TopBar'
 import MapCard from './MapCard'
 import ZoningCard from './ZoningCard'
+import DistrictCard from './DistrictCard'
+import MarketIntelligence from './MarketIntelligence'
 import FinancialSummary from './FinancialSummary'
 import AssumptionsPanel from './AssumptionsPanel'
 import CashFlowChart from './CashFlowChart'
@@ -59,6 +61,14 @@ export default function Dashboard({
             areaSqm={land.area_sqm}
             labels={labels}
           />
+          <DistrictCard
+            districtName={land.district_name}
+            planInfo={land.plan_info}
+            demographics={land.district_demographics}
+            districtMarket={land.market?.district}
+            dataSources={land.data_sources}
+            labels={labels}
+          />
         </div>
 
         {/* Right column */}
@@ -66,6 +76,12 @@ export default function Dashboard({
           <FinancialSummary
             kpis={proforma.kpis}
             fundSize={proforma.fund_size}
+            labels={labels}
+          />
+
+          <MarketIntelligence
+            kpis={proforma.kpis}
+            salePricePerSqm={(overrides.sale_price_per_sqm as number) ?? 0}
             labels={labels}
           />
 
