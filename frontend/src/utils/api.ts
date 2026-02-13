@@ -12,6 +12,20 @@ export async function fetchParcel(id: number): Promise<LandObject> {
   return json(`${BASE}/parcel/${id}`, { method: 'POST' })
 }
 
+export async function uploadIntake(file: File): Promise<{
+  extracted: Record<string, unknown>
+  coordinates: { lat: number; lng: number } | null
+  geoportal: LandObject | null
+  merged: Record<string, unknown>
+  conflicts: string[]
+}> {
+  const form = new FormData()
+  form.append('file', file)
+  const res = await fetch(`${BASE}/intake`, { method: 'POST', body: form })
+  if (!res.ok) throw new Error(`Upload failed: ${res.status} ${await res.text()}`)
+  return res.json()
+}
+
 export async function locateParcel(query: string): Promise<{ parcel_id: number; land_object: LandObject }> {
   return json(`${BASE}/locate`, {
     method: 'POST',

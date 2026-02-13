@@ -14,7 +14,7 @@ from typing import Any
 import httpx
 from anthropic import AsyncAnthropic
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 from pydantic import BaseModel
@@ -26,6 +26,7 @@ from backend.advisor import get_advice, search_market
 from backend.data_fetch_http import clear_caches, fetch_land_object
 from backend.excel_generator import generate_excel
 from backend.geocode import find_parcel_at_coords, parse_coordinates
+from backend.intake import extract_fields, merge_document_and_geoportal, parse_docx, resolve_coordinates
 from computation_engine import compute_proforma
 
 load_dotenv()
@@ -114,6 +115,60 @@ class SearchRequest(BaseModel):
 # ---------------------------------------------------------------------------
 # Endpoints
 # ---------------------------------------------------------------------------
+
+@app.post("/api/intake")
+async def intake_document(file: UploadFile) -> dict:
+    """Parse a .docx land opportunity and return extracted + Geoportal data."""
+    if not _http_client or not _anthropic:
+        raise HTTPException(500, "Server not ready")
+
+    if not file.filename or not file.filename.endswith(".docx"):
+        raise HTTPException(400, "Only .docx files are supported")
+
+    try:
+        # 1. Parse docx
+        file_bytes = await file.read()
+        text = parse_docx(file_bytes)
+        log.info("Parsed docx: %d chars", len(text))
+
+        # 2. Extract fields via Claude
+        extracted = await extract_fields(text, _anthropic)
+        log.info("Extracted: %s", {k: v for k, v in extracted.items() if k != "survey_coordinates"})
+
+        # 3. Resolve coordinates
+        coords = await resolve_coordinates(extracted, _http_client)
+        log.info("Coordinates: %s", coords)
+
+        # 4. Find parcel in Geoportal
+        geoportal_data = None
+        if coords:
+            lat, lng = coords
+            parcel_info = await find_parcel_at_coords(_http_client, lat, lng)
+            if parcel_info and parcel_info.get("parcel_id"):
+                try:
+                    geoportal_data = await fetch_land_object(_http_client, parcel_info["parcel_id"])
+                except Exception as exc:
+                    log.warning("Geoportal fetch failed: %s", exc)
+                    geoportal_data = {"parcel_summary": parcel_info}
+
+        # 5. Merge
+        merged = merge_document_and_geoportal(extracted, geoportal_data)
+
+        return {
+            "extracted": extracted,
+            "coordinates": {"lat": coords[0], "lng": coords[1]} if coords else None,
+            "geoportal": geoportal_data,
+            "merged": merged,
+            "conflicts": merged.get("conflicts", []),
+            "document_text_preview": text[:500],
+        }
+
+    except HTTPException:
+        raise
+    except Exception as exc:
+        log.error("Intake error: %s", exc, exc_info=True)
+        raise HTTPException(500, str(exc))
+
 
 @app.post("/api/locate")
 async def locate_parcel(req: LocationRequest) -> dict:

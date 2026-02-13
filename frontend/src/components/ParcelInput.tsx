@@ -7,9 +7,10 @@ const EXAMPLES = [3710897, 3710898, 3900000]
 interface Props {
   labels: Labels
   onSubmit: (query: string) => void
+  onUpload?: () => void
 }
 
-export default function ParcelInput({ labels, onSubmit }: Props) {
+export default function ParcelInput({ labels, onSubmit, onUpload }: Props) {
   const [value, setValue] = useState('')
 
   const handleSubmit = () => {
@@ -83,6 +84,22 @@ export default function ParcelInput({ labels, onSubmit }: Props) {
           </button>
         ))}
       </motion.div>
+
+      {onUpload && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.0 }}
+          className="mt-8"
+        >
+          <button
+            onClick={onUpload}
+            className="px-6 py-2.5 rounded-xl border border-[var(--color-border)] text-sm hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] transition-colors"
+          >
+            📄 ارفع عرض أرض (.docx)
+          </button>
+        </motion.div>
+      )}
     </motion.div>
   )
 }

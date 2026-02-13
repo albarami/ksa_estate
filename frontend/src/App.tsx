@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import ParcelInput from './components/ParcelInput'
 import LoadingProgress from './components/LoadingProgress'
+import IntakeFlow from './components/IntakeFlow'
 import Dashboard from './components/Dashboard'
 import { useProforma } from './hooks/useProforma'
 import { getLabels } from './utils/i18n'
@@ -27,7 +28,7 @@ const DEFAULT_OVERRIDES: Overrides = {
   efficiency_ratio: 1.0,
 }
 
-type Screen = 'input' | 'loading' | 'dashboard'
+type Screen = 'input' | 'loading' | 'intake' | 'dashboard'
 
 function AppInner() {
   const [screen, setScreen] = useState<Screen>('input')
@@ -99,7 +100,25 @@ function AppInner() {
       )}
 
       {screen === 'input' && (
-        <ParcelInput labels={labels} onSubmit={handleSubmit} />
+        <ParcelInput
+          labels={labels}
+          onSubmit={handleSubmit}
+          onUpload={() => setScreen('intake')}
+        />
+      )}
+
+      {screen === 'intake' && (
+        <IntakeFlow
+          labels={labels}
+          onComplete={(l, pf, ov) => {
+            setLand(l)
+            setInitialProforma(pf)
+            setParcelId(l.parcel_id || null)
+            setOverrides(ov)
+            setScreen('dashboard')
+          }}
+          onCancel={() => setScreen('input')}
+        />
       )}
 
       {screen === 'loading' && (
