@@ -494,6 +494,65 @@ def compute_proforma(
     cost_rev_ratio = total_fund_size / gross_revenue if gross_revenue > 0 else 0
     yield_on_cost = gross_revenue / total_fund_size if total_fund_size > 0 else 0
 
+    # ---------------------------------------------------------------
+    # 10b. Computed intelligence metrics
+    # ---------------------------------------------------------------
+
+    # Break-even sale price: minimum price/m2 to not lose money
+    break_even_price = total_fund_size / sellable if sellable > 0 else 0
+
+    # Land cost per buildable m2: what you pay per m2 you can actually build
+    land_cost_per_gba = total_land / gba if gba > 0 else 0
+
+    # Revenue multiple: how many times your money comes back
+    revenue_multiple = gross_revenue / total_fund_size if total_fund_size > 0 else 0
+
+    # Fund overhead ratio: are fees eating the deal?
+    fund_overhead_ratio = total_fund_fees / total_fund_size if total_fund_size > 0 else 0
+
+    # Risk flags
+    risk_flags: list[str] = []
+    if fund_overhead_ratio > 0.05:
+        risk_flags.append("fund_overhead_high")  # Fees > 5% — parcel may be too small for fund
+    if in_kind_pct > 0.5:
+        risk_flags.append("high_inkind_exposure")  # >50% in-kind — land owner has dominant position
+    if irr is not None and irr < 0:
+        risk_flags.append("negative_returns")
+    if not p("far") or p("far") == 1.0:
+        risk_flags.append("unknown_zoning")  # FAR not set or default
+    if bank_loan > 0 and bank_loan / total_fund_size > 0.5:
+        risk_flags.append("high_leverage")
+
+    # Deal score (0-100): quick go/no-go signal
+    # Components: economics (40), zoning potential (20), structure (20), market (20)
+    score_economics = 0
+    if irr is not None:
+        if irr >= 0.15:
+            score_economics = 40
+        elif irr >= 0.10:
+            score_economics = 30
+        elif irr >= 0.05:
+            score_economics = 20
+        elif irr >= 0:
+            score_economics = 10
+
+    far_val = float(p("far") or 1.0)
+    score_zoning = min(20, int(far_val * 8))  # Higher FAR = more buildable = higher score
+
+    score_structure = 20  # default: reasonable
+    if fund_overhead_ratio > 0.05:
+        score_structure = 5  # too small for fund
+    elif fund_overhead_ratio > 0.03:
+        score_structure = 10
+
+    score_market = 10  # base
+    if revenue_multiple >= 1.2:
+        score_market = 20
+    elif revenue_multiple >= 1.0:
+        score_market = 15
+
+    deal_score = score_economics + score_zoning + score_structure + score_market
+
     kpis = {
         "irr": irr,
         "equity_net_profit": equity_profit,
@@ -502,6 +561,13 @@ def compute_proforma(
         "profit_margin": profit_margin,
         "cost_to_revenue_ratio": cost_rev_ratio,
         "yield_on_cost": yield_on_cost,
+        # Intelligence metrics
+        "break_even_price_sqm": break_even_price,
+        "land_cost_per_gba": land_cost_per_gba,
+        "revenue_multiple": revenue_multiple,
+        "fund_overhead_ratio": fund_overhead_ratio,
+        "deal_score": deal_score,
+        "risk_flags": risk_flags,
     }
 
     # ---------------------------------------------------------------
