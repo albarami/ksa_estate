@@ -37,11 +37,12 @@ export default function AssumptionsPanel({ overrides, onChange, labels }: Props)
 
   const getValue = (id: string): number => {
     if (id === '_construction_total') return totalConstCost
-    if (id === 'far') return (overrides.far as number) ?? 1.5
+    // All values come from overrides — no hardcoded fallbacks for zoning
     const defaults: Record<string, number> = {
       land_price_per_sqm: 7000,
       sale_price_per_sqm: 12500,
       parking_area_sqm: 15000,
+      far: 1.0,
       fund_period_years: 3,
       bank_ltv_pct: 0.667,
     }
@@ -61,6 +62,8 @@ export default function AssumptionsPanel({ overrides, onChange, labels }: Props)
   }
 
   const reset = () => {
+    // Keep current FAR (from parcel), reset only financial assumptions
+    const currentFar = (overrides.far as number) ?? 1.0
     onChange({
       land_price_per_sqm: 7000,
       sale_price_per_sqm: 12500,
@@ -68,7 +71,7 @@ export default function AssumptionsPanel({ overrides, onChange, labels }: Props)
       superstructure_cost_per_sqm: 2500,
       parking_area_sqm: 15000,
       parking_cost_per_sqm: 2000,
-      far: 1.5,
+      far: currentFar,
       fund_period_years: 3,
       bank_ltv_pct: 0.667,
       interest_rate_pct: 0.08,

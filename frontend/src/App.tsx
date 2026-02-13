@@ -12,7 +12,7 @@ const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 1, refetchOnWindowFocus: false } },
 })
 
-// Al-Hada reference defaults — realistic baseline for Riyadh development
+// Defaults for financial assumptions (NOT zoning — zoning comes from the parcel)
 const DEFAULT_OVERRIDES: Overrides = {
   land_price_per_sqm: 7000,
   sale_price_per_sqm: 12500,
@@ -20,7 +20,7 @@ const DEFAULT_OVERRIDES: Overrides = {
   superstructure_cost_per_sqm: 2500,
   parking_area_sqm: 15000,
   parking_cost_per_sqm: 2000,
-  far: 1.5,
+  // NO far here — it comes from the actual parcel's regulations
   fund_period_years: 3,
   bank_ltv_pct: 0.667,
   interest_rate_pct: 0.08,
@@ -63,8 +63,12 @@ function AppInner() {
   const handleLoadComplete = useCallback((l: LandObject, pf: ProFormaResult) => {
     setLand(l)
     setInitialProforma(pf)
-    // CRITICAL: set parcelId from the land object so useProforma works for live updates
     setParcelId(l.parcel_id)
+    // Seed overrides with actual parcel zoning values (no hardcoding)
+    setOverrides(prev => ({
+      ...prev,
+      far: l.regulations?.far ?? prev.far,
+    }))
     setScreen('dashboard')
   }, [])
 
