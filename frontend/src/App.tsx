@@ -12,15 +12,15 @@ const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 1, refetchOnWindowFocus: false } },
 })
 
-// Defaults for financial assumptions (NOT zoning — zoning comes from the parcel)
+// Defaults — financial assumptions only. Zoning (FAR) comes from parcel.
 const DEFAULT_OVERRIDES: Overrides = {
   land_price_per_sqm: 7000,
   sale_price_per_sqm: 12500,
   infrastructure_cost_per_sqm: 500,
   superstructure_cost_per_sqm: 2500,
-  parking_area_sqm: 15000,
+  parking_area_sqm: 0,
   parking_cost_per_sqm: 2000,
-  // NO far here — it comes from the actual parcel's regulations
+  in_kind_pct: 0,
   fund_period_years: 3,
   bank_ltv_pct: 0.667,
   interest_rate_pct: 0.08,

@@ -65,8 +65,7 @@ export default function Dashboard({
         <div className="lg:col-span-3 space-y-4">
           <FinancialSummary
             kpis={proforma.kpis}
-            fundSize={proforma.fund_size.total_fund_size}
-            equity={proforma.fund_size.equity_amount}
+            fundSize={proforma.fund_size}
             labels={labels}
           />
 
