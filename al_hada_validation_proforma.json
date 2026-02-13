@@ -170,7 +170,8 @@
     "brokerage_vat": 918750.0,
     "total_land_acquisition": 264293750.0,
     "cash_portion": 264293750.0,
-    "in_kind_portion": 0.0
+    "in_kind_portion": 0.0,
+    "in_kind_pct": 0.0
   },
   "construction_costs": {
     "gba_sqm": 52500.0,

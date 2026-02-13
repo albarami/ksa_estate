@@ -204,19 +204,24 @@ def compute_proforma(
     revenue_ph = _phase("revenue_phasing")
 
     # ---------------------------------------------------------------
-    # 2. Land costs
+    # 2. Land costs (in-kind aware)
     # ---------------------------------------------------------------
     land_area = float(p("land_area_sqm") or 0)
     land_ppmsq = float(p("land_price_per_sqm") or 0)
+    in_kind_pct = float(p("in_kind_pct") or 0)
+    cash_pct = 1.0 - in_kind_pct
 
     land_price_total = land_area * land_ppmsq
-    brokerage_fee = p("brokerage_fee_pct") * land_price_total
-    transfer_tax = p("real_estate_transfer_tax_pct") * land_price_total
-    brokerage_vat = p("brokerage_vat_pct") * brokerage_fee
-    total_land = land_price_total + brokerage_fee + transfer_tax + brokerage_vat
+    in_kind_value = land_price_total * in_kind_pct
 
-    in_kind_value = land_price_total * p("in_kind_pct")
-    cash_land = total_land * p("cash_purchase_pct")
+    # When in-kind: brokerage + transfer tax apply only on CASH portion
+    brokerage_fee = p("brokerage_fee_pct") * land_price_total * cash_pct
+    transfer_tax = p("real_estate_transfer_tax_pct") * land_price_total * cash_pct
+    brokerage_vat = p("brokerage_vat_pct") * brokerage_fee
+
+    # Total land includes full price (in-kind is a contribution, not free)
+    total_land = land_price_total + brokerage_fee + transfer_tax + brokerage_vat
+    cash_land = total_land - in_kind_value
 
     land_costs = {
         "land_price_total": land_price_total,
@@ -226,6 +231,7 @@ def compute_proforma(
         "total_land_acquisition": total_land,
         "cash_portion": cash_land,
         "in_kind_portion": in_kind_value,
+        "in_kind_pct": in_kind_pct,
     }
 
     # ---------------------------------------------------------------
@@ -440,18 +446,18 @@ def compute_proforma(
             beginning_cash[y + 1] = net_cash[y]
 
     # The equity CF for IRR:
-    # Time 0: -(equity invested)
-    # Y1..Yn-1: 0 (equity holders don't get intermediate distributions)
-    # Yn: final net cash = what equity holders receive back
+    # Time 0: -(equity + in_kind) — both are real economic investments
+    #   Al-Malqa: M41 = -(13.3M equity + 33.8M in_kind) = -47.1M
+    #   Al-Hada: M41 = -(378M equity + 0 in_kind) = -378M
+    # Y1..Yn-1: 0 (no intermediate distributions)
+    # Yn: surplus after all costs and debt repayment
+    total_equity_invested = equity_amount + in_kind_value
     equity_cf_for_irr = np.zeros(n + 1)
-    equity_cf_for_irr[0] = -equity_amount
-    # Final year: surplus after debt repayment goes to equity
-    # The Al-Hada model: P41 = P40 (net cash at end of final year)
-    # where P40 = net_operating_CF + carry + debt_draw - debt_repay
-    # In our waterfall, the accumulated cash after all years = what equity gets
-    # Compute: equity_in + sum(debt_in) + sum(revenue) - sum(outflows) - sum(debt_repay)
+    equity_cf_for_irr[0] = -total_equity_invested
+
+    # Surplus: all sources in - all uses out - debt repaid
     total_surplus = (
-        equity_amount + bank_loan
+        total_equity_invested + bank_loan
         + gross_revenue
         - float(total_outflows.sum())
         - bank_loan
@@ -473,7 +479,7 @@ def compute_proforma(
     except Exception:
         irr = None
 
-    roe_total = equity_profit / equity_amount if equity_amount > 0 else 0
+    roe_total = equity_profit / total_equity_invested if total_equity_invested > 0 else 0
     roe_annual = roe_total / n if n > 0 else 0
     profit_margin = equity_profit / gross_revenue if gross_revenue > 0 else 0
     cost_rev_ratio = total_fund_size / gross_revenue if gross_revenue > 0 else 0
@@ -524,9 +530,10 @@ def compute_proforma(
                         + interest_yearly
                         + (mgmt_cf + fixed_annual + onetime)
                     )
-                    adj_surplus = adj_equity + bank_loan + adj_revenue - float(adj_outflows.sum()) - bank_loan
+                    adj_total_invested = adj_equity + in_kind_value
+                    adj_surplus = adj_total_invested + bank_loan + adj_revenue - float(adj_outflows.sum()) - bank_loan
                     adj_eq_irr = np.zeros(n + 1)
-                    adj_eq_irr[0] = -adj_equity
+                    adj_eq_irr[0] = -adj_total_invested
                     adj_eq_irr[-1] = adj_surplus
                     row.append(float(npf.irr(adj_eq_irr)))
                 except Exception:
