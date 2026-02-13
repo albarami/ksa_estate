@@ -214,10 +214,11 @@ def compute_proforma(
     land_price_total = land_area * land_ppmsq
     in_kind_value = land_price_total * in_kind_pct
 
-    # When in-kind: brokerage + transfer tax apply only on CASH portion
-    brokerage_fee = p("brokerage_fee_pct") * land_price_total * cash_pct
-    transfer_tax = p("real_estate_transfer_tax_pct") * land_price_total * cash_pct
+    # Brokerage: ALWAYS on full land price (broker arranged the deal regardless)
+    brokerage_fee = p("brokerage_fee_pct") * land_price_total
     brokerage_vat = p("brokerage_vat_pct") * brokerage_fee
+    # Transfer tax: 0 when in-kind (contribution, not sale). Full when cash purchase.
+    transfer_tax = p("real_estate_transfer_tax_pct") * land_price_total if in_kind_pct == 0 else 0.0
 
     # Total land includes full price (in-kind is a contribution, not free)
     total_land = land_price_total + brokerage_fee + transfer_tax + brokerage_vat

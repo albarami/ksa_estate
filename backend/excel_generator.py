@@ -323,20 +323,21 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict, L: dict, rtl: b
         d_cf = cf.get("outflows_direct", [0]*3)[i] if i < len(cf.get("outflows_direct", [])) else 0
         _c(ws, 12, 14 + i, d_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    # ROW 13: Brokerage (on cash portion only: F12 * H11 = cash value)
+    # ROW 13: Brokerage (on FULL land price — broker is paid regardless)
     _c(ws, 13, 4, L["brokerage"], F_NORMAL)
     _c(ws, 13, 5, iv("brokerage_fee_pct") or 0.025, F_NORMAL, fmt=PCTD_FMT, align=CENTER)
-    _c(ws, 13, 6, "=$E$13*F12*H11", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 13, 6, "=$E$13*F12", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
     _c(ws, 13, 12, L.get("cf_indirect", "التكاليف غير المباشرة"), F_NORMAL)
     for i in range(len(years)):
         i_cf = cf.get("outflows_indirect", [0]*3)[i] if i < len(cf.get("outflows_indirect", [])) else 0
         _c(ws, 13, 14 + i, i_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    # ROW 14: Transfer tax (on cash portion only — no tax on in-kind)
+    # ROW 14: Transfer tax (0 when in-kind — contribution, not sale)
     _c(ws, 14, 4, L["transfer_tax"], F_NORMAL)
     _c(ws, 14, 5, iv("real_estate_transfer_tax_pct") or 0.05, F_NORMAL, fmt=PCT_FMT, align=CENTER)
-    _c(ws, 14, 6, "=E14*F12*H11", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    # Formula: if in-kind > 0, tax = 0; else tax = rate × land
+    _c(ws, 14, 6, "=IF(I11>0,0,E14*F12)", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
     _c(ws, 14, 12, L.get("cf_interest", "Interest"), F_NORMAL)
     for i in range(len(years)):
