@@ -322,6 +322,114 @@ async def _fetch_srem_market(client: httpx.AsyncClient) -> dict[str, Any]:
     return market
 
 
+async def _fetch_srem_district(
+    client: httpx.AsyncClient,
+    district_name: str,
+    city_code: int = 1,  # Riyadh
+) -> dict[str, Any]:
+    """Fetch SREM market data for a specific district.
+
+    Tries daily first, falls back to weekly then monthly for more data.
+    Also fetches Riyadh city-level stats for comparison.
+    """
+    cache_key = f"srem_district_{district_name}"
+    if cache_key in _srem_cache:
+        return _srem_cache[cache_key]
+
+    district_data: dict[str, Any] = {"district_name": district_name}
+
+    # Try daily → weekly → monthly for trending districts
+    for period, label in [("D", "daily"), ("W", "weekly"), ("M", "monthly")]:
+        try:
+            r = await client.post(
+                f"{SREM_API}/GetTrendingDistricts",
+                json={
+                    "periodCategory": period,
+                    "citySerial": city_code,
+                    "areaCategory": "A",
+                    "areaSerial": 0,
+                },
+                timeout=10,
+            )
+            d = r.json()
+            if not d.get("IsSuccess"):
+                continue
+
+            districts = d["Data"].get("TrendingDistricts", [])
+
+            # Find our district by name match
+            for dist in districts:
+                name = dist.get("DistrictName", "")
+                if name == district_name or district_name in name or name in district_name:
+                    total_area = dist.get("TotalArea", 0)
+                    total_price = dist.get("TotalPrice", 0)
+                    avg_price = total_price / total_area if total_area > 0 else 0
+                    district_data.update({
+                        "avg_price_sqm": round(avg_price),
+                        "total_deals": dist.get("TotalCount", 0),
+                        "total_value": total_price,
+                        "total_area": total_area,
+                        "district_code": dist.get("DistrictCode"),
+                        "period": label,
+                        "found": True,
+                    })
+                    break
+
+            if district_data.get("found"):
+                break
+        except Exception as exc:
+            log.warning("SREM district (%s): %s", label, exc)
+
+    # City-level stats for comparison (Riyadh)
+    try:
+        r = await client.post(
+            f"{SREM_API}/GetAreaInfo",
+            json={"periodCategory": "M", "period": 1, "areaSerial": 0, "areaType": "A", "cityCode": city_code},
+            timeout=10,
+        )
+        d = r.json()
+        if d.get("IsSuccess"):
+            stats = d["Data"].get("Stats", [])
+            if stats:
+                # Aggregate monthly stats
+                total_count = sum(s.get("TotalCount", 0) for s in stats)
+                total_price = sum(s.get("TotalPrice", 0) for s in stats)
+                total_area_city = sum(s.get("TotalArea", 0) for s in stats)
+                min_prices = [s.get("MinPrice", 0) for s in stats if s.get("MinPrice", 0) > 0]
+                max_prices = [s.get("MaxPrice", 0) for s in stats if s.get("MaxPrice", 0) > 0]
+                district_data["city_total_deals"] = total_count
+                district_data["city_avg_price_sqm"] = round(total_price / total_area_city) if total_area_city > 0 else 0
+                if min_prices:
+                    district_data["city_min_price"] = min(min_prices)
+                if max_prices:
+                    district_data["city_max_price"] = max(max_prices)
+    except Exception as exc:
+        log.warning("SREM city stats: %s", exc)
+
+    # Weekly index trend
+    try:
+        r = await client.get(f"{SREM_API}/GetMarketIndexByDateCategory?dateCategory=W", timeout=10)
+        d = r.json()
+        if d.get("IsSuccess"):
+            index_data = d["Data"].get("marketIndexDtos", [])
+            if index_data:
+                district_data["index_history"] = [
+                    {"date": p.get("CalcDate"), "index": p.get("MarketIndex"), "change": p.get("MarketIndexChange")}
+                    for p in index_data[-8:]
+                ]
+    except Exception as exc:
+        log.warning("SREM index history: %s", exc)
+
+    # If district not found in trending, use city avg as fallback
+    if not district_data.get("found"):
+        district_data["avg_price_sqm"] = district_data.get("city_avg_price_sqm")
+        district_data["period"] = "city_average"
+        district_data["note"] = f"District '{district_name}' not in current trending. Showing Riyadh city average."
+
+    _srem_cache[cache_key] = district_data
+    return district_data
+
+
 # ---------------------------------------------------------------------------
 # Assemble Land Object
 # ---------------------------------------------------------------------------
@@ -332,6 +440,7 @@ def _build_land_object(
     identify_data: dict,
     regulations: dict,
     srem_data: dict,
+    district_data: dict | None = None,
 ) -> dict[str, Any]:
     attrs = query_data.get("attributes", {})
     geom = query_data.get("geometry", {})
@@ -378,6 +487,8 @@ def _build_land_object(
                  "deals": d.get("TotalCount"), "total_sar": d.get("TotalPrice")}
                 for d in srem_data.get("trending_districts", [])[:5]
             ],
+            # District-specific market intelligence
+            "district": district_data or {},
         },
     }
 
@@ -442,12 +553,19 @@ async def fetch_land_object(
     log.info("[%d] Fetching regulations (code=%s)...", parcel_id, bld_code)
     regulations = await _fetch_building_regulations(client, parcel_id, bld_code)
 
-    # Step 4: SREM
+    # Step 4: SREM market data (national + district)
     log.info("[%d] Fetching SREM market data...", parcel_id)
     srem_data = await _fetch_srem_market(client)
 
+    # Step 5: District-specific market intelligence
+    district_name = identify_data.get("الحي") or ""
+    district_data: dict = {}
+    if district_name:
+        log.info("[%d] Fetching SREM district data for '%s'...", parcel_id, district_name)
+        district_data = await _fetch_srem_district(client, district_name)
+
     # Assemble
-    land_obj = _build_land_object(parcel_id, query_data, identify_data, regulations, srem_data)
+    land_obj = _build_land_object(parcel_id, query_data, identify_data, regulations, srem_data, district_data)
 
     # Cache land object
     _land_cache[parcel_id] = land_obj
