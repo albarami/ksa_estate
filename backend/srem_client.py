@@ -71,12 +71,13 @@ async def fetch_market(client: httpx.AsyncClient) -> dict[str, Any]:
 async def fetch_district(
     client: httpx.AsyncClient,
     district_name: str,
-    city_code: int = 1,
+    city_name: str = "\u0627\u0644\u0631\u064a\u0627\u0636",
 ) -> dict[str, Any]:
     """Fetch SREM market data for a specific district.
 
     Tries daily -> weekly -> monthly for trending districts.
-    Falls back to Riyadh city average when district is not trending.
+    Also collects Riyadh-specific districts for price comparison.
+    citySerial is ignored by the API, so we filter client-side by CityName.
     """
     cache_key = f"srem_district_{district_name}"
     if cache_key in _srem_cache:
@@ -84,20 +85,31 @@ async def fetch_district(
 
     data: dict[str, Any] = {"district_name": district_name}
 
+    # Collect all Riyadh districts across periods for a city-level avg
+    riyadh_districts: list[dict] = []
+
     # Try daily -> weekly -> monthly
     for period, label in [("D", "daily"), ("W", "weekly"), ("M", "monthly")]:
         try:
             r = await client.post(
                 f"{SREM_API}/GetTrendingDistricts",
-                json={"periodCategory": period, "citySerial": city_code, "areaCategory": "A", "areaSerial": 0},
+                json={"periodCategory": period, "citySerial": 0, "areaCategory": "A", "areaSerial": 0},
                 timeout=10,
             )
             d = r.json()
             if not d.get("IsSuccess"):
                 continue
+
             for dist in d["Data"].get("TrendingDistricts", []):
+                dist_city = dist.get("CityName", "")
                 name = dist.get("DistrictName", "")
-                if name == district_name or district_name in name or name in district_name:
+
+                # Collect Riyadh districts for city average
+                if city_name in dist_city or dist_city in city_name:
+                    riyadh_districts.append(dist)
+
+                # Exact district match
+                if not data.get("found") and (name == district_name or district_name in name or name in district_name):
                     total_area = dist.get("TotalArea", 0)
                     total_price = dist.get("TotalPrice", 0)
                     data.update({
@@ -109,29 +121,18 @@ async def fetch_district(
                         "period": label,
                         "found": True,
                     })
-                    break
-            if data.get("found"):
-                break
         except Exception as exc:
             log.warning("SREM district (%s): %s", label, exc)
 
-    # City-level stats for comparison
-    try:
-        r = await client.post(
-            f"{SREM_API}/GetAreaInfo",
-            json={"periodCategory": "M", "period": 1, "areaSerial": 0, "areaType": "A", "cityCode": city_code},
-            timeout=10,
-        )
-        d = r.json()
-        if d.get("IsSuccess"):
-            stats = d["Data"].get("Stats", [])
-            if stats:
-                total_price = sum(s.get("TotalPrice", 0) for s in stats)
-                total_area_city = sum(s.get("TotalArea", 0) for s in stats)
-                data["city_total_deals"] = sum(s.get("TotalCount", 0) for s in stats)
-                data["city_avg_price_sqm"] = round(total_price / total_area_city) if total_area_city > 0 else 0
-    except Exception as exc:
-        log.warning("SREM city stats: %s", exc)
+    # Compute Riyadh average from actual trending districts (not the useless GetAreaInfo)
+    if riyadh_districts:
+        total_price_ry = sum(d.get("TotalPrice", 0) for d in riyadh_districts)
+        total_area_ry = sum(d.get("TotalArea", 0) for d in riyadh_districts)
+        data["city_avg_price_sqm"] = round(total_price_ry / total_area_ry) if total_area_ry > 0 else None
+        data["city_total_deals"] = sum(d.get("TotalCount", 0) for d in riyadh_districts)
+        data["city_districts_sampled"] = len(riyadh_districts)
+    else:
+        data["city_avg_price_sqm"] = None
 
     # Weekly index trend
     try:
@@ -147,11 +148,19 @@ async def fetch_district(
     except Exception as exc:
         log.warning("SREM index history: %s", exc)
 
-    # Fallback when district not in trending
+    # When district not found, use Riyadh average OR set null (don't use 144)
     if not data.get("found"):
-        data["avg_price_sqm"] = data.get("city_avg_price_sqm")
-        data["period"] = "city_average"
-        data["note"] = f"District '{district_name}' not in current trending. Showing Riyadh city average."
+        city_avg = data.get("city_avg_price_sqm")
+        if city_avg and city_avg > 500:
+            # Use Riyadh-specific avg from actual transactions
+            data["avg_price_sqm"] = city_avg
+            data["period"] = "riyadh_average"
+            data["note"] = f"District '{district_name}' not in trending. Using Riyadh transaction average."
+        else:
+            # No reliable price data — don't guess
+            data["avg_price_sqm"] = None
+            data["period"] = "unavailable"
+            data["note"] = f"No SREM price data available for '{district_name}'."
 
     _srem_cache[cache_key] = data
     return data

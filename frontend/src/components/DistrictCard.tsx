@@ -37,7 +37,9 @@ export default function DistrictCard({
 }: Props) {
   const hasDemo = demographics?.population || demographics?.area_m2
   const hasPlan = planInfo?.plan_status
-  const hasMarket = districtMarket?.avg_price_sqm
+  // Only show market price if it's a real per-m² price (>500), not a junk aggregate
+  const avgPrice = districtMarket?.avg_price_sqm
+  const hasMarket = avgPrice && avgPrice > 500
   const indexHistory = districtMarket?.index_history || []
 
   if (!hasDemo && !hasPlan && !hasMarket) return null

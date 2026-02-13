@@ -45,8 +45,9 @@ export default function IntakeFlow({ labels: _labels, onComplete, onCancel }: Pr
     const area = (extracted.land_area_sqm as number) || (geoportal?.area_sqm) || 0
     const price = parseFloat(landPrice)
     const far = (merged?.geoportal_regulations as Record<string, unknown>)?.far as number || 1.2
-    // Use district-level market price if available, then daily avg, then fallback
-    const avgMarketPrice = (geoportal?.market?.district?.avg_price_sqm) || (geoportal?.market?.daily_avg_price_sqm) || 8000
+    // Use district-level market price if reliable (>500 = real residential land), else fallback
+    const districtPrice = geoportal?.market?.district?.avg_price_sqm
+    const avgMarketPrice = (districtPrice && districtPrice > 500) ? districtPrice : 8000
 
     // Build overrides with document data + user price + smart defaults
     const overrides: Overrides = {
@@ -111,9 +112,10 @@ export default function IntakeFlow({ labels: _labels, onComplete, onCancel }: Pr
   const status = extracted?.land_status || ''
   const code = merged?.geoportal_building_code || extracted?.building_code || ''
 
-  // Market context from geoportal district data
+  // Market context from geoportal district data — only show if >500 (real price, not junk aggregate)
   const districtMarket = geoportal?.market?.district
-  const marketAvg = districtMarket?.avg_price_sqm
+  const rawMarketAvg = districtMarket?.avg_price_sqm
+  const marketAvg = (rawMarketAvg && rawMarketAvg > 500) ? rawMarketAvg : null
   const marketPeriod = districtMarket?.period
   const indexHistory = districtMarket?.index_history || []
   const latestIndex = indexHistory.length > 0 ? indexHistory[indexHistory.length - 1] : null

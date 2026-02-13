@@ -70,7 +70,7 @@ function AppInner() {
     setOverrides(prev => ({
       ...prev,
       far: l.regulations?.far ?? prev.far,
-      // Use district market avg as sale price hint if available
+      // Only use district price if it's a real per-m² price (>500 = real residential land)
       sale_price_per_sqm: districtAvg && districtAvg > 500 ? districtAvg : prev.sale_price_per_sqm,
     }))
     setScreen('dashboard')
