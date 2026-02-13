@@ -17,6 +17,10 @@ import fitz  # PyMuPDF
 import httpx
 from cachetools import TTLCache
 
+from backend.srem_client import fetch_market as _fetch_srem_market
+from backend.srem_client import fetch_district as _fetch_srem_district
+from backend.srem_client import clear_cache as _clear_srem_cache
+
 log = logging.getLogger("data_fetch")
 
 # ---------------------------------------------------------------------------
@@ -36,7 +40,6 @@ BUILDING_REPORT_URL = (
     "/BuildingSystem/building-code-report-experimental"
     "?parcelId={pid}"
 )
-SREM_API = "https://prod-srem-api-srem.moj.gov.sa/api/v1/Dashboard"
 REFERER = "https://mapservice.alriyadh.gov.sa/geoportal/geomap"
 HEADERS = {"Referer": REFERER}
 
@@ -46,14 +49,13 @@ HEADERS = {"Referer": REFERER}
 
 _land_cache: TTLCache = TTLCache(maxsize=500, ttl=3600)       # 1 hour
 _reg_cache: TTLCache = TTLCache(maxsize=200, ttl=86400)       # 24 hours
-_srem_cache: TTLCache = TTLCache(maxsize=10, ttl=300)         # 5 min
 
 
 def clear_caches() -> None:
     """Clear all caches (for testing)."""
     _land_cache.clear()
     _reg_cache.clear()
-    _srem_cache.clear()
+    _clear_srem_cache()
 
 
 # ---------------------------------------------------------------------------
@@ -218,21 +220,91 @@ async def _fetch_parcel_query(
 # Step 2: Identify (httpx)
 # ---------------------------------------------------------------------------
 
+def _parse_plan_attrs(attrs: dict) -> dict[str, Any]:
+    """Extract plan info from layer 3 attributes."""
+    return {
+        "plan_date_hijri": attrs.get("\u062a\u0627\u0631\u064a\u062e \u0627\u0644\u0645\u062e\u0637\u0637 \u0627\u0644\u0647\u062c\u0631\u064a"),
+        "plan_year": attrs.get("\u0633\u0646\u0629 \u0627\u0644\u0645\u062e\u0637\u0637"),
+        "plan_status": attrs.get("PLANSTATUS"),
+        "plan_use": attrs.get("PLANUSE"),
+        "plan_type": attrs.get("PLANTYPENAME"),
+    }
+
+
+def _parse_district_attrs(attrs: dict) -> dict[str, Any]:
+    """Extract district demographics from layer 4 attributes."""
+    pop = attrs.get("\u0625\u062c\u0645\u0627\u0644\u064a \u0633\u0643\u0627\u0646 \u0627\u0644\u062d\u064a") or attrs.get("CURRENTPOPULATION")
+    area_m2 = attrs.get("\u0627\u0644\u0645\u0633\u0627\u062d\u0629 \u0627\u0644\u062d\u0642\u064a\u0642\u0629 -  \u06452") or attrs.get("\u0627\u0644\u0645\u0633\u0627\u062d\u0629")
+    return {
+        "population": pop,
+        "population_density": attrs.get("\u0627\u0644\u0643\u062b\u0627\u0641\u0629 \u0627\u0644\u0633\u0643\u0627\u0646\u064a\u0629"),
+        "area_m2": area_m2,
+        "district_name_ar": attrs.get("\u0627\u0633\u0645 \u0627\u0644\u062d\u064a"),
+        "district_name_en": attrs.get("District Name"),
+        "district_code": attrs.get("\u0631\u0642\u0645 \u0627\u0644\u062d\u064a"),
+    }
+
+
+def _identify_url(lng: float, lat: float, extent: float, layers: str) -> str:
+    """Build an ArcGIS identify URL."""
+    return (
+        f"{PROXY}?{PARCELS_SERVER}/identify"
+        f"?geometry={lng},{lat}"
+        f"&geometryType=esriGeometryPoint&sr=4326&tolerance=10"
+        f"&mapExtent={lng-extent},{lat-extent},{lng+extent},{lat+extent}"
+        f"&imageDisplay=1440,900,96&layers={layers}"
+        f"&returnGeometry=false&f=json"
+    )
+
+
 async def _fetch_parcel_identify(
     client: httpx.AsyncClient, lng: float, lat: float,
 ) -> dict[str, Any]:
-    url = (
-        f"{PROXY}?{PARCELS_SERVER}/identify"
-        f"?geometry={lng},{lat}"
-        f"&geometryType=esriGeometryPoint&sr=4326&tolerance=5"
-        f"&mapExtent={lng-0.001},{lat-0.001},{lng+0.001},{lat+0.001}"
-        f"&imageDisplay=1440,900,96&layers=all:2"
-        f"&returnGeometry=false&f=json"
-    )
-    resp = await client.get(url, headers=HEADERS, timeout=15)
-    data = json.loads(resp.text)
-    results = data.get("results", [])
-    return results[0].get("attributes", {}) if results else {}
+    """Identify all layers at a point. Returns merged attrs with _plan_info, _district_info."""
+    resp = await client.get(_identify_url(lng, lat, 0.002, "all"), headers=HEADERS, timeout=15)
+    results = json.loads(resp.text).get("results", [])
+
+    merged: dict[str, Any] = {}
+    plan_info: dict[str, Any] = {}
+    district_info: dict[str, Any] = {}
+
+    for result in results:
+        lid = result.get("layerId")
+        attrs = result.get("attributes", {})
+        if lid == 2:
+            merged.update(attrs)
+        elif lid == 3:
+            plan_info = _parse_plan_attrs(attrs)
+        elif lid == 4:
+            district_info = _parse_district_attrs(attrs)
+        elif lid == 2222 and not merged:
+            merged.update(attrs)
+
+    # Layer 3 is scale-dependent — retry with wider extent
+    if not plan_info:
+        try:
+            resp2 = await client.get(_identify_url(lng, lat, 0.05, "all:3"), headers=HEADERS, timeout=15)
+            for r in json.loads(resp2.text).get("results", []):
+                if r.get("layerId") == 3:
+                    plan_info = _parse_plan_attrs(r.get("attributes", {}))
+                    break
+        except Exception as exc:
+            log.warning("Wide identify for layer 3: %s", exc)
+
+    # Layer 4 needs even wider extent
+    if not district_info:
+        try:
+            resp3 = await client.get(_identify_url(lng, lat, 0.1, "all:4"), headers=HEADERS, timeout=15)
+            for r in json.loads(resp3.text).get("results", []):
+                if r.get("layerId") == 4:
+                    district_info = _parse_district_attrs(r.get("attributes", {}))
+                    break
+        except Exception as exc:
+            log.warning("Wide identify for layer 4: %s", exc)
+
+    merged["_plan_info"] = plan_info
+    merged["_district_info"] = district_info
+    return merged
 
 
 # ---------------------------------------------------------------------------
@@ -270,164 +342,8 @@ async def _fetch_building_regulations(
 
 
 # ---------------------------------------------------------------------------
-# Step 4: SREM market data (httpx)
+# Step 4: SREM market data — imported from srem_client.py
 # ---------------------------------------------------------------------------
-
-async def _fetch_srem_market(client: httpx.AsyncClient) -> dict[str, Any]:
-    cache_key = "srem_daily"
-    if cache_key in _srem_cache:
-        return _srem_cache[cache_key]
-
-    market: dict[str, Any] = {}
-
-    try:
-        r = await client.get(f"{SREM_API}/GetMarketIndex", timeout=10)
-        d = r.json()
-        if d.get("IsSuccess"):
-            market["market_index"] = d["Data"]["Index"]
-            market["market_index_change"] = d["Data"]["Change"]
-    except Exception as exc:
-        log.warning("SREM index: %s", exc)
-
-    try:
-        r = await client.post(
-            f"{SREM_API}/GetTrendingDistricts",
-            json={"periodCategory": "D", "citySerial": 0, "areaCategory": "A", "areaSerial": 0},
-            timeout=10,
-        )
-        d = r.json()
-        if d.get("IsSuccess"):
-            market["trending_districts"] = d["Data"].get("TrendingDistricts", [])
-    except Exception as exc:
-        log.warning("SREM trending: %s", exc)
-
-    try:
-        r = await client.post(
-            f"{SREM_API}/GetAreaInfo",
-            json={"periodCategory": "D", "period": 1, "areaSerial": 0, "areaType": "A", "cityCode": 0},
-            timeout=10,
-        )
-        d = r.json()
-        if d.get("IsSuccess"):
-            stats = d["Data"].get("Stats", [])
-            if stats:
-                market["daily_total_count"] = stats[0].get("TotalCount")
-                market["daily_total_price"] = stats[0].get("TotalPrice")
-                market["daily_avg_price_sqm"] = stats[0].get("AveragePrice")
-                market["daily_total_area"] = stats[0].get("TotalArea")
-    except Exception as exc:
-        log.warning("SREM area: %s", exc)
-
-    _srem_cache[cache_key] = market
-    return market
-
-
-async def _fetch_srem_district(
-    client: httpx.AsyncClient,
-    district_name: str,
-    city_code: int = 1,  # Riyadh
-) -> dict[str, Any]:
-    """Fetch SREM market data for a specific district.
-
-    Tries daily first, falls back to weekly then monthly for more data.
-    Also fetches Riyadh city-level stats for comparison.
-    """
-    cache_key = f"srem_district_{district_name}"
-    if cache_key in _srem_cache:
-        return _srem_cache[cache_key]
-
-    district_data: dict[str, Any] = {"district_name": district_name}
-
-    # Try daily → weekly → monthly for trending districts
-    for period, label in [("D", "daily"), ("W", "weekly"), ("M", "monthly")]:
-        try:
-            r = await client.post(
-                f"{SREM_API}/GetTrendingDistricts",
-                json={
-                    "periodCategory": period,
-                    "citySerial": city_code,
-                    "areaCategory": "A",
-                    "areaSerial": 0,
-                },
-                timeout=10,
-            )
-            d = r.json()
-            if not d.get("IsSuccess"):
-                continue
-
-            districts = d["Data"].get("TrendingDistricts", [])
-
-            # Find our district by name match
-            for dist in districts:
-                name = dist.get("DistrictName", "")
-                if name == district_name or district_name in name or name in district_name:
-                    total_area = dist.get("TotalArea", 0)
-                    total_price = dist.get("TotalPrice", 0)
-                    avg_price = total_price / total_area if total_area > 0 else 0
-                    district_data.update({
-                        "avg_price_sqm": round(avg_price),
-                        "total_deals": dist.get("TotalCount", 0),
-                        "total_value": total_price,
-                        "total_area": total_area,
-                        "district_code": dist.get("DistrictCode"),
-                        "period": label,
-                        "found": True,
-                    })
-                    break
-
-            if district_data.get("found"):
-                break
-        except Exception as exc:
-            log.warning("SREM district (%s): %s", label, exc)
-
-    # City-level stats for comparison (Riyadh)
-    try:
-        r = await client.post(
-            f"{SREM_API}/GetAreaInfo",
-            json={"periodCategory": "M", "period": 1, "areaSerial": 0, "areaType": "A", "cityCode": city_code},
-            timeout=10,
-        )
-        d = r.json()
-        if d.get("IsSuccess"):
-            stats = d["Data"].get("Stats", [])
-            if stats:
-                # Aggregate monthly stats
-                total_count = sum(s.get("TotalCount", 0) for s in stats)
-                total_price = sum(s.get("TotalPrice", 0) for s in stats)
-                total_area_city = sum(s.get("TotalArea", 0) for s in stats)
-                min_prices = [s.get("MinPrice", 0) for s in stats if s.get("MinPrice", 0) > 0]
-                max_prices = [s.get("MaxPrice", 0) for s in stats if s.get("MaxPrice", 0) > 0]
-                district_data["city_total_deals"] = total_count
-                district_data["city_avg_price_sqm"] = round(total_price / total_area_city) if total_area_city > 0 else 0
-                if min_prices:
-                    district_data["city_min_price"] = min(min_prices)
-                if max_prices:
-                    district_data["city_max_price"] = max(max_prices)
-    except Exception as exc:
-        log.warning("SREM city stats: %s", exc)
-
-    # Weekly index trend
-    try:
-        r = await client.get(f"{SREM_API}/GetMarketIndexByDateCategory?dateCategory=W", timeout=10)
-        d = r.json()
-        if d.get("IsSuccess"):
-            index_data = d["Data"].get("marketIndexDtos", [])
-            if index_data:
-                district_data["index_history"] = [
-                    {"date": p.get("CalcDate"), "index": p.get("MarketIndex"), "change": p.get("MarketIndexChange")}
-                    for p in index_data[-8:]
-                ]
-    except Exception as exc:
-        log.warning("SREM index history: %s", exc)
-
-    # If district not found in trending, use city avg as fallback
-    if not district_data.get("found"):
-        district_data["avg_price_sqm"] = district_data.get("city_avg_price_sqm")
-        district_data["period"] = "city_average"
-        district_data["note"] = f"District '{district_name}' not in current trending. Showing Riyadh city average."
-
-    _srem_cache[cache_key] = district_data
-    return district_data
 
 
 # ---------------------------------------------------------------------------
@@ -442,31 +358,53 @@ def _build_land_object(
     srem_data: dict,
     district_data: dict | None = None,
 ) -> dict[str, Any]:
+    # Source 1: Query layer 2 (PARCELID exact match)
     attrs = query_data.get("attributes", {})
     geom = query_data.get("geometry", {})
     rings = geom.get("rings", [])
     clng, clat = _centroid(rings) if rings else (0, 0)
 
+    # Source 2: Identify layers (2222, 2, 3, 4) — point-based spatial match
+    # Layer 2222 fields use Arabic names; these serve as fallbacks
+    ident = identify_data  # merged attrs from all identify layers
+
     obj: dict[str, Any] = {
         "parcel_id": parcel_id,
         "fetched_at": datetime.now(timezone.utc).isoformat(),
-        "parcel_number": attrs.get("PARCELNO"),
-        "plan_number": attrs.get("PLANNO"),
-        "block_number": attrs.get("BLOCKNO"),
+        # Cross-sourced: Query → Identify fallback
+        "parcel_number": attrs.get("PARCELNO") or ident.get("رقم القطعة"),
+        "plan_number": attrs.get("PLANNO") or ident.get("رقم المخطط"),
+        "block_number": attrs.get("BLOCKNO") or ident.get("رقم البلوك"),
         "object_id": attrs.get("OBJECTID"),
-        "district_name": identify_data.get("الحي") or attrs.get("DISTRICT"),
-        "municipality": identify_data.get("البلديات الفرعية") or attrs.get("SUBMUNICIPALITY"),
+        "district_name": ident.get("الحي") or attrs.get("DISTRICT"),
+        "municipality": ident.get("البلديات الفرعية") or attrs.get("SUBMUNICIPALITY") or ident.get("البلدية"),
         "centroid": {"lng": clng, "lat": clat},
         "geometry": geom or None,
-        "area_sqm": attrs.get("SHAPE.AREA"),
+        # Area: Query is authoritative, identify layer as fallback
+        "area_sqm": attrs.get("SHAPE.AREA") or ident.get("المساحة"),
         "building_use_code": attrs.get("BUILDINGUSECODE"),
-        "building_code_label": attrs.get("FLGBLDCODE") or identify_data.get("نظام البناء"),
+        # Building code: Query → Identify fallback
+        "building_code_label": attrs.get("FLGBLDCODE") or ident.get("نظام البناء") or ident.get("اشترطات نظام البناء"),
         "primary_use_code": attrs.get("PARCELSUBTYPE"),
-        "primary_use_label": identify_data.get("الاستخدام الرئيسي") or LAND_USE_LABELS.get(attrs.get("PARCELSUBTYPE")),
+        "primary_use_label": ident.get("الاستخدام الرئيسي") or LAND_USE_LABELS.get(attrs.get("PARCELSUBTYPE")),
         "secondary_use_code": attrs.get("LANDUSEAGROUP"),
         "detailed_use_code": attrs.get("LANDUSEADETAILED"),
-        "detailed_use_label": identify_data.get("استخدام الارض") or LAND_USE_LABELS.get(attrs.get("LANDUSEADETAILED")),
+        "detailed_use_label": ident.get("استخدام الارض") or LAND_USE_LABELS.get(attrs.get("LANDUSEADETAILED")),
         "reviewed_bld_code": attrs.get("REVIEWED_BLD_CODE"),
+        # Track which sources populated data (for transparency)
+        "data_sources": {
+            "query_layer_2": bool(attrs),
+            "identify_layer_2222": bool(ident.get("رمز القطعة")),
+            "identify_layer_3_plan": bool(ident.get("_plan_info")),
+            "identify_layer_4_district": bool(ident.get("_district_info")),
+            "building_pdf": not regulations.get("error"),
+            "srem_national": bool(srem_data.get("market_index")),
+            "srem_district": bool(district_data),
+        },
+        # Plan info (from Geoportal layer 3)
+        "plan_info": identify_data.get("_plan_info", {}),
+        # District demographics (from Geoportal layer 4)
+        "district_demographics": identify_data.get("_district_info", {}),
         "regulations": {
             "max_floors": regulations.get("max_floors"),
             "far": regulations.get("far"),
@@ -475,6 +413,8 @@ def _build_land_object(
             "setbacks_raw": regulations.get("setbacks_raw"),
             "setback_values_m": regulations.get("setback_values_m"),
             "notes": regulations.get("notes"),
+            "source": "building_pdf" if not regulations.get("error") else "unavailable",
+            "pdf_error": regulations.get("error"),
         },
         "market": {
             "srem_market_index": srem_data.get("market_index"),
