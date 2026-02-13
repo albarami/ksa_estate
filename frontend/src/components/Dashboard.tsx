@@ -50,7 +50,11 @@ export default function Dashboard({
         <div className="lg:col-span-2 space-y-4">
           <MapCard rings={land.geometry?.rings} />
           <ZoningCard
-            regulations={land.regulations}
+            regulations={{
+              ...land.regulations,
+              // Override FAR with slider value so zoning card stays in sync
+              far: (overrides.far as number) ?? land.regulations.far,
+            }}
             buildingCode={land.building_code_label}
             areaSqm={land.area_sqm}
             labels={labels}
