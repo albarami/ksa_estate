@@ -72,15 +72,17 @@ def _build_summary(
     parts = []
 
     # Parcel identity
+    area = land_object.get("area_sqm") or 0
     parts.append(f"""## Parcel Data
 - Parcel ID: {land_object.get('parcel_id')}
 - District: {land_object.get('district_name')}
 - Municipality: {land_object.get('municipality')}
 - Plan: {land_object.get('plan_number')}, Plot: {land_object.get('parcel_number')}
-- Area: {land_object.get('area_sqm'):,.0f} m²""")
+- Area: {area:,.0f} m²""")
 
     # Zoning
     regs = land_object.get("regulations", {})
+    allowed = regs.get("allowed_uses") or []
     parts.append(f"""## Zoning & Regulations
 - Building Code: {land_object.get('building_code_label')}
 - Primary Use: {land_object.get('primary_use_label')}
@@ -88,7 +90,7 @@ def _build_summary(
 - Max Floors: {regs.get('max_floors')}
 - FAR: {regs.get('far')}
 - Coverage Ratio: {regs.get('coverage_ratio')}
-- Allowed Uses: {', '.join(regs.get('allowed_uses', []))}""")
+- Allowed Uses: {', '.join(allowed)}""")
 
     # Market
     mkt = land_object.get("market", {})
@@ -104,17 +106,22 @@ def _build_summary(
         fs = proforma.get("fund_size", {})
         rev = proforma.get("revenue", {})
         irr = kpis.get("irr")
+        irr_str = f"{irr:.2%}" if irr is not None else "N/A"
+        irr_note = " (negative)" if irr and irr < 0 else ""
         parts.append(f"""## Pro-Forma Summary
 - Fund Size: {fs.get('total_fund_size', 0):,.0f} SAR
 - Equity: {fs.get('equity_amount', 0):,.0f} SAR ({fs.get('equity_pct', 0):.0%})
 - Bank Loan: {fs.get('bank_loan', 0):,.0f} SAR ({fs.get('debt_pct', 0):.0%})
 - GBA: {proforma.get('construction_costs', {}).get('gba_sqm', 0):,.0f} m²
 - Revenue: {rev.get('gross_revenue', 0):,.0f} SAR
-- IRR: {irr:.2%} {'(negative)' if irr and irr < 0 else ''}
+- IRR: {irr_str}{irr_note}
 - ROE: {kpis.get('roe_total', 0):.1%}
 - ROE Annualized: {kpis.get('roe_annualized', 0):.2%}
 - Net Profit: {kpis.get('equity_net_profit', 0):,.0f} SAR
-- Yield on Cost: {kpis.get('yield_on_cost', 0):.2f}x""")
+- Yield on Cost: {kpis.get('yield_on_cost', 0):.2f}x
+- Deal Score: {kpis.get('deal_score', 'N/A')}/100
+- Break-even Price: {kpis.get('break_even_price_sqm', 0):,.0f} SAR/m²
+- Risk Flags: {', '.join(kpis.get('risk_flags') or ['none'])}""")
 
     return "\n\n".join(parts)
 
