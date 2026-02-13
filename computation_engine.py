@@ -340,12 +340,20 @@ def compute_proforma(
     # ---------------------------------------------------------------
     # 7. Total interest (year-by-year debt outstanding)
     # ---------------------------------------------------------------
-    # Al-Hada model: debt drawn proportionally to total outflows each year
-    # (land acquisition + construction), and interest accrues on cumulative
-    # outstanding balance. This matches how banks release project finance.
-    total_yearly_outflows = total_land * land_ph + total_direct * direct_ph + total_indirect * indirect_ph
-    outflow_share = total_yearly_outflows / total_yearly_outflows.sum() if total_yearly_outflows.sum() > 0 else np.ones(n) / n
-    debt_drawdown = bank_loan * outflow_share
+    # Debt drawdown follows what the bank is actually financing:
+    # - Cash deals (in_kind=0): bank finances land + construction proportionally
+    # - In-kind deals (in_kind>0): bank finances construction only
+    #   (land is contributed, not purchased — bank only releases for build costs)
+    # Debt drawdown follows cash spending needs each year:
+    # - Land cash outflow (total land minus in-kind contribution)
+    # - Construction (direct + indirect)
+    # This determines when the bank releases funds.
+    cash_land_outflow = (total_land - in_kind_value) * land_ph
+    construction_yearly = total_direct * direct_ph + total_indirect * indirect_ph
+    total_cash_needs = cash_land_outflow + construction_yearly
+    spend_share = total_cash_needs / total_cash_needs.sum() if total_cash_needs.sum() > 0 else np.ones(n) / n
+
+    debt_drawdown = bank_loan * spend_share
     debt_outstanding = np.cumsum(debt_drawdown)
     # Repayment in final year
     debt_repayment = np.zeros(n)
