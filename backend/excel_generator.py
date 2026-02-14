@@ -81,366 +81,366 @@ def _c(ws, row, col, value=None, font=None, fill=None, fmt=None, align=None, bor
 # ---------------------------------------------------------------------------
 
 def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict, L: dict, rtl: bool) -> None:
-    """Replicate Al-Hada Assumptions sheet with LIVE formulas."""
+    """Al-Hada style Assumptions sheet with LIVE Excel formulas throughout."""
     ws = wb.active
     ws.title = L["assumptions"]
     ws.sheet_view.rightToLeft = rtl
 
-    # Column widths (matching Al-Hada)
     widths = {"B": 23, "C": 3, "D": 39, "E": 15, "F": 15, "G": 15, "H": 17, "I": 5,
               "J": 3, "K": 3, "L": 26, "M": 10, "N": 20, "O": 20, "P": 20}
     for col, w in widths.items():
         ws.column_dimensions[col].width = w
 
     fs = pf.get("fund_size", {})
-    kpis = pf.get("kpis", {})
-    rev = pf.get("revenue", {})
     lc = pf.get("land_costs", {})
     cc = pf.get("construction_costs", {})
-    ff = pf.get("fund_fees", {})
     fin = pf.get("financing", {})
     cf = pf.get("cash_flows", {})
     inputs = pf.get("inputs_used", {})
-    regs = land.get("regulations", {})
 
     def iv(key):
         return inputs.get(key, {}).get("value")
 
-    n_years = iv("fund_period_years") or 3
-    years = list(range(1, int(n_years) + 1))
+    def cf_val(key: str, idx: int) -> float:
+        arr = cf.get(key, [])
+        return arr[idx] if idx < len(arr) else 0
 
-    # === ROW 2-7: Fund header ===
+    n = int(iv("fund_period_years") or 3)
+    years = list(range(1, n + 1))
+    far_val = iv("far") or 1.0
+    ltv = iv("bank_ltv_pct") or 0.667
+    resolved_area = iv("land_area_sqm") or land.get("area_sqm", 0)
+    in_kind_pct = lc.get("in_kind_pct", 0) or 0
+
+    # =====================================================================
+    # LEFT SIDE (cols B-I): Fund header, Land, Construction, Sales, Fees
+    # =====================================================================
+
+    # --- Rows 2-7: Fund header ---
     _c(ws, 2, 4, "Google Maps Link", F_SMALL)
-    _c(ws, 2, 5, f"Parcel {land.get('parcel_id')} - {land.get('district_name')}", F_BOLD, fmt=SAR_FMT)
+    _c(ws, 2, 5, f"Parcel {land.get('parcel_id')} - {land.get('district_name')}", F_BOLD)
     ws.merge_cells("E2:F2")
-
-    _c(ws, 3, 4, L["fund_name"], F_BOLD, fmt=SAR_FMT)
-    _c(ws, 3, 5, L["fund_type_val"], F_BOLD, fmt=SAR_FMT)
+    _c(ws, 3, 4, L["fund_name"], F_BOLD)
+    _c(ws, 3, 5, L["fund_type_val"], F_BOLD)
     ws.merge_cells("E3:F3")
-    _c(ws, 3, 12, L["currency"], F_BOLD)
-
-    _c(ws, 4, 4, L["fund_type_label"], F_BOLD, fmt=SAR_FMT)
-    _c(ws, 4, 5, L["fund_type_val"], F_BOLD, fmt=SAR_FMT)
+    _c(ws, 4, 4, L["fund_type_label"], F_BOLD)
+    _c(ws, 4, 5, L["fund_type_val"], F_BOLD)
     ws.merge_cells("E4:F4")
-    _c(ws, 4, 12, L["year_label"], F_BOLD)
-    for i, yr in enumerate(years):
-        _c(ws, 4, 14 + i, 2025 + i, F_BOLD, align=CENTER)
-
-    _c(ws, 5, 4, L["fund_period"], F_BOLD, fmt=SAR_FMT)
-    _c(ws, 5, 5, n_years, F_BOLD, fmt=SAR_FMT)
+    _c(ws, 5, 4, L["fund_period"], F_BOLD)
+    _c(ws, 5, 5, n, F_BOLD, fmt="#,##0")
     ws.merge_cells("E5:F5")
-    for i, yr in enumerate(years):
-        _c(ws, 5, 14 + i, f"Y{yr}", F_BOLD, align=CENTER)
-
-    # Fund Size = formula referencing F54
-    _c(ws, 6, 4, L["fund_size_label"], F_BOLD, fmt=SAR_FMT)
+    _c(ws, 6, 4, L["fund_size_label"], F_BOLD)
     _c(ws, 6, 5, "=F54", F_BOLD, fmt=SAR_FMT)
     ws.merge_cells("E6:F6")
-    _c(ws, 6, 12, L["cf_inflows"], F_BOLD)
-
-    _c(ws, 7, 4, L["total_equity"], F_BOLD, fmt=SAR_FMT)
+    _c(ws, 7, 4, L["total_equity"], F_BOLD)
     _c(ws, 7, 5, "=F57", F_BOLD, fmt=SAR_FMT)
     ws.merge_cells("E7:F7")
 
-    # === RIGHT SIDE: Cash Flows Y1..Y3 ===
-    _c(ws, 7, 12, L.get("cf_sales", "Sales"), F_NORMAL)
-    for i, yr in enumerate(years):
-        sales_val = cf.get("inflows_sales", [0]*3)[i] if i < len(cf.get("inflows_sales", [])) else 0
-        _c(ws, 7, 14 + i, sales_val, F_NORMAL, fmt=SAR_FMT, align=CENTER)
-
-    _c(ws, 8, 12, L.get("total_label", "Total"), F_BOLD)
-    for i in range(len(years)):
-        _c(ws, 8, 14 + i, f"=SUM({get_column_letter(14+i)}7)", F_BOLD, fmt=SAR_FMT, align=CENTER)
-
-    # === ROW 9: Land section ===
+    # --- Row 9-16: Land section ---
     _c(ws, 9, 2, L["land_section"], F_HEADER, FILL_SECTION)
     _c(ws, 9, 4, L["land_assumptions"], F_HEADER)
-    _c(ws, 9, 12, L.get("cf_outflows", "Cash Outflows"), F_BOLD)
-
-    # ROW 10: Column headers
     _c(ws, 10, 6, L.get("total_label", "Total"), F_BOLD, align=CENTER)
     _c(ws, 10, 8, L.get("cash", "Cash"), F_BOLD, align=CENTER)
     _c(ws, 10, 9, L.get("inkind", "In-Kind"), F_BOLD, align=CENTER)
 
-    # ROW 11: Land area + cash/in-kind split
-    # Use proforma's resolved area (document area overrides geoportal)
-    resolved_area = iv("land_area_sqm") or land.get("area_sqm", 0)
-    in_kind_pct = lc.get("in_kind_pct", 0) or 0
-    cash_pct = 1.0 - in_kind_pct
     _c(ws, 11, 4, L["land_area"], F_NORMAL)
     _c(ws, 11, 6, resolved_area, F_NORMAL, fmt=SAR_FMT, align=CENTER)
-    _c(ws, 11, 8, cash_pct, F_NORMAL, fmt=PCT_FMT, align=CENTER)
+    _c(ws, 11, 8, 1.0 - in_kind_pct, F_NORMAL, fmt=PCT_FMT, align=CENTER)
     _c(ws, 11, 9, in_kind_pct, F_NORMAL, fmt=PCT_FMT, align=CENTER)
 
-    # Cash flows: land acquisition
-    _c(ws, 11, 12, L.get("cf_land", "Land Acquisition"), F_NORMAL)
-    for i in range(len(years)):
-        land_cf = cf.get("outflows_land", [0]*3)[i] if i < len(cf.get("outflows_land", [])) else 0
-        _c(ws, 11, 14 + i, land_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
-
-    # ROW 12: Land price per sqm  → F12 = E12 * F11 (LIVE FORMULA)
     _c(ws, 12, 4, L["land_price"], F_NORMAL)
     _c(ws, 12, 5, iv("land_price_per_sqm") or 0, F_NORMAL, fmt=SAR2_FMT, align=CENTER)
     _c(ws, 12, 6, "=$E$12*F11", F_NORMAL, fmt=SAR_FMT, align=CENTER)
-    _c(ws, 12, 8, "=H11*F12", F_NORMAL, fmt=SAR2_FMT, align=CENTER)
-    _c(ws, 12, 9, "=I11*F12", F_NORMAL, fmt=SAR2_FMT, align=CENTER)
+    _c(ws, 12, 8, "=H11*F12", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 12, 9, "=I11*F12", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    # CF: direct costs
-    _c(ws, 12, 12, L.get("cf_direct", "Direct Costs"), F_NORMAL)
-    for i in range(len(years)):
-        d_cf = cf.get("outflows_direct", [0]*3)[i] if i < len(cf.get("outflows_direct", [])) else 0
-        _c(ws, 12, 14 + i, d_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
-
-    # ROW 13: Brokerage (on FULL land price — broker is paid regardless)
     _c(ws, 13, 4, L["brokerage"], F_NORMAL)
     _c(ws, 13, 5, iv("brokerage_fee_pct") or 0.025, F_NORMAL, fmt=PCTD_FMT, align=CENTER)
     _c(ws, 13, 6, "=$E$13*F12", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    _c(ws, 13, 12, L.get("cf_indirect", "التكاليف غير المباشرة"), F_NORMAL)
-    for i in range(len(years)):
-        i_cf = cf.get("outflows_indirect", [0]*3)[i] if i < len(cf.get("outflows_indirect", [])) else 0
-        _c(ws, 13, 14 + i, i_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
-
-    # ROW 14: Transfer tax (0 when in-kind — contribution, not sale)
     _c(ws, 14, 4, L["transfer_tax"], F_NORMAL)
     _c(ws, 14, 5, iv("real_estate_transfer_tax_pct") or 0.05, F_NORMAL, fmt=PCT_FMT, align=CENTER)
-    # Formula: if in-kind > 0, tax = 0; else tax = rate × land
     _c(ws, 14, 6, "=IF(I11>0,0,E14*F12)", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    _c(ws, 14, 12, L.get("cf_interest", "Interest"), F_NORMAL)
-    for i in range(len(years)):
-        int_cf = cf.get("outflows_interest", [0]*3)[i] if i < len(cf.get("outflows_interest", [])) else 0
-        _c(ws, 14, 14 + i, int_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
-
-    # ROW 15: Brokerage VAT
     _c(ws, 15, 4, L["brokerage_vat"], F_NORMAL)
     _c(ws, 15, 5, iv("brokerage_vat_pct") or 0.15, F_NORMAL, fmt=PCT_FMT, align=CENTER)
     _c(ws, 15, 6, "=E15*F13", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    _c(ws, 15, 12, L.get("arrangement_fee", "Arrangement Fee"), F_NORMAL)
-    _c(ws, 15, 14, fin.get("arrangement_fee", 0), F_NORMAL, fmt=SAR_FMT, align=CENTER)
-
-    # ROW 16: TOTAL LAND = SUM(F12:F15) (LIVE FORMULA)
     _c(ws, 16, 4, L["total"], F_TOTAL, FILL_TOTAL)
     _c(ws, 16, 6, "=SUM(F12:F15)", F_TOTAL, FILL_TOTAL, fmt=SAR_FMT, align=CENTER)
 
-    _c(ws, 16, 12, "رسوم إدارة الصندوق ", F_NORMAL)
-    for i in range(len(years)):
-        fees_cf = cf.get("outflows_fees", [0]*3)[i] if i < len(cf.get("outflows_fees", [])) else 0
-        _c(ws, 16, 14 + i, fees_cf, F_NORMAL, fmt=SAR_FMT, align=CENTER)
-
-    # === ROW 18: Construction section ===
+    # --- Rows 18-29: Construction ---
     _c(ws, 18, 2, L["costs_section"], F_HEADER, FILL_SECTION)
     _c(ws, 18, 4, L["cost_assumptions"], F_HEADER)
-
-    # ROW 19: Headers
-    _c(ws, 19, 4, "التكاليف المباشرة ", F_BOLD)
+    _c(ws, 19, 4, L.get("direct_costs", "Direct Costs"), F_BOLD)
     _c(ws, 19, 5, "%", F_BOLD, align=CENTER)
-    _c(ws, 19, 6, "المساحة ", F_BOLD, align=CENTER)
-    _c(ws, 19, 7, "التكلفة/ متر ", F_BOLD, align=CENTER)
-    _c(ws, 19, 8, "الإجمالي ", F_BOLD, align=CENTER)
+    _c(ws, 19, 6, L.get("area_col", "Area"), F_BOLD, align=CENTER)
+    _c(ws, 19, 7, L.get("cost_per_m", "Cost/m\u00b2"), F_BOLD, align=CENTER)
+    _c(ws, 19, 8, L.get("total_col", "Total"), F_BOLD, align=CENTER)
 
-    # ROW 20: Infrastructure
-    gba = cc.get("gba_sqm", 0)
-    _c(ws, 20, 4, "تطوير البنية التحتية", F_NORMAL)
+    # FIX A: GBA as formula =F11*FAR (not hardcoded)
+    _c(ws, 20, 4, L.get("infrastructure", "Infrastructure"), F_NORMAL)
     _c(ws, 20, 5, 1, F_NORMAL, fmt=PCT_FMT, align=CENTER)
-    _c(ws, 20, 6, gba, F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 20, 6, f"=F11*{far_val}", F_NORMAL, fmt=SAR_FMT, align=CENTER)  # GBA = area * FAR
     _c(ws, 20, 7, iv("infrastructure_cost_per_sqm") or 500, F_NORMAL, fmt=SAR_FMT, align=CENTER)
     _c(ws, 20, 8, "=G20*F20", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    # ROW 21: Superstructure
-    _c(ws, 21, 4, "تطوير البنية العلوية", F_NORMAL)
+    _c(ws, 21, 4, L.get("superstructure", "Superstructure"), F_NORMAL)
     _c(ws, 21, 6, "=F20", F_NORMAL, fmt=SAR_FMT, align=CENTER)
     _c(ws, 21, 7, iv("superstructure_cost_per_sqm") or 2500, F_NORMAL, fmt=SAR_FMT, align=CENTER)
     _c(ws, 21, 8, "=G21*F21", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    # ROW 22: Parking
-    parking_area = iv("parking_area_sqm") or 0
-    _c(ws, 22, 4, "مواقف(قبو)", F_NORMAL)
-    _c(ws, 22, 6, parking_area, F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 22, 4, L.get("parking", "Parking"), F_NORMAL)
+    _c(ws, 22, 6, iv("parking_area_sqm") or 0, F_NORMAL, fmt=SAR_FMT, align=CENTER)
     _c(ws, 22, 7, iv("parking_cost_per_sqm") or 2000, F_NORMAL, fmt=SAR_FMT, align=CENTER)
     _c(ws, 22, 8, "=G22*F22", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    # ROW 23: TOTAL DIRECT = SUM(H20:H22)
-    _c(ws, 23, 4, "إجمالي التكاليف المباشرة ", F_TOTAL, FILL_TOTAL)
-    _c(ws, 23, 8, "=SUM(H20:H22)", F_TOTAL, FILL_TOTAL, fmt=SAR2_FMT, align=CENTER)
+    _c(ws, 23, 4, L.get("total_direct", "Total Direct"), F_TOTAL, FILL_TOTAL)
+    _c(ws, 23, 8, "=SUM(H20:H22)", F_TOTAL, FILL_TOTAL, fmt=SAR_FMT, align=CENTER)
 
-    # ROW 24: Indirect costs header
-    _c(ws, 24, 4, "التكاليف غير المباشرة ", F_BOLD)
+    _c(ws, 24, 4, L.get("indirect_costs", "Indirect Costs"), F_BOLD)
     _c(ws, 24, 5, "%", F_BOLD, align=CENTER)
-    _c(ws, 24, 6, "الإجمالي ", F_BOLD, align=CENTER)
+    _c(ws, 24, 6, L.get("total_col", "Total"), F_BOLD, align=CENTER)
 
-    # ROW 25: Developer fee
-    _c(ws, 25, 4, "أتعاب المطور ", F_NORMAL)
+    _c(ws, 25, 4, L.get("developer_fee", "Developer Fee"), F_NORMAL)
     _c(ws, 25, 5, iv("developer_fee_pct") or 0.10, F_NORMAL, fmt=PCTD_FMT, align=CENTER)
     _c(ws, 25, 6, "=E25*H23", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    # ROW 26: Other indirect
-    _c(ws, 26, 4, "تكاليف غير مباشرة أخرى ", F_NORMAL)
+    _c(ws, 26, 4, L.get("other_indirect", "Other Indirect"), F_NORMAL)
     _c(ws, 26, 5, iv("other_indirect_pct") or 0.06, F_NORMAL, fmt=PCTD_FMT, align=CENTER)
     _c(ws, 26, 6, "=E26*H23", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    # ROW 27: Contingency
-    _c(ws, 27, 4, "احتياطي ", F_NORMAL)
+    _c(ws, 27, 4, L.get("contingency", "Contingency"), F_NORMAL)
     _c(ws, 27, 5, iv("contingency_pct") or 0.05, F_NORMAL, fmt=PCTD_FMT, align=CENTER)
     _c(ws, 27, 6, "=E27*H23", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    # ROW 28: TOTAL INDIRECT
-    _c(ws, 28, 4, "إجمالي التكاليف غير المباشرة ", F_TOTAL, FILL_TOTAL)
-    _c(ws, 28, 8, "=F25+F26+F27", F_TOTAL, FILL_TOTAL, fmt=SAR2_FMT, align=CENTER)
+    _c(ws, 28, 4, L.get("total_indirect", "Total Indirect"), F_TOTAL, FILL_TOTAL)
+    _c(ws, 28, 8, "=F25+F26+F27", F_TOTAL, FILL_TOTAL, fmt=SAR_FMT, align=CENTER)
 
-    # ROW 29: TOTAL ALL
-    _c(ws, 29, 4, "إجمالي التكاليف المباشرة وغير المباشرة ", F_TOTAL, FILL_TOTAL)
-    _c(ws, 29, 8, "=H28+H23", F_TOTAL, FILL_TOTAL, fmt=SAR2_FMT, align=CENTER)
+    _c(ws, 29, 4, L.get("total_all_costs", "Total All Costs"), F_TOTAL, FILL_TOTAL)
+    _c(ws, 29, 8, "=H28+H23", F_TOTAL, FILL_TOTAL, fmt=SAR_FMT, align=CENTER)
 
-    # === RIGHT SIDE: Net cash flows, cumulative, fund structure ===
-    _c(ws, 28, 12, "الإجمالي ", F_TOTAL, FILL_TOTAL)
-    for i in range(len(years)):
-        col = 14 + i
-        _c(ws, 28, col, f"=SUM({get_column_letter(col)}11:{get_column_letter(col)}27)", F_TOTAL, FILL_TOTAL, fmt=NUM_FMT, align=CENTER)
+    # --- Rows 31-33: Sales ---
+    _c(ws, 31, 2, L.get("sales_section", "Sales"), F_HEADER, FILL_SECTION)
+    _c(ws, 31, 4, L.get("sales_assumptions", "Sales Assumptions"), F_HEADER)
+    _c(ws, 31, 6, L.get("area_col", "Area"), F_BOLD, align=CENTER)
+    _c(ws, 31, 7, L.get("price_per_m", "Price/m\u00b2"), F_BOLD, align=CENTER)
+    _c(ws, 31, 8, L.get("total_sales", "Total Sales"), F_BOLD, align=CENTER)
 
-    _c(ws, 30, 12, "صافي التدفقات النقدية ", F_BOLD, border=BORDER_TOP_MED)
-    for i in range(len(years)):
-        col = 14 + i
-        _c(ws, 30, col, f"={get_column_letter(col)}8-{get_column_letter(col)}28", F_BOLD, fmt=NUM_FMT, align=CENTER, border=BORDER_TOP_MED)
-
-    _c(ws, 31, 12, "Cumulative Cash Flow", F_NORMAL)
-    _c(ws, 31, 14, "=N30", F_NORMAL, fmt=NUM_FMT, align=CENTER)
-    if len(years) > 1:
-        _c(ws, 31, 15, "=O30+N31", F_NORMAL, fmt=NUM_FMT, align=CENTER)
-    if len(years) > 2:
-        _c(ws, 31, 16, "=P30+O31", F_NORMAL, fmt=NUM_FMT, align=CENTER)
-
-    # === ROW 31: Sales section ===
-    _c(ws, 31, 2, "المبيعات", F_HEADER, FILL_SECTION)
-    _c(ws, 31, 4, "افتراضات المبيعات", F_HEADER)
-    _c(ws, 31, 5, "%", F_BOLD, align=CENTER)
-    _c(ws, 31, 6, "المساحة ", F_BOLD, align=CENTER)
-    _c(ws, 31, 7, "قيمة المتر ", F_BOLD, align=CENTER)
-    _c(ws, 31, 8, "إجمالي المبيعات ", F_BOLD, align=CENTER)
-
-    # ROW 32: Residential sales
-    _c(ws, 32, 4, "بيع وحدات", F_NORMAL)
-    _c(ws, 32, 6, "=F20", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 32, 4, L.get("unit_sales", "Unit Sales"), F_NORMAL)
+    _c(ws, 32, 6, "=F20", F_NORMAL, fmt=SAR_FMT, align=CENTER)  # GBA
     _c(ws, 32, 7, iv("sale_price_per_sqm") or 0, F_NORMAL, fmt=SAR_FMT, align=CENTER)
     _c(ws, 32, 8, "=G32*F32", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    # ROW 33: TOTAL SALES
-    _c(ws, 33, 4, "الإجمالي", F_TOTAL, FILL_TOTAL)
-    _c(ws, 33, 8, "=H32", F_TOTAL, FILL_TOTAL, fmt=SAR2_FMT, align=CENTER)
+    _c(ws, 33, 4, L.get("total_label", "Total"), F_TOTAL, FILL_TOTAL)
+    _c(ws, 33, 8, "=H32", F_TOTAL, FILL_TOTAL, fmt=SAR_FMT, align=CENTER)
 
-    # === Fund structure (right side) ===
-    _c(ws, 33, 12, L.get("cf_fund_capital", "Fund Capital Structure"), F_BOLD)
-    _c(ws, 34, 12, L.get("equity", "Equity"), F_NORMAL)
-    _c(ws, 34, 14, "=F57", F_NORMAL, fmt=NUM_FMT, align=CENTER)
-    _c(ws, 35, 12, L.get("inkind_owner", "In-Kind Contribution"), F_NORMAL)
-    _c(ws, 35, 14, "=I12", F_NORMAL, fmt=NUM_FMT, align=CENTER)
-
-    bank_loan = fin.get("bank_loan_amount", 0) if isinstance(fin.get("bank_loan_amount"), (int, float)) else 0
-    _c(ws, 36, 12, "Debt Withdrawal", F_NORMAL)
-    _c(ws, 36, 14, bank_loan, F_NORMAL, fmt=NUM_FMT, align=CENTER)
-
-    _c(ws, 37, 12, "Debt Outstanding", F_NORMAL)
-    _c(ws, 37, 14, "=N36", F_NORMAL, fmt=NUM_FMT, align=CENTER)
-    if len(years) > 1:
-        _c(ws, 37, 15, "=O36+N37", F_NORMAL, fmt=NUM_FMT, align=CENTER)
-
-    _c(ws, 38, 12, "Debt Repayment", F_NORMAL)
-    if len(years) >= 3:
-        _c(ws, 38, 16, "=P37", F_NORMAL, fmt=SAR_FMT, align=CENTER)
-
-    _c(ws, 40, 12, "Net Cashflows", F_BOLD, border=BORDER_TOP_MED)
-    for i in range(len(years)):
-        net = cf.get("net_cash_flow", [0]*3)[i] if i < len(cf.get("net_cash_flow", [])) else 0
-        _c(ws, 40, 14 + i, net, F_BOLD, fmt=NUM_FMT, align=CENTER, border=BORDER_TOP_MED)
-
-    # Equity cash flow for IRR: initial = -(equity + in_kind)
-    equity_amount = fs.get("equity_amount", 0)
-    in_kind_contrib = fs.get("in_kind_contribution", 0)
-    total_invested = equity_amount + in_kind_contrib
-    _c(ws, 41, 12, L.get("cf_net_equity", "Net Equity Cashflow"), F_BOLD)
-    _c(ws, 41, 13, -total_invested, F_BOLD, fmt=NUM_FMT, align=CENTER)
-    for i in range(len(years)):
-        val = 0
-        if i == len(years) - 1:
-            eq_cf = pf.get("cash_flows", {}).get("equity_cf_for_irr", [])
-            if eq_cf and len(eq_cf) > len(years):
-                val = eq_cf[-1]
-        _c(ws, 41, 14 + i, val, F_BOLD, fmt=SAR_FMT, align=CENTER)
-
-    # === ROW 36: Fund fees section ===
+    # --- Rows 36-52: Fund fees (FIX B: formulas, no circular refs) ---
     _c(ws, 36, 2, L.get("financing_section", "Fund Fees"), F_HEADER, FILL_SECTION)
     _c(ws, 36, 4, L.get("total_financing", "Financing & Fund Cost"), F_HEADER)
+    _c(ws, 37, 4, " ", F_BOLD)
+    _c(ws, 37, 5, L.get("cost_per_m", "Rate"), F_BOLD, align=CENTER)
+    _c(ws, 37, 6, L.get("total_col", "Total (SAR)"), F_BOLD, align=CENTER)
 
-    _c(ws, 37, 4, " Cost", F_BOLD)
-    _c(ws, 37, 6, "Total (SAR)", F_BOLD, align=CENTER)
+    # Category 1: Based on construction/loan cost (bank loan = H23 * LTV)
+    # Interest = bank_loan * rate * years
+    _c(ws, 38, 4, L.get("interest", "Interest"), F_NORMAL)
+    _c(ws, 38, 5, iv("interest_rate_pct") or 0.08, F_NORMAL, fmt=PCT2_FMT, align=CENTER)
+    _c(ws, 38, 6, f"=H23*{ltv}*E38*E5", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    fund_fee_rows = [
-        (38, "فوائد تمويل ", iv("interest_rate_pct") or 0.08, PCT2_FMT, fin.get("total_interest", 0)),
-        (39, "أتعاب ترتيب تمويل ", iv("arrangement_fee_pct") or 0.02, PCT2_FMT, fin.get("arrangement_fee", 0)),
-        (40, "رسوم إدارة الصندوق ", iv("management_fee_pct") or 0.015, PCT2_FMT, ff.get("management_fee", 0)),
-        (41, "رسوم أمين الحفظ", iv("custodian_fee_annual") or 50000, SAR_FMT, ff.get("custodian_fee", 0)),
-        (42, "مجلس الإدارة ", iv("board_fee_annual") or 100000, SAR_FMT, ff.get("board_fee", 0)),
-        (43, "إصدار الشهادة الشرعية للصندوق", iv("sharia_certificate_fee") or 5000, SAR_FMT, ff.get("sharia_fees", 0)),
-        (44, "أتعاب الهيئة الشرعية ", iv("sharia_board_fee_annual") or 5000, SAR_FMT, ff.get("sharia_fees", 0)),
-        (45, "مستشار قانوني", iv("legal_counsel_fee") or 50000, SAR_FMT, ff.get("legal_counsel", 0)),
-        (46, "مراجع الحسابات ", iv("auditor_fee_annual") or 50000, SAR_FMT, ff.get("auditor_fee", 0)),
-        (47, "التقييم ", iv("valuation_fee_quarterly") or 20000, SAR_FMT, ff.get("valuation_fee", 0)),
-        (48, "احتياطي مصروفات أخرى", iv("other_reserve_pct") or 0.0005, PCT2_FMT, ff.get("other_reserve", 0)),
-        (49, "رسوم إنشاء الشركة ذات الغرض الخاص", iv("spv_formation_fee") or 25000, SAR_FMT, ff.get("spv_fee", 0)),
-        (50, "رسوم هيكلة ", iv("structuring_fee_pct") or 0.01, PCT_FMT, ff.get("structuring_fee", 0)),
-        (51, "أتعاب المشغل", iv("operator_fee_pct") or 0.0015, PCT2_FMT, ff.get("operator_fee", 0)),
-    ]
-    for row, label, rate, rate_fmt, total in fund_fee_rows:
-        _c(ws, row, 4, label, F_NORMAL)
-        _c(ws, row, 5, rate, F_NORMAL, fmt=rate_fmt, align=CENTER)
-        _c(ws, row, 6, total, F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    # Arrangement fee = bank_loan * rate (one-time)
+    _c(ws, 39, 4, L.get("arrangement_fee", "Arrangement Fee"), F_NORMAL)
+    _c(ws, 39, 5, iv("arrangement_fee_pct") or 0.02, F_NORMAL, fmt=PCT2_FMT, align=CENTER)
+    _c(ws, 39, 6, f"=H23*{ltv}*E39", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    # ROW 52: TOTAL fund fees
-    _c(ws, 52, 4, "Total Financing & Fund Cost", F_TOTAL, FILL_TOTAL)
+    # Category 2: Fixed annual amounts x period (Al-Hada approach, no circularity)
+    # Management fee: annual amount x years
+    mgmt_annual = (iv("management_fee_pct") or 0.015) * (fs.get("total_fund_size", 0) or 1) / max(n, 1)
+    _c(ws, 40, 4, L.get("mgmt_fee", "Management Fee"), F_NORMAL)
+    _c(ws, 40, 5, round(mgmt_annual), F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 40, 6, "=E40*E5", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    _c(ws, 41, 4, L.get("custodian", "Custodian"), F_NORMAL)
+    _c(ws, 41, 5, iv("custodian_fee_annual") or 50000, F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 41, 6, "=E41*E5", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    _c(ws, 42, 4, L.get("board", "Board"), F_NORMAL)
+    _c(ws, 42, 5, iv("board_fee_annual") or 100000, F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 42, 6, "=E42*E5", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    _c(ws, 43, 4, L.get("sharia_cert", "Sharia Certificate"), F_NORMAL)
+    _c(ws, 43, 5, iv("sharia_certificate_fee") or 5000, F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 43, 6, "=E43", F_NORMAL, fmt=SAR_FMT, align=CENTER)  # one-time
+
+    _c(ws, 44, 4, L.get("sharia_board", "Sharia Board"), F_NORMAL)
+    _c(ws, 44, 5, iv("sharia_board_fee_annual") or 5000, F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 44, 6, "=E44*E5", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    _c(ws, 45, 4, L.get("legal", "Legal"), F_NORMAL)
+    _c(ws, 45, 5, iv("legal_counsel_fee") or 50000, F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 45, 6, "=E45", F_NORMAL, fmt=SAR_FMT, align=CENTER)  # one-time
+
+    _c(ws, 46, 4, L.get("auditor", "Auditor"), F_NORMAL)
+    _c(ws, 46, 5, iv("auditor_fee_annual") or 50000, F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 46, 6, "=E46*E5", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    _c(ws, 47, 4, L.get("valuation", "Valuation"), F_NORMAL)
+    _c(ws, 47, 5, iv("valuation_fee_quarterly") or 20000, F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 47, 6, "=E47*E5", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    _c(ws, 48, 4, L.get("reserve", "Other Reserve"), F_NORMAL)
+    _c(ws, 48, 5, iv("other_reserve_pct") or 0.0005, F_NORMAL, fmt=PCT2_FMT, align=CENTER)
+    _c(ws, 48, 6, "=E48*H23*E5", F_NORMAL, fmt=SAR_FMT, align=CENTER)  # % of construction
+
+    _c(ws, 49, 4, L.get("spv", "SPV Fee"), F_NORMAL)
+    _c(ws, 49, 5, iv("spv_formation_fee") or 25000, F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 49, 6, "=E49", F_NORMAL, fmt=SAR_FMT, align=CENTER)  # one-time
+
+    _c(ws, 50, 4, L.get("structuring", "Structuring"), F_NORMAL)
+    _c(ws, 50, 5, iv("structuring_fee_pct") or 0.01, F_NORMAL, fmt=PCT_FMT, align=CENTER)
+    _c(ws, 50, 6, "=H23*E50", F_NORMAL, fmt=SAR_FMT, align=CENTER)  # % of construction
+
+    _c(ws, 51, 4, L.get("operator", "Operator"), F_NORMAL)
+    _c(ws, 51, 5, iv("operator_fee_pct") or 0.0015, F_NORMAL, fmt=PCT2_FMT, align=CENTER)
+    _c(ws, 51, 6, "=E51*H23*E5", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    _c(ws, 52, 4, L.get("total_financing", "Total Financing"), F_TOTAL, FILL_TOTAL)
     _c(ws, 52, 6, "=SUM(F38:F51)", F_TOTAL, FILL_TOTAL, fmt=SAR_FMT, align=CENTER)
 
-    # === KPIs section (right side, below cash flows) ===
-    _c(ws, 43, 12, "Project KPIs", F_HEADER, border=BORDER_TOP_MED)
-
-    # IRR = actual Excel IRR formula
-    _c(ws, 44, 12, "IRR", F_KPI)
-    _c(ws, 44, 14, "=IRR(M41:P41)", F_KPI, fmt=PCT2_FMT, align=CENTER)
-
-    _c(ws, 45, 12, "Equity Net Profit", F_BOLD)
-    _c(ws, 45, 14, "=SUM(M41:P41)", F_BOLD, fmt=SAR_FMT, align=CENTER)
-
-    _c(ws, 46, 12, "ROE", F_KPI)
-    _c(ws, 46, 14, "=-N45/M41", F_KPI, fmt=PCTD_FMT, align=CENTER)
-
-    _c(ws, 47, 12, "ROE Annualized ", F_BOLD)
-    _c(ws, 47, 14, f"=N46/{int(n_years)}", F_BOLD, fmt=PCT2_FMT, align=CENTER)
-
-    # === ROW 54: TOTAL FUND SIZE ===
-    _c(ws, 54, 4, "Total Fund Size", F_TOTAL, FILL_TOTAL)
+    # --- Row 54: Total Fund Size ---
+    _c(ws, 54, 4, L.get("total_fund_size", "Total Fund Size"), F_TOTAL, FILL_TOTAL)
     _c(ws, 54, 6, "=F16+H29+F52", F_TOTAL, FILL_TOTAL, fmt=SAR_FMT, align=CENTER)
 
-    # === ROW 56-60: Capital structure ===
-    _c(ws, 56, 4, "Capital Structure", F_HEADER)
-    _c(ws, 57, 4, "Equity", F_BOLD)
+    # --- Rows 56-60: Capital structure ---
+    _c(ws, 56, 4, L.get("capital_structure", "Capital Structure"), F_HEADER)
+    _c(ws, 57, 4, L.get("equity", "Equity"), F_BOLD)
     _c(ws, 57, 5, "=F57/$F$60", F_NORMAL, fmt=PCT_FMT, align=CENTER)
     _c(ws, 57, 6, "=F54-SUM(F58:F59)", F_BOLD, fmt=SAR_FMT, align=CENTER)
 
-    _c(ws, 58, 4, "In-Kind (Land Owner)", F_NORMAL)
+    _c(ws, 58, 4, L.get("inkind_owner", "In-Kind"), F_NORMAL)
     _c(ws, 58, 5, "=F58/$F$60", F_NORMAL, fmt=PCT_FMT, align=CENTER)
     _c(ws, 58, 6, "=I12", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    ltv = iv("bank_ltv_pct") or 0.667
-    _c(ws, 59, 4, "Bank Financing", F_NORMAL)
+    _c(ws, 59, 4, L.get("bank_financing", "Bank Financing"), F_NORMAL)
     _c(ws, 59, 5, "=F59/$F$60", F_NORMAL, fmt=PCT_FMT, align=CENTER)
     _c(ws, 59, 6, f"={ltv}*F12", F_NORMAL, fmt=SAR_FMT, align=CENTER)
     _c(ws, 59, 7, ltv, F_NORMAL, fmt=PCT_FMT, align=CENTER)
 
-    _c(ws, 60, 4, "Total Capital", F_TOTAL, FILL_TOTAL)
+    _c(ws, 60, 4, L.get("total_capital", "Total Capital"), F_TOTAL, FILL_TOTAL)
     _c(ws, 60, 5, "=SUM(E57:E59)", F_TOTAL, FILL_TOTAL, fmt=PCT_FMT, align=CENTER)
     _c(ws, 60, 6, "=SUM(F57:F59)", F_TOTAL, FILL_TOTAL, fmt=SAR_FMT, align=CENTER)
 
-    # Apply data fill to input cells
+    # =====================================================================
+    # RIGHT SIDE (cols L-P): Cash flows, Fund structure, KPIs
+    # =====================================================================
+
+    _c(ws, 3, 12, L["currency"], F_BOLD)
+    _c(ws, 4, 12, L["year_label"], F_BOLD)
+    for i in range(len(years)):
+        _c(ws, 4, 14 + i, 2025 + i, F_BOLD, align=CENTER)
+    _c(ws, 5, 12, " ", F_BOLD)
+    for i, yr in enumerate(years):
+        _c(ws, 5, 14 + i, f"Y{yr}", F_BOLD, align=CENTER)
+
+    # Cash inflows
+    _c(ws, 6, 12, L["cf_inflows"], F_BOLD)
+    _c(ws, 7, 12, L.get("cf_sales", "Sales"), F_NORMAL)
+    for i in range(len(years)):
+        _c(ws, 7, 14 + i, cf_val("inflows_sales", i), F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 8, 12, L.get("total_label", "Total"), F_BOLD)
+    for i in range(len(years)):
+        col_l = get_column_letter(14 + i)
+        _c(ws, 8, 14 + i, f"=SUM({col_l}7)", F_BOLD, fmt=SAR_FMT, align=CENTER)
+
+    # Cash outflows
+    _c(ws, 9, 12, L.get("cf_outflows", "Cash Outflows"), F_BOLD)
+
+    # Outflow rows with data from computation engine
+    cf_rows = [
+        (11, L.get("cf_land", "Land"), "outflows_land"),
+        (12, L.get("cf_direct", "Direct Costs"), "outflows_direct"),
+        (13, L.get("cf_indirect", "Indirect Costs"), "outflows_indirect"),
+        (14, L.get("cf_interest", "Interest"), "outflows_interest"),
+        (15, L.get("arrangement_fee", "Arrangement Fee"), None),
+        (16, L.get("cf_fees", "Fund Fees"), "outflows_fees"),
+    ]
+    for row, label, key in cf_rows:
+        _c(ws, row, 12, label, F_NORMAL)
+        for i in range(len(years)):
+            if key:
+                val = cf_val(key, i)
+            elif row == 15:
+                val = fin.get("arrangement_fee", 0) if i == 0 else 0
+            else:
+                val = 0
+            _c(ws, row, 14 + i, val, F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    # Total outflows
+    _c(ws, 28, 12, L.get("cf_total", "Total Outflows"), F_TOTAL, FILL_TOTAL)
+    for i in range(len(years)):
+        col_l = get_column_letter(14 + i)
+        _c(ws, 28, 14 + i, f"=SUM({col_l}11:{col_l}16)", F_TOTAL, FILL_TOTAL, fmt=SAR_FMT, align=CENTER)
+
+    # Net cash flow
+    _c(ws, 30, 12, L.get("cf_net", "Net Cash Flow"), F_BOLD, border=BORDER_TOP_MED)
+    for i in range(len(years)):
+        col_l = get_column_letter(14 + i)
+        _c(ws, 30, 14 + i, f"={col_l}8-{col_l}28", F_BOLD, fmt=SAR_FMT, align=CENTER, border=BORDER_TOP_MED)
+
+    # Cumulative
+    _c(ws, 31, 12, L.get("cf_cumulative", "Cumulative"), F_NORMAL)
+    _c(ws, 31, 14, "=N30", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    for i in range(1, len(years)):
+        col_l = get_column_letter(14 + i)
+        prev_l = get_column_letter(13 + i)
+        _c(ws, 31, 14 + i, f"={col_l}30+{prev_l}31", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    # Fund capital structure
+    _c(ws, 33, 12, L.get("cf_fund_capital", "Fund Capital"), F_BOLD)
+    _c(ws, 34, 12, L.get("equity", "Equity"), F_NORMAL)
+    _c(ws, 34, 14, "=F57", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 35, 12, L.get("inkind_owner", "In-Kind"), F_NORMAL)
+    _c(ws, 35, 14, "=I12", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    bank_loan = fin.get("bank_loan_amount", 0) if isinstance(fin.get("bank_loan_amount"), (int, float)) else 0
+    _c(ws, 36, 12, "Debt Withdrawal", F_NORMAL)
+    _c(ws, 36, 14, bank_loan, F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 37, 12, "Debt Outstanding", F_NORMAL)
+    _c(ws, 37, 14, "=N36", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    if len(years) > 1:
+        _c(ws, 37, 15, "=O36+N37", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 38, 12, "Debt Repayment", F_NORMAL)
+    if len(years) >= 3:
+        last_col = get_column_letter(13 + len(years))
+        prev_col = get_column_letter(12 + len(years))
+        _c(ws, 38, 13 + len(years), f"={prev_col}37", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    # Net cashflows
+    _c(ws, 40, 12, L.get("cf_net_cash", "Net Cashflows"), F_BOLD, border=BORDER_TOP_MED)
+    for i in range(len(years)):
+        _c(ws, 40, 14 + i, cf_val("net_cash_flow", i), F_BOLD, fmt=SAR_FMT, align=CENTER, border=BORDER_TOP_MED)
+
+    # Net equity cashflow for IRR
+    equity_cf = cf.get("equity_cf_for_irr", [])
+    _c(ws, 41, 12, L.get("cf_net_equity", "Net Equity CF"), F_BOLD)
+    _c(ws, 41, 13, equity_cf[0] if equity_cf else 0, F_BOLD, fmt=SAR_FMT, align=CENTER)
+    for i in range(len(years)):
+        val = equity_cf[i + 1] if i + 1 < len(equity_cf) else 0
+        _c(ws, 41, 14 + i, val, F_BOLD, fmt=SAR_FMT, align=CENTER)
+
+    # KPIs with LIVE Excel formulas
+    last_yr_col = get_column_letter(13 + len(years))
+    _c(ws, 43, 12, L.get("kpi_title", "Project KPIs"), F_HEADER, border=BORDER_TOP_MED)
+    _c(ws, 44, 12, "IRR", F_KPI)
+    _c(ws, 44, 14, f"=IRR(M41:{last_yr_col}41)", F_KPI, fmt=PCT2_FMT, align=CENTER)
+    _c(ws, 45, 12, L.get("net_profit", "Net Profit"), F_BOLD)
+    _c(ws, 45, 14, f"=SUM(M41:{last_yr_col}41)", F_BOLD, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 46, 12, L.get("roe", "ROE"), F_KPI)
+    _c(ws, 46, 14, "=-N45/M41", F_KPI, fmt=PCTD_FMT, align=CENTER)
+    _c(ws, 47, 12, L.get("roe_annual", "ROE Annualized"), F_BOLD)
+    _c(ws, 47, 14, f"=N46/{n}", F_BOLD, fmt=PCT2_FMT, align=CENTER)
+
+    # Data fill for input cells
     for row in range(11, 55):
         for col in [5, 6, 7, 8]:
             cell = ws.cell(row=row, column=col)
@@ -453,7 +453,8 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict, L: dict, rtl: b
 # ---------------------------------------------------------------------------
 
 def _build_zoning_sheet(wb: Workbook, land: dict, pf: dict, L: dict, rtl: bool) -> None:
-    ws = wb.create_sheet(L.get("zoning_title", "Zoning")[:31])
+    sheet_name = "\u062a\u0642\u0631\u064a\u0631 \u0627\u0644\u0623\u0646\u0638\u0645\u0629" if rtl else "Zoning Report"
+    ws = wb.create_sheet(sheet_name)
     ws.sheet_view.rightToLeft = rtl
     ws.column_dimensions["B"].width = 28
     ws.column_dimensions["D"].width = 35
@@ -710,81 +711,123 @@ def _build_sensitivity_sheet(wb: Workbook, pf: dict, L: dict, rtl: bool) -> None
 # Sheet 5: Scenario Comparison
 # ---------------------------------------------------------------------------
 
-def _build_scenario_sheet(wb: Workbook, pf: dict, land: dict, L: dict, rtl: bool) -> None:
-    ws = wb.create_sheet("Scenarios" if not rtl else "مقارنة السيناريوهات")
+def _build_scenario_sheet(
+    wb: Workbook, scenario_results: list[dict], L: dict, rtl: bool,
+) -> None:
+    """Scenario comparison with fully computed numbers for all 3 scenarios."""
+    ws = wb.create_sheet("\u0645\u0642\u0627\u0631\u0646\u0629" if rtl else "Scenarios")
     ws.sheet_view.rightToLeft = rtl
-    ws.column_dimensions["B"].width = 25
+    ws.column_dimensions["B"].width = 28
     for c in ["C", "D", "E"]:
         ws.column_dimensions[c].width = 22
 
-    _c(ws, 1, 2, "مقارنة السيناريوهات", Font(name=FONT_AR, size=16, bold=True, color="FFFFFF"), FILL_HEADER, align=CENTER)
+    title = "\u0645\u0642\u0627\u0631\u0646\u0629 \u0627\u0644\u0633\u064a\u0646\u0627\u0631\u064a\u0648\u0647\u0627\u062a" if rtl else "Scenario Comparison"
+    _c(ws, 1, 2, title, Font(name=FONT_AR, size=16, bold=True, color="FFFFFF"), FILL_HEADER, align=CENTER)
     ws.merge_cells("B1:E1")
 
-    sale_base = pf.get("inputs_used", {}).get("sale_price_per_sqm", {}).get("value", 8000) or 8000
-    scenarios = [
-        ("متحفظ", 0.8),
-        ("أساسي", 1.0),
-        ("جريء", 1.3),
+    names = [
+        "\u0645\u062a\u062d\u0641\u0638" if rtl else "Conservative",
+        "\u0623\u0633\u0627\u0633\u064a" if rtl else "Base",
+        "\u062c\u0631\u064a\u0621" if rtl else "Aggressive",
     ]
 
-    _c(ws, 3, 2, "السيناريو", F_BOLD, FILL_SECTION, align=CENTER, border=BORDER_THIN)
-    for i, (name, _) in enumerate(scenarios):
+    _c(ws, 3, 2, "\u0627\u0644\u0633\u064a\u0646\u0627\u0631\u064a\u0648" if rtl else "Scenario", F_BOLD, FILL_SECTION, align=CENTER, border=BORDER_THIN)
+    for i, name in enumerate(names):
         _c(ws, 3, 3 + i, name, F_BOLD, FILL_SECTION, align=CENTER, border=BORDER_THIN)
 
-    _c(ws, 4, 2, "سعر البيع / م²", F_NORMAL, align=CENTER, border=BORDER_THIN)
-    for i, (_, mult) in enumerate(scenarios):
-        _c(ws, 4, 3 + i, sale_base * mult, F_NORMAL, fmt=SAR_FMT, align=CENTER, border=BORDER_THIN)
-
-    # KPI rows (using pre-computed values since we can't run the engine in Excel)
-    kpi_rows = [
-        ("حجم الصندوق", "total_fund_size"),
-        ("حقوق الملكية", "equity_amount"),
-        ("معدل العائد الداخلي", "irr"),
-        ("العائد على الملكية", "roe_total"),
-        ("صافي الربح", "equity_net_profit"),
+    # Input assumptions row
+    assumption_rows = [
+        ("\u0633\u0639\u0631 \u0627\u0644\u0628\u064a\u0639 / \u0645\u00b2" if rtl else "Sale Price / m\u00b2", "sale_price_per_sqm", SAR_FMT),
+        ("\u062a\u0643\u0644\u0641\u0629 \u0627\u0644\u0628\u0646\u064a\u0629 \u0627\u0644\u062a\u062d\u062a\u064a\u0629" if rtl else "Infrastructure / m\u00b2", "infrastructure_cost_per_sqm", SAR_FMT),
+        ("\u062a\u0643\u0644\u0641\u0629 \u0627\u0644\u0628\u0646\u064a\u0629 \u0627\u0644\u0639\u0644\u0648\u064a\u0629" if rtl else "Superstructure / m\u00b2", "superstructure_cost_per_sqm", SAR_FMT),
     ]
-
-    # We only have the base scenario pre-computed, so note it
-    fs = pf.get("fund_size", {})
-    kpis_data = pf.get("kpis", {})
-    r = 5
-    for label, key in kpi_rows:
-        _c(ws, r, 2, label, F_BOLD, FILL_DATA, align=CENTER, border=BORDER_THIN)
-        for i in range(3):
-            if i == 1:  # base scenario - use actual values
-                val = fs.get(key) if key in ("total_fund_size", "equity_amount") else kpis_data.get(key)
-                fmt = PCT2_FMT if key in ("irr", "roe_total") else SAR_FMT
-            else:
-                val = "—"
-                fmt = None
+    r = 4
+    for label, key, fmt in assumption_rows:
+        _c(ws, r, 2, label, F_NORMAL, align=CENTER, border=BORDER_THIN)
+        for i, sc in enumerate(scenario_results):
+            val = sc.get("inputs_used", {}).get(key, {}).get("value", 0)
             _c(ws, r, 3 + i, val, F_NORMAL, fmt=fmt, align=CENTER, border=BORDER_THIN)
         r += 1
 
-    r += 1
-    _c(ws, r, 2, "* السيناريوهات المتحفظة والجريئة تتطلب إعادة حساب كامل", F_SMALL)
+    r += 1  # blank row
+
+    # KPI rows — fully computed
+    kpi_rows = [
+        ("\u062d\u062c\u0645 \u0627\u0644\u0635\u0646\u062f\u0648\u0642" if rtl else "Fund Size", "fund_size", "total_fund_size", SAR_FMT),
+        ("\u062d\u0642\u0648\u0642 \u0627\u0644\u0645\u0644\u0643\u064a\u0629" if rtl else "Equity", "fund_size", "equity_amount", SAR_FMT),
+        ("\u0625\u062c\u0645\u0627\u0644\u064a \u0627\u0644\u0625\u064a\u0631\u0627\u062f\u0627\u062a" if rtl else "Revenue", "revenue", "gross_revenue", SAR_FMT),
+        ("\u0635\u0627\u0641\u064a \u0627\u0644\u0631\u0628\u062d" if rtl else "Net Profit", "kpis", "equity_net_profit", SAR_FMT),
+        ("\u0645\u0639\u062f\u0644 \u0627\u0644\u0639\u0627\u0626\u062f \u0627\u0644\u062f\u0627\u062e\u0644\u064a" if rtl else "IRR", "kpis", "irr", PCT2_FMT),
+        ("\u0627\u0644\u0639\u0627\u0626\u062f \u0639\u0644\u0649 \u0627\u0644\u0645\u0644\u0643\u064a\u0629" if rtl else "ROE", "kpis", "roe_total", PCTD_FMT),
+        ("\u062a\u0642\u064a\u064a\u0645 \u0627\u0644\u0635\u0641\u0642\u0629" if rtl else "Deal Score", "kpis", "deal_score", "#,##0"),
+    ]
+    for label, section, key, fmt in kpi_rows:
+        _c(ws, r, 2, label, F_BOLD, FILL_DATA, align=CENTER, border=BORDER_THIN)
+        for i, sc in enumerate(scenario_results):
+            val = sc.get(section, {}).get(key)
+            cell = _c(ws, r, 3 + i, val, F_NORMAL, fmt=fmt, align=CENTER, border=BORDER_THIN)
+            # Color code IRR
+            if key == "irr" and val is not None:
+                if val >= 0.10:
+                    cell.fill = FILL_GREEN
+                elif val >= 0:
+                    cell.fill = FILL_YELLOW
+                else:
+                    cell.fill = FILL_RED
+        r += 1
 
 
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
 
-def generate_excel(result: dict, land_object: dict, lang: str = "ar") -> bytes:
-    """Generate a professional .xlsx with 5 sheets.
+def generate_excel(
+    result: dict,
+    land_object: dict,
+    overrides: dict | None = None,
+    lang: str = "ar",
+) -> bytes:
+    """Generate a professional .xlsx with 5 sheets and live formulas.
 
     Args:
-        result: ProFormaResult from computation_engine.
+        result: ProFormaResult from computation_engine (base scenario).
         land_object: Land Object from data_fetch.
+        overrides: User overrides dict (for computing scenarios).
         lang: 'ar' for Arabic (default), 'en' for English.
     """
+    from computation_engine import compute_proforma
+
     wb = Workbook()
     L = _L(lang)
     rtl = (lang == "ar")
+
+    # Compute 3 scenarios: conservative, base, aggressive
+    base_ov = dict(overrides or {})
+    sale = result.get("inputs_used", {}).get("sale_price_per_sqm", {}).get("value", 6000) or 6000
+    infra = result.get("inputs_used", {}).get("infrastructure_cost_per_sqm", {}).get("value", 500) or 500
+    super_ = result.get("inputs_used", {}).get("superstructure_cost_per_sqm", {}).get("value", 2500) or 2500
+
+    conservative_ov = {**base_ov, "sale_price_per_sqm": sale * 0.8,
+                       "infrastructure_cost_per_sqm": infra * 1.1, "superstructure_cost_per_sqm": super_ * 1.1}
+    aggressive_ov = {**base_ov, "sale_price_per_sqm": sale * 1.3,
+                     "infrastructure_cost_per_sqm": infra * 0.9, "superstructure_cost_per_sqm": super_ * 0.9}
+
+    try:
+        conservative = compute_proforma(land_object, conservative_ov)
+    except Exception:
+        conservative = result  # fallback
+    try:
+        aggressive = compute_proforma(land_object, aggressive_ov)
+    except Exception:
+        aggressive = result
+
+    scenario_results = [conservative, result, aggressive]
 
     _build_assumptions_sheet(wb, result, land_object, L, rtl)
     _build_zoning_sheet(wb, land_object, result, L, rtl)
     _build_market_sheet(wb, land_object, result, L, rtl)
     _build_sensitivity_sheet(wb, result, L, rtl)
-    _build_scenario_sheet(wb, result, land_object, L, rtl)
+    _build_scenario_sheet(wb, scenario_results, L, rtl)
 
     buf = io.BytesIO()
     wb.save(buf)

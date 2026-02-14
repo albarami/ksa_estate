@@ -333,11 +333,11 @@ async def download_excel_post(req: ExcelRequest) -> Response:
         raise HTTPException(500, "Server not ready")
     try:
         land = await fetch_land_object(_http_client, req.parcel_id)
-        if not land.get("parcel_number"):
+        if not land.get("parcel_id"):
             raise HTTPException(404, f"Parcel {req.parcel_id} not found")
 
         result = compute_proforma(land, req.overrides)
-        xlsx_bytes = generate_excel(result, land, lang=req.lang)
+        xlsx_bytes = generate_excel(result, land, req.overrides, lang=req.lang)
 
         return Response(
             content=xlsx_bytes,
@@ -363,13 +363,13 @@ async def download_excel(
         raise HTTPException(500, "Server not ready")
     try:
         land = await fetch_land_object(_http_client, parcel_id)
-        if not land.get("parcel_number"):
+        if not land.get("parcel_id"):
             raise HTTPException(404, f"Parcel {parcel_id} not found")
 
         overrides: dict[str, Any] = {}
 
         result = compute_proforma(land, overrides)
-        xlsx_bytes = generate_excel(result, land, lang=lang)
+        xlsx_bytes = generate_excel(result, land, overrides, lang=lang)
 
         return Response(
             content=xlsx_bytes,
