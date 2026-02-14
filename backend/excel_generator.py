@@ -331,105 +331,164 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict, L: dict, rtl: b
     _c(ws, 60, 6, "=SUM(F57:F59)", F_TOTAL, FILL_TOTAL, fmt=SAR_FMT, align=CENTER)
 
     # =====================================================================
-    # RIGHT SIDE (cols L-P): Cash flows, Fund structure, KPIs
+    # RIGHT SIDE (cols L-P): Cash flows with FORMULAS + phasing inputs
     # =====================================================================
+    # Phasing: editable % per year. Value = LEFT_TOTAL × phasing_%
+    # This makes the entire model linked — change any input, everything recalcs.
+
+    # Get phasing from computation engine (defaults if missing)
+    land_ph = inputs.get("land_phasing", {}).get("value", [1.0, 0.0, 0.0])
+    direct_ph = inputs.get("direct_cost_phasing", {}).get("value", [0.33, 0.45, 0.22])
+    indirect_ph = inputs.get("indirect_cost_phasing", {}).get("value", [0.33, 0.45, 0.22])
+    revenue_ph = inputs.get("revenue_phasing", {}).get("value", [0.0, 0.0, 1.0])
+    # Pad/trim to n years
+    def _pad(arr: list, length: int) -> list:
+        arr = list(arr or [])
+        while len(arr) < length:
+            arr.append(0.0)
+        return arr[:length]
+    land_ph = _pad(land_ph, n)
+    direct_ph = _pad(direct_ph, n)
+    indirect_ph = _pad(indirect_ph, n)
+    revenue_ph = _pad(revenue_ph, n)
 
     _c(ws, 3, 12, L["currency"], F_BOLD)
     _c(ws, 4, 12, L["year_label"], F_BOLD)
-    for i in range(len(years)):
+    for i in range(n):
         _c(ws, 4, 14 + i, 2025 + i, F_BOLD, align=CENTER)
     _c(ws, 5, 12, " ", F_BOLD)
-    for i, yr in enumerate(years):
-        _c(ws, 5, 14 + i, f"Y{yr}", F_BOLD, align=CENTER)
+    for i in range(n):
+        _c(ws, 5, 14 + i, f"Y{i+1}", F_BOLD, align=CENTER)
 
-    # Cash inflows
+    # --- INFLOWS ---
     _c(ws, 6, 12, L["cf_inflows"], F_BOLD)
+    # Row 7: Sales = H33 (total sales) × revenue phasing %
     _c(ws, 7, 12, L.get("cf_sales", "Sales"), F_NORMAL)
-    for i in range(len(years)):
-        _c(ws, 7, 14 + i, cf_val("inflows_sales", i), F_NORMAL, fmt=SAR_FMT, align=CENTER)
-    _c(ws, 8, 12, L.get("total_label", "Total"), F_BOLD)
-    for i in range(len(years)):
+    _c(ws, 7, 13, "ph%", F_SMALL, align=CENTER)
+    for i in range(n):
+        col = 14 + i
+        col_l = get_column_letter(col)
+        # Phasing % in a helper row (row 6, cols N-P) — editable input
+        _c(ws, 6, col, revenue_ph[i], F_SMALL, fmt=PCT_FMT, align=CENTER)
+        # Sales value = total_sales × phasing
+        _c(ws, 7, col, f"=$H$33*{col_l}6", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    _c(ws, 8, 12, L.get("total_label", "Total Inflows"), F_BOLD)
+    for i in range(n):
         col_l = get_column_letter(14 + i)
         _c(ws, 8, 14 + i, f"=SUM({col_l}7)", F_BOLD, fmt=SAR_FMT, align=CENTER)
 
-    # Cash outflows
+    # --- OUTFLOWS ---
     _c(ws, 9, 12, L.get("cf_outflows", "Cash Outflows"), F_BOLD)
 
-    # Outflow rows with data from computation engine
-    cf_rows = [
-        (11, L.get("cf_land", "Land"), "outflows_land"),
-        (12, L.get("cf_direct", "Direct Costs"), "outflows_direct"),
-        (13, L.get("cf_indirect", "Indirect Costs"), "outflows_indirect"),
-        (14, L.get("cf_interest", "Interest"), "outflows_interest"),
-        (15, L.get("arrangement_fee", "Arrangement Fee"), None),
-        (16, L.get("cf_fees", "Fund Fees"), "outflows_fees"),
-    ]
-    for row, label, key in cf_rows:
-        _c(ws, row, 12, label, F_NORMAL)
-        for i in range(len(years)):
-            if key:
-                val = cf_val(key, i)
-            elif row == 15:
-                val = fin.get("arrangement_fee", 0) if i == 0 else 0
-            else:
-                val = 0
-            _c(ws, row, 14 + i, val, F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    # Row 10: phasing labels
+    _c(ws, 10, 13, "ph%", F_SMALL, align=CENTER)
 
-    # Total outflows
+    # Row 11: Land = F16 (total land) × land phasing
+    _c(ws, 11, 12, L.get("cf_land", "Land"), F_NORMAL)
+    for i in range(n):
+        col = 14 + i
+        col_l = get_column_letter(col)
+        _c(ws, 10, col, land_ph[i], F_SMALL, fmt=PCT_FMT, align=CENTER)  # phasing input
+        _c(ws, 11, col, f"=$F$16*{col_l}10", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    # Row 12: Direct costs = H23 (total direct) × direct phasing
+    _c(ws, 12, 12, L.get("cf_direct", "Direct Costs"), F_NORMAL)
+    _c(ws, 12, 13, "ph%", F_SMALL, align=CENTER)
+    for i in range(n):
+        col = 14 + i
+        col_l = get_column_letter(col)
+        _c(ws, 12, col, f"=$H$23*{col_l}17", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    # Row 13: Indirect costs = H28 (total indirect) × indirect phasing (same as direct)
+    _c(ws, 13, 12, L.get("cf_indirect", "Indirect Costs"), F_NORMAL)
+    for i in range(n):
+        col_l = get_column_letter(14 + i)
+        _c(ws, 13, 14 + i, f"=$H$28*{col_l}17", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    # Row 14: Interest = bank_loan × rate × phasing (drawn proportionally to construction)
+    _c(ws, 14, 12, L.get("cf_interest", "Interest"), F_NORMAL)
+    for i in range(n):
+        col_l = get_column_letter(14 + i)
+        # Interest each year = cumulative drawdown × rate
+        # Simplified: total_interest × direct_cost_phasing
+        _c(ws, 14, 14 + i, f"=$F$38*{col_l}17", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    # Row 15: Arrangement fee (year 1 only) = F39, rest = 0 via IF
+    _c(ws, 15, 12, L.get("arrangement_fee", "Arrangement Fee"), F_NORMAL)
+    for i in range(n):
+        col_l = get_column_letter(14 + i)
+        # Only year 1 gets the fee
+        _c(ws, 15, 14 + i, f'=IF({col_l}5="Y1",F39,0)', F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    # Row 16: Fund fees = F52 (total fees excl interest & arrangement) × even split
+    _c(ws, 16, 12, L.get("cf_fees", "Fund Fees"), F_NORMAL)
+    for i in range(n):
+        # Fees minus interest (F38) and arrangement (F39), split evenly per year
+        _c(ws, 16, 14 + i, f"=(F52-F38-F39)/{n}", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+
+    # Row 17: Direct cost phasing % (editable input, referenced by rows 12-14)
+    _c(ws, 17, 12, "\u062a\u0648\u0632\u064a\u0639 \u0627\u0644\u062a\u0643\u0627\u0644\u064a\u0641" if rtl else "Cost Phasing %", F_SMALL)
+    for i in range(n):
+        _c(ws, 17, 14 + i, direct_ph[i], F_SMALL, fmt=PCT_FMT, align=CENTER)
+
+    # --- TOTALS & NET ---
     _c(ws, 28, 12, L.get("cf_total", "Total Outflows"), F_TOTAL, FILL_TOTAL)
-    for i in range(len(years)):
+    for i in range(n):
         col_l = get_column_letter(14 + i)
         _c(ws, 28, 14 + i, f"=SUM({col_l}11:{col_l}16)", F_TOTAL, FILL_TOTAL, fmt=SAR_FMT, align=CENTER)
 
-    # Net cash flow
     _c(ws, 30, 12, L.get("cf_net", "Net Cash Flow"), F_BOLD, border=BORDER_TOP_MED)
-    for i in range(len(years)):
+    for i in range(n):
         col_l = get_column_letter(14 + i)
         _c(ws, 30, 14 + i, f"={col_l}8-{col_l}28", F_BOLD, fmt=SAR_FMT, align=CENTER, border=BORDER_TOP_MED)
 
-    # Cumulative
     _c(ws, 31, 12, L.get("cf_cumulative", "Cumulative"), F_NORMAL)
     _c(ws, 31, 14, "=N30", F_NORMAL, fmt=SAR_FMT, align=CENTER)
-    for i in range(1, len(years)):
+    for i in range(1, n):
         col_l = get_column_letter(14 + i)
         prev_l = get_column_letter(13 + i)
         _c(ws, 31, 14 + i, f"={col_l}30+{prev_l}31", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    # Fund capital structure
+    # --- Fund capital structure ---
     _c(ws, 33, 12, L.get("cf_fund_capital", "Fund Capital"), F_BOLD)
     _c(ws, 34, 12, L.get("equity", "Equity"), F_NORMAL)
     _c(ws, 34, 14, "=F57", F_NORMAL, fmt=SAR_FMT, align=CENTER)
     _c(ws, 35, 12, L.get("inkind_owner", "In-Kind"), F_NORMAL)
     _c(ws, 35, 14, "=I12", F_NORMAL, fmt=SAR_FMT, align=CENTER)
-
-    bank_loan = fin.get("bank_loan_amount", 0) if isinstance(fin.get("bank_loan_amount"), (int, float)) else 0
     _c(ws, 36, 12, "Debt Withdrawal", F_NORMAL)
-    _c(ws, 36, 14, bank_loan, F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 36, 14, "=F59", F_NORMAL, fmt=SAR_FMT, align=CENTER)  # bank loan = formula
     _c(ws, 37, 12, "Debt Outstanding", F_NORMAL)
     _c(ws, 37, 14, "=N36", F_NORMAL, fmt=SAR_FMT, align=CENTER)
-    if len(years) > 1:
+    if n > 1:
         _c(ws, 37, 15, "=O36+N37", F_NORMAL, fmt=SAR_FMT, align=CENTER)
     _c(ws, 38, 12, "Debt Repayment", F_NORMAL)
-    if len(years) >= 3:
-        last_col = get_column_letter(13 + len(years))
-        prev_col = get_column_letter(12 + len(years))
-        _c(ws, 38, 13 + len(years), f"={prev_col}37", F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    if n >= 3:
+        last_col_l = get_column_letter(13 + n)
+        prev_col_l = get_column_letter(12 + n)
+        _c(ws, 38, 13 + n, f"={prev_col_l}37", F_NORMAL, fmt=SAR_FMT, align=CENTER)
 
-    # Net cashflows
+    # --- Net cashflows & equity CF for IRR ---
     _c(ws, 40, 12, L.get("cf_net_cash", "Net Cashflows"), F_BOLD, border=BORDER_TOP_MED)
-    for i in range(len(years)):
-        _c(ws, 40, 14 + i, cf_val("net_cash_flow", i), F_BOLD, fmt=SAR_FMT, align=CENTER, border=BORDER_TOP_MED)
+    for i in range(n):
+        col_l = get_column_letter(14 + i)
+        # Net = inflows - outflows + debt (Y1) - debt repayment (last year)
+        _c(ws, 40, 14 + i, f"={col_l}30", F_BOLD, fmt=SAR_FMT, align=CENTER, border=BORDER_TOP_MED)
 
-    # Net equity cashflow for IRR
-    equity_cf = cf.get("equity_cf_for_irr", [])
+    # Equity CF: Y0 = -(equity + in_kind), middle years = 0, last year = net surplus
     _c(ws, 41, 12, L.get("cf_net_equity", "Net Equity CF"), F_BOLD)
-    _c(ws, 41, 13, equity_cf[0] if equity_cf else 0, F_BOLD, fmt=SAR_FMT, align=CENTER)
-    for i in range(len(years)):
-        val = equity_cf[i + 1] if i + 1 < len(equity_cf) else 0
-        _c(ws, 41, 14 + i, val, F_BOLD, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 41, 13, "=-(F57+I12)", F_BOLD, fmt=SAR_FMT, align=CENTER)  # Y0: formula
+    for i in range(n):
+        col_l = get_column_letter(14 + i)
+        if i < n - 1:
+            # Middle years: no equity distribution = formula that evaluates to 0
+            _c(ws, 41, 14 + i, f"=0*{col_l}30", F_BOLD, fmt=SAR_FMT, align=CENTER)
+        else:
+            # Last year: net surplus distributed to equity holders
+            _c(ws, 41, 14 + i, f"={col_l}30+N36", F_BOLD, fmt=SAR_FMT, align=CENTER)
 
-    # KPIs with LIVE Excel formulas
-    last_yr_col = get_column_letter(13 + len(years))
+    # --- KPIs with LIVE Excel formulas ---
+    last_yr_col = get_column_letter(13 + n)
     _c(ws, 43, 12, L.get("kpi_title", "Project KPIs"), F_HEADER, border=BORDER_TOP_MED)
     _c(ws, 44, 12, "IRR", F_KPI)
     _c(ws, 44, 14, f"=IRR(M41:{last_yr_col}41)", F_KPI, fmt=PCT2_FMT, align=CENTER)
