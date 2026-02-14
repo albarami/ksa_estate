@@ -152,18 +152,62 @@ async def fetch_district(
     if not data.get("found"):
         city_avg = data.get("city_avg_price_sqm")
         if city_avg and city_avg > 500:
-            # Use Riyadh-specific avg from actual transactions
             data["avg_price_sqm"] = city_avg
             data["period"] = "riyadh_average"
             data["note"] = f"District '{district_name}' not in trending. Using Riyadh transaction average."
         else:
-            # No reliable price data — don't guess
             data["avg_price_sqm"] = None
             data["period"] = "unavailable"
             data["note"] = f"No SREM price data available for '{district_name}'."
 
+    # Confidence score
+    avg = data.get("avg_price_sqm") or 0
+    deals = data.get("total_deals") or data.get("city_total_deals") or 0
+    period_label = data.get("period", "unavailable")
+    data["confidence"] = _compute_confidence(deals, period_label, avg)
+
     _srem_cache[cache_key] = data
     return data
+
+
+def _compute_confidence(deal_count: int, period: str, avg_price: float) -> dict:
+    """Compute a confidence score (0-100) for a SREM price estimate.
+
+    Components:
+      - Deal count (0-40 pts): more deals = more reliable sample
+      - Period freshness (0-30 pts): daily > weekly > monthly
+      - Price sanity (0-30 pts): reasonable per-m² range for urban land
+    """
+    score = 0
+
+    # Deal count factor (0-40)
+    if deal_count >= 50:
+        score += 40
+    elif deal_count >= 20:
+        score += 30
+    elif deal_count >= 10:
+        score += 20
+    elif deal_count >= 5:
+        score += 10
+    else:
+        score += 5
+
+    # Period freshness (0-30)
+    period_scores = {"daily": 30, "weekly": 20, "monthly": 10, "riyadh_average": 5}
+    score += period_scores.get(period, 0)
+
+    # Price sanity (0-30): is the avg in a reasonable range for urban Riyadh land?
+    if 500 <= avg_price <= 20000:
+        score += 30  # plausible residential/commercial land
+    elif 100 <= avg_price <= 500:
+        score += 15  # could be raw/agricultural
+    else:
+        score += 0  # suspiciously low or high
+
+    label = "\u0639\u0627\u0644\u064a\u0629" if score >= 80 else "\u0645\u062a\u0648\u0633\u0637\u0629" if score >= 50 else "\u0645\u0646\u062e\u0641\u0636\u0629"
+    color = "green" if score >= 80 else "yellow" if score >= 50 else "red"
+
+    return {"score": min(score, 100), "label": label, "color": color}
 
 
 def clear_cache() -> None:

@@ -71,8 +71,9 @@ export interface DistrictMarket {
   period?: string
   found?: boolean
   note?: string
-  city_avg_price_sqm?: number
+  city_avg_price_sqm?: number | null
   index_history?: { date: string; index: number; change: number }[]
+  confidence?: { score: number; label: string; color: string }
 }
 
 export interface ProFormaResult {

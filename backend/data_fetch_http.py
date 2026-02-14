@@ -93,10 +93,25 @@ LAND_USE_LABELS = {
 # PDF parsing (same logic as validate_building_reports.py)
 # ---------------------------------------------------------------------------
 
+def _normalize_arabic(text: str) -> str:
+    """Normalize Arabic Presentation Forms to standard Unicode.
+
+    PDFs often use U+FB50-FDFF and U+FE70-FEFF ligature/presentation forms.
+    This converts them to standard Arabic letters for reliable matching.
+    """
+    import unicodedata
+    # NFKC normalization decomposes most presentation forms
+    normalized = unicodedata.normalize("NFKC", text)
+    return normalized
+
+
 def _parse_pdf_regulations(pdf_bytes: bytes) -> dict[str, Any]:
     doc = fitz.open(stream=pdf_bytes, filetype="pdf")
-    text = "".join(page.get_text("text") for page in doc)
+    raw_text = "".join(page.get_text("text") for page in doc)
     doc.close()
+
+    # Normalize Arabic presentation forms to standard Unicode
+    text = _normalize_arabic(raw_text)
 
     lines = [l.strip() for l in text.split("\n") if l.strip()]
     cleaned = " ".join(lines)
@@ -111,36 +126,74 @@ def _parse_pdf_regulations(pdf_bytes: bytes) -> dict[str, Any]:
         if t:
             regs["building_code"] = t.group(1).strip()
 
-    # Allowed uses
+    # Allowed uses (text is NFKC-normalized — standard Arabic only)
     use_map = {
-        "ﺳﻜﻨﻲ": "residential", "سكني": "residential",
-        "ﺗﺠﺎري": "commercial", "تجاري": "commercial",
-        "ﻣﻜﺎﺗﺐ": "offices", "مكاتب": "offices",
-        "ﻣﺨﺘﻠﻂ": "mixed_use", "مختلط": "mixed_use",
+        "\u0633\u0643\u0646\u064a": "residential",
+        "\u062a\u062c\u0627\u0631\u064a": "commercial",
+        "\u0645\u0643\u0627\u062a\u0628": "offices",
+        "\u0645\u062e\u062a\u0644\u0637": "mixed_use",
     }
     uses: list[str] = []
     in_uses = False
     for line in lines:
-        if "اﻻﺳﺘﺨﺪاﻣﺎت" in line or "الاستخدامات" in line:
+        if "\u0627\u0644\u0627\u0633\u062a\u062e\u062f\u0627\u0645\u0627\u062a" in line:
             in_uses = True
             continue
         if in_uses:
-            if "اﻻرﺗﺪاد" in line or "الارتداد" in line:
+            if "\u0627\u0644\u0627\u0631\u062a\u062f\u0627\u062f" in line:
                 break
             for ar, en in use_map.items():
                 if ar in line and en not in uses:
                     uses.append(en)
     regs["allowed_uses"] = uses
 
-    # Floors
-    if "أول" in cleaned and ("أرﴈ" in cleaned or "أرضي" in cleaned):
-        regs["max_floors"] = 2
-    elif "دورين" in cleaned:
-        regs["max_floors"] = 2
-    elif "ثلاث" in cleaned:
-        regs["max_floors"] = 3
-    elif "أربع" in cleaned:
-        regs["max_floors"] = 4
+    # Floors — parse the heights section (text is NFKC-normalized now)
+    floor_count = None
+    in_heights = False
+    height_lines: list[str] = []
+    for line in lines:
+        if "\u0627\u0644\u0627\u0631\u062a\u0641\u0627\u0639" in line:
+            in_heights = True
+            continue
+        if in_heights:
+            if "\u0645\u0639\u0627\u0645\u0644" in line or "\u0646\u0633\u0628\u0629" in line or "\u0645\u0648\u0627\u0642\u0641" in line:
+                break
+            height_lines.append(line)
+    height_text = " ".join(height_lines).strip()
+
+    # Count floor indicators (standard Arabic after NFKC normalization)
+    floor_words = [
+        "\u0623\u0631\u0636\u064a",  # أرضي (ground)
+        "\u0623\u0648\u0644",        # أول (first)
+        "\u062b\u0627\u0646\u064a",  # ثاني (second)
+        "\u062b\u0627\u0644\u062b",  # ثالث (third)
+        "\u0631\u0627\u0628\u0639",  # رابع (fourth)
+        "\u062e\u0627\u0645\u0633",  # خامس (fifth)
+    ]
+    if height_text:
+        count = sum(1 for w in floor_words if w in height_text)
+        if count > 0:
+            floor_count = count
+
+    # Fallback patterns in full text
+    if not floor_count:
+        if "\u062f\u0648\u0631\u064a\u0646" in cleaned:
+            floor_count = 2
+        elif "\u062b\u0644\u0627\u062b" in cleaned and "\u0623\u062f\u0648\u0627\u0631" in cleaned:
+            floor_count = 3
+        elif "\u0623\u0631\u0628\u0639" in cleaned and "\u0623\u062f\u0648\u0627\u0631" in cleaned:
+            floor_count = 4
+        elif "\u062e\u0645\u0633" in cleaned and "\u0623\u062f\u0648\u0627\u0631" in cleaned:
+            floor_count = 5
+
+    # Fallback: numeric "N أدوار"
+    if not floor_count:
+        nm = re.search(r"(\d+)\s*\u0623\u062f\u0648\u0627\u0631", cleaned)
+        if nm:
+            floor_count = int(nm.group(1))
+
+    if floor_count:
+        regs["max_floors"] = floor_count
 
     # FAR
     far_m = re.search(r"(?:ﻣﻌﺎﻣﻞ|معامل).*?(\d+\.\d+)", cleaned)
@@ -156,18 +209,18 @@ def _parse_pdf_regulations(pdf_bytes: bytes) -> dict[str, Any]:
         if 20 <= v <= 100:
             regs["coverage_ratio"] = v / 100.0
 
-    # Setbacks
+    # Setbacks (NFKC-normalized)
     in_sb = False
     sb_lines: list[str] = []
     for line in lines:
-        if "اﻻرﺗﺪادات" in line or "الارتدادات" in line:
+        if "\u0627\u0644\u0627\u0631\u062a\u062f\u0627\u062f" in line:
             in_sb = True
-            rest = re.sub(r"اﻻرﺗﺪادات|الارتدادات", "", line).strip()
+            rest = re.sub(r"\u0627\u0644\u0627\u0631\u062a\u062f\u0627\u062f\u0627\u062a?", "", line).strip()
             if rest:
                 sb_lines.append(rest)
             continue
         if in_sb:
-            if "اﻻرﺗﻔﺎﻋﺎت" in line or "الارتفاعات" in line:
+            if "\u0627\u0644\u0627\u0631\u062a\u0641\u0627\u0639" in line:
                 break
             sb_lines.append(line)
     if sb_lines:

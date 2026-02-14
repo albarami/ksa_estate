@@ -130,12 +130,26 @@ export default function DistrictCard({
           />
         )}
         {hasMarket && (
-          <Stat
-            label="سعر الأرض (صفقات)"
-            value={`${numFmt.format(avgPrice!)} ر.س/م²`}
-            sub={districtMarket!.period === 'riyadh_average' ? 'متوسط الرياض' : 'متوسط الحي'}
-            color="var(--color-gold)"
-          />
+          <div className="p-3 rounded-lg bg-[var(--color-bg)] text-center">
+            <div className="text-xs text-[var(--color-text-dim)] mb-1">سعر الأرض (صفقات)</div>
+            <div className="text-lg font-bold" style={{ color: 'var(--color-gold)' }}>{numFmt.format(avgPrice!)} ر.س/م²</div>
+            <div className="text-[10px] text-[var(--color-text-dim)] mt-0.5">
+              {districtMarket!.period === 'riyadh_average' ? 'متوسط الرياض' : 'متوسط الحي'}
+            </div>
+            {districtMarket?.confidence && (
+              <span
+                className="inline-block mt-1 px-2 py-0.5 rounded-full text-[9px] font-bold"
+                style={{
+                  background: districtMarket.confidence.color === 'green' ? 'var(--color-positive)'
+                    : districtMarket.confidence.color === 'yellow' ? 'var(--color-warning)'
+                    : 'var(--color-negative)',
+                  color: '#fff',
+                }}
+              >
+                الثقة: {districtMarket.confidence.score}% — {districtMarket.confidence.label}
+              </span>
+            )}
+          </div>
         )}
       </div>
 

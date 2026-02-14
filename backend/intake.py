@@ -176,12 +176,25 @@ def merge_document_and_geoportal(
     extracted: dict,
     geoportal: dict | None,
 ) -> dict[str, Any]:
-    """Merge extracted document data with Geoportal data, flagging conflicts."""
+    """Merge extracted document data with Geoportal data, flagging conflicts.
+
+    CRITICAL: Document area is authoritative for the DEAL.
+    Geoportal identify often hits the parent plan boundary, not the subdivision plot.
+    """
+    doc_area = extracted.get("land_area_sqm")
+    geo_area = geoportal.get("area_sqm") if geoportal else None
+
+    # Document area is authoritative; Geoportal kept for reference
+    authoritative_area = doc_area or geo_area
+    area_source = "document" if doc_area else "geoportal"
+
     merged: dict[str, Any] = {
         "source": "document",
         "district": extracted.get("district"),
         "plan_number": extracted.get("plan_number"),
-        "land_area_sqm": extracted.get("land_area_sqm"),
+        "land_area_sqm": authoritative_area,
+        "area_source": area_source,
+        "document_area_sqm": doc_area,
         "land_status": extracted.get("land_status"),
         "building_code": extracted.get("building_code"),
         "boundaries": extracted.get("boundaries"),
@@ -197,21 +210,20 @@ def merge_document_and_geoportal(
         merged["geoportal_parcel_id"] = geoportal.get("parcel_id")
         merged["geoportal_district"] = geoportal.get("district_name")
         merged["geoportal_plan"] = geoportal.get("plan_number")
-        merged["geoportal_area"] = geoportal.get("area_sqm")
+        merged["geoportal_area"] = geo_area
         merged["geoportal_building_code"] = geoportal.get("building_code_label")
         merged["geoportal_regulations"] = geoportal.get("regulations")
         merged["geoportal_market"] = geoportal.get("market")
 
-        # Check for conflicts
-        doc_area = extracted.get("land_area_sqm")
-        geo_area = geoportal.get("area_sqm")
+        # Area mismatch warning
         if doc_area and geo_area:
             delta = abs(float(doc_area) - float(geo_area)) / float(doc_area)
             if delta > 0.05:
                 conflicts.append(
-                    f"Area mismatch: document says {doc_area:,.0f} m², "
-                    f"Geoportal says {geo_area:,.0f} m². "
-                    f"The pin may have hit a larger parent parcel."
+                    f"\u26a0\ufe0f \u0627\u0644\u062c\u064a\u0648\u0628\u0648\u0631\u062a\u0627\u0644 \u064a\u0638\u0647\u0631 {geo_area:,.0f} \u0645\u00b2 "
+                    f"(\u0627\u0644\u0645\u062e\u0637\u0637 \u0627\u0644\u0623\u0645) \u2014 "
+                    f"\u0627\u0644\u0646\u0638\u0627\u0645 \u064a\u0633\u062a\u062e\u062f\u0645 {doc_area:,.0f} \u0645\u00b2 "
+                    f"(\u0645\u0646 \u0645\u0633\u062a\u0646\u062f \u0627\u0644\u0639\u0631\u0636)"
                 )
 
         doc_plan = str(extracted.get("plan_number", ""))
@@ -222,9 +234,9 @@ def merge_document_and_geoportal(
             )
 
         geo_code = geoportal.get("building_code_label", "")
-        if geo_code and "مراجعة" in geo_code:
+        if geo_code and "\u0645\u0631\u0627\u062c\u0639\u0629" in geo_code:
             conflicts.append(
-                f"Building code: '{geo_code}' — raw land, no zoning assigned. "
+                f"Building code: '{geo_code}' \u2014 raw land, no zoning assigned. "
                 f"You must set FAR/floors manually."
             )
 
