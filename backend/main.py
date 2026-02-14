@@ -245,7 +245,7 @@ async def run_proforma(req: ProformaRequest) -> dict:
         raise HTTPException(500, "Server not ready")
     try:
         land = await fetch_land_object(_http_client, req.parcel_id)
-        if not land.get("parcel_number"):
+        if not land.get("parcel_id"):
             raise HTTPException(404, f"Parcel {req.parcel_id} not found")
         result = compute_proforma(land, req.overrides)
         return {"land_object": land, "proforma": result}
