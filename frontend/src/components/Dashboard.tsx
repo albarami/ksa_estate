@@ -58,7 +58,7 @@ export default function Dashboard({
               far: (overrides.far as number) ?? land.regulations.far,
             }}
             buildingCode={land.building_code_label}
-            areaSqm={land.area_sqm}
+            areaSqm={(overrides.land_area_sqm as number) ?? land.area_sqm}
             labels={labels}
           />
           <DistrictCard

@@ -163,10 +163,12 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict, L: dict, rtl: b
     _c(ws, 10, 9, L.get("inkind", "In-Kind"), F_BOLD, align=CENTER)
 
     # ROW 11: Land area + cash/in-kind split
+    # Use proforma's resolved area (document area overrides geoportal)
+    resolved_area = iv("land_area_sqm") or land.get("area_sqm", 0)
     in_kind_pct = lc.get("in_kind_pct", 0) or 0
     cash_pct = 1.0 - in_kind_pct
     _c(ws, 11, 4, L["land_area"], F_NORMAL)
-    _c(ws, 11, 6, land.get("area_sqm", 0), F_NORMAL, fmt=SAR_FMT, align=CENTER)
+    _c(ws, 11, 6, resolved_area, F_NORMAL, fmt=SAR_FMT, align=CENTER)
     _c(ws, 11, 8, cash_pct, F_NORMAL, fmt=PCT_FMT, align=CENTER)
     _c(ws, 11, 9, in_kind_pct, F_NORMAL, fmt=PCT_FMT, align=CENTER)
 
@@ -450,7 +452,7 @@ def _build_assumptions_sheet(wb: Workbook, pf: dict, land: dict, L: dict, rtl: b
 # Sheet 2: Zoning Report
 # ---------------------------------------------------------------------------
 
-def _build_zoning_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
+def _build_zoning_sheet(wb: Workbook, land: dict, pf: dict, L: dict, rtl: bool) -> None:
     ws = wb.create_sheet(L.get("zoning_title", "Zoning")[:31])
     ws.sheet_view.rightToLeft = rtl
     ws.column_dimensions["B"].width = 28
@@ -462,13 +464,15 @@ def _build_zoning_sheet(wb: Workbook, land: dict, L: dict, rtl: bool) -> None:
     regs = land.get("regulations", {})
     plan_info = land.get("plan_info", {})
     demo = land.get("district_demographics", {})
+    # Resolved area from proforma (document area overrides geoportal)
+    pf_area = pf.get("inputs_used", {}).get("land_area_sqm", {}).get("value")
 
     items = [
         (L["parcel_no"], land.get("parcel_number")),
         (L["plan_no"], land.get("plan_number")),
         (L["district"], land.get("district_name")),
         (L["municipality"], land.get("municipality")),
-        (L["area_label"], land.get("area_sqm")),
+        (L["area_label"], pf_area or land.get("area_sqm")),
         (L["building_code"], land.get("building_code_label")),
         ("", ""),
         (L["max_floors"], regs.get("max_floors")),
@@ -777,7 +781,7 @@ def generate_excel(result: dict, land_object: dict, lang: str = "ar") -> bytes:
     rtl = (lang == "ar")
 
     _build_assumptions_sheet(wb, result, land_object, L, rtl)
-    _build_zoning_sheet(wb, land_object, L, rtl)
+    _build_zoning_sheet(wb, land_object, result, L, rtl)
     _build_market_sheet(wb, land_object, result, L, rtl)
     _build_sensitivity_sheet(wb, result, L, rtl)
     _build_scenario_sheet(wb, result, land_object, L, rtl)
